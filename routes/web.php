@@ -4,6 +4,8 @@ use App\Http\Controllers\RayonController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\DasawismaController;
 use App\Http\Controllers\CatatanDiesnatalisController;
+use App\Http\Controllers\BukuPerpustakaanController;
+
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Route;
@@ -43,7 +45,10 @@ Route::resource('bukus', BukuController::class);
 Route::resource('dasawismas', DasawismaController::class);
 //route catatanDiesnatalis
 Route::resource('catatanDiesnataliss', CatatanDiesnatalisController::class);
+//route bukuPerpustakaan
+Route::resource('bukuPerpustakaans', BukuPerpustakaanController::class);
 
+//route auth
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

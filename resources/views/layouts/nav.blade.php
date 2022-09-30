@@ -31,6 +31,14 @@
               Catatan Diesnatalis
             </p>
           </a>
+        </li>    
+        <li class="nav-item">
+          <a href="/bukuPerpustakaans" class="nav-link">
+            <i class="nav-icon fas fa-columns"></i>
+            <p>
+              Buku Perpustakaan
+            </p>
+          </a>
         </li>       
 
     </ul>
