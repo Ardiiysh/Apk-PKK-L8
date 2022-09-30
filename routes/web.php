@@ -5,6 +5,7 @@ use App\Http\Controllers\BukuController;
 use App\Http\Controllers\DasawismaController;
 use App\Http\Controllers\CatatanDiesnatalisController;
 use App\Http\Controllers\BukuPerpustakaanController;
+use App\Http\Controllers\PenyuluhanController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -47,7 +48,8 @@ Route::resource('dasawismas', DasawismaController::class);
 Route::resource('catatanDiesnataliss', CatatanDiesnatalisController::class);
 //route bukuPerpustakaan
 Route::resource('bukuPerpustakaans', BukuPerpustakaanController::class);
-
+//route Penyuluhan
+Route::resource('penyuluhans', PenyuluhanController::class);
 //route auth
 Auth::routes();
 
