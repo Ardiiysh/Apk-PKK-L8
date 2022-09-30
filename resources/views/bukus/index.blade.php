@@ -15,6 +15,7 @@
                 </ul>
             </div>
         @endif
+        <a href="/buku" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
             <!-- Button trigger modal -->
             <button type="button"  href="{{ route('bukus.create') }}" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                 +

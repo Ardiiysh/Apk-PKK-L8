@@ -51,6 +51,15 @@ Route::resource('bukuPerpustakaans', BukuPerpustakaanController::class);
 //route Penyuluhan
 Route::resource('penyuluhans', PenyuluhanController::class);
 //route auth
+
+//route export excel buku
+// Route::get('bukus/export_excel', 'BukuController@export_excel');
+
+Route::get('buku', [BukuController::class, 'export_excel'])->name('buku.export_excel');
+
+
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
