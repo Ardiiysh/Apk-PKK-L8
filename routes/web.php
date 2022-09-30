@@ -3,7 +3,8 @@
 use App\Http\Controllers\RayonController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\DasawismaController;
-
+use App\Http\Controllers\CatatanDiesnatalisController;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Route;
 
@@ -40,7 +41,8 @@ Route::resource('rayons', RayonController::class);
 Route::resource('bukus', BukuController::class);
 // route dasawisma
 Route::resource('dasawismas', DasawismaController::class);
-
+//route catatanDiesnatalis
+Route::resource('catatanDiesnataliss', CatatanDiesnatalisController::class);
 
 Auth::routes();
 

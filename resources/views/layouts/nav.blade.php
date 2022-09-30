@@ -24,6 +24,14 @@
             </p>
           </a>
         </li>       
+        <li class="nav-item">
+          <a href="/catatanDiesnataliss" class="nav-link">
+            <i class="nav-icon fas fa-columns"></i>
+            <p>
+              Catatan Diesnatalis
+            </p>
+          </a>
+        </li>       
 
     </ul>
   </nav>
