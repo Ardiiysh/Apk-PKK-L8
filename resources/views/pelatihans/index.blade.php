@@ -1,5 +1,5 @@
 @extends('layouts.layout')
- @section('title','Buku')
+ @section('title','pelatihan')
 
 @section('content')
     <div class="row">
@@ -15,7 +15,6 @@
                 </ul>
             </div>
         @endif
-
 <!-- Example split danger button -->
 <div class="btn-group">
     <button type="button" class="btn btn-info">Unduh</button>
@@ -23,19 +22,14 @@
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="/buku">Excel</a>
+      <a class="dropdown-item" href="/pelatihan">Excel</a>
       <a class="dropdown-item" href="#">PDF</a>
       <a class="dropdown-item" href="#">Word</a>
     </div>
   </div>
 
-        {{-- <a href="/buku" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
-
-
-
-
             <!-- Button trigger modal -->
-            <button type="button"  href="{{ route('bukus.create') }}" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+            <button type="button"  href="{{ route('pelatihans.create') }}" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                 +
             </button>
             
@@ -44,29 +38,35 @@
                 <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Buku</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">pelatihan</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    <form action="{{ route('bukus.store') }}" method="POST">
+                    <form action="{{ route('pelatihans.store') }}" method="POST">
                         @csrf
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Jenis Buku:</strong>
-                                <input type="text" name="jenis_buku" class="form-control" placeholder="buku">
+                                <strong>Nama Pelatihan:</strong>
+                                <input type="text" name="nama_pelatihan" class="form-control" placeholder="Nama Pelatihan">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Kategori:</strong>
-                                <input type="text" name="kategori" class="form-control" placeholder="kategori">
+                                <strong>Kriteria Kader:</strong>
+                                <input type="text" name="kriteria_kader" class="form-control" placeholder="kriteria Kader">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>penyelenggara:</strong>
+                                <input type="text" name="penyelenggara" class="form-control" placeholder="penyelenggara">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Keterangan:</strong>
-                                <input type="text" name="keterangan" class="form-control" placeholder="kategori">
+                                <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
                             </div>
                         </div>
                            
@@ -93,8 +93,9 @@
         <thead>
         <tr>
             <th>No</th>
-            <th>Jenis Buku</th>
-            <th>Kategori</th>
+            <th>Nama Pelatihan</th>
+            <th>Kriteria Kader</th>
+            <th>Penyelenggara</th>
             <th>keterangan</th>
             <th width="280px">Action</th>
         </tr>
@@ -102,20 +103,21 @@
          @php
         $i = 0;
         @endphp
-        @foreach ($bukus as $buku)
+        @foreach ($pelatihans as $pelatihan)
         <tr>
 
 
             <td>{{ ++$i }}</td>
-            <td>{{ $buku->jenis_buku}}</td>
-            <td>{{ $buku->kategori}}</td>
-            <td>{{ $buku->keterangan}}</td>
+            <td>{{ $pelatihan->nama_pelatihan}}</td>
+            <td>{{ $pelatihan->kriteria_kader}}</td>
+            <td>{{ $pelatihan->penyelenggara}}</td>
+            <td>{{ $pelatihan->keterangan}}</td>
             <td>
-                <form onsubmit="return confirm('Apakah anda yakin ingin menghapus {{$buku->jenis_buku}} ?');"  action="{{ route('bukus.destroy',$buku->id) }}" method="POST">
+                <form onsubmit="return confirm('Apakah anda yakin ingin menghapus {{$pelatihan->nama_pelatihan}} ?');"  action="{{ route('pelatihans.destroy',$pelatihan->id_pelatihan) }}" method="POST">
 
-                    {{-- <a class="btn btn-info" href="{{ route('bukus.show',$buku->id) }}">Show</a> --}}
+                    {{-- <a class="btn btn-info" href="{{ route('pelatihans.show',$pelatihan->id) }}">Show</a> --}}
     
-                    <a class="btn btn-primary" href="{{ route('bukus.edit',$buku->id) }}" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <a class="btn btn-primary" href="{{ route('pelatihans.edit',$pelatihan->id_pelatihan) }}" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                       </svg></a>
