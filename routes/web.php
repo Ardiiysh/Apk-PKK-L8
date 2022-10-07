@@ -7,6 +7,7 @@ use App\Http\Controllers\CatatanDiesnatalisController;
 use App\Http\Controllers\BukuPerpustakaanController;
 use App\Http\Controllers\PenyuluhanController;
 use App\Http\Controllers\PelatihanController;
+use App\Http\Controllers\DataIndustriController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -53,11 +54,17 @@ Route::resource('bukuPerpustakaans', BukuPerpustakaanController::class);
 Route::resource('penyuluhans', PenyuluhanController::class);
 //route Pelatihan
 Route::resource('pelatihans', PelatihanController::class);
+//route Pelatihan
+Route::resource('dataIndustris', DataIndustriController::class);
+
 
 //Route Export Excel//
 //route export excel buku
 Route::get('buku', [BukuController::class, 'export_excel'])->name('buku.export_excel');
+//route export excel pelatihan
 Route::get('pelatihan', [PelatihanController::class, 'export_excel'])->name('pelatihan.export_excel');
+//route export excel pelatihan
+Route::get('dataIndustri', [DataIndustriController::class, 'export_excel'])->name('dataIndustri.export_excel');
 
 
 

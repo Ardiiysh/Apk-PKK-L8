@@ -56,6 +56,14 @@
             </p>
           </a>
         </li>   
+        <li class="nav-item">
+          <a href="/dataIndustris" class="nav-link">
+            <i class="nav-icon fas fa-columns"></i>
+            <p>
+              Data Industri
+            </p>
+          </a>
+        </li>   
     
 
     </ul>
