@@ -10,6 +10,7 @@ use App\Http\Controllers\PelatihanController;
 use App\Http\Controllers\DataIndustriController;
 use App\Http\Controllers\KegiatanWargaController;
 use App\Http\Controllers\WargaController;
+use App\Http\Controllers\RekapitulasiKelompokDasawismaController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -62,8 +63,12 @@ Route::resource('dataIndustris', DataIndustriController::class);
 Route::resource('kegiatanWargas', KegiatanWargaController::class);
 //route Warga
 Route::resource('wargas', WargaController::class);
+//route Rekapitulasi Kelompok dasawisma
+Route::resource('rekapitulasiKelompokDasawismas', RekapitulasiKelompokDasawismaController::class);
 
-//Route Export Excel//
+
+
+//Route Export Excel
 //route export excel buku
 Route::get('buku', [BukuController::class, 'export_excel'])->name('buku.export_excel');
 //route export excel pelatihan
@@ -74,6 +79,8 @@ Route::get('dataIndustri', [DataIndustriController::class, 'export_excel'])->nam
 Route::get('kegiatanWarga', [KegiatanWargaController::class, 'export_excel'])->name('kegiatanWarga.export_excel');
 //route export excel  Warga
 Route::get('warga', [WargaController::class, 'export_excel'])->name('warga.export_excel');
+//route Rekapitulasi Kelompok dasawisma
+Route::get('rekapitulasiKelompokDasawisma', [RekapitulasiKelompokDasawismaController::class, 'export_excel'])->name('rekapitulasiKelompokDasawisma.export_excel');
 
 
 

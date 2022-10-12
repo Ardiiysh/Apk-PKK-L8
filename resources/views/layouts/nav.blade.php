@@ -56,15 +56,32 @@
         </ul>
       </li>
 
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fas fa-edit"></i>
+          <p>
+            Group Dasawisma
+            <i class="fas fa-angle-left right"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="/dasawismas" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Dasawisma</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/rekapitulasiKelompokDasawismas" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Rekapitulasi Kelompok Dasawismas Warga</p>
+            </a>
+          </li>
+        </ul>
+      </li>
 
-        <li class="nav-item">
-          <a href="/dasawismas" class="nav-link">
-            <i class="nav-icon fas fa-columns"></i>
-            <p>
-              Dasawisma
-            </p>
-          </a>
-        </li>       
+
+    
         <li class="nav-item">
           <a href="/catatanDiesnataliss" class="nav-link">
             <i class="nav-icon fas fa-columns"></i>
