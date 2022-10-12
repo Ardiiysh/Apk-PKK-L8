@@ -74,7 +74,7 @@
           <li class="nav-item">
             <a href="/rekapitulasiKelompokDasawismas" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Rekapitulasi Kelompok Dasawismas Warga</p>
+              <p>Rekapitulasi Kelompok Dasawisma</p>
             </a>
           </li>
         </ul>
