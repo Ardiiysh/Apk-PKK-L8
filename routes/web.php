@@ -8,6 +8,8 @@ use App\Http\Controllers\BukuPerpustakaanController;
 use App\Http\Controllers\PenyuluhanController;
 use App\Http\Controllers\PelatihanController;
 use App\Http\Controllers\DataIndustriController;
+use App\Http\Controllers\KegiatanWargaController;
+use App\Http\Controllers\WargaController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -56,15 +58,22 @@ Route::resource('penyuluhans', PenyuluhanController::class);
 Route::resource('pelatihans', PelatihanController::class);
 //route Pelatihan
 Route::resource('dataIndustris', DataIndustriController::class);
-
+//route Kegiatan Warga
+Route::resource('kegiatanWargas', KegiatanWargaController::class);
+//route Warga
+Route::resource('wargas', WargaController::class);
 
 //Route Export Excel//
 //route export excel buku
 Route::get('buku', [BukuController::class, 'export_excel'])->name('buku.export_excel');
 //route export excel pelatihan
 Route::get('pelatihan', [PelatihanController::class, 'export_excel'])->name('pelatihan.export_excel');
-//route export excel pelatihan
+//route export excel Data Industri
 Route::get('dataIndustri', [DataIndustriController::class, 'export_excel'])->name('dataIndustri.export_excel');
+//route export excel Kegitan Warga
+Route::get('kegiatanWarga', [KegiatanWargaController::class, 'export_excel'])->name('kegiatanWarga.export_excel');
+//route export excel  Warga
+Route::get('warga', [WargaController::class, 'export_excel'])->name('warga.export_excel');
 
 
 
