@@ -87,7 +87,18 @@
           <p>Dasawisma</p>
         </a>
       </li>
-
+      <li class="nav-item">
+        <a href="/industriRumahTanggas" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>Industri Rumah Tangga</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/dataIndustriRumahTanggas" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>Data Industri Rumah Tangga</p>
+        </a>
+      </li>
       <li class="nav-item">
         <a href="/asetDesas" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>

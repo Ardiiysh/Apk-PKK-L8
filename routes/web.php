@@ -15,6 +15,8 @@ use App\Http\Controllers\RekapitulasiKelompokDasawismaController;
 use App\Http\Controllers\RekapitulasiKelompokPkkRtController;
 use App\Http\Controllers\AsetDesaController;
 use App\Http\Controllers\DataAsetDesaController;
+use App\Http\Controllers\IndustriRumahTanggaController;
+use App\Http\Controllers\DataIndustriRumahTanggaController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -75,8 +77,12 @@ Route::resource('rekapitulasiKelompokPkkRts', RekapitulasiKelompokPkkRtControlle
 Route::resource('koperasis', KoperasiController::class);
 //route asetDesas
 Route::resource('asetDesas', AsetDesaController::class);
-//route asetDesas
+//route dataAsetDesas
 Route::resource('dataAsetDesas', DataAsetDesaController::class);
+//route industriRumahTanggas
+Route::resource('industriRumahTanggas', IndustriRumahTanggaController::class);
+//route industriRumahTanggas
+Route::resource('dataIndustriRumahTanggas', DataIndustriRumahTanggaController::class);
 
 
 
@@ -102,6 +108,10 @@ Route::get('koperasi', [KoperasiController::class, 'export_excel'])->name('koper
 Route::get('asetDesa', [AsetDesaController::class, 'export_excel'])->name('asetDesa.export_excel');
 //route asetDesa
 Route::get('dataAsetDesa', [DataAsetDesaController::class, 'export_excel'])->name('dataAsetDesa.export_excel');
+//route asetDesa
+Route::get('industriRumahTangga', [IndustriRumahTanggaController::class, 'export_excel'])->name('industriRumahTangga.export_excel');
+//route asetDesa
+Route::get('dataIndustriRumahTangga', [DataIndustriRumahTanggaController::class, 'export_excel'])->name('dataIndustriRumahTangga.export_excel');
 
 
 
