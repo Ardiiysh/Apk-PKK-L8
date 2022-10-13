@@ -13,6 +13,8 @@ use App\Http\Controllers\WargaController;
 use App\Http\Controllers\KoperasiController;
 use App\Http\Controllers\RekapitulasiKelompokDasawismaController;
 use App\Http\Controllers\RekapitulasiKelompokPkkRtController;
+use App\Http\Controllers\AsetDesaController;
+use App\Http\Controllers\DataAsetDesaController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -71,6 +73,13 @@ Route::resource('rekapitulasiKelompokDasawismas', RekapitulasiKelompokDasawismaC
 Route::resource('rekapitulasiKelompokPkkRts', RekapitulasiKelompokPkkRtController::class);
 //route Koperasi
 Route::resource('koperasis', KoperasiController::class);
+//route asetDesas
+Route::resource('asetDesas', AsetDesaController::class);
+//route asetDesas
+Route::resource('dataAsetDesas', DataAsetDesaController::class);
+
+
+
 
 //Route Export Excel
 //route export excel buku
@@ -89,6 +98,11 @@ Route::get('rekapitulasiKelompokDasawisma', [RekapitulasiKelompokDasawismaContro
 Route::get('rekapitulasiKelompokPkkRt', [RekapitulasiKelompokPkkRtController::class, 'export_excel'])->name('rekapitulasiKelompokPkkRt.export_excel');
 //route Koperasi
 Route::get('koperasi', [KoperasiController::class, 'export_excel'])->name('koperasi.export_excel');
+//route Koperasi
+Route::get('asetDesa', [AsetDesaController::class, 'export_excel'])->name('asetDesa.export_excel');
+//route asetDesa
+Route::get('dataAsetDesa', [DataAsetDesaController::class, 'export_excel'])->name('dataAsetDesa.export_excel');
+
 
 
 

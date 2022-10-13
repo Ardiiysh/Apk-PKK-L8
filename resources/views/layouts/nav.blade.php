@@ -87,6 +87,20 @@
           <p>Dasawisma</p>
         </a>
       </li>
+
+      <li class="nav-item">
+        <a href="/asetDesas" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>Aset Desa</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/dataAsetDesas" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>Data Aset Desa</p>
+        </a>
+      </li>
+      
       <li class="nav-item">
         <a href="/koperasis" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
