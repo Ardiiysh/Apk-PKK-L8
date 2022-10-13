@@ -10,6 +10,7 @@ use App\Http\Controllers\PelatihanController;
 use App\Http\Controllers\DataIndustriController;
 use App\Http\Controllers\KegiatanWargaController;
 use App\Http\Controllers\WargaController;
+use App\Http\Controllers\KoperasiController;
 use App\Http\Controllers\RekapitulasiKelompokDasawismaController;
 use App\Http\Controllers\RekapitulasiKelompokPkkRtController;
 
@@ -68,7 +69,8 @@ Route::resource('wargas', WargaController::class);
 Route::resource('rekapitulasiKelompokDasawismas', RekapitulasiKelompokDasawismaController::class);
 //route Rekapitulasi Kelompok Pkk Rt
 Route::resource('rekapitulasiKelompokPkkRts', RekapitulasiKelompokPkkRtController::class);
-
+//route Koperasi
+Route::resource('koperasis', KoperasiController::class);
 
 //Route Export Excel
 //route export excel buku
@@ -85,6 +87,9 @@ Route::get('warga', [WargaController::class, 'export_excel'])->name('warga.expor
 Route::get('rekapitulasiKelompokDasawisma', [RekapitulasiKelompokDasawismaController::class, 'export_excel'])->name('rekapitulasiKelompokDasawisma.export_excel');
 //route Rekapitulasi Kelompok Pkk Rt
 Route::get('rekapitulasiKelompokPkkRt', [RekapitulasiKelompokPkkRtController::class, 'export_excel'])->name('rekapitulasiKelompokPkkRt.export_excel');
+//route Koperasi
+Route::get('koperasi', [KoperasiController::class, 'export_excel'])->name('koperasi.export_excel');
+
 
 
 

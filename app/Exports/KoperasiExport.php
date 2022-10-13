@@ -2,25 +2,27 @@
 
 namespace App\Exports;
 
-use App\Models\RekapitulasiKelompokPkkRt;
+use App\Models\Koperasi;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
-class RekapitulasiKelompokPkkRtExport implements FromCollection,WithHeadings
+
+class KoperasiExport implements FromCollection,WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return RekapitulasiKelompokPkkRt::all();
+        return Koperasi::all();
     }
     public function headings(): array
     {
-        return[ 'ID Rekapitulasi Kelompok Pkk Rt' ,
-        'RT' ,
-        'RW' ,
-        'Kelurahan' ,
-        'Tahun' ,
+        return[ 'ID Koperasi',
+            'Nama Koperasi',
+            'Jenis Koperasi',
+            'Status Hukum',
+            'Anggota Laki Laki',
+            'Anggota perempuan',
         'Keterangan' ,"Created_at","Updated_at"];
     }
 }
