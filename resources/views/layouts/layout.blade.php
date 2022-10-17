@@ -207,6 +207,12 @@
 <script src="{{asset('template')}}/dist/js/adminlte.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" defer></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js" defer></script>
+{{-- //kfajf --}}
+
+<!-- Bootstrap 4 -->
+<script src="{{asset('template')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('template')}}/dist/js/demo.js"></script>
     @yield('table')
 </body>
 {{-- link demo.js disable --}}
