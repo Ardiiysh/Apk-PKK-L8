@@ -209,4 +209,5 @@
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js" defer></script>
     @yield('table')
 </body>
+{{-- link demo.js disable --}}
 </html>
