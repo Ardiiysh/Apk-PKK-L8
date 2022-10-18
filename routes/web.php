@@ -18,6 +18,7 @@ use App\Http\Controllers\DataAsetDesaController;
 use App\Http\Controllers\IndustriRumahTanggaController;
 use App\Http\Controllers\DataIndustriRumahTanggaController;
 use App\Http\Controllers\PerpustakaanController;
+use App\Http\Controllers\RekapitulasiKelahiranKematianController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -86,6 +87,8 @@ Route::resource('industriRumahTanggas', IndustriRumahTanggaController::class);
 Route::resource('dataIndustriRumahTanggas', DataIndustriRumahTanggaController::class);
 //route industriRumahTanggas
 Route::resource('perpustakaans', PerpustakaanController::class);
+//route industriRumahTanggas
+Route::resource('rekapitulasiKelahiranKematians', RekapitulasiKelahiranKematianController::class);
 
 
 
@@ -116,6 +119,8 @@ Route::get('industriRumahTangga', [IndustriRumahTanggaController::class, 'export
 Route::get('dataIndustriRumahTangga', [DataIndustriRumahTanggaController::class, 'export_excel'])->name('dataIndustriRumahTangga.export_excel');
 //route perpustakaan
 Route::get('perpustakaan', [PerpustakaanController::class, 'export_excel'])->name('perpustakaan.export_excel');
+//route rekapitulasiKelahiranKematian
+Route::get('rekapitulasiKelahiranKematian', [RekapitulasiKelahiranKematianController::class, 'export_excel'])->name('rekapitulasiKelahiranKematian.export_excel');
 
 
 

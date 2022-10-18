@@ -81,6 +81,12 @@
         </ul>
       </li>
       <li class="nav-item">
+        <a href="/rekapitulasiKelahiranKematians" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>Rekapitulasi Kelahiran Kematian</p>
+        </a>
+      </li>
+      <li class="nav-item">
         <a href="/perpustakaans" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
           <p>perpustakaan</p>
