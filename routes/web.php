@@ -17,6 +17,7 @@ use App\Http\Controllers\AsetDesaController;
 use App\Http\Controllers\DataAsetDesaController;
 use App\Http\Controllers\IndustriRumahTanggaController;
 use App\Http\Controllers\DataIndustriRumahTanggaController;
+use App\Http\Controllers\PerpustakaanController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -83,7 +84,8 @@ Route::resource('dataAsetDesas', DataAsetDesaController::class);
 Route::resource('industriRumahTanggas', IndustriRumahTanggaController::class);
 //route industriRumahTanggas
 Route::resource('dataIndustriRumahTanggas', DataIndustriRumahTanggaController::class);
-
+//route industriRumahTanggas
+Route::resource('perpustakaans', PerpustakaanController::class);
 
 
 
@@ -112,6 +114,8 @@ Route::get('dataAsetDesa', [DataAsetDesaController::class, 'export_excel'])->nam
 Route::get('industriRumahTangga', [IndustriRumahTanggaController::class, 'export_excel'])->name('industriRumahTangga.export_excel');
 //route asetDesa
 Route::get('dataIndustriRumahTangga', [DataIndustriRumahTanggaController::class, 'export_excel'])->name('dataIndustriRumahTangga.export_excel');
+//route perpustakaan
+Route::get('perpustakaan', [PerpustakaanController::class, 'export_excel'])->name('perpustakaan.export_excel');
 
 
 

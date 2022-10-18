@@ -14,7 +14,18 @@ class CreatePerpustakaansTable extends Migration
     public function up()
     {
         Schema::create('perpustakaans', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id_perpustakaan');
+            $table->integer('id_dasawisma');
+            $table->integer('rt');
+            $table->integer('rw');
+            $table->string('kelurahan');
+            $table->string('kecamatan');
+            $table->string('kabupaten_kota');
+            $table->string('provinsi');
+            $table->string('nama_perpustakaan');
+            $table->string('pengelola');
+            $table->string('jumlah_buku');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }

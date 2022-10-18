@@ -121,13 +121,17 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>JK:</strong>
-                                    <input type="text" name="jk" class="form-control" placeholder="JK">
+                                    <select class="form-control" name="jk" id="">
+                                        <option >--Pilih--</option>
+                                        <option value="L">L</option>
+                                        <option value="P">P</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Tgl Lahir:</strong>
-                                    <input type="text" name="tanggal" class="form-control" placeholder="Tgl Lahir">
+                                    <input type="date" name="tanggal" class="form-control" placeholder="Tgl Lahir">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">

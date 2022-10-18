@@ -80,7 +80,12 @@
           </li>
         </ul>
       </li>
-
+      <li class="nav-item">
+        <a href="/perpustakaans" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>perpustakaan</p>
+        </a>
+      </li>
       <li class="nav-item">
         <a href="/dasawismas" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
