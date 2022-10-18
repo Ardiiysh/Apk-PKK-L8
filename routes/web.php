@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\RayonController;
+// use App\Http\Controllers\RayonController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\DasawismaController;
 use App\Http\Controllers\CatatanDiesnatalisController;
@@ -36,21 +36,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-  
+
 
 Route::get('/dashboard', function () {
     return view('dashboard.index');
-    
+
 });
- 
+
 Route::get('/dashboard1', function () {
     return view('layouts.layout');
-    
+
 });
 
 
 //route rayon
-Route::resource('rayons', RayonController::class);
+// Route::resource('rayons', RayonController::class);
 //routebuku
 Route::resource('bukus', BukuController::class);
 // route dasawisma
