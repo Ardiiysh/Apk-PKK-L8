@@ -23,19 +23,19 @@
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="/catatanKeluarga">Excel</a>
+      <a class="dropdown-item" href="/rekaptilulasiLahirMati">Excel</a>
       <a class="dropdown-item" href="#">PDF</a>
       <a class="dropdown-item" href="#">Word</a>
     </div>
   </div>
 
-        {{-- <a href="/catatanKeluarga" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
+        {{-- <a href="/rekaptilulasiLahirMati" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
 
 
 
 
             <!-- Button trigger modal -->
-            <button type="button"  href="{{ route('catatanKeluargas.create') }}" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+            <button type="button"  href="{{ route('rekaptilulasiLahirMatis.create') }}" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                 +
             </button>
 
@@ -44,59 +44,56 @@
                 <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">catatanKeluarga</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">rekaptilulasiLahirMati</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    <form action="{{ route('catatanKeluargas.store') }}" method="POST">
+                    <form action="{{ route('rekaptilulasiLahirMatis.store') }}" method="POST">
                         @csrf
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Kepala Rumah Tangga:</strong>
-                                <input type="text" name="kepala_rumah_tangga" class="form-control" placeholder="kepala_rumah_tangga">
+                                <strong>id rekapitulasi kelahiran kematian:</strong>
+                                <input type="number" min="0" name="id_rekapitulasi_kelahiran_kematian" class="form-control" placeholder="id_rekapitulasi_kelahiran_kematian">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Id Dasawisma:</strong>
+                                <strong>id catatan diesnatalis:</strong>
+                                <input type="number" min="0" name="id_catatan_diesnatalis" class="form-control" placeholder="id_catatan_diesnatalis">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>id dasawisma:</strong>
                                 <input type="number" min="0" name="id_dasawisma" class="form-control" placeholder="id_dasawisma">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
+                                <strong>Bulan:</strong>
+                                <input type="text" name="bulan" class="form-control" placeholder="bulan">
+                                <select name="bulan" id="">
+                                    <option >--pilih--</option>
+                                    <option value="Januari">Januari</option>
+                                    <option value="Februari">Februari</option>
+                                    <option value="Maret">Maret</option>
+                                    <option value="April">April</option>
+                                    <option value="Mei">Mei</option>
+                                    <option value="Juni">Juni</option>
+                                    <option value="Juli">Juli</option>
+                                    <option value="Agustus">Agustus</option>
+                                    <option value="September">September</option>
+                                    <option value="Oktober">Oktober</option>
+                                    <option value="November">November</option>
+                                    <option value="Desember">Desember</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
                                 <strong>Tahun:</strong>
-                                <input type="number" min="0" name="tahun" class="form-control" placeholder="tahun">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Kriteria Rumah:</strong>
-                                <input type="text" name="kriteria_rumah" class="form-control" placeholder="kriteria_rumah">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Jamban:</strong>
-                                <input type="text" name="jamban" class="form-control" placeholder="jamban">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Jumlah Jamban:</strong>
-                                <input type="number" min="0" name="jumlah_jamban" class="form-control" placeholder="jumlah_jamban">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Sumber Air:</strong>
-                                <input type="text" name="sumber_air" class="form-control" placeholder="sumber_air">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Tempat Sampah:</strong>
-                                <input type="text" name="tempat_sampah" class="form-control" placeholder="tempat_sampah">
+                                <input type="text" name="tahun" class="form-control" placeholder="tahun">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -105,7 +102,7 @@
                                 <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
                             </div>
                         </div>
-                            <div class="modal-footer">
+                        <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>
 
@@ -126,16 +123,13 @@
     <table class="table table-bordered data-table">
         <thead>
             <tr>
-                <th>id catatan keluarga</th>
-                <th>kepala rumah tangga</th>
-                <th>id dasawisma</th>
-                <th>tahun</th>
-                <th>kriteria rumah</th>
-                <th>jamban</th>
-                <th>jumlah jamban</th>
-                <th>sumber air</th>
-                <th>tempat sampah</th>
-                <th>keterangan</th>
+                <th>ID Rekapitulasi Lahir Mati</th>
+                <th>ID Rekapitulasi Kelahiran Kematian</th>
+                <th>ID Catatan Diesnatalis  </th>
+                <th>ID Dasawisma</th>
+                <th>Bulan</th>
+                <th>Tahun</th>
+                <th>Keterangan</th>
 
                 <th width="280px">Action</th>
             </tr>
@@ -149,20 +143,17 @@
                 var table = $('.data-table').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: "{{ route('catatanKeluargas.index') }}",
+                    ajax: "{{ route('rekaptilulasiLahirMatis.index') }}",
                     scrollX: 200,
                     deferRender: true,
                     scroller: true,
                     columns: [
-                        {data: 'id_catatan_keluarga', name: 'id_catatan_keluarga'},
-                        {data: 'kepala_rumah_tangga', name: 'kepala_rumah_tangga'},
+                        {data: 'id_rekapitulasi_lahir_mati', name: 'id_rekapitulasi_lahir_mati'},
+                        {data: 'id_rekapitulasi_kelahiran_kematian', name: 'id_rekapitulasi_kelahiran_kematian'},
+                        {data: 'id_catatan_diesnatalis', name: 'id_catatan_diesnatalis'},
                         {data: 'id_dasawisma', name: 'id_dasawisma'},
+                        {data: 'bulan', name: 'bulan'},
                         {data: 'tahun', name: 'tahun'},
-                        {data: 'kriteria_rumah', name: 'kriteria_rumah'},
-                        {data: 'jamban', name: 'jamban'},
-                        {data: 'jumlah_jamban', name: 'jumlah_jamban'},
-                        {data: 'sumber_air', name: 'sumber_air'},
-                        {data: 'tempat_sampah', name: 'tempat_sampah'},
                         {data: 'keterangan', name: 'keterangan'},
                         {data: 'action', name: 'action', orderable: false, searchable: false},
                     ]

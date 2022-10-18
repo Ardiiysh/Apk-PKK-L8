@@ -65,7 +65,6 @@
           </p>
         </a>
         <ul class="nav nav-treeview">
-         
           <li class="nav-item">
             <a href="/rekapitulasiKelompokDasawismas" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
@@ -79,6 +78,12 @@
             </a>
           </li>
         </ul>
+      </li>
+      <li class="nav-item">
+        <a href="/rekaptilulasiLahirMatis" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>Rekapitulasi Lahir Mati</p>
+        </a>
       </li>
       <li class="nav-item">
         <a href="/rekapitulasiKelahiranKematians" class="nav-link">
@@ -164,10 +169,10 @@
           </a>
         </li>   
         <li class="nav-item">
-          <a href="/catatanKeluargaWargas" class="nav-link">
+          <a href="/catatanKeluargas" class="nav-link">
             <i class="nav-icon fas fa-columns"></i>
             <p>
-              Catatan Keluarga Warga
+              Catatan Keluarga
             </p>
           </a>
         </li>   

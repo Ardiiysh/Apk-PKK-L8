@@ -19,6 +19,8 @@ use App\Http\Controllers\IndustriRumahTanggaController;
 use App\Http\Controllers\DataIndustriRumahTanggaController;
 use App\Http\Controllers\PerpustakaanController;
 use App\Http\Controllers\RekapitulasiKelahiranKematianController;
+use App\Http\Controllers\CatatanKeluargaController;
+use App\Http\Controllers\RekaptilulasiLahirMatiController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -89,6 +91,10 @@ Route::resource('dataIndustriRumahTanggas', DataIndustriRumahTanggaController::c
 Route::resource('perpustakaans', PerpustakaanController::class);
 //route industriRumahTanggas
 Route::resource('rekapitulasiKelahiranKematians', RekapitulasiKelahiranKematianController::class);
+//route catatanKeluargas
+Route::resource('catatanKeluargas', CatatanKeluargaController::class);
+//route RekaptilulasiLahirMati
+Route::resource('rekaptilulasiLahirMatis', RekaptilulasiLahirMatiController::class);
 
 
 
@@ -121,6 +127,12 @@ Route::get('dataIndustriRumahTangga', [DataIndustriRumahTanggaController::class,
 Route::get('perpustakaan', [PerpustakaanController::class, 'export_excel'])->name('perpustakaan.export_excel');
 //route rekapitulasiKelahiranKematian
 Route::get('rekapitulasiKelahiranKematian', [RekapitulasiKelahiranKematianController::class, 'export_excel'])->name('rekapitulasiKelahiranKematian.export_excel');
+//route rekapitulasiKelahiranKematian
+Route::get('catatanKeluarga', [CatatanKeluargaController::class, 'export_excel'])->name('catatanKeluarga.export_excel');
+//route rekapitulasiKelahiranKematian
+Route::get('rekaptilulasiLahirMati', [RekaptilulasiLahirMatiController::class, 'export_excel'])->name('rekaptilulasiLahirMati.export_excel');
+
+
 
 
 
