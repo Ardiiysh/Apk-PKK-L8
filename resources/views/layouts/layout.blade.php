@@ -111,7 +111,7 @@
           <img src="{{asset('template')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          {{-- <a href="#" class="d-block"> <b>{{ Auth::User()->name }}</b> </a> --}}
+          <a href="#" class="d-block"> <b>{{ Auth::User()->name }}</b> </a>
         </div>
       </div>
 
@@ -209,4 +209,5 @@
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js" defer></script>
     @yield('table')
 </body>
+{{-- link demo.js disable --}}
 </html>
