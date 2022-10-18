@@ -72,8 +72,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Bulan:</strong>
-                                <input type="text" name="bulan" class="form-control" placeholder="bulan">
-                                <select name="bulan" id="">
+                                <select name="bulan"  class="form-control" id="">
                                     <option >--pilih--</option>
                                     <option value="Januari">Januari</option>
                                     <option value="Februari">Februari</option>

@@ -23,7 +23,7 @@ class CreateRekapitulasiKelompokDasawismasTable extends Migration
             $table->string('kabupaten_kota');
             $table->string('provinsi');
             $table->integer('tahun');
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }

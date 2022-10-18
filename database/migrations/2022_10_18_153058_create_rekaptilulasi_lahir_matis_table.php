@@ -20,7 +20,7 @@ class CreateRekaptilulasiLahirMatisTable extends Migration
             $table->integer('id_dasawisma');
             $table->string('bulan');
             $table->integer('tahun');
-            $table->string('keterangan');
+            $table->text('keterangan');
 
             $table->timestamps();
         });

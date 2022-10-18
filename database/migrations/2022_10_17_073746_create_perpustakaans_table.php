@@ -25,7 +25,7 @@ class CreatePerpustakaansTable extends Migration
             $table->string('nama_perpustakaan');
             $table->string('pengelola');
             $table->string('jumlah_buku');
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }

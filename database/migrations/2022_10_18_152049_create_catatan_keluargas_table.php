@@ -23,7 +23,7 @@ class CreateCatatanKeluargasTable extends Migration
             $table->integer('jumlah_jamban');
             $table->string('sumber_air');
             $table->string('tempat_sampah');
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }

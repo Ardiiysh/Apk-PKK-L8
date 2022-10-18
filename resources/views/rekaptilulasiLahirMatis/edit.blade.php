@@ -50,7 +50,8 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Bulan:</strong>
-                        <select class="form-control" value="{{ $rekaptilulasiLahirMati->bulan }}" name="bulan" id="">
+                        <select class="form-control"  name="bulan" id="">
+                            <option >{{ $rekaptilulasiLahirMati->bulan }}</option>
                             <option >--pilih--</option>
                             <option value="Januari">Januari</option>
                             <option value="Februari">Februari</option>

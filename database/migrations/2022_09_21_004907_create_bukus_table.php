@@ -17,7 +17,7 @@ class CreateBukusTable extends Migration
             $table->id();
             $table->string('jenis_buku');
             $table->string('kategori');
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }

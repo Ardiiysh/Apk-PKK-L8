@@ -20,7 +20,7 @@ class CreateKoperasisTable extends Migration
             $table->string('status_hukum');
             $table->string('anggota_laki_laki');
             $table->string('anggota_perempuan');
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }
