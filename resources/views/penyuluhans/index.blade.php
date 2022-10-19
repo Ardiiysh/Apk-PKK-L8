@@ -73,8 +73,8 @@
         </div>
     @endif
     <br>
-    <div class="table table-responsive w-100 d-block d-xxl-table">
-        <table class="table table-bordered data-table nowrap">
+    <div class="container">
+        <table class="data-table display nowrap">
             <thead>
                 <tr>
                     <th>No</th>
@@ -95,6 +95,7 @@
                 responsive: true,
                 processing: true,
                 serverSide: true,
+                scrollX: true,
                 ajax: "{{ route('penyuluhans.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
