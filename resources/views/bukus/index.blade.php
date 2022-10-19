@@ -66,7 +66,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Keterangan:</strong>
-                                <input type="text" name="keterangan" class="form-control" placeholder="kategori">
+                                <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
                             </div>
                         </div>
 
@@ -112,6 +112,9 @@
                     processing: true,
                     serverSide: true,
                     ajax: "{{ route('bukus.index') }}",
+                    scrollX: 200,
+                    deferRender: true,
+                    scroller: true,
                     columns: [
                         {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
                         {data: 'jenis_buku', name: 'jenis_buku'},

@@ -32,7 +32,7 @@ class CreateCatatanDiesnatalisTable extends Migration
             $table->integer('tanggal');
             $table->string('akta');
             $table->string('sebab');
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }

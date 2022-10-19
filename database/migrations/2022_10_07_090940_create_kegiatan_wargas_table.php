@@ -23,7 +23,7 @@ class CreateKegiatanWargasTable extends Migration
             $table->string('jimpitan');
             $table->string('arisan');
             $table->string('lainnya');
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }

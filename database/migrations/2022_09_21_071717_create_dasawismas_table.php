@@ -22,7 +22,7 @@ class CreateDasawismasTable extends Migration
             $table->string('kecamatan');
             $table->string('kabupaten_kota');
             $table->string('provinsi');
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }
