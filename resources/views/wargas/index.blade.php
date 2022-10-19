@@ -4,7 +4,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-                       
+
             @if ($errors->any())
             <div class="alert alert-danger">
                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -38,7 +38,7 @@
             <button type="button"  href="{{ route('wargas.create') }}" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                 +
             </button>
-            
+
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -191,12 +191,12 @@
                                 <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
                             </div>
                         </div>
-                           
-                                            
+
+
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                            
+
                             </div>
                     </form>
                 </div>
@@ -211,89 +211,80 @@
         </div>
     @endif
     <br>
-    <table class="table table-bordered ">
-        <thead>
-        <tr>
-            <th>No</th>
-            <th>ID Dasawisma</th>
-            <th>kepala rumah tangga</th>
-            <th>no registrasi</th>
-            <th>no ktp</th>
-            <th>nama lengkap</th>
-            <th>jabatan pkk</th>
-            <th>jk</th>
-            <th>tempat lahir</th>
-            <th>tgl lahir</th>
-            <th>status perkawinan</th>
-            <th>status dalam keluarga</th>
-            <th>agama</th>
-            <th>alamat</th>
-            <th>pendidikan</th>
-            <th>pekerjaan</th>
-            <th>akseptor kb</th>
-            <th>posyandu</th>
-            <th>program bina keluarga balita</th>
-            <th>tabungan</th>
-            <th>kelompok belajar</th>
-            <th>paud</th>
-            <th>koperasi</th>
-            <th>keterangan</th>
-            <th width="280px">Action</th>
-        </tr>
-    </thead>
-         @php
-        $i = 0;
-        @endphp
-        @foreach ($wargas as $warga)
-        <tr>
+    <div class="table-responsive">
+        <table class="table table-bordered data-table nowrap">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>ID Dasawisma</th>
+                    <th>Kepala Rumah Tangga</th>
+                    <th>No Registrasi</th>
+                    <th>No KTP</th>
+                    <th>Nama Lengkap</th>
+                    <th>Jabatan PKK</th>
+                    <th>JK</th>
+                    <th>Tempat Lahir</th>
+                    <th>Tgl Lahir</th>
+                    <th>Status Perkawinan</th>
+                    <th>Status dalam Keluarga</th>
+                    <th>Agama</th>
+                    <th>Alamat</th>
+                    <th>Pendidikan</th>
+                    <th>Pekerjaan</th>
+                    <th>Akseptor KB</th>
+                    <th>Posyandu</th>
+                    <th>Program Bina Keluarga Balita</th>
+                    <th>Tabungan</th>
+                    <th>Kelompok Belajar</th>
+                    <th>Paud</th>
+                    <th>Koperasi</th>
+                    <th>Keterangan</th>
+                    <th width="280px">Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 
+    @section('table')
+        <script type="text/javascript">
+             $(function () {
 
-            <th>{{ ++$i }}</td>
-            <td>{{ $warga->id_dasawisma}}</td>
-            <td>{{ $warga->kepala_rumah_tangga}}</td>
-            <td>{{ $warga->no_registrasi}}</td>
-            <td>{{ $warga->no_ktp}}</td>
-            <td>{{ $warga->nama_lengkap}}</td>
-            <td>{{ $warga->jabatan_pkk}}</td>
-            <td>{{ $warga->jk}}</td>
-            <td>{{ $warga->tempat_lahir}}</td>
-            <td>{{ $warga->tgl_lahir}}</td>
-            <td>{{ $warga->status_perkawinan}}</td>
-            <td>{{ $warga->status_dalam_keluarga}}</td>
-            <td>{{ $warga->agama}}</td>
-            <td>{{ $warga->alamat}}</td>
-            <td>{{ $warga->pendidikan}}</td>
-            <td>{{ $warga->pekerjaan}}</td>
-            <td>{{ $warga->akseptor_kb}}</td>
-            <td>{{ $warga->posyandu}}</td>
-            <td>{{ $warga->program_bina_keluarga_balita}}</td>
-            <td>{{ $warga->tabungan}}</td>
-            <td>{{ $warga->kelompok_belajar}}</td>
-            <td>{{ $warga->paud}}</td>
-            <td>{{ $warga->koperasi}}</td>
-            <td>{{ $warga->keterangan}}</td>
-            <td>
-                <form onsubmit="return confirm('Apakah anda yakin ingin menghapus {{$warga->kepala_rumah_tangga}} ?');"  action="{{ route('wargas.destroy',$warga->id_warga) }}" method="POST">
+                var table = $('.data-table').DataTable({
+                    responsive: true,
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('wargas.index') }}",
+                    columns: [
+                        {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
+                        {data: 'id_dasawisma', name: 'id_dasawisma'},
+                        {data: 'kepala_rumah_tangga', name: 'kepala_rumah_tangga'},
+                        {data: 'no_registrasi', name: 'no_registrasi'},
+                        {data: 'no_ktp', name: 'no_ktp'},
+                        {data: 'nama_lengkap', name: 'nama_lengkap'},
+                        {data: 'jabatan_pkk', name: 'jabatan_pkk'},
+                        {data: 'jk', name: 'jk'},
+                        {data: 'tempat_lahir', name: 'tempat_lahir'},
+                        {data: 'tgl_lahir', name: 'tgl_lahir'},
+                        {data: 'status_perkawinan', name: 'status_perkawinan'},
+                        {data: 'status_dalam_keluarga', name: 'status_dalam_keluarga'},
+                        {data: 'agama', name: 'agama'},
+                        {data: 'alamat', name: 'alamat'},
+                        {data: 'pendidikan', name: 'pendidikan'},
+                        {data: 'pekerjaan', name: 'pekerjaan'},
+                        {data: 'akseptor_kb', name: 'akseptor_kb'},
+                        {data: 'posyandu', name: 'posyandu'},
+                        {data: 'program_bina_keluarga_balita', name: 'program_bina_keluarga_balita'},
+                        {data: 'tabungan', name: 'tabungan'},
+                        {data: 'kelompok_belajar', name: 'kelompok_belajar'},
+                        {data: 'paud', name: 'paud'},
+                        {data: 'koperasi', name: 'koperasi'},
+                        {data: 'keterangan', name: 'keterangan'},
+                        {data: 'action', name: 'action', orderable: false, searchable: false},
+                    ]
+                });
 
-                    {{-- <a class="btn btn-info" href="{{ route('wargas.show',$warga->id) }}">Show</a> --}}
-    
-                    <a class="btn btn-primary" href="{{ route('wargas.edit',$warga->id_warga) }}" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                      </svg></a>
-   
-                    @csrf
-                    @method('DELETE')
-      
-                    <button type="submit" class="btn btn-danger"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                      </svg></button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>
+            });
+        </script>
+    @endsection
 
-      
 @endsection

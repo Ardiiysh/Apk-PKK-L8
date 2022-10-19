@@ -168,46 +168,46 @@
         </div>
     @endif
     <br>
-    <table class="table table-bordered data-table">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Id Dasa Wisma</th>
-                <th>RT</th>
-                <th>RW</th>
-                <th>Kelurahan</th>
-                <th>Kecamatan</th>
-                <th>Kabupaten/Kota</th>
-                <th>Provinsi</th>
-                <th>Bulan</th>
-                <th>Tahun</th>
-                <th>Nama Ibu</th>
-                <th>Nama Suami</th>
-                <th>Nama Anak</th>
-                <th>Status</th>
-                <th>JK</th>
-                <th>Tanggal</th>
-                <th>Akta</th>
-                <th>Sebab</th>
-                <th>Keterangan</th>
-                <th width="280px">Action</th>
-            </tr>
-        </thead>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-bordered data-table nowrap">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Id Dasa Wisma</th>
+                    <th>RT</th>
+                    <th>RW</th>
+                    <th>Kelurahan</th>
+                    <th>Kecamatan</th>
+                    <th>Kabupaten/Kota</th>
+                    <th>Provinsi</th>
+                    <th>Bulan</th>
+                    <th>Tahun</th>
+                    <th>Nama Ibu</th>
+                    <th>Nama Suami</th>
+                    <th>Nama Anak</th>
+                    <th>Status</th>
+                    <th>JK</th>
+                    <th>Tanggal</th>
+                    <th>Akta</th>
+                    <th>Sebab</th>
+                    <th>Keterangan</th>
+                    <th width="280px">Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 
     @section('table')
         <script type="text/javascript">
              $(function () {
 
                 var table = $('.data-table').DataTable({
+                    responsive: true,
                     processing: true,
                     serverSide: true,
                     ajax: "{{ route('catatanDiesnataliss.index') }}",
-                    scrollX: 200,
-                    deferRender: true,
-                    scroller: true,
                     columns: [
-                        {data: 'id', name: 'id'},
+                        {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
                         {data: 'id_dasawisma', name: 'id_dasawisma'},
                         {data: 'rt', name: 'rt'},
                         {data: 'rw', name: 'rw'},

@@ -6,7 +6,7 @@ use App\Models\BukuPerpustakaan;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class AsetDesaExport implements FromCollection,WithHeadings
+class BukuPerpustakaanExport implements FromCollection,WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection

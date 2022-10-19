@@ -89,28 +89,31 @@
         </div>
     @endif
     <br>
-    <table class="table table-bordered data-table">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Jenis Buku</th>
-                <th>Kategori</th>
-                <th>keterangan</th>
-                <th width="280px">Action</th>
-            </tr>
-        </thead>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-bordered data-table nowrap">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Jenis Buku</th>
+                    <th>Kategori</th>
+                    <th>keterangan</th>
+                    <th width="280px">Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 
     @section('table')
         <script type="text/javascript">
              $(function () {
 
                 var table = $('.data-table').DataTable({
+                    responsive: true,
                     processing: true,
                     serverSide: true,
                     ajax: "{{ route('bukus.index') }}",
                     columns: [
-                        {data: 'id', name: 'id'},
+                        {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
                         {data: 'jenis_buku', name: 'jenis_buku'},
                         {data: 'kategori', name: 'kategori'},
                         {data: 'keterangan', name: 'keterangan'},

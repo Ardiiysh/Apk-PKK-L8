@@ -15,6 +15,20 @@
                     </ul>
                 </div>
             @endif
+
+            <!-- Example split danger button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-info">Unduh</button>
+                <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                <a class="dropdown-item" href="/buku">Excel</a>
+                <a class="dropdown-item" href="#">PDF</a>
+                <a class="dropdown-item" href="#">Word</a>
+                </div>
+            </div>
+
             <!-- Button trigger modal -->
             <button type="button" href="{{ route('bukuPerpustakaans.create') }}" class="btn btn-success" data-toggle="modal"
                 data-target="#exampleModal">
@@ -71,28 +85,31 @@
         </div>
     @endif
     <br>
-    <table class="table table-bordered ">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Id Perpustakaan</th>
-                <th>Id Buku</th>
-                <th>Jumlah</th>
-                <th width="280px">Action</th>
-            </tr>
-        </thead>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-bordered data-table nowrap">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Id Perpustakaan</th>
+                    <th>Id Buku</th>
+                    <th>Jumlah</th>
+                    <th width="280px">Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 
     @section('table')
         <script type="text/javascript">
              $(function () {
 
                 var table = $('.data-table').DataTable({
+                    responsive: true,
                     processing: true,
                     serverSide: true,
                     ajax: "{{ route('bukuPerpustakaans.index') }}",
                     columns: [
-                        {data: 'id', name: 'id'},
+                        {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
                         {data: 'id_perpustakaan', name: 'id_perpustakaan'},
                         {data: 'id_buku', name: 'id_buku'},
                         {data: 'jumlah', name: 'jumlah'},
