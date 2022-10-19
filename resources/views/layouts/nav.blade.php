@@ -7,7 +7,7 @@
           <i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p>
         </a>
       </li>
-      
+
       <li class="nav-item">
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-edit"></i>
@@ -94,7 +94,7 @@
       <li class="nav-item">
         <a href="/perpustakaans" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
-          <p>perpustakaan</p>
+          <p>Perpustakaan</p>
         </a>
       </li>
       <li class="nav-item">
@@ -127,14 +127,14 @@
           <p>Data Aset Desa</p>
         </a>
       </li>
-      
+
       <li class="nav-item">
         <a href="/koperasis" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
           <p>Koperasi</p>
         </a>
       </li>
-    
+
         <li class="nav-item">
           <a href="/catatanDiesnataliss" class="nav-link">
             <i class="nav-icon fas fa-columns"></i>
@@ -142,7 +142,7 @@
               Catatan Diesnatalis
             </p>
           </a>
-        </li>   
+        </li>
 
         <li class="nav-item">
           <a href="/penyuluhans" class="nav-link">
@@ -151,7 +151,7 @@
               Penyuluhan
             </p>
           </a>
-        </li>   
+        </li>
         <li class="nav-item">
           <a href="/pelatihans" class="nav-link">
             <i class="nav-icon fas fa-columns"></i>
@@ -159,7 +159,7 @@
               Pelatihan
             </p>
           </a>
-        </li>   
+        </li>
         <li class="nav-item">
           <a href="/dataIndustris" class="nav-link">
             <i class="nav-icon fas fa-columns"></i>
@@ -167,7 +167,7 @@
               Data Industri
             </p>
           </a>
-        </li>   
+        </li>
         <li class="nav-item">
           <a href="/catatanKeluargas" class="nav-link">
             <i class="nav-icon fas fa-columns"></i>
@@ -175,7 +175,7 @@
               Catatan Keluarga
             </p>
           </a>
-        </li>   
+        </li>
 
 
     </ul>

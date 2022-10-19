@@ -67,7 +67,8 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Kabupaten/Kota:</strong>
-                                    <input type="text" name="kabupaten_kota" class="form-control" placeholder="Kabupaten/Kota">
+                                    <input type="text" name="kabupaten_kota" class="form-control"
+                                        placeholder="Kabupaten/Kota">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -122,7 +123,7 @@
                                 <div class="form-group">
                                     <strong>JK:</strong>
                                     <select class="form-control" name="jk" id="">
-                                        <option >--Pilih--</option>
+                                        <option>--Pilih--</option>
                                         <option value="L">L</option>
                                         <option value="P">P</option>
                                     </select>
@@ -149,7 +150,8 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Keterangan:</strong>
-                                    <input type="text" name="keterangan" class="form-control" placeholder="Keterangan">
+                                    <input type="text" name="keterangan" class="form-control"
+                                        placeholder="Keterangan">
                                 </div>
                             </div>
 
@@ -201,41 +203,104 @@
         </table>
     </div>
 
-    @section('table')
-        <script type="text/javascript">
-             $(function () {
+@section('table')
+    <script type="text/javascript">
+        $(function() {
 
-                var table = $('.data-table').DataTable({
-                    responsive: true,
-                    processing: true,
-                    serverSide: true,
-                    ajax: "{{ route('catatanDiesnataliss.index') }}",
-                    columns: [
-                        {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
-                        {data: 'id_dasawisma', name: 'id_dasawisma'},
-                        {data: 'rt', name: 'rt'},
-                        {data: 'rw', name: 'rw'},
-                        {data: 'kelurahan', name: 'kelurahan'},
-                        {data: 'kecamatan', name: 'kecamatan'},
-                        {data: 'kabupaten_kota', name: 'kabupaten_kota'},
-                        {data: 'provinsi', name: 'provinsi'},
-                        {data: 'bulan', name: 'bulan'},
-                        {data: 'tahun', name: 'tahun'},
-                        {data: 'nama_ibu', name: 'nama_ibu'},
-                        {data: 'nama_suami', name: 'nama_suami'},
-                        {data: 'nama_anak', name: 'nama_anak'},
-                        {data: 'status', name: 'status'},
-                        {data: 'jenkel', name: 'jenkel'},
-                        {data: 'tanggal', name: 'tanggal'},
-                        {data: 'akta', name: 'akta'},
-                        {data: 'sebab', name: 'sebab'},
-                        {data: 'keterangan', name: 'keterangan'},
-                        {data: 'action', name: 'action', orderable: false, searchable: false},
-                    ]
-                });
-
+            var table = $('.data-table').DataTable({
+                responsive: true,
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('catatanDiesnataliss.index') }}",
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'id_dasawisma',
+                        name: 'id_dasawisma'
+                    },
+                    {
+                        data: 'rt',
+                        name: 'rt'
+                    },
+                    {
+                        data: 'rw',
+                        name: 'rw'
+                    },
+                    {
+                        data: 'kelurahan',
+                        name: 'kelurahan'
+                    },
+                    {
+                        data: 'kecamatan',
+                        name: 'kecamatan'
+                    },
+                    {
+                        data: 'kabupaten_kota',
+                        name: 'kabupaten_kota'
+                    },
+                    {
+                        data: 'provinsi',
+                        name: 'provinsi'
+                    },
+                    {
+                        data: 'bulan',
+                        name: 'bulan'
+                    },
+                    {
+                        data: 'tahun',
+                        name: 'tahun'
+                    },
+                    {
+                        data: 'nama_ibu',
+                        name: 'nama_ibu'
+                    },
+                    {
+                        data: 'nama_suami',
+                        name: 'nama_suami'
+                    },
+                    {
+                        data: 'nama_anak',
+                        name: 'nama_anak'
+                    },
+                    {
+                        data: 'status',
+                        name: 'status'
+                    },
+                    {
+                        data: 'jenkel',
+                        name: 'jenkel'
+                    },
+                    {
+                        data: 'tanggal',
+                        name: 'tanggal'
+                    },
+                    {
+                        data: 'akta',
+                        name: 'akta'
+                    },
+                    {
+                        data: 'sebab',
+                        name: 'sebab'
+                    },
+                    {
+                        data: 'keterangan',
+                        name: 'keterangan'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
+                ]
             });
-        </script>
-    @endsection
+
+        });
+    </script>
+@endsection
 
 @endsection

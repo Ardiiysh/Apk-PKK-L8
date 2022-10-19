@@ -19,19 +19,20 @@
             <!-- Example split danger button -->
             <div class="btn-group">
                 <button type="button" class="btn btn-info">Unduh</button>
-                <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false">
-                <span class="sr-only">Toggle Dropdown</span>
+                <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu">
-                <a class="dropdown-item" href="/buku">Excel</a>
-                <a class="dropdown-item" href="#">PDF</a>
-                <a class="dropdown-item" href="#">Word</a>
+                    <a class="dropdown-item" href="/buku">Excel</a>
+                    <a class="dropdown-item" href="#">PDF</a>
+                    <a class="dropdown-item" href="#">Word</a>
                 </div>
             </div>
 
             <!-- Button trigger modal -->
-            <button type="button" href="{{ route('bukuPerpustakaans.create') }}" class="btn btn-success" data-toggle="modal"
-                data-target="#exampleModal">
+            <button type="button" href="{{ route('bukuPerpustakaans.create') }}" class="btn btn-success"
+                data-toggle="modal" data-target="#exampleModal">
                 +
             </button>
 
@@ -50,7 +51,8 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Id Perpustakaan:</strong>
-                                    <input type="text" name="id_perpustakaan" class="form-control" placeholder="Id Perpustakaan">
+                                    <input type="text" name="id_perpustakaan" class="form-control"
+                                        placeholder="Id Perpustakaan">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -85,7 +87,7 @@
         </div>
     @endif
     <br>
-    <div class="table-responsive">
+    <div class="table table-responsive w-100 d-block d-xxl-table">
         <table class="table table-bordered data-table nowrap">
             <thead>
                 <tr>
@@ -99,27 +101,45 @@
         </table>
     </div>
 
-    @section('table')
-        <script type="text/javascript">
-             $(function () {
+@section('table')
+    <script type="text/javascript">
+        $(function() {
 
-                var table = $('.data-table').DataTable({
-                    responsive: true,
-                    processing: true,
-                    serverSide: true,
-                    ajax: "{{ route('bukuPerpustakaans.index') }}",
-                    columns: [
-                        {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
-                        {data: 'id_perpustakaan', name: 'id_perpustakaan'},
-                        {data: 'id_buku', name: 'id_buku'},
-                        {data: 'jumlah', name: 'jumlah'},
-                        {data: 'action', name: 'action', orderable: false, searchable: false},
-                    ]
-                });
-
+            var table = $('.data-table').DataTable({
+                responsive: true,
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('bukuPerpustakaans.index') }}",
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'id_perpustakaan',
+                        name: 'id_perpustakaan'
+                    },
+                    {
+                        data: 'id_buku',
+                        name: 'id_buku'
+                    },
+                    {
+                        data: 'jumlah',
+                        name: 'jumlah'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
+                ]
             });
-        </script>
-    @endsection
+
+        });
+    </script>
+@endsection
 
 
 @endsection

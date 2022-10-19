@@ -25,7 +25,7 @@ class CatatanDiesnatalisController extends Controller
                     ->addColumn('action', function($row){
 
                         $btn = '
-                        <form onsubmit="return confirm(\'Apakah anda yakin ingin menghapus '.$row->id.' ?\');"  action="catatanDiesnataliss/'.$row->id.'" method="POST">
+                        <form onsubmit="return confirm(\'Apakah anda yakin ingin menghapus '.$row->id_dasawisma.' ?\');"  action="catatanDiesnataliss/'.$row->id.'" method="POST">
 
                             <a class="btn btn-primary" href="catatanDiesnataliss/'.$row->id.'/edit" >
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
