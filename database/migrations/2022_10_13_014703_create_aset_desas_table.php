@@ -17,7 +17,7 @@ class CreateAsetDesasTable extends Migration
             $table->increments('id_aset_desa');
             $table->string('kategori');
             $table->string('komoditi');
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }

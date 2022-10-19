@@ -17,7 +17,7 @@ class CreateIndustriRumahTanggasTable extends Migration
             $table->increments('id_industri_rumah_tangga');
             $table->string('kategori');
             $table->string('komoditi');
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }

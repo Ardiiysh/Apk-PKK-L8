@@ -1,5 +1,5 @@
 @extends('layouts.layout')
- @section('title','catatan Keluarga')
+ @section('title','rekapitulasiKelahiranKematian')
 
 @section('content')
     <div class="row">
@@ -23,19 +23,19 @@
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="/catatanKeluarga">Excel</a>
+      <a class="dropdown-item" href="/rekapitulasiKelahiranKematian">Excel</a>
       <a class="dropdown-item" href="#">PDF</a>
       <a class="dropdown-item" href="#">Word</a>
     </div>
   </div>
 
-        {{-- <a href="/catatanKeluarga" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
+        {{-- <a href="/rekapitulasiKelahiranKematian" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
 
 
 
 
             <!-- Button trigger modal -->
-            <button type="button"  href="{{ route('catatanKeluargas.create') }}" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+            <button type="button"  href="{{ route('rekapitulasiKelahiranKematians.create') }}" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                 +
             </button>
 
@@ -44,59 +44,53 @@
                 <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">catatanKeluarga</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">rekapitulasiKelahiranKematian</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    <form action="{{ route('catatanKeluargas.store') }}" method="POST">
+                    <form action="{{ route('rekapitulasiKelahiranKematians.store') }}" method="POST">
                         @csrf
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Kepala Rumah Tangga:</strong>
-                                <input type="text" name="kepala_rumah_tangga" class="form-control" placeholder="kepala_rumah_tangga">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Id Dasawisma:</strong>
+                                <strong>ID Dasawisma:</strong>
                                 <input type="number" min="0" name="id_dasawisma" class="form-control" placeholder="id_dasawisma">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Tahun:</strong>
-                                <input type="number" min="0" name="tahun" class="form-control" placeholder="tahun">
+                                <strong>RT:</strong>
+                                <input type="number" min="0" name="rt" class="form-control" placeholder="rt">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Kriteria Rumah:</strong>
-                                <input type="text" name="kriteria_rumah" class="form-control" placeholder="kriteria_rumah">
+                                <strong>RW:</strong>
+                                <input type="number" name="rw" class="form-control" placeholder="rw">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Jamban:</strong>
-                                <input type="text" name="jamban" class="form-control" placeholder="jamban">
+                                <strong>kelurahan:</strong>
+                                <input type="text" name="kelurahan" class="form-control" placeholder="kelurahan">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Jumlah Jamban:</strong>
-                                <input type="number" min="0" name="jumlah_jamban" class="form-control" placeholder="jumlah_jamban">
+                                <strong>kecamatan:</strong>
+                                <input type="text" name="kecamatan" class="form-control" placeholder="kecamatan">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Sumber Air:</strong>
-                                <input type="text" name="sumber_air" class="form-control" placeholder="sumber_air">
+                                <strong>kabupaten/kota:</strong>
+                                <input type="text" name="kabupaten_kota" class="form-control" placeholder="kabupaten_kota">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Tempat Sampah:</strong>
-                                <input type="text" name="tempat_sampah" class="form-control" placeholder="tempat_sampah">
+                                <strong>provinsi:</strong>
+                                <input type="text" name="provinsi" class="form-control" placeholder="provinsi">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -126,17 +120,15 @@
     <table class="table table-bordered data-table">
         <thead>
             <tr>
-                <th>id catatan keluarga</th>
-                <th>kepala rumah tangga</th>
-                <th>id dasawisma</th>
-                <th>tahun</th>
-                <th>kriteria rumah</th>
-                <th>jamban</th>
-                <th>jumlah jamban</th>
-                <th>sumber air</th>
-                <th>tempat sampah</th>
+                <th>ID Perpus</th>
+                <th>id_dasawisma</th>
+                <th>rt</th>
+                <th>rw</th>
+                <th>kelurahan</th>
+                <th>kecamatan</th>
+                <th>kabupaten_kota</th>
+                <th>provinsi</th>
                 <th>keterangan</th>
-
                 <th width="280px">Action</th>
             </tr>
         </thead>
@@ -144,25 +136,25 @@
 
     @section('table')
         <script type="text/javascript">
+
              $(function () {
 
                 var table = $('.data-table').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: "{{ route('catatanKeluargas.index') }}",
+                    ajax: "{{ route('rekapitulasiKelahiranKematians.index') }}",
                     scrollX: 200,
                     deferRender: true,
                     scroller: true,
                     columns: [
-                        {data: 'id_catatan_keluarga', name: 'id_catatan_keluarga'},
-                        {data: 'kepala_rumah_tangga', name: 'kepala_rumah_tangga'},
+                        {data: 'id_rekapitulasi_kelahiran_kematian', name: 'id_rekapitulasi_kelahiran_kematian'},
                         {data: 'id_dasawisma', name: 'id_dasawisma'},
-                        {data: 'tahun', name: 'tahun'},
-                        {data: 'kriteria_rumah', name: 'kriteria_rumah'},
-                        {data: 'jamban', name: 'jamban'},
-                        {data: 'jumlah_jamban', name: 'jumlah_jamban'},
-                        {data: 'sumber_air', name: 'sumber_air'},
-                        {data: 'tempat_sampah', name: 'tempat_sampah'},
+                        {data: 'rt', name: 'rt'},
+                        {data: 'rw', name: 'rw'},
+                        {data: 'kelurahan', name: 'kelurahan'},
+                        {data: 'kecamatan', name: 'kecamatan'},
+                        {data: 'kabupaten_kota', name: 'kabupaten_kota'},
+                        {data: 'provinsi', name: 'provinsi'},
                         {data: 'keterangan', name: 'keterangan'},
                         {data: 'action', name: 'action', orderable: false, searchable: false},
                     ]

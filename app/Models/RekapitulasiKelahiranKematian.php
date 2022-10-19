@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Perpustakaan extends Model
+class RekapitulasiKelahiranKematian extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'id_perpustakaan';
+    protected $primaryKey = 'id_rekapitulasi_kelahiran_kematian';
     protected $fillable = [
         'id_dasawisma' ,
         'rt' ,
@@ -17,9 +17,6 @@ class Perpustakaan extends Model
         'kecamatan' ,
         'kabupaten_kota' ,
         'provinsi' ,
-        'nama_perpustakaan' ,
-        'pengelola' ,
-        'jumlah_buku' ,
         'keterangan' ,
     ];
 }

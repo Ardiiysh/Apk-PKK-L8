@@ -37,7 +37,7 @@ class CreateWargasTable extends Migration
             $table->string('kelompok_belajar');
             $table->string('paud');
             $table->string('koperasi');
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }

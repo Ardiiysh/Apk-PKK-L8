@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRekapitulasiKelompokPkkRtsTable extends Migration
+class CreateRekaptilulasiLahirMatisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateRekapitulasiKelompokPkkRtsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rekapitulasi_kelompok_pkk_rts', function (Blueprint $table) {
-            $table->increments('id_rekapitulasi_kelompok_pkk_rt');
-            $table->integer('rt');
-            $table->integer('rw');
-            $table->string('kelurahan');
+        Schema::create('rekaptilulasi_lahir_matis', function (Blueprint $table) {
+            $table->increments('id_rekapitulasi_lahir_mati');
+            $table->integer('id_rekapitulasi_kelahiran_kematian');
+            $table->integer('id_catatan_diesnatalis');
+            $table->integer('id_dasawisma');
+            $table->string('bulan');
             $table->integer('tahun');
             $table->text('keterangan');
+
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class CreateRekapitulasiKelompokPkkRtsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rekapitulasi_kelompok_pkk_rts');
+        Schema::dropIfExists('rekaptilulasi_lahir_matis');
     }
 }
