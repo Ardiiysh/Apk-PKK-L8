@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\WargaController;
 use App\Http\Controllers\AsetDesaController;
+use App\Http\Controllers\DataAsetController;
 use App\Http\Controllers\KoperasiController;
 use App\Http\Controllers\DasawismaController;
 use App\Http\Controllers\PelatihanController;
@@ -22,8 +23,8 @@ use App\Http\Controllers\IndustriRumahTanggaController;
 use App\Http\Controllers\CatatanKeluargaWargaController;
 use App\Http\Controllers\RekaptilulasiLahirMatiController;
 use App\Http\Controllers\DataIndustriRumahTanggaController;
-use App\Http\Controllers\RekapitulasiKelompokPkkRtController;
 
+use App\Http\Controllers\RekapitulasiKelompokPkkRtController;
 use App\Http\Controllers\RekapitulasiKelahiranKematianController;
 use App\Http\Controllers\RekapitulasiKelompokDasawismaController;
 
@@ -94,10 +95,12 @@ Route::resource('perpustakaans', PerpustakaanController::class);
 Route::resource('rekapitulasiKelahiranKematians', RekapitulasiKelahiranKematianController::class);
 //route catatanKeluargas
 Route::resource('catatanKeluargas', CatatanKeluargaController::class);
-//route RekaptilulasiLahirMati
+//route rekaptilulasiLahirMatis
 Route::resource('rekaptilulasiLahirMatis', RekaptilulasiLahirMatiController::class);
-//route CatatanKeluargaWarga
+//route catatanKeluargaWargas
 Route::resource('catatanKeluargaWargas', CatatanKeluargaWargaController::class);
+//route dataAsets
+Route::resource('dataAsets', DataAsetController::class);
 
 
 
