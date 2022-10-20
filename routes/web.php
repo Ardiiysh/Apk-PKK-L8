@@ -147,6 +147,8 @@ Route::get('dasawisma', [DasawismaController::class, 'export_excel'])->name('das
 Route::get('penyuluhan', [PenyuluhanController::class, 'export_excel'])->name('penyuluhan.export_excel');
 //route catatanKeluargaWarga
 Route::get('catatanKeluargaWarga', [CatatanKeluargaWargaController::class, 'export_excel'])->name('catatanKeluargaWarga.export_excel');
+//route dataAset
+Route::get('dataAset', [DataAsetController::class, 'export_excel'])->name('dataAset.export_excel');
 
 
 
