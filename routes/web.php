@@ -1,30 +1,31 @@
 <?php
 
 // use App\Http\Controllers\RayonController;
-use App\Http\Controllers\BukuController;
-use App\Http\Controllers\DasawismaController;
-use App\Http\Controllers\CatatanDiesnatalisController;
-use App\Http\Controllers\BukuPerpustakaanController;
-use App\Http\Controllers\PenyuluhanController;
-use App\Http\Controllers\PelatihanController;
-use App\Http\Controllers\DataIndustriController;
-use App\Http\Controllers\KegiatanWargaController;
-use App\Http\Controllers\WargaController;
-use App\Http\Controllers\KoperasiController;
-use App\Http\Controllers\RekapitulasiKelompokDasawismaController;
-use App\Http\Controllers\RekapitulasiKelompokPkkRtController;
-use App\Http\Controllers\AsetDesaController;
-use App\Http\Controllers\DataAsetDesaController;
-use App\Http\Controllers\IndustriRumahTanggaController;
-use App\Http\Controllers\DataIndustriRumahTanggaController;
-use App\Http\Controllers\PerpustakaanController;
-use App\Http\Controllers\RekapitulasiKelahiranKematianController;
-use App\Http\Controllers\CatatanKeluargaController;
-use App\Http\Controllers\RekaptilulasiLahirMatiController;
 use App\Models\Dasawisma;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BukuController;
+use App\Http\Controllers\WargaController;
+use App\Http\Controllers\AsetDesaController;
+use App\Http\Controllers\KoperasiController;
+use App\Http\Controllers\DasawismaController;
+use App\Http\Controllers\PelatihanController;
+use App\Http\Controllers\PenyuluhanController;
+use App\Http\Controllers\DataAsetDesaController;
+use App\Http\Controllers\DataIndustriController;
+use App\Http\Controllers\PerpustakaanController;
+use App\Http\Controllers\KegiatanWargaController;
+use App\Http\Controllers\CatatanKeluargaController;
+use App\Http\Controllers\BukuPerpustakaanController;
+use App\Http\Controllers\CatatanDiesnatalisController;
+use App\Http\Controllers\IndustriRumahTanggaController;
+use App\Http\Controllers\CatatanKeluargaWargaController;
+use App\Http\Controllers\RekaptilulasiLahirMatiController;
+use App\Http\Controllers\DataIndustriRumahTanggaController;
+use App\Http\Controllers\RekapitulasiKelompokPkkRtController;
+
+use App\Http\Controllers\RekapitulasiKelahiranKematianController;
+use App\Http\Controllers\RekapitulasiKelompokDasawismaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +96,8 @@ Route::resource('rekapitulasiKelahiranKematians', RekapitulasiKelahiranKematianC
 Route::resource('catatanKeluargas', CatatanKeluargaController::class);
 //route RekaptilulasiLahirMati
 Route::resource('rekaptilulasiLahirMatis', RekaptilulasiLahirMatiController::class);
+//route CatatanKeluargaWarga
+Route::resource('catatanKeluargaWargas', CatatanKeluargaWargaController::class);
 
 
 
