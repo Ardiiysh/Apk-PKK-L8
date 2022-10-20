@@ -142,6 +142,8 @@ Route::get('catatanDiesnatalis', [CatatanKeluargaController::class, 'export_exce
 Route::get('dasawisma', [DasawismaController::class, 'export_excel'])->name('dasawisma.export_excel');
 //route penyuluhan
 Route::get('penyuluhan', [PenyuluhanController::class, 'export_excel'])->name('penyuluhan.export_excel');
+//route catatanKeluargaWarga
+Route::get('catatanKeluargaWarga', [CatatanKeluargaWargaController::class, 'export_excel'])->name('catatanKeluargaWarga.export_excel');
 
 
 
