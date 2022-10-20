@@ -101,7 +101,7 @@
     @endif
     <br>
     <div class="container">
-        <table class="data-table display nowrap">
+        <table class="data-table display nowrap" style="width: 100%">
             <thead>
                 <tr>
                     <th>No</th>

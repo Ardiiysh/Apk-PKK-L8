@@ -21,7 +21,7 @@ use App\Http\Controllers\PerpustakaanController;
 use App\Http\Controllers\RekapitulasiKelahiranKematianController;
 use App\Http\Controllers\CatatanKeluargaController;
 use App\Http\Controllers\RekaptilulasiLahirMatiController;
-
+use App\Models\Dasawisma;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Route;
@@ -101,6 +101,8 @@ Route::resource('rekaptilulasiLahirMatis', RekaptilulasiLahirMatiController::cla
 //Route Export Excel
 //route export excel buku
 Route::get('buku', [BukuController::class, 'export_excel'])->name('buku.export_excel');
+//route export excel bukuPerpustakaans
+Route::get('bukuPerpustakaan', [BukuPerpustakaanController::class, 'export_excel'])->name('bukuPerpustakaan.export_excel');
 //route export excel pelatihan
 Route::get('pelatihan', [PelatihanController::class, 'export_excel'])->name('pelatihan.export_excel');
 //route export excel Data Industri
@@ -131,6 +133,12 @@ Route::get('rekapitulasiKelahiranKematian', [RekapitulasiKelahiranKematianContro
 Route::get('catatanKeluarga', [CatatanKeluargaController::class, 'export_excel'])->name('catatanKeluarga.export_excel');
 //route rekapitulasiKelahiranKematian
 Route::get('rekaptilulasiLahirMati', [RekaptilulasiLahirMatiController::class, 'export_excel'])->name('rekaptilulasiLahirMati.export_excel');
+//route catatanDiesnatalis
+Route::get('catatanDiesnatalis', [CatatanKeluargaController::class, 'export_excel'])->name('catatanDiesnatalis.export_excel');
+//route dasawisma
+Route::get('dasawisma', [DasawismaController::class, 'export_excel'])->name('dasawisma.export_excel');
+//route penyuluhan
+Route::get('penyuluhan', [PenyuluhanController::class, 'export_excel'])->name('penyuluhan.export_excel');
 
 
 

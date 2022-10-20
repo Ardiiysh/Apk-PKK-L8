@@ -24,7 +24,7 @@
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/buku">Excel</a>
+                    <a class="dropdown-item" href="/bukuPerpustakaan">Excel</a>
                     <a class="dropdown-item" href="#">PDF</a>
                     <a class="dropdown-item" href="#">Word</a>
                 </div>
@@ -88,7 +88,7 @@
     @endif
     <br>
     <div class="container">
-        <table class="data-table display nowrap">
+        <table class="data-table display nowrap" style="width: 100%">
             <thead>
                 <tr>
                     <th>No</th>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Penyuluhan;
 use Illuminate\Http\Request;
+use App\Exports\PenyuluhanExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -51,6 +53,11 @@ class PenyuluhanController extends Controller
         }
         return view('penyuluhans.index');
     }
+
+    public function export_excel()
+	{
+		return Excel::download(new PenyuluhanExport, 'Laporan Penyuluhan.xlsx');
+	}
 
     /**
      * Show the form for creating a new resource.

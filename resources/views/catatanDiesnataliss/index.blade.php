@@ -15,6 +15,21 @@
                     </ul>
                 </div>
             @endif
+
+            <!-- Example split danger button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-info">Unduh</button>
+                <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/buku">Excel</a>
+                    <a class="dropdown-item" href="#">PDF</a>
+                    <a class="dropdown-item" href="#">Word</a>
+                </div>
+            </div>
+            
             <!-- Button trigger modal -->
             <button type="button" href="{{ route('catatanDiesnataliss.create') }}" class="btn btn-success" data-toggle="modal"
                 data-target="#exampleModal">
@@ -175,7 +190,7 @@
     @endif
     <br>
     <div class="container">
-        <table class="data-table display nowrap">
+        <table class="data-table display nowrap" style="width: 100%">
             <thead>
                 <tr>
                     <th>No</th>

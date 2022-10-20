@@ -17,14 +17,19 @@ class CatatanKeluargaExport implements FromCollection,WithHeadings
     }
     public function headings(): array
     {
-        return[ 'ID Catatan Keluarga','Kepala Rumah tangga' ,
-        'ID Dasawisma' ,
-        'Tahun' ,
-        'Kriteria Rumah' ,
-        'Jamban' ,
-        'Jumlah Jamban' ,
-        'Sumber Air' ,
-        'Tempat Sampah' ,
-        'Keterangan' , "Created_at","Updated_at"];
+        return [
+            'ID Catatan Keluarga',
+            'Kepala Rumah tangga',
+            'ID Dasawisma',
+            'Tahun',
+            'Kriteria Rumah',
+            'Jamban',
+            'Jumlah Jamban',
+            'Sumber Air',
+            'Tempat Sampah',
+            'Keterangan',
+            "Created_at",
+            "Updated_at"
+        ];
     }
 }

@@ -6,7 +6,7 @@ use App\Models\Buku;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class BukuExport implements FromCollection, WithHeadings 
+class BukuExport implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -18,6 +18,13 @@ class BukuExport implements FromCollection, WithHeadings
 
     public function headings(): array
     {
-        return["ID", "Jenis Buku", "Kategori", "Keterangan","Created_at","Updated_at"];
+        return [
+            "ID",
+            "Jenis Buku",
+            "Kategori",
+            "Keterangan",
+            "Created_at",
+            "Updated_at"
+        ];
     }
 }

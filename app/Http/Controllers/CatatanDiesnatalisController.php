@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CatatanDiesnatalis;
 use Illuminate\Http\Request;
-// use App\Exports\BukuExport;
+use App\Exports\CatatanDiesnatalisExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
@@ -53,6 +53,11 @@ class CatatanDiesnatalisController extends Controller
         }
         return view('catatanDiesnataliss.index');
     }
+
+    public function export_excel()
+	{
+		return Excel::download(new CatatanDiesnatalisExport, 'Laporan Catatan Diesnatalis.xlsx');
+	}
 
     /**
      * Show the form for creating a new resource.

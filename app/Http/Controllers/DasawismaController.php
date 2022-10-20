@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Dasawisma;
 use Illuminate\Http\Request;
+use App\Exports\DasawismaExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -51,6 +53,11 @@ class DasawismaController extends Controller
         }
         return view('dasawismas.index');
     }
+
+    public function export_excel()
+	{
+		return Excel::download(new DasawismaExport, 'Laporan Dasawisma.xlsx');
+	}
 
     /**
      * Show the form for creating a new resource.
