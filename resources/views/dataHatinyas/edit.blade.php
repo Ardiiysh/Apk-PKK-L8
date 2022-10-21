@@ -32,7 +32,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>ID Dasawisma:</strong>
-                        <input type="text" name="id_dasawisma" value="{{ $dataHatinya->nama_dataHatinya }}" class="form-control" placeholder="nama_dataHatinya">
+                        <input type="text" name="id_dasawisma" value="{{ $dataHatinya->id_dasawisma }}" class="form-control" placeholder="nama_dataHatinya">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
