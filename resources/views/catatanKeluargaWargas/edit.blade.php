@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2> @section('title','Edit Buku')</h2>
+                <h2> @section('title','Edit Catatan Keluarga Warga')</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('bukus.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('catatanKeluargaWargas.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <form action="{{ route('bukus.update',$buku->id) }}" method="POST">
+    <form action="{{ route('catatanKeluargaWargas.update',$catatanKeluargaWarga->id_catatan_keluarga_warga) }}" method="POST">
         @csrf
         @method('PUT')
 <br>
@@ -31,23 +31,17 @@
             <div class="card-body">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Jenis Buku:</strong>
-                        <input type="text" name="jenis_buku" value="{{ $buku->jenis_buku }}" class="form-control" placeholder="Jenis_buku">
+                        <strong>ID Catatan Keluarga:</strong>
+                        <input type="text" name="id_catatan_keluarga" value="{{ $catatanKeluargaWarga->id_catatan_keluarga }}" class="form-control" placeholder="Jenis_catatanKeluargaWarga">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Kategori:</strong>
-                        <input type="text" name="kategori" value="{{ $buku->kategori }}" class="form-control" placeholder="kategori">
+                        <strong>ID Warga:</strong>
+                        <input type="text" name="id_warga" value="{{ $catatanKeluargaWarga->id_warga }}" class="form-control" placeholder="kategori">
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Keterangan:</strong>
-                        <input type="text" name="keterangan" value="{{ $buku->keterangan }}" class="form-control" placeholder="0878xxxx">
-                    </div>
-                </div>
-               
+
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                     <button type="submit" class="btn btn-primary">Submit</button>
             </div>

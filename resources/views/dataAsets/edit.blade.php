@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2> @section('title','Edit Dasawisma')</h2>
+                <h2> @section('title','Edit Data Aset')</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('dasawismas.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('dataAsets.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <form action="{{ route('dasawismas.update',$dasawisma->id) }}" method="POST">
+    <form action="{{ route('dataAsets.update',$dataAset->id_data_aset) }}" method="POST">
         @csrf
         @method('PUT')
 <br>
@@ -31,53 +31,53 @@
             <div class="card-body">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Nama Dasawisma:</strong>
-                        <input type="text" name="nama_dasawisma" value="{{ $dasawisma->nama_dasawisma }}" class="form-control" placeholder="nama_dasawisma">
+                        <strong>ID Dasawisma:</strong>
+                        <input type="text" name="id_dasawisma" value="{{ $dataAset->id_dasawisma }}" class="form-control" placeholder="nama_dataAset">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>RT:</strong>
-                        <input type="number" min="0" name="rt" value="{{ $dasawisma->rt }}" class="form-control" placeholder="rt">
+                        <input type="number" min="0" name="rt" value="{{ $dataAset->rt }}" class="form-control" placeholder="rt">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>RW:</strong>
-                        <input type="number" min="0" name="rw" value="{{ $dasawisma->rw }}" class="form-control" placeholder="rw">
+                        <input type="number" min="0" name="rw" value="{{ $dataAset->rw }}" class="form-control" placeholder="rw">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Kelurahan:</strong>
-                        <input type="text" name="kelurahan" value="{{ $dasawisma->kelurahan }}" class="form-control" placeholder="">
+                        <input type="text" name="kelurahan" value="{{ $dataAset->kelurahan }}" class="form-control" placeholder="">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>kecamatan:</strong>
-                        <input type="text" name="kecamatan" value="{{ $dasawisma->kecamatan }}" class="form-control" placeholder="">
+                        <strong>Kecamatan:</strong>
+                        <input type="text" name="kecamatan" value="{{ $dataAset->kecamatan }}" class="form-control" placeholder="">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>kabupaten kota:</strong>
-                        <input type="text" name="kabupaten_kota" value="{{ $dasawisma->kabupaten_kota }}" class="form-control" placeholder="">
+                        <strong>Kabupaten/Kota:</strong>
+                        <input type="text" name="kabupaten_kota" value="{{ $dataAset->kabupaten_kota }}" class="form-control" placeholder="">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>provinsi:</strong>
-                        <input type="text" name="provinsi" value="{{ $dasawisma->provinsi }}" class="form-control" placeholder="">
+                        <strong>Provinsi:</strong>
+                        <input type="text" name="provinsi" value="{{ $dataAset->provinsi }}" class="form-control" placeholder="">
                     </div>
                 </div>
                  <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Keterangan:</strong>
-                        <input type="text" name="keterangan" value="{{ $dasawisma->keterangan }}" class="form-control" placeholder="">
+                        <input type="text" name="keterangan" value="{{ $dataAset->keterangan }}" class="form-control" placeholder="">
                     </div>
                 </div>
-               
+
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                     <button type="submit" class="btn btn-primary">Submit</button>
             </div>
