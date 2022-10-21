@@ -192,6 +192,14 @@
             </p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="/dataHatinyas" class="nav-link">
+            <i class="nav-icon fas fa-columns"></i>
+            <p>
+              Data Hatinya
+            </p>
+          </a>
+        </li>
 
 
     </ul>

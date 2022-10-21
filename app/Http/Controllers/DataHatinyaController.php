@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DataAset;
+use App\Models\DataHatinya;
 use Illuminate\Http\Request;
-use App\Exports\DataAsetExport;
+use App\Exports\DataHatinyaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 
 
-class DataAsetController extends Controller
+class DataHatinyaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,15 +20,15 @@ class DataAsetController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = DataAset::select('*');
+            $data = DataHatinya::select('*');
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
 
                         $btn = '
-                        <form onsubmit="return confirm(\'Apakah anda yakin ingin menghapus '.$row->id_dasawisma.' ?\');"  action="dataAsets/'.$row->id_data_aset.'" method="POST">
+                        <form onsubmit="return confirm(\'Apakah anda yakin ingin menghapus '.$row->id_dasawisma.' ?\');"  action="dataHatinyas/'.$row->id_data_hatinya.'" method="POST">
 
-                            <a class="btn btn-primary" href="dataAsets/'.$row->id_data_aset.'/edit" >
+                            <a class="btn btn-primary" href="dataHatinyas/'.$row->id_data_hatinya.'/edit" >
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
@@ -52,12 +52,12 @@ class DataAsetController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('dataAsets.index');
+        return view('dataHatinyas.index');
     }
 
     public function export_excel()
 	{
-		return Excel::download(new DataAsetExport, 'Laporan Data Aset.xlsx');
+		return Excel::download(new DataHatinyaExport, 'Laporan Data Hatinya.xlsx');
 	}
 
     /**
@@ -67,7 +67,7 @@ class DataAsetController extends Controller
      */
     public function create()
     {
-        return view('dataAsets.create');
+        return view('dataHatinyas.create');
 
     }
 
@@ -87,24 +87,22 @@ class DataAsetController extends Controller
             'kecamatan' => 'required',
             'kabupaten_kota' => 'required',
             'provinsi' => 'required',
-            'nama_warung_pkk' => 'required',
-            'pengelola' => 'required',
             'keterangan' => 'required',
         ]);
 
-        dataAset::create($request->all());
+        dataHatinya::create($request->all());
 
-        return redirect()->route('dataAsets.index')
-                        ->with('success','Data Aset created successfully.');
+        return redirect()->route('dataHatinyas.index')
+                        ->with('success','Data Hatinya created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\dataAset  $dataAset
+     * @param  \App\Models\dataHatinya  $dataHatinya
      * @return \Illuminate\Http\Response
      */
-    public function show(dataAset $dataAset)
+    public function show(dataHatinya $dataHatinya)
     {
         //
     }
@@ -112,12 +110,12 @@ class DataAsetController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\dataAset  $dataAset
+     * @param  \App\Models\dataHatinya  $dataHatinya
      * @return \Illuminate\Http\Response
      */
-    public function edit(dataAset $dataAset)
+    public function edit(dataHatinya $dataHatinya)
     {
-        return view('dataAsets.edit',compact('dataAset'));
+        return view('dataHatinyas.edit',compact('dataHatinya'));
 
     }
 
@@ -125,10 +123,10 @@ class DataAsetController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\dataAset  $dataAset
+     * @param  \App\Models\dataHatinya  $dataHatinya
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, dataAset $dataAset)
+    public function update(Request $request, dataHatinya $dataHatinya)
     {
         $request->validate([
             'id_dasawisma' => 'required',
@@ -138,28 +136,26 @@ class DataAsetController extends Controller
             'kecamatan' => 'required',
             'kabupaten_kota' => 'required',
             'provinsi' => 'required',
-            'nama_warung_pkk' => 'required',
-            'pengelola' => 'required',
             'keterangan' => 'required',
         ]);
 
-         $dataAset->update($request->all());
+         $dataHatinya->update($request->all());
 
-         return redirect()->route('dataAsets.index')
-                         ->with('success','Data Aset updated successfully');
+         return redirect()->route('dataHatinyas.index')
+                         ->with('success','Data Hatinya updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\dataAset  $dataAset
+     * @param  \App\Models\dataHatinya  $dataHatinya
      * @return \Illuminate\Http\Response
      */
-    public function destroy(dataAset $dataAset)
+    public function destroy(dataHatinya $dataHatinya)
     {
-        $dataAset->delete();
+        $dataHatinya->delete();
 
-        return redirect()->route('dataAsets.index')
-                        ->with('success','Data Aset deleted successfully');
+        return redirect()->route('dataHatinyas.index')
+                        ->with('success','Data Hatinya deleted successfully');
     }
 }

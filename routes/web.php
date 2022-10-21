@@ -12,6 +12,7 @@ use App\Http\Controllers\KoperasiController;
 use App\Http\Controllers\DasawismaController;
 use App\Http\Controllers\PelatihanController;
 use App\Http\Controllers\PenyuluhanController;
+use App\Http\Controllers\DataHatinyaController;
 use App\Http\Controllers\DataAsetDesaController;
 use App\Http\Controllers\DataIndustriController;
 use App\Http\Controllers\PerpustakaanController;
@@ -22,8 +23,8 @@ use App\Http\Controllers\CatatanDiesnatalisController;
 use App\Http\Controllers\IndustriRumahTanggaController;
 use App\Http\Controllers\CatatanKeluargaWargaController;
 use App\Http\Controllers\RekaptilulasiLahirMatiController;
-use App\Http\Controllers\DataIndustriRumahTanggaController;
 
+use App\Http\Controllers\DataIndustriRumahTanggaController;
 use App\Http\Controllers\RekapitulasiKelompokPkkRtController;
 use App\Http\Controllers\RekapitulasiKelahiranKematianController;
 use App\Http\Controllers\RekapitulasiKelompokDasawismaController;
@@ -101,6 +102,8 @@ Route::resource('rekaptilulasiLahirMatis', RekaptilulasiLahirMatiController::cla
 Route::resource('catatanKeluargaWargas', CatatanKeluargaWargaController::class);
 //route dataAsets
 Route::resource('dataAsets', DataAsetController::class);
+//route dataHatinyas
+Route::resource('dataHatinyas', DataHatinyaController::class);
 
 
 
@@ -149,6 +152,8 @@ Route::get('penyuluhan', [PenyuluhanController::class, 'export_excel'])->name('p
 Route::get('catatanKeluargaWarga', [CatatanKeluargaWargaController::class, 'export_excel'])->name('catatanKeluargaWarga.export_excel');
 //route dataAset
 Route::get('dataAset', [DataAsetController::class, 'export_excel'])->name('dataAset.export_excel');
+//route dataHatinya
+Route::get('dataHatinya', [DataHatinyaController::class, 'export_excel'])->name('dataHatinya.export_excel');
 
 
 
