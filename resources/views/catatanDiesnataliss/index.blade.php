@@ -15,6 +15,21 @@
                     </ul>
                 </div>
             @endif
+
+            <!-- Example split danger button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-info">Unduh</button>
+                <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/buku">Excel</a>
+                    <a class="dropdown-item" href="#">PDF</a>
+                    <a class="dropdown-item" href="#">Word</a>
+                </div>
+            </div>
+            
             <!-- Button trigger modal -->
             <button type="button" href="{{ route('catatanDiesnataliss.create') }}" class="btn btn-success" data-toggle="modal"
                 data-target="#exampleModal">
@@ -67,7 +82,8 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Kabupaten/Kota:</strong>
-                                    <input type="text" name="kabupaten_kota" class="form-control" placeholder="Kabupaten/Kota">
+                                    <input type="text" name="kabupaten_kota" class="form-control"
+                                        placeholder="Kabupaten/Kota">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -122,7 +138,7 @@
                                 <div class="form-group">
                                     <strong>JK:</strong>
                                     <select class="form-control" name="jk" id="">
-                                        <option >--Pilih--</option>
+                                        <option>--Pilih--</option>
                                         <option value="L">L</option>
                                         <option value="P">P</option>
                                     </select>
@@ -149,7 +165,8 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Keterangan:</strong>
-                                    <input type="text" name="keterangan" class="form-control" placeholder="Keterangan">
+                                    <input type="text" name="keterangan" class="form-control"
+                                        placeholder="Keterangan">
                                 </div>
                             </div>
 
@@ -172,8 +189,8 @@
         </div>
     @endif
     <br>
-    <div class="table-responsive">
-        <table class="table table-bordered data-table nowrap">
+    <div class="container">
+        <table class="data-table display nowrap" style="width: 100%">
             <thead>
                 <tr>
                     <th>No</th>
@@ -201,41 +218,105 @@
         </table>
     </div>
 
-    @section('table')
-        <script type="text/javascript">
-             $(function () {
+@section('table')
+    <script type="text/javascript">
+        $(function() {
 
-                var table = $('.data-table').DataTable({
-                    responsive: true,
-                    processing: true,
-                    serverSide: true,
-                    ajax: "{{ route('catatanDiesnataliss.index') }}",
-                    columns: [
-                        {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
-                        {data: 'id_dasawisma', name: 'id_dasawisma'},
-                        {data: 'rt', name: 'rt'},
-                        {data: 'rw', name: 'rw'},
-                        {data: 'kelurahan', name: 'kelurahan'},
-                        {data: 'kecamatan', name: 'kecamatan'},
-                        {data: 'kabupaten_kota', name: 'kabupaten_kota'},
-                        {data: 'provinsi', name: 'provinsi'},
-                        {data: 'bulan', name: 'bulan'},
-                        {data: 'tahun', name: 'tahun'},
-                        {data: 'nama_ibu', name: 'nama_ibu'},
-                        {data: 'nama_suami', name: 'nama_suami'},
-                        {data: 'nama_anak', name: 'nama_anak'},
-                        {data: 'status', name: 'status'},
-                        {data: 'jenkel', name: 'jenkel'},
-                        {data: 'tanggal', name: 'tanggal'},
-                        {data: 'akta', name: 'akta'},
-                        {data: 'sebab', name: 'sebab'},
-                        {data: 'keterangan', name: 'keterangan'},
-                        {data: 'action', name: 'action', orderable: false, searchable: false},
-                    ]
-                });
-
+            var table = $('.data-table').DataTable({
+                responsive: true,
+                processing: true,
+                serverSide: true,
+                scrollX: true,
+                ajax: "{{ route('catatanDiesnataliss.index') }}",
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'id_dasawisma',
+                        name: 'id_dasawisma'
+                    },
+                    {
+                        data: 'rt',
+                        name: 'rt'
+                    },
+                    {
+                        data: 'rw',
+                        name: 'rw'
+                    },
+                    {
+                        data: 'kelurahan',
+                        name: 'kelurahan'
+                    },
+                    {
+                        data: 'kecamatan',
+                        name: 'kecamatan'
+                    },
+                    {
+                        data: 'kabupaten_kota',
+                        name: 'kabupaten_kota'
+                    },
+                    {
+                        data: 'provinsi',
+                        name: 'provinsi'
+                    },
+                    {
+                        data: 'bulan',
+                        name: 'bulan'
+                    },
+                    {
+                        data: 'tahun',
+                        name: 'tahun'
+                    },
+                    {
+                        data: 'nama_ibu',
+                        name: 'nama_ibu'
+                    },
+                    {
+                        data: 'nama_suami',
+                        name: 'nama_suami'
+                    },
+                    {
+                        data: 'nama_anak',
+                        name: 'nama_anak'
+                    },
+                    {
+                        data: 'status',
+                        name: 'status'
+                    },
+                    {
+                        data: 'jenkel',
+                        name: 'jenkel'
+                    },
+                    {
+                        data: 'tanggal',
+                        name: 'tanggal'
+                    },
+                    {
+                        data: 'akta',
+                        name: 'akta'
+                    },
+                    {
+                        data: 'sebab',
+                        name: 'sebab'
+                    },
+                    {
+                        data: 'keterangan',
+                        name: 'keterangan'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
+                ]
             });
-        </script>
-    @endsection
+
+        });
+    </script>
+@endsection
 
 @endsection

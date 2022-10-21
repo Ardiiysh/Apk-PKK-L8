@@ -2,27 +2,25 @@
 
 namespace App\Exports;
 
-use App\Models\Buku;
+use App\Models\CatatanKeluargaWarga;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class BukuExport implements FromCollection, WithHeadings
+class CatatanKeluargaWargaExport implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return Buku::all();
+        return CatatanKeluargaWarga::all();
     }
-
     public function headings(): array
     {
         return [
-            "ID",
-            "Jenis Buku",
-            "Kategori",
-            "Keterangan",
+            "ID Catatan Keluarga Warga",
+            'ID Catatan Keluarga',
+            'ID Warga',
             "Created_at",
             "Updated_at"
         ];

@@ -1,30 +1,33 @@
 <?php
 
 // use App\Http\Controllers\RayonController;
+use App\Models\Dasawisma;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
-use App\Http\Controllers\DasawismaController;
-use App\Http\Controllers\CatatanDiesnatalisController;
-use App\Http\Controllers\BukuPerpustakaanController;
-use App\Http\Controllers\PenyuluhanController;
-use App\Http\Controllers\PelatihanController;
-use App\Http\Controllers\DataIndustriController;
-use App\Http\Controllers\KegiatanWargaController;
 use App\Http\Controllers\WargaController;
-use App\Http\Controllers\KoperasiController;
-use App\Http\Controllers\RekapitulasiKelompokDasawismaController;
-use App\Http\Controllers\RekapitulasiKelompokPkkRtController;
 use App\Http\Controllers\AsetDesaController;
+use App\Http\Controllers\DataAsetController;
+use App\Http\Controllers\KoperasiController;
+use App\Http\Controllers\DasawismaController;
+use App\Http\Controllers\PelatihanController;
+use App\Http\Controllers\PenyuluhanController;
+use App\Http\Controllers\DataHatinyaController;
 use App\Http\Controllers\DataAsetDesaController;
-use App\Http\Controllers\IndustriRumahTanggaController;
-use App\Http\Controllers\DataIndustriRumahTanggaController;
+use App\Http\Controllers\DataIndustriController;
 use App\Http\Controllers\PerpustakaanController;
-use App\Http\Controllers\RekapitulasiKelahiranKematianController;
+use App\Http\Controllers\KegiatanWargaController;
 use App\Http\Controllers\CatatanKeluargaController;
+use App\Http\Controllers\BukuPerpustakaanController;
+use App\Http\Controllers\CatatanDiesnatalisController;
+use App\Http\Controllers\IndustriRumahTanggaController;
+use App\Http\Controllers\CatatanKeluargaWargaController;
 use App\Http\Controllers\RekaptilulasiLahirMatiController;
 
-use Illuminate\Support\Facades\Auth;
-
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DataIndustriRumahTanggaController;
+use App\Http\Controllers\RekapitulasiKelompokPkkRtController;
+use App\Http\Controllers\RekapitulasiKelahiranKematianController;
+use App\Http\Controllers\RekapitulasiKelompokDasawismaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,14 +96,22 @@ Route::resource('perpustakaans', PerpustakaanController::class);
 Route::resource('rekapitulasiKelahiranKematians', RekapitulasiKelahiranKematianController::class);
 //route catatanKeluargas
 Route::resource('catatanKeluargas', CatatanKeluargaController::class);
-//route RekaptilulasiLahirMati
+//route rekaptilulasiLahirMatis
 Route::resource('rekaptilulasiLahirMatis', RekaptilulasiLahirMatiController::class);
+//route catatanKeluargaWargas
+Route::resource('catatanKeluargaWargas', CatatanKeluargaWargaController::class);
+//route dataAsets
+Route::resource('dataAsets', DataAsetController::class);
+//route dataHatinyas
+Route::resource('dataHatinyas', DataHatinyaController::class);
 
 
 
 //Route Export Excel
 //route export excel buku
 Route::get('buku', [BukuController::class, 'export_excel'])->name('buku.export_excel');
+//route export excel bukuPerpustakaans
+Route::get('bukuPerpustakaan', [BukuPerpustakaanController::class, 'export_excel'])->name('bukuPerpustakaan.export_excel');
 //route export excel pelatihan
 Route::get('pelatihan', [PelatihanController::class, 'export_excel'])->name('pelatihan.export_excel');
 //route export excel Data Industri
@@ -131,6 +142,18 @@ Route::get('rekapitulasiKelahiranKematian', [RekapitulasiKelahiranKematianContro
 Route::get('catatanKeluarga', [CatatanKeluargaController::class, 'export_excel'])->name('catatanKeluarga.export_excel');
 //route rekapitulasiKelahiranKematian
 Route::get('rekaptilulasiLahirMati', [RekaptilulasiLahirMatiController::class, 'export_excel'])->name('rekaptilulasiLahirMati.export_excel');
+//route catatanDiesnatalis
+Route::get('catatanDiesnatalis', [CatatanKeluargaController::class, 'export_excel'])->name('catatanDiesnatalis.export_excel');
+//route dasawisma
+Route::get('dasawisma', [DasawismaController::class, 'export_excel'])->name('dasawisma.export_excel');
+//route penyuluhan
+Route::get('penyuluhan', [PenyuluhanController::class, 'export_excel'])->name('penyuluhan.export_excel');
+//route catatanKeluargaWarga
+Route::get('catatanKeluargaWarga', [CatatanKeluargaWargaController::class, 'export_excel'])->name('catatanKeluargaWarga.export_excel');
+//route dataAset
+Route::get('dataAset', [DataAsetController::class, 'export_excel'])->name('dataAset.export_excel');
+//route dataHatinya
+Route::get('dataHatinya', [DataHatinyaController::class, 'export_excel'])->name('dataHatinya.export_excel');
 
 
 

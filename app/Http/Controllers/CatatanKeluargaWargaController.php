@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DataIndustri;
+use App\Models\CatatanKeluargaWarga;
 use Illuminate\Http\Request;
-use App\Exports\DataIndustriExport;
+use App\Exports\CatatanKeluargaWargaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 
-class DataIndustriController extends Controller
+class CatatanKeluargaWargaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,15 +19,15 @@ class DataIndustriController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = DataIndustri::select('*');
+            $data = CatatanKeluargaWarga::select('*');
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
 
                         $btn = '
-                        <form onsubmit="return confirm(\'Apakah anda yakin ingin menghapus '.$row->id_dasawisma.' ?\');"  action="dataIndustris/'.$row->id_data_industri.'" method="POST">
+                        <form onsubmit="return confirm(\'Apakah anda yakin ingin menghapus '.$row->id_catatan_keluarga.' ?\');"  action="catatanKeluargaWargas/'.$row->id_catatan_keluarga_warga.'" method="POST">
 
-                            <a class="btn btn-primary" href="dataIndustris/'.$row->id_data_industri.'/edit" >
+                            <a class="btn btn-primary" href="catatanKeluargaWargas/'.$row->id_catatan_keluarga_warga.'/edit" >
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
@@ -51,13 +51,14 @@ class DataIndustriController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('dataIndustris.index');
+        return view('catatanKeluargaWargas.index');
     }
 
     public function export_excel()
 	{
-		return Excel::download(new DataIndustriExport, 'Laporan Data Industri.xlsx');
+		return Excel::download(new CatatanKeluargaWargaExport, 'Laporan Catatan Keluarga Warga.xlsx');
 	}
+
 
     /**
      * Show the form for creating a new resource.
@@ -66,7 +67,8 @@ class DataIndustriController extends Controller
      */
     public function create()
     {
-        return view('dataIndustris.create');
+        return view('catatanKeluargaWargas.create');
+
     }
 
     /**
@@ -78,29 +80,23 @@ class DataIndustriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
-            'rt' => 'required',
-            'rw' => 'required',
-            'kelurahan' => 'required',
-            'kecamatan' => 'required',
-            'kabupaten_kota' => 'required',
-            'provinsi' => 'required',
-            'keterangan' => 'required',
+           'id_catatan_keluarga' => 'required',
+           'id_warga' => 'required',
         ]);
 
-        DataIndustri::create($request->all());
+        CatatanKeluargaWarga::create($request->all());
 
-        return redirect()->route('dataIndustris.index')
-                        ->with('success','Data Industri created successfully.');
+        return redirect()->route('catatanKeluargaWargas.index')
+                        ->with('success','Catatan Keluarga Warga created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\DataIndustri  $dataIndustri
+     * @param  \App\Models\CatatanKeluargaWarga  $catatanKeluarga
      * @return \Illuminate\Http\Response
      */
-    public function show(DataIndustri $dataIndustri)
+    public function show(CatatanKeluargaWarga $catatanKeluarga)
     {
         //
     }
@@ -108,12 +104,12 @@ class DataIndustriController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\DataIndustri  $dataIndustri
+     * @param  \App\Models\CatatanKeluargaWarga  $catatanKeluarga
      * @return \Illuminate\Http\Response
      */
-    public function edit(DataIndustri $dataIndustri)
+    public function edit(CatatanKeluargaWarga $catatanKeluarga)
     {
-        return view('dataIndustris.edit', compact('dataIndustri'));
+        return view('catatanKeluargaWargas.edit',compact('catatanKeluarga'));
 
     }
 
@@ -121,39 +117,34 @@ class DataIndustriController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DataIndustri  $dataIndustri
+     * @param  \App\Models\CatatanKeluargaWarga  $catatanKeluarga
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DataIndustri $dataIndustri)
+    public function update(Request $request, CatatanKeluargaWarga $catatanKeluarga)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
-            'rt' => 'required',
-            'rw' => 'required',
-            'kelurahan' => 'required',
-            'kecamatan' => 'required',
-            'kabupaten_kota' => 'required',
-            'provinsi' => 'required',
-            'keterangan' => 'required',
-        ]);
+            'id_catatan_keluarga' => 'required',
+           'id_warga' => 'required',
+         ]);
 
-         $dataIndustri->update($request->all());
+         $catatanKeluarga->update($request->all());
 
-         return redirect()->route('dataIndustris.index')
-                         ->with('success','dataIndustri updated successfully');
+         return redirect()->route('catatanKeluargaWargas.index')
+                         ->with('success','Catatan Keluarga Warga updated successfully');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\DataIndustri  $dataIndustri
+     * @param  \App\Models\CatatanKeluargaWarga  $catatanKeluarga
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DataIndustri $dataIndustri)
+    public function destroy(CatatanKeluargaWarga $catatanKeluarga)
     {
-        $dataIndustri->delete();
+        $catatanKeluarga->delete();
 
-        return redirect()->route('dataIndustris.index')
-                        ->with('success','dataIndustri deleted successfully');
+        return redirect()->route('catatanKeluargaWargas.index')
+                        ->with('success','Catatan Keluarga Warga deleted successfully');
     }
 }

@@ -2,27 +2,32 @@
 
 namespace App\Exports;
 
-use App\Models\BukuPerpustakaan;
+use App\Models\Dasawisma;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class BukuPerpustakaanExport implements FromCollection, WithHeadings
+class DasawismaExport implements FromCollection, WithHeadings
 {
     /**
      * @return \Illuminate\Support\Collection
      */
     public function collection()
     {
-        return BukuPerpustakaan::all();
+        return Dasawisma::all();
     }
 
     public function headings(): array
     {
         return [
-            'ID Buku Perpustakaan',
-            'ID Perpustakaan',
-            'ID Buku',
-            'Jumlah',
+            'ID',
+            'Nama Dasawisma',
+            'RT',
+            'RW',
+            'Kelurahan',
+            'Kecamatan',
+            'Kabupaten/Kota',
+            'Provinsi',
+            'Keterangan',
             'Created_at',
             'Updated_at'
         ];

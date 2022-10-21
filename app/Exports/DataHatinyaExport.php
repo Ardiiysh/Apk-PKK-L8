@@ -2,29 +2,31 @@
 
 namespace App\Exports;
 
-use App\Models\AsetDesa;
+use App\Models\DataHatinya;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class AsetDesaExport implements FromCollection, WithHeadings
+class DataHatinyaExport implements FromCollection, WithHeadings
 {
     /**
      * @return \Illuminate\Support\Collection
      */
     public function collection()
     {
-        return AsetDesa::all();
+        return DataHatinya::all();
     }
 
     public function headings(): array
     {
         return [
-            'ID Aset Desa',
-            'Kategori',
-            'Komoditi',
+            'ID Dasawisma',
+            'RT',
+            'RW',
+            'Kelurahan',
+            'Kecamatan',
+            'Kabupaten/Kota',
+            'Provinsi',
             'Keterangan',
-            'Created_at',
-            'Updated_at'
         ];
     }
 }

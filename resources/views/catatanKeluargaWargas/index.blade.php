@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'Aset Desa')
+@section('title', 'Catatan Keluarga Warga')
 
 @section('content')
     <div class="row">
@@ -24,20 +24,20 @@
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/asetDesa">Excel</a>
+                    <a class="dropdown-item" href="/catatanKeluargaWarga">Excel</a>
                     <a class="dropdown-item" href="#">PDF</a>
                     <a class="dropdown-item" href="#">Word</a>
                 </div>
             </div>
 
-            {{-- <a href="/asetDesa" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
+            {{-- <a href="/buku" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
 
 
 
 
             <!-- Button trigger modal -->
-            <button type="button" href="{{ route('asetDesas.create') }}" class="btn btn-success" data-toggle="modal"
-                data-target="#exampleModal">
+            <button type="button" href="{{ route('catatanKeluargaWargas.create') }}" class="btn btn-success"
+                data-toggle="modal" data-target="#exampleModal">
                 +
             </button>
 
@@ -46,36 +46,30 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">asetDesa</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Catatan Keluarga Warga</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="{{ route('asetDesas.store') }}" method="POST">
+                        <form action="{{ route('catatanKeluargaWargas.store') }}" method="POST">
                             @csrf
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>ID Catatan Keluarga:</strong>
+                                    <input type="text" name="ID Catatan Keluarga" class="form-control"
+                                        placeholder="buku">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>ID Warga:</strong>
+                                    <input type="text" name="ID Warga" class="form-control" placeholder="kategori">
+                                </div>
+                            </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>kategori:</strong>
-                                    <input type="text" name="kategori" class="form-control" placeholder="kategori">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>komoditi:</strong>
-                                    <input type="text" name="komoditi" class="form-control" placeholder="komoditi">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Keterangan:</strong>
-                                    <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
-                                </div>
-                            </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>
-
                             </div>
                         </form>
                     </div>
@@ -95,9 +89,8 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Kategori</th>
-                    <th>komoditi</th>
-                    <th>keterangan</th>
+                    <th>ID Catatan Keluarga</th>
+                    <th>ID Warga</th>
                     <th width="280px">Action</th>
                 </tr>
             </thead>
@@ -113,7 +106,7 @@
                 processing: true,
                 serverSide: true,
                 scrollX: true,
-                ajax: "{{ route('asetDesas.index') }}",
+                ajax: "{{ route('catatanKeluargaWargas.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
@@ -121,16 +114,12 @@
                         searchable: false
                     },
                     {
-                        data: 'kategori',
-                        name: 'kategori'
+                        data: 'id_catatan_keluarga',
+                        name: 'id_catatan_keluarga'
                     },
                     {
-                        data: 'komoditi',
-                        name: 'komoditi'
-                    },
-                    {
-                        data: 'keterangan',
-                        name: 'keterangan'
+                        data: 'id_warga',
+                        name: 'id_warga'
                     },
                     {
                         data: 'action',

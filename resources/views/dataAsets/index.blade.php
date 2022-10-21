@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'Perpustakaan')
+@section('title', 'Data Aset')
 
 @section('content')
     <div class="row">
@@ -24,19 +24,14 @@
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/perpustakaan">Excel</a>
+                    <a class="dropdown-item" href="/dataAset">Excel</a>
                     <a class="dropdown-item" href="#">PDF</a>
                     <a class="dropdown-item" href="#">Word</a>
                 </div>
             </div>
 
-            {{-- <a href="/perpustakaan" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
-
-
-
-
             <!-- Button trigger modal -->
-            <button type="button" href="{{ route('perpustakaans.create') }}" class="btn btn-success" data-toggle="modal"
+            <button type="button" href="{{ route('dataAsets.create') }}" class="btn btn-success" data-toggle="modal"
                 data-target="#exampleModal">
                 +
             </button>
@@ -46,89 +41,82 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">perpustakaan</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Data Aset</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="{{ route('perpustakaans.store') }}" method="POST">
+                        <form action="{{ route('dataAsets.store') }}" method="POST">
                             @csrf
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>ID Dasawisma:</strong>
-                                    <input type="number" min="0" name="id_dasawisma" class="form-control"
-                                        placeholder="id_dasawisma">
+                                    <input type="text" name="id_dasawisma" class="form-control" placeholder="dataAset">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>RT:</strong>
-                                    <input type="number" min="0" name="rt" class="form-control"
-                                        placeholder="rt">
+                                    <input type="number" name="rt" class="form-control" min="0"
+                                        placeholder="RT">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>RW:</strong>
-                                    <input type="number" name="rw" class="form-control" placeholder="rw">
+                                    <input type="number" name="rw" class="form-control" min="0"
+                                        placeholder="RW">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>kelurahan:</strong>
+                                    <strong>Kelurahan:</strong>
                                     <input type="text" name="kelurahan" class="form-control" placeholder="kelurahan">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>kecamatan:</strong>
-                                    <input type="text" name="kecamatan" class="form-control" placeholder="kecamatan">
+                                    <input type="text" name="kecamatan" class="form-control" placeholder="RW">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>kabupaten/kota:</strong>
+                                    <strong>Kabupaten/Kota:</strong>
                                     <input type="text" name="kabupaten_kota" class="form-control"
                                         placeholder="kabupaten_kota">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>provinsi:</strong>
+                                    <strong>Provinsi:</strong>
                                     <input type="text" name="provinsi" class="form-control" placeholder="provinsi">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>nama_perpustakaan:</strong>
-                                    <input type="text" name="nama_perpustakaan" class="form-control"
-                                        placeholder="nama_perpustakaan">
+                                    <strong>Nama Warung PKK:</strong>
+                                    <input type="text" name="nama_warung_pkk" class="form-control"
+                                        placeholder="provinsi">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>pengelola:</strong>
-                                    <input type="text" name="pengelola" class="form-control" placeholder="pengelola">
+                                    <strong>Pengelola:</strong>
+                                    <input type="text" name="pengelola" class="form-control" placeholder="provinsi">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Jumlah Buku:</strong>
-                                    <input type="number" min="0" name="jumlah_buku" class="form-control"
-                                        placeholder="jumlah_buku">
+                                    <strong>keterangan:</strong>
+                                    <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Keterangan:</strong>
-                                    <input type="text" name="keterangan" class="form-control"
-                                        placeholder="keterangan">
-                                </div>
-                            </div>
+
+
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>
-
                             </div>
                         </form>
                     </div>
@@ -148,17 +136,15 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>ID Perpus</th>
                     <th>ID Dasawisma</th>
                     <th>RT</th>
                     <th>RW</th>
                     <th>Kelurahan</th>
                     <th>Kecamatan</th>
-                    <th>Kabupaten Kota</th>
+                    <th>Kabupaten/Kota</th>
                     <th>Provinsi</th>
-                    <th>Nama Perpustakaan</th>
+                    <th>Nama Warung PKK</th>
                     <th>Pengelola</th>
-                    <th>Jumlah Buku</th>
                     <th>Keterangan</th>
                     <th width="280px">Action</th>
                 </tr>
@@ -175,16 +161,12 @@
                 processing: true,
                 serverSide: true,
                 scrollX: true,
-                ajax: "{{ route('perpustakaans.index') }}",
+                ajax: "{{ route('dataAsets.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
                         orderable: false,
                         searchable: false
-                    },
-                    {
-                        data: 'id_perpustakaan',
-                        name: 'id_perpustakaan'
                     },
                     {
                         data: 'id_dasawisma',
@@ -215,16 +197,12 @@
                         name: 'provinsi'
                     },
                     {
-                        data: 'nama_perpustakaan',
-                        name: 'nama_perpustakaan'
+                        data: 'nama_warung_pkk',
+                        name: 'nama_warung_pkk'
                     },
                     {
                         data: 'pengelola',
                         name: 'pengelola'
-                    },
-                    {
-                        data: 'jumlah_buku',
-                        name: 'jumlah_buku'
                     },
                     {
                         data: 'keterangan',
