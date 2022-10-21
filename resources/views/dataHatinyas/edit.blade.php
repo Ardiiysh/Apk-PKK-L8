@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <form action="{{ route('dataHatinyas.update',$dataHatinya->id) }}" method="POST">
+    <form action="{{ route('dataHatinyas.update',$dataHatinya->id_data_hatinya) }}" method="POST">
         @csrf
         @method('PUT')
 <br>
@@ -32,7 +32,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>ID Dasawisma:</strong>
-                        <input type="text" name="nama_dataHatinya" value="{{ $dataHatinya->nama_dataHatinya }}" class="form-control" placeholder="nama_dataHatinya">
+                        <input type="text" name="id_dasawisma" value="{{ $dataHatinya->nama_dataHatinya }}" class="form-control" placeholder="nama_dataHatinya">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>kecamatan:</strong>
+                        <strong>Kecamatan:</strong>
                         <input type="text" name="kecamatan" value="{{ $dataHatinya->kecamatan }}" class="form-control" placeholder="">
                     </div>
                 </div>
