@@ -21,6 +21,11 @@ use App\Http\Controllers\PerpustakaanController;
 use App\Http\Controllers\RekapitulasiKelahiranKematianController;
 use App\Http\Controllers\CatatanKeluargaController;
 use App\Http\Controllers\RekaptilulasiLahirMatiController;
+use App\Http\Controllers\KelompokBelajarController;
+use App\Http\Controllers\DataKejarController;
+use App\Http\Controllers\DataKelompokBelajarController;
+use App\Http\Controllers\DataKeluargaController;
+use App\Http\Controllers\DataAsetController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -95,8 +100,16 @@ Route::resource('rekapitulasiKelahiranKematians', RekapitulasiKelahiranKematianC
 Route::resource('catatanKeluargas', CatatanKeluargaController::class);
 //route RekaptilulasiLahirMati
 Route::resource('rekaptilulasiLahirMatis', RekaptilulasiLahirMatiController::class);
-
-
+//route KelompokBelajarController
+Route::resource('kelompokBelajars', KelompokBelajarController::class);
+//route DataKejar
+Route::resource('dataKejars', DataKejarController::class);
+//route DataKelompokBelajarController
+Route::resource('dataKelompokBelajars', DataKelompokBelajarController::class);
+//route DataKeluargaController
+Route::resource('dataKeluargas', DataKeluargaController::class);
+//route DataAset
+Route::resource('dataAsets', DataAsetController::class);
 
 //Route Export Excel
 //route export excel buku
@@ -131,6 +144,16 @@ Route::get('rekapitulasiKelahiranKematian', [RekapitulasiKelahiranKematianContro
 Route::get('catatanKeluarga', [CatatanKeluargaController::class, 'export_excel'])->name('catatanKeluarga.export_excel');
 //route rekapitulasiKelahiranKematian
 Route::get('rekaptilulasiLahirMati', [RekaptilulasiLahirMatiController::class, 'export_excel'])->name('rekaptilulasiLahirMati.export_excel');
+//route kelompokBelajar
+Route::get('kelompokBelajar', [KelompokBelajarController::class, 'export_excel'])->name('kelompokBelajar.export_excel');
+//route dataKejar
+Route::get('dataKejar', [DataKejarController::class, 'export_excel'])->name('dataKejar.export_excel');
+//route kelompokBelajar
+Route::get('dataKelompokBelajar', [DataKelompokBelajarController::class, 'export_excel'])->name('dataKelompokBelajar.export_excel');
+//route dataKeluargas
+Route::get('dataKeluarga', [DataKeluargaController::class, 'export_excel'])->name('dataKeluarga.export_excel');
+//route dataAsets
+Route::get('dataAset', [DataAsetController::class, 'export_excel'])->name('dataAset.export_excel');
 
 
 
