@@ -6,11 +6,11 @@ use App\Models\DataAset;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class DataAsetExport implements FromCollection, WithHeadings
+class DataAsetExport implements FromCollection,WithHeadings
 {
     /**
-     * @return \Illuminate\Support\Collection
-     */
+    * @return \Illuminate\Support\Collection
+    */
     public function collection()
     {
         return DataAset::all();

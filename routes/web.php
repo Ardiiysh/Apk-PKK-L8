@@ -23,6 +23,10 @@ use App\Http\Controllers\CatatanDiesnatalisController;
 use App\Http\Controllers\IndustriRumahTanggaController;
 use App\Http\Controllers\CatatanKeluargaWargaController;
 use App\Http\Controllers\RekaptilulasiLahirMatiController;
+use App\Http\Controllers\KelompokBelajarController;
+use App\Http\Controllers\DataKejarController;
+use App\Http\Controllers\DataKelompokBelajarController;
+use App\Http\Controllers\DataKeluargaController;
 
 use App\Http\Controllers\DataIndustriRumahTanggaController;
 use App\Http\Controllers\RekapitulasiKelompokPkkRtController;
@@ -98,14 +102,16 @@ Route::resource('rekapitulasiKelahiranKematians', RekapitulasiKelahiranKematianC
 Route::resource('catatanKeluargas', CatatanKeluargaController::class);
 //route rekaptilulasiLahirMatis
 Route::resource('rekaptilulasiLahirMatis', RekaptilulasiLahirMatiController::class);
-//route catatanKeluargaWargas
-Route::resource('catatanKeluargaWargas', CatatanKeluargaWargaController::class);
-//route dataAsets
+//route KelompokBelajarController
+Route::resource('kelompokBelajars', KelompokBelajarController::class);
+//route DataKejar
+Route::resource('dataKejars', DataKejarController::class);
+//route DataKelompokBelajarController
+Route::resource('dataKelompokBelajars', DataKelompokBelajarController::class);
+//route DataKeluargaController
+Route::resource('dataKeluargas', DataKeluargaController::class);
+//route DataAset
 Route::resource('dataAsets', DataAsetController::class);
-//route dataHatinyas
-Route::resource('dataHatinyas', DataHatinyaController::class);
-
-
 
 //Route Export Excel
 //route export excel buku
@@ -142,18 +148,16 @@ Route::get('rekapitulasiKelahiranKematian', [RekapitulasiKelahiranKematianContro
 Route::get('catatanKeluarga', [CatatanKeluargaController::class, 'export_excel'])->name('catatanKeluarga.export_excel');
 //route rekapitulasiKelahiranKematian
 Route::get('rekaptilulasiLahirMati', [RekaptilulasiLahirMatiController::class, 'export_excel'])->name('rekaptilulasiLahirMati.export_excel');
-//route catatanDiesnatalis
-Route::get('catatanDiesnatalis', [CatatanKeluargaController::class, 'export_excel'])->name('catatanDiesnatalis.export_excel');
-//route dasawisma
-Route::get('dasawisma', [DasawismaController::class, 'export_excel'])->name('dasawisma.export_excel');
-//route penyuluhan
-Route::get('penyuluhan', [PenyuluhanController::class, 'export_excel'])->name('penyuluhan.export_excel');
-//route catatanKeluargaWarga
-Route::get('catatanKeluargaWarga', [CatatanKeluargaWargaController::class, 'export_excel'])->name('catatanKeluargaWarga.export_excel');
-//route dataAset
+//route kelompokBelajar
+Route::get('kelompokBelajar', [KelompokBelajarController::class, 'export_excel'])->name('kelompokBelajar.export_excel');
+//route dataKejar
+Route::get('dataKejar', [DataKejarController::class, 'export_excel'])->name('dataKejar.export_excel');
+//route kelompokBelajar
+Route::get('dataKelompokBelajar', [DataKelompokBelajarController::class, 'export_excel'])->name('dataKelompokBelajar.export_excel');
+//route dataKeluargas
+Route::get('dataKeluarga', [DataKeluargaController::class, 'export_excel'])->name('dataKeluarga.export_excel');
+//route dataAsets
 Route::get('dataAset', [DataAsetController::class, 'export_excel'])->name('dataAset.export_excel');
-//route dataHatinya
-Route::get('dataHatinya', [DataHatinyaController::class, 'export_excel'])->name('dataHatinya.export_excel');
 
 
 

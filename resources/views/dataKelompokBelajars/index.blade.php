@@ -1,5 +1,5 @@
 @extends('layouts.layout')
- @section('title','dataAset')
+ @section('title','dataKelompokBelajar')
 
 @section('content')
     <div class="row">
@@ -23,19 +23,19 @@
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="/dataAset">Excel</a>
+      <a class="dropdown-item" href="/dataKelompokBelajar">Excel</a>
       <a class="dropdown-item" href="#">PDF</a>
       <a class="dropdown-item" href="#">Word</a>
     </div>
   </div>
 
-        {{-- <a href="/dataAset" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
+        {{-- <a href="/dataKelompokBelajar" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
 
 
 
 
             <!-- Button trigger modal -->
-            <button type="button"  href="{{ route('dataAsets.create') }}" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+            <button type="button"  href="{{ route('dataKelompokBelajars.create') }}" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                 +
             </button>
 
@@ -44,29 +44,29 @@
                 <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">dataAset</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">dataKelompokBelajar</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    <form action="{{ route('dataAsets.store') }}" method="POST">
+                    <form action="{{ route('dataKelompokBelajars.store') }}" method="POST">
                         @csrf
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>ID Dasawisma:</strong>
-                                <input ttype="number" min="0" name="id_dasawisma" class="form-control" placeholder="ID Dasawisma">
+                                <input type="number" min="0" name="id_dasawisma" class="form-control" placeholder="id_dasawisma">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>RT:</strong>
-                                <input type="number" min="0" name="rt" class="form-control" min="-1" placeholder="RT">
+                                <input type="number" min="0" name="rt" class="form-control" placeholder="rt">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>RW:</strong>
-                                <input type="number" min="0" name="rw" class="form-control" min="-1" placeholder="rw">
+                                <input type="number" name="rw" class="form-control" placeholder="rw">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -83,8 +83,8 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>kabupate_kota:</strong>
-                                <input type="text" name="kabupaten_kota" class="form-control" placeholder="kabupate_kota">
+                                <strong>kabupaten/kota:</strong>
+                                <input type="text" name="kabupaten_kota" class="form-control" placeholder="kabupaten_kota">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -92,25 +92,31 @@
                                 <strong>provinsi:</strong>
                                 <input type="text" name="provinsi" class="form-control" placeholder="provinsi">
                             </div>
-                        </div>
+                        </div>  
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Keterangan:</strong>
+                                <strong>id warga:</strong>
+                                <input type="number" min="0" name="id_warga" class="form-control" placeholder="id_warga">
+                            </div>
+                        </div>  
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>tanggal masuk:</strong>
+                                <input type="date" name="tanggal_masuk" class="form-control" placeholder="tanggal_masuk">
+                            </div>
+                        </div>  
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>kedudukan:</strong>
+                                <input type="text" name="kedudukan" class="form-control" placeholder="kedudukan">
+                            </div>
+                        </div>  
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>keterangan:</strong>
                                 <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
                             </div>
-                        </div>    
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>nama warung pkk:</strong>
-                                <input type="text" name="nama_warung_pkk" class="form-control" placeholder="nama warung pkk">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>pengelola:</strong>
-                                <input type="text" name="pengelola" class="form-control" placeholder="pengelola">
-                            </div>
-                        </div>                 
+                        </div>             
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -132,21 +138,18 @@
     <table class="table table-bordered data-table">
         <thead>
             <tr>
-                <th>id data aset</th>
-                <th>id dasawisma</th>
-                <th>nama warung pkk</th>
-                <th>pengelola</th>
-                <th>rt</th>
-                <th>rw</th>
-                <th>kelurahan</th>
-                <th>kecamatan</th>
-                <th>kabupaten kota</th>
-                <th>provinsi</th>
-                <th>keterangan</th>
-
-            
-
-
+                <th>id_data_kelompok_belajar </th>
+                <th>id_dasawisma </th>
+                <th>rt </th>
+                <th>rw </th>
+                <th>kelurahan </th>
+                <th>kecamatan </th>
+                <th>kabupaten_kota </th>
+                <th>provinsi </th>
+                <th>id_warga </th>
+                <th>tanggal_masuk </th>
+                <th>kedudukan </th>
+                <th>keterangan </th>
                 <th width="280px">Action</th>
             </tr>
         </thead>
@@ -160,21 +163,22 @@
                 var table = $('.data-table').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: "{{ route('dataAsets.index') }}",
+                    ajax: "{{ route('dataKelompokBelajars.index') }}",
                     scrollX: 200,
                     deferRender: true,
                     scroller: true,
                     columns: [
-                        {data: 'id_data_aset', name: 'id_data_aset'},
+                        {data: 'id_data_kelompok_belajar', name: 'id_data_kelompok_belajar'},
                         {data: 'id_dasawisma', name: 'id_dasawisma'},
-                        {data: 'nama_warung_pkk', name: 'nama_warung_pkk'},
-                        {data: 'pengelola', name: 'pengelola'},
                         {data: 'rt', name: 'rt'},
                         {data: 'rw', name: 'rw'},
                         {data: 'kelurahan', name: 'kelurahan'},
                         {data: 'kecamatan', name: 'kecamatan'},
                         {data: 'kabupaten_kota', name: 'kabupaten_kota'},
                         {data: 'provinsi', name: 'provinsi'},
+                        {data: 'id_warga', name: 'id_warga'},
+                        {data: 'tanggal_masuk', name: 'tanggal_masuk'},
+                        {data: 'kedudukan', name: 'kedudukan'},
                         {data: 'keterangan', name: 'keterangan'},
                         {data: 'action', name: 'action', orderable: false, searchable: false},
                     ]

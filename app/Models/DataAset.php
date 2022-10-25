@@ -10,15 +10,15 @@ class DataAset extends Model
     use HasFactory;
     protected $primaryKey = 'id_data_aset';
     protected $fillable = [
-        'id_dasawisma',
-        'rt',
-        'rw',
-        'kelurahan',
-        'kecamatan',
-        'kabupaten_kota',
-        'provinsi',
+        'id_dasawisma' ,
+        'rt' ,
+        'rw' ,
+        'kelurahan' ,
+        'kecamatan' ,
+        'kabupaten_kota' ,
+        'provinsi' ,
+        'keterangan' ,
         'nama_warung_pkk',
         'pengelola',
-        'keterangan',
     ];
 }

@@ -79,6 +79,44 @@
           </li>
         </ul>
       </li>
+
+      {{-- //bukan grout --}}
+      <li class="nav-item">
+        <a href="/dataAsets" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>Data Aset</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/dataKeluargas" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>Data Keluarga</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/kelompokBelajars" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>Kelompok Belajar</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/dataKelompokBelajars" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>Data Kelompok Belajar</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/dataKejars" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>Data Kejar</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/kelompokBelajars" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>Kelompok Belajar</p>
+        </a>
+      </li>
       <li class="nav-item">
         <a href="/rekaptilulasiLahirMatis" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
