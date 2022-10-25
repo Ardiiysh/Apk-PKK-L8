@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDataAsetsTable extends Migration
+class CreateDataKoperasisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateDataAsetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('data_asets', function (Blueprint $table) {
-            $table->increments("id_data_aset");
+        Schema::create('data_koperasis', function (Blueprint $table) {
+            $table->increments("id_data_koperasi");
             $table->integer("id_dasawisma");
             $table->integer("rt");
             $table->integer("rw");
@@ -22,9 +22,7 @@ class CreateDataAsetsTable extends Migration
             $table->string("kecamatan");
             $table->string("kabupaten_kota");
             $table->string("provinsi");
-            $table->string("nama_warung_pkk");
-            $table->string("pengelola");
-            $table->string("keterangan");
+            $table->text("keterangan");
             $table->timestamps();
         });
     }
@@ -36,6 +34,6 @@ class CreateDataAsetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_asets');
+        Schema::dropIfExists('data_koperasis');
     }
 }

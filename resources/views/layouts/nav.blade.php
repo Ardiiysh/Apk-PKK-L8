@@ -82,6 +82,46 @@
 
       {{-- //bukan grout --}}
       <li class="nav-item">
+        <a href="/dataKoperasis" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>
+            Data Koperasi
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/dataPosyandus" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>
+            Data Posyandu 
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/dataLayananPosyandus" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>
+            Data Layanan Posyandu
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/pelatihanKaders" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>
+            Pelatihan Kader
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/layananPosyandus" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>
+            Layanan Posyandu
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
         <a href="/dataAsets" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
           <p>Data Aset</p>
@@ -219,14 +259,6 @@
             <i class="nav-icon fas fa-columns"></i>
             <p>
               Catatan Keluarga Warga
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="/dataAsets" class="nav-link">
-            <i class="nav-icon fas fa-columns"></i>
-            <p>
-              Data Aset
             </p>
           </a>
         </li>

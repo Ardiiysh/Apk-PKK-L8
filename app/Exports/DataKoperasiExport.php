@@ -2,20 +2,20 @@
 
 namespace App\Exports;
 
-use App\Models\DataHatinya;
+use App\Models\DataKoperasi;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class DataHatinyaExport implements FromCollection, WithHeadings
+class DataKoperasiExport implements FromCollection,WithHeadings
 {
     /**
-     * @return \Illuminate\Support\Collection
-     */
+    * @return \Illuminate\Support\Collection
+    */
     public function collection()
     {
-        return DataHatinya::all();
+        return DataKoperasi::all();
     }
-
+    
     public function headings(): array
     {
         return [

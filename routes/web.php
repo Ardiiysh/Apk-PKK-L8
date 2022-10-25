@@ -32,6 +32,11 @@ use App\Http\Controllers\DataIndustriRumahTanggaController;
 use App\Http\Controllers\RekapitulasiKelompokPkkRtController;
 use App\Http\Controllers\RekapitulasiKelahiranKematianController;
 use App\Http\Controllers\RekapitulasiKelompokDasawismaController;
+use App\Http\Controllers\LayananPosyanduController;
+use App\Http\Controllers\PelatihanKaderController;
+use App\Http\Controllers\DataLayananPosyanduController;
+use App\Http\Controllers\DataPosyanduController;
+use App\Http\Controllers\DataKoperasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,6 +117,21 @@ Route::resource('dataKelompokBelajars', DataKelompokBelajarController::class);
 Route::resource('dataKeluargas', DataKeluargaController::class);
 //route DataAset
 Route::resource('dataAsets', DataAsetController::class);
+//route LayananPosyanduController
+Route::resource('layananPosyandus', LayananPosyanduController::class);
+//route pelatihanKaders
+Route::resource('pelatihanKaders', PelatihanKaderController::class);
+//route DataHatinyaController
+Route::resource('dataHatinyas', DataHatinyaController::class);
+//route dataLayananPosyandu
+Route::resource('dataLayananPosyandus', DataLayananPosyanduController::class);
+//route dataPosyandu
+Route::resource('dataPosyandus', DataPosyanduController::class);
+//route DataKoperasi
+Route::resource('dataKoperasis', DataKoperasiController::class);
+
+
+
 
 //Route Export Excel
 //route export excel buku
@@ -158,6 +178,19 @@ Route::get('dataKelompokBelajar', [DataKelompokBelajarController::class, 'export
 Route::get('dataKeluarga', [DataKeluargaController::class, 'export_excel'])->name('dataKeluarga.export_excel');
 //route dataAsets
 Route::get('dataAset', [DataAsetController::class, 'export_excel'])->name('dataAset.export_excel');
+//route dataAsets
+Route::get('layananPosyandu', [LayananPosyanduController::class, 'export_excel'])->name('layananPosyandu.export_excel');
+//route pelatihanKaders
+Route::get('pelatihanKader', [PelatihanKaderController::class, 'export_excel'])->name('pelatihanKader.export_excel');
+//route dataHatinyas
+Route::get('dataHatinya', [DataHatinyaController::class, 'export_excel'])->name('dataHatinya.export_excel');
+//route dataLayananPosyandu
+Route::get('dataLayananPosyandu', [DataLayananPosyanduController::class, 'export_excel'])->name('dataLayananPosyandu.export_excel');
+//route dataPosyandu
+Route::get('dataPosyandu', [DataPosyanduController::class, 'export_excel'])->name('dataPosyandu.export_excel');
+//route DataKoperasi
+Route::get('dataKoperasi', [DataKoperasiController::class, 'export_excel'])->name('dataKoperasi.export_excel');
+
 
 
 
