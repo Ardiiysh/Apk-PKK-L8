@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'Industri Rumah Tangga')
+@section('title', 'dataHatinyaPkk')
 
 @section('content')
     <div class="row">
@@ -19,26 +19,21 @@
             <!-- Example split danger button -->
             <div class="btn-group">
                 <button type="button" class="btn btn-info"><i class="fas fa-download"></i></button>
-
+                
                 <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
                     aria-expanded="false">
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/industriRumahTangga">Excel</a>
+                    <a class="dropdown-item" href="/dataHatinyaPkk">Excel</a>
                     <a class="dropdown-item" href="#">PDF</a>
-                    <a class="dropdown-item" href="#">Word</a>
+                    {{-- <a class="dropdown-item" href="#">Word</a> --}}
                 </div>
             </div>
 
-            {{-- <a href="/industriRumahTangga" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
-
-
-
-
             <!-- Button trigger modal -->
-            <button type="button" href="{{ route('industriRumahTanggas.create') }}" class="btn btn-success"
-                data-toggle="modal" data-target="#exampleModal">
+            <button type="button" href="{{ route('dataHatinyaPkks.create') }}" class="btn btn-success" data-toggle="modal"
+                data-target="#exampleModal">
                 +
             </button>
 
@@ -47,37 +42,40 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Industri Rumah Tangga</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Data Hatinya</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="{{ route('industriRumahTanggas.store') }}" method="POST">
+                        <form action="{{ route('dataHatinyaPkks.store') }}" method="POST">
                             @csrf
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>komoditi:</strong>
-                                    <input type="text" name="komoditi" class="form-control" placeholder="komoditi">
+                                    <strong>id data hatinya:</strong>
+                                    <input type="number" min="0" name="id_data_hatinya" class="form-control" placeholder="id_data_hatinya">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Kategori:</strong>
-                                    <input type="text" name="kategori" class="form-control" placeholder="kategori">
+                                    <strong>id hatinya pkk:</strong>
+                                    <input type="number" min="0" name="id_hatinya_pkk" class="form-control" placeholder="id_hatinya_pkk">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Keterangan:</strong>
-                                    <input type="text" name="keterangan" class="form-control" placeholder="kategori">
+                                    <strong>jumlah:</strong>
+                                    <input type="number" min="0" name="jumlah" class="form-control" placeholder="jumlah">
                                 </div>
                             </div>
-
-
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>satuan:</strong>
+                                    <input type="text" name="satuan" class="form-control" placeholder="satuan">
+                                </div>
+                            </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>
-
                             </div>
                         </form>
                     </div>
@@ -97,9 +95,11 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Komoditi</th>
-                    <th>Kategori</th>
-                    <th>keterangan</th>
+                    <th>id_data_hatinya</th>
+                    <th>id_hatinya_pkk</th>
+                    <th>jumlah</th>
+                    <th>satuan</th>
+
                     <th width="280px">Action</th>
                 </tr>
             </thead>
@@ -115,7 +115,7 @@
                 processing: true,
                 serverSide: true,
                 scrollX: true,
-                ajax: "{{ route('industriRumahTanggas.index') }}",
+                ajax: "{{ route('dataHatinyaPkks.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
@@ -123,16 +123,20 @@
                         searchable: false
                     },
                     {
-                        data: 'kategori',
-                        name: 'kategori'
+                        data: 'id_data_hatinya',
+                        name: 'id_data_hatinya'
                     },
                     {
-                        data: 'komoditi',
-                        name: 'komoditi'
+                        data: 'id_hatinya_pkk',
+                        name: 'id_hatinya_pkk'
                     },
                     {
-                        data: 'keterangan',
-                        name: 'keterangan'
+                        data: 'jumlah',
+                        name: 'jumlah'
+                    },
+                    {
+                        data: 'satuan',
+                        name: 'satuan'
                     },
                     {
                         data: 'action',

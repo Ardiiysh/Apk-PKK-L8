@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'Industri Rumah Tangga')
+@section('title', 'data Penyuluhan')
 
 @section('content')
     <div class="row">
@@ -25,20 +25,15 @@
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/industriRumahTangga">Excel</a>
+                    <a class="dropdown-item" href="/dataPenyuluhan">Excel</a>
                     <a class="dropdown-item" href="#">PDF</a>
                     <a class="dropdown-item" href="#">Word</a>
                 </div>
             </div>
 
-            {{-- <a href="/industriRumahTangga" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
-
-
-
-
             <!-- Button trigger modal -->
-            <button type="button" href="{{ route('industriRumahTanggas.create') }}" class="btn btn-success"
-                data-toggle="modal" data-target="#exampleModal">
+            <button type="button" href="{{ route('dataPenyuluhans.create') }}" class="btn btn-success" data-toggle="modal"
+                data-target="#exampleModal">
                 +
             </button>
 
@@ -47,29 +42,62 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Industri Rumah Tangga</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Data Hatinya</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="{{ route('industriRumahTanggas.store') }}" method="POST">
+                        <form action="{{ route('dataPenyuluhans.store') }}" method="POST">
                             @csrf
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>komoditi:</strong>
-                                    <input type="text" name="komoditi" class="form-control" placeholder="komoditi">
+                                    <strong>ID Dasawisma:</strong>
+                                    <input type="text" name="id_dasawisma" class="form-control" placeholder="dataPenyuluhan">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Kategori:</strong>
-                                    <input type="text" name="kategori" class="form-control" placeholder="kategori">
+                                    <strong>RT:</strong>
+                                    <input type="number" name="rt" class="form-control" min="0"
+                                        placeholder="RT">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Keterangan:</strong>
-                                    <input type="text" name="keterangan" class="form-control" placeholder="kategori">
+                                    <strong>RW:</strong>
+                                    <input type="number" name="rw" class="form-control" min="0"
+                                        placeholder="RW">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Kelurahan:</strong>
+                                    <input type="text" name="kelurahan" class="form-control" placeholder="kelurahan">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>kecamatan:</strong>
+                                    <input type="text" name="kecamatan" class="form-control" placeholder="RW">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Kabupaten/Kota:</strong>
+                                    <input type="text" name="kabupaten_kota" class="form-control"
+                                        placeholder="kabupaten_kota">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Provinsi:</strong>
+                                    <input type="text" name="provinsi" class="form-control" placeholder="provinsi">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>keterangan:</strong>
+                                    <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
                                 </div>
                             </div>
 
@@ -77,7 +105,6 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>
-
                             </div>
                         </form>
                     </div>
@@ -97,9 +124,14 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Komoditi</th>
-                    <th>Kategori</th>
-                    <th>keterangan</th>
+                    <th>ID Dasawisma</th>
+                    <th>RT</th>
+                    <th>RW</th>
+                    <th>Kelurahan</th>
+                    <th>Kecamatan</th>
+                    <th>Kabupaten/Kota</th>
+                    <th>Provinsi</th>
+                    <th>Keterangan</th>
                     <th width="280px">Action</th>
                 </tr>
             </thead>
@@ -115,7 +147,7 @@
                 processing: true,
                 serverSide: true,
                 scrollX: true,
-                ajax: "{{ route('industriRumahTanggas.index') }}",
+                ajax: "{{ route('dataPenyuluhans.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
@@ -123,12 +155,32 @@
                         searchable: false
                     },
                     {
-                        data: 'kategori',
-                        name: 'kategori'
+                        data: 'id_dasawisma',
+                        name: 'id_dasawisma'
                     },
                     {
-                        data: 'komoditi',
-                        name: 'komoditi'
+                        data: 'rt',
+                        name: 'rt'
+                    },
+                    {
+                        data: 'rw',
+                        name: 'rw'
+                    },
+                    {
+                        data: 'kelurahan',
+                        name: 'kelurahan'
+                    },
+                    {
+                        data: 'kecamatan',
+                        name: 'kecamatan'
+                    },
+                    {
+                        data: 'kabupaten_kota',
+                        name: 'kabupaten_kota'
+                    },
+                    {
+                        data: 'provinsi',
+                        name: 'provinsi'
                     },
                     {
                         data: 'keterangan',

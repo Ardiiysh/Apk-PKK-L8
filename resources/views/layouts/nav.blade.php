@@ -82,6 +82,30 @@
 
       {{-- //bukan grout --}}
       <li class="nav-item">
+        <a href="/dataHatinyaPkks" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>
+            Data HatinyaPkk
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/hatinyaPkks" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>
+            Hatinya Pkk
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/dataPenyuluhans" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
+          <p>
+            Data Penyuluhan
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
         <a href="/dataKoperasis" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
           <p>

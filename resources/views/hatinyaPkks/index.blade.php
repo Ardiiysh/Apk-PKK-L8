@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'Industri Rumah Tangga')
+@section('title', 'Hatinya Pkk')
 
 @section('content')
     <div class="row">
@@ -25,20 +25,20 @@
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/industriRumahTangga">Excel</a>
+                    <a class="dropdown-item" href="/hatinyaPkk">Excel</a>
                     <a class="dropdown-item" href="#">PDF</a>
                     <a class="dropdown-item" href="#">Word</a>
                 </div>
             </div>
 
-            {{-- <a href="/industriRumahTangga" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
+            {{-- <a href="/hatinyaPkk" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
 
 
 
 
             <!-- Button trigger modal -->
-            <button type="button" href="{{ route('industriRumahTanggas.create') }}" class="btn btn-success"
-                data-toggle="modal" data-target="#exampleModal">
+            <button type="button" href="{{ route('hatinyaPkks.create') }}" class="btn btn-success" data-toggle="modal"
+                data-target="#exampleModal">
                 +
             </button>
 
@@ -47,13 +47,20 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Industri Rumah Tangga</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">hatinyaPkk</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="{{ route('industriRumahTanggas.store') }}" method="POST">
+                        <form action="{{ route('hatinyaPkks.store') }}" method="POST">
                             @csrf
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>kategori:</strong>
+                                    <input type="text" name="kategori" class="form-control" placeholder="kategori">
+                                </div>
+                            </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>komoditi:</strong>
@@ -62,18 +69,10 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Kategori:</strong>
-                                    <input type="text" name="kategori" class="form-control" placeholder="kategori">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
                                     <strong>Keterangan:</strong>
-                                    <input type="text" name="keterangan" class="form-control" placeholder="kategori">
+                                    <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
                                 </div>
                             </div>
-
-
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -97,8 +96,8 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Komoditi</th>
                     <th>Kategori</th>
+                    <th>komoditi</th>
                     <th>keterangan</th>
                     <th width="280px">Action</th>
                 </tr>
@@ -115,7 +114,7 @@
                 processing: true,
                 serverSide: true,
                 scrollX: true,
-                ajax: "{{ route('industriRumahTanggas.index') }}",
+                ajax: "{{ route('hatinyaPkks.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',

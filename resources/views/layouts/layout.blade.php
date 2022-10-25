@@ -28,18 +28,18 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      {{-- <li class="nav-item d-none d-sm-inline-block">
         <a href="../../index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
-      </li>
+      </li> --}}
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
           <i class="fas fa-search"></i>
         </a>
@@ -58,26 +58,25 @@
             </div>
           </form>
         </div>
-      </li>
+      </li> --}}
 
 
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <i class="fas fa-sign-out-alt"></i>
+          
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
           <div class="dropdown-divider"></div>
-          <a href="{{ route('logout') }}" class="nav-link"  onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> logout
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          <a href="{{ route('logout') }}"  class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"   class="dropdown-item">
+            <i class="fas fa-users mr-2" ></i> logout
+                     <form id="logout-form" action="{{ route('logout') }}"  method="POST" style="display: none;">
               @csrf
           </form>
           </a>
-
+   {{-- onclick="return confirm('Kamu yakin ingin keluar dari aplikasi ini?')" confirm logout --}}
 
         </div>
       </li>
@@ -100,7 +99,7 @@
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
       <img src="{{asset('template')}}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Nama Desa</span>
     </a>
 
     <!-- Sidebar -->
@@ -139,7 +138,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
+        {{-- <div class="row mb-2">
           <div class="col-sm-6">
             <h1>@yield('title')</h1>
           </div>
@@ -149,7 +148,7 @@
               <li class="breadcrumb-item active"> @yield('title') </li>
             </ol>
           </div>
-        </div>
+        </div> --}}
       </div><!-- /.container-fluid -->
     </section>
 

@@ -37,6 +37,9 @@ use App\Http\Controllers\PelatihanKaderController;
 use App\Http\Controllers\DataLayananPosyanduController;
 use App\Http\Controllers\DataPosyanduController;
 use App\Http\Controllers\DataKoperasiController;
+use App\Http\Controllers\DataPenyuluhanController;
+use App\Http\Controllers\HatinyaPkkController;
+use App\Http\Controllers\DataHatinyaPkkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -129,6 +132,12 @@ Route::resource('dataLayananPosyandus', DataLayananPosyanduController::class);
 Route::resource('dataPosyandus', DataPosyanduController::class);
 //route DataKoperasi
 Route::resource('dataKoperasis', DataKoperasiController::class);
+//route dataPenyuluhan
+Route::resource('dataPenyuluhans', DataPenyuluhanController::class);
+//route HatinyaPkkController
+Route::resource('hatinyaPkks', HatinyaPkkController::class);
+//route dataHatinyaPkks
+Route::resource('dataHatinyaPkks', DataHatinyaPkkController::class);
 
 
 
@@ -190,6 +199,12 @@ Route::get('dataLayananPosyandu', [DataLayananPosyanduController::class, 'export
 Route::get('dataPosyandu', [DataPosyanduController::class, 'export_excel'])->name('dataPosyandu.export_excel');
 //route DataKoperasi
 Route::get('dataKoperasi', [DataKoperasiController::class, 'export_excel'])->name('dataKoperasi.export_excel');
+//route dataPenyuluhan
+Route::get('dataPenyuluhan', [DataPenyuluhanController::class, 'export_excel'])->name('dataPenyuluhan.export_excel');
+//route hatinyaPkks
+Route::get('hatinyaPkk', [HatinyaPkkController::class, 'export_excel'])->name('hatinyaPkk.export_excel');
+//route dataHatinyaPkk
+Route::get('dataHatinyaPkk', [DataHatinyaPkkController::class, 'export_excel'])->name('dataHatinyaPkk.export_excel');
 
 
 
