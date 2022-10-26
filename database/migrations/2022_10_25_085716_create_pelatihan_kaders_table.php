@@ -15,7 +15,7 @@ class CreatePelatihanKadersTable extends Migration
     {
         Schema::create('pelatihan_kaders', function (Blueprint $table) {
             $table->increments('id_pelatihan_kader');
-            $table->integer('id_dasawisma');
+            // $table->integer('id_dasawisma');
             $table->integer('rt');
             $table->integer('rw');
             $table->string('kelurahan');

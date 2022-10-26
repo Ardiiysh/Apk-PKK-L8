@@ -15,7 +15,7 @@ class CreateRekapitulasiKelompokDasawismasTable extends Migration
     {
         Schema::create('rekapitulasi_kelompok_dasawismas', function (Blueprint $table) {
             $table->increments('id_rekapitulasi_kelompok_dasawisma');
-            $table->string('id_dasawisma');
+            // $table->string('id_dasawisma');
             $table->integer('rt');
             $table->integer('rw');
             $table->string('kelurahan');

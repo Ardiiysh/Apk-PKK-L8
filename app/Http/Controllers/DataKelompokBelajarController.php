@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataKelompokBelajar;
+use App\Models\Dasawisma;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\DataKelompokBelajarExport;
@@ -50,7 +51,8 @@ class DataKelompokBelajarController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('dataKelompokBelajars.index');
+        $dasawisma = Dasawisma::all();
+        return view('dataKelompokBelajars.index',compact('dasawisma',));
     }
 
     public function export_excel()
@@ -78,7 +80,7 @@ class DataKelompokBelajarController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_dasawisma'=> 'required',
+            // 'id_dasawisma'=> 'required',
             'rt'=> 'required',
             'rw'=> 'required',
             'kelurahan'=> 'required',
@@ -118,7 +120,8 @@ class DataKelompokBelajarController extends Controller
     public function edit(DataKelompokBelajar $dataKelompokBelajar)
     {
         
-        return view('dataKelompokBelajars.edit',compact('dataKelompokBelajar'));
+        $dasawisma = Dasawisma::all();
+        return view('dataKelompokBelajars.edit',compact('dasawisma','dataKelompokBelajar'));
     }
 
 
@@ -132,7 +135,7 @@ class DataKelompokBelajarController extends Controller
     public function update(Request $request, DataKelompokBelajar $dataKelompokBelajar)
     {
         $request->validate([
-            'id_dasawisma'=> 'required',
+            // 'id_dasawisma'=> 'required',
             'rt'=> 'required',
             'rw'=> 'required',
             'kelurahan'=> 'required',

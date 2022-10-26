@@ -52,9 +52,9 @@ use App\Http\Controllers\DataHatinyaPkkController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 Route::get('/dashboard', function () {
@@ -66,6 +66,9 @@ Route::get('/dashboard1', function () {
     return view('layouts.layout');
 
 });
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 //route rayon
@@ -213,6 +216,3 @@ Route::get('dataHatinyaPkk', [DataHatinyaPkkController::class, 'export_excel'])-
 
 
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

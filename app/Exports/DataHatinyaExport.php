@@ -19,7 +19,7 @@ class DataHatinyaExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'ID Dasawisma',
+            'ID Data Hatinya',
             'RT',
             'RW',
             'Kelurahan',

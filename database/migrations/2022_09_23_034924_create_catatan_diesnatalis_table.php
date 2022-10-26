@@ -15,7 +15,7 @@ class CreateCatatanDiesnatalisTable extends Migration
     {
         Schema::create('catatan_diesnatalis', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_dasawisma');
+            // $table->integer('id_dasawisma');
             $table->integer('rt');
             $table->integer('rw');
             $table->string('kelurahan');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CatatanDiesnatalis;
+use App\Models\Dasawisma;
 use Illuminate\Http\Request;
 use App\Exports\CatatanDiesnatalisExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -51,7 +52,8 @@ class CatatanDiesnatalisController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('catatanDiesnataliss.index');
+        $dasawisma = Dasawisma::all();
+        return view('catatanDiesnataliss.index',compact('dasawisma',));
     }
 
     public function export_excel()
@@ -78,7 +80,7 @@ class CatatanDiesnatalisController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
+            // 'id_dasawisma' => 'required',
             'rt' => 'required',
             'rw' => 'required',
             'kelurahan' => 'required',
@@ -123,7 +125,8 @@ class CatatanDiesnatalisController extends Controller
      */
     public function edit(CatatanDiesnatalis $catatanDiesnatalis)
     {
-        return view('catatanDiesnataliss.edit',compact('catatanDiesnatalis'));
+        $dasawisma = Dasawisma::all();
+        return view('catatanDiesnataliss.edit',compact('catatanDiesnatalis','dasawisma'));
     }
 
     /**
@@ -136,7 +139,7 @@ class CatatanDiesnatalisController extends Controller
     public function update(Request $request, CatatanDiesnatalis $catatanDiesnatalis)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
+            // 'id_dasawisma' => 'required',
             'rt' => 'required',
             'rw' => 'required',
             'kelurahan' => 'required',

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataKeluarga;
+use App\Models\Dasawisma;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\DataKeluargaExport;
@@ -51,6 +52,7 @@ class DataKeluargaController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
+        $dasawisma = Dasawisma::all();
         return view('dataKeluargas.index');
     }
 
@@ -80,7 +82,7 @@ class DataKeluargaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_dasawisma'=> 'required',
+            // 'id_dasawisma'=> 'required',
             'rt'=> 'required',
             'rw'=> 'required',
             'kelurahan'=> 'required',
@@ -137,7 +139,8 @@ class DataKeluargaController extends Controller
      */
     public function edit(DataKeluarga $dataKeluarga)
     {
-        return view('dataKeluargas.edit',compact('dataKeluarga'));
+        $dasawisma = Dasawisma::all();
+        return view('dataKeluargas.edit',compact('dasawisma','dataKeluarga'));
 
     }
 
@@ -151,7 +154,7 @@ class DataKeluargaController extends Controller
     public function update(Request $request, DataKeluarga $dataKeluarga)
     {
         $request->validate([
-            'id_dasawisma'=> 'required',
+            // 'id_dasawisma'=> 'required',
             'rt'=> 'required',
             'rw'=> 'required',
             'kelurahan'=> 'required',

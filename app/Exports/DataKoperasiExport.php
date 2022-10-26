@@ -19,7 +19,8 @@ class DataKoperasiExport implements FromCollection,WithHeadings
     public function headings(): array
     {
         return [
-            'ID Dasawisma',
+            // 'ID Dasawisma',
+            'ID Data Koperasi',
             'RT',
             'RW',
             'Kelurahan',

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataPenyuluhan;
+use App\Models\Dasawisma;
 use Illuminate\Http\Request;
 use App\Exports\DataPenyuluhanExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -52,7 +53,8 @@ class DataPenyuluhanController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('dataPenyuluhans.index');
+        $dasawisma = Dasawisma::all();
+        return view('dataPenyuluhans.index',compact('dasawisma',));
     }
 
     public function export_excel()
@@ -80,7 +82,7 @@ class DataPenyuluhanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
+            // 'id_dasawisma' => 'required',
             'rt' => 'required',
             'rw' => 'required',
             'kelurahan' => 'required',
@@ -114,7 +116,8 @@ class DataPenyuluhanController extends Controller
      */
     public function edit(DataPenyuluhan $dataPenyuluhan)
     {
-        return view('dataPenyuluhans.edit',compact('dataPenyuluhan'));
+        $dasawisma = Dasawisma::all();
+        return view('dataPenyuluhans.edit',compact('dasawisma','dataPenyuluhan'));
 
     }
 
@@ -128,7 +131,7 @@ class DataPenyuluhanController extends Controller
     public function update(Request $request, DataPenyuluhan $dataPenyuluhan)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
+            // 'id_dasawisma' => 'required',
             'rt' => 'required',
             'rw' => 'required',
             'kelurahan' => 'required',

@@ -15,7 +15,7 @@ class CreateDataAsetsTable extends Migration
     {
         Schema::create('data_asets', function (Blueprint $table) {
             $table->increments('id_data_aset');
-            $table->string('id_dasawisma');
+            // $table->string('id_dasawisma');
             $table->integer('rt');
             $table->integer('rw');
             $table->string('kelurahan');

@@ -10,7 +10,7 @@ class DataPosyandu extends Model
     use HasFactory;
     protected $primaryKey = 'id_data_posyandu';
     protected $fillable = [
-        'id_dasawisma' ,
+        // 'id_dasawisma' ,
         'rt' ,
         'rw' ,
         'kelurahan' ,

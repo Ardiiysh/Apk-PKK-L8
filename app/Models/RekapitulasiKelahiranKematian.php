@@ -10,7 +10,7 @@ class RekapitulasiKelahiranKematian extends Model
     use HasFactory;
     protected $primaryKey = 'id_rekapitulasi_kelahiran_kematian';
     protected $fillable = [
-        'id_dasawisma' ,
+        // 'id_dasawisma' ,
         'rt' ,
         'rw' ,
         'kelurahan' ,

@@ -10,7 +10,7 @@ class DataIndustri extends Model
     use HasFactory;
     protected $primaryKey = 'id_data_industri';
     protected $fillable = [
-        'id_dasawisma' ,
+        // 'id_dasawisma' ,
         'rt' ,
         'rw' ,
         'kelurahan' ,

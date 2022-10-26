@@ -15,7 +15,7 @@ class CreateDataPosyandusTable extends Migration
     {
         Schema::create('data_posyandus', function (Blueprint $table) {
             $table->increments('id_data_posyandu');
-            $table->integer('id_dasawisma');
+            // $table->integer('id_dasawisma');
             $table->integer('rt');
             $table->integer('rw');
             $table->string('kelurahan');

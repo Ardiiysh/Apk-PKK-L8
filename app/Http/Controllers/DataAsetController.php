@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataAset;
+use App\Models\Dasawisma;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\DataAsetExport;
@@ -49,7 +50,8 @@ class DataAsetController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('dataAsets.index');
+        $dasawisma = Dasawisma::all();
+        return view('dataAsets.index',compact('dasawisma',));
     }
 
     public function export_excel()
@@ -77,7 +79,7 @@ class DataAsetController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
+            // 'id_dasawisma' => 'required',
             'rt' => 'required',
             'rw' => 'required',
             'kelurahan' => 'required',
@@ -114,7 +116,8 @@ class DataAsetController extends Controller
      */
     public function edit(DataAset $dataAset)
     {
-        return view('dataAsets.edit',compact('dataAset'));
+        $dasawisma = Dasawisma::all();
+        return view('dataAsets.edit',compact('dataAset','dasawisma'));
 
     }
 
@@ -128,7 +131,7 @@ class DataAsetController extends Controller
     public function update(Request $request, DataAset $dataAset)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
+            // 'id_dasawisma' => 'required',
             'rt' => 'required',
             'rw' => 'required',
             'kelurahan' => 'required',

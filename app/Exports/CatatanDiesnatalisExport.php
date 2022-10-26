@@ -20,7 +20,7 @@ class CatatanDiesnatalisExport implements FromCollection, WithHeadings
     {
         return [
             'ID',
-            'ID Dasa Wisma',
+            // 'ID Dasa Wisma',
             'RT',
             'RW',
             'Kelurahan',

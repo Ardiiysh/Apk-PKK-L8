@@ -15,7 +15,7 @@ class CreateDataKeluargasTable extends Migration
     {
         Schema::create('data_keluargas', function (Blueprint $table) {
             $table->increments('id_data_keluarga');
-            $table->integer('id_dasawisma');
+            // $table->integer('id_dasawisma');
             $table->integer('rt');
             $table->integer('rw');
             $table->string('kelurahan');

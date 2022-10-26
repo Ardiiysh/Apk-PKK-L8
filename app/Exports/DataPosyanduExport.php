@@ -19,7 +19,7 @@ class DataPosyanduExport implements FromCollection,WithHeadings
     {
         return[
             'id data posyandu',
-            'id dasawisma' ,
+            // 'id dasawisma' ,
             'rt' ,
             'rw' ,
             'kelurahan' ,

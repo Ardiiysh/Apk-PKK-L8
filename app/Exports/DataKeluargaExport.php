@@ -17,7 +17,7 @@ class DataKeluargaExport implements FromCollection,WithHeadings
     }
     public function headings(): array
     {
-        return[    'ID dasawisma','ID Data Keluarga ',
+        return[     'ID Data Keluarga ',
         'RT',
         'RW',
         'Kelurahan',

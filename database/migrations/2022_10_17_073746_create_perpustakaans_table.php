@@ -15,7 +15,7 @@ class CreatePerpustakaansTable extends Migration
     {
         Schema::create('perpustakaans', function (Blueprint $table) {
             $table->increments('id_perpustakaan');
-            $table->integer('id_dasawisma');
+            // $table->integer('id_dasawisma');
             $table->integer('rt');
             $table->integer('rw');
             $table->string('kelurahan');

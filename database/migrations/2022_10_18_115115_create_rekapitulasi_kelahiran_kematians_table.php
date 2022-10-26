@@ -15,7 +15,7 @@ class CreateRekapitulasiKelahiranKematiansTable extends Migration
     {
         Schema::create('rekapitulasi_kelahiran_kematians', function (Blueprint $table) {
             $table->increments('id_rekapitulasi_kelahiran_kematian');
-            $table->integer('id_dasawisma');
+            // $table->integer('id_dasawisma');
             $table->integer('rt');
             $table->integer('rw');
             $table->string('kelurahan');

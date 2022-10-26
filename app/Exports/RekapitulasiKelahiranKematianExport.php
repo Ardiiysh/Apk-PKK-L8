@@ -17,7 +17,7 @@ class RekapitulasiKelahiranKematianExport implements FromCollection,WithHeadings
     }
     public function headings(): array
     {
-        return["ID",  'ID dasawisma' ,
+        return["ID",  
         'RT' ,
         'RW' ,
         'Kelurahan' ,

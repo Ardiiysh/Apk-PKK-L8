@@ -9,7 +9,7 @@ class CatatanDiesnatalis extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id_dasawisma',
+        // 'id_dasawisma',
         'rt',
         'rw',
         'kelurahan',

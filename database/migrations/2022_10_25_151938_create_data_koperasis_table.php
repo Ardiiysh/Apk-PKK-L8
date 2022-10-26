@@ -15,7 +15,7 @@ class CreateDataKoperasisTable extends Migration
     {
         Schema::create('data_koperasis', function (Blueprint $table) {
             $table->increments("id_data_koperasi");
-            $table->integer("id_dasawisma");
+            // $table->integer("id_dasawisma");
             $table->integer("rt");
             $table->integer("rw");
             $table->string("kelurahan");

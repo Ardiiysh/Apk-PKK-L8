@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\RekapitulasiKelompokDasawisma;
+use App\Models\Dasawisma;
 use Illuminate\Http\Request;
 use App\Exports\RekapitulasiKelompokDasawismaExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -51,7 +52,8 @@ class RekapitulasiKelompokDasawismaController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('rekapitulasiKelompokDasawismas.index');
+        $dasawisma = Dasawisma::all();
+        return view('rekapitulasiKelompokDasawismas.index',compact('dasawisma',));
     }
 
     public function export_excel()
@@ -78,7 +80,7 @@ class RekapitulasiKelompokDasawismaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
+            // 'id_dasawisma' => 'required',
             'rt' => 'required',
             'rw' => 'required',
             'kelurahan' => 'required',
@@ -114,7 +116,8 @@ class RekapitulasiKelompokDasawismaController extends Controller
      */
     public function edit(RekapitulasiKelompokDasawisma $rekapitulasiKelompokDasawisma)
     {
-        return view('rekapitulasiKelompokDasawismas.edit',compact('rekapitulasiKelompokDasawisma'));
+        $dasawisma = Dasawisma::all();
+        return view('rekapitulasiKelompokDasawismas.edit',compact('rekapitulasiKelompokDasawisma','dasawisma'));
     }
 
     /**
@@ -127,7 +130,7 @@ class RekapitulasiKelompokDasawismaController extends Controller
     public function update(Request $request, RekapitulasiKelompokDasawisma $rekapitulasiKelompokDasawisma)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
+            // 'id_dasawisma' => 'required',
             'rt' => 'required',
             'rw' => 'required',
             'kelurahan' => 'required',

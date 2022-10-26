@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\RekapitulasiKelahiranKematian;
+use App\Models\Dasawisma;
 use Illuminate\Http\Request;
 use App\Exports\RekapitulasiKelahiranKematianExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -51,7 +52,8 @@ class RekapitulasiKelahiranKematianController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('rekapitulasiKelahiranKematians.index');
+        $dasawisma = Dasawisma::all();
+        return view('rekapitulasiKelahiranKematians.index',compact('dasawisma'));
     }
 
     public function export_excel()
@@ -79,7 +81,7 @@ class RekapitulasiKelahiranKematianController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_dasawisma'=> 'required',
+            // 'id_dasawisma'=> 'required',
             'rt'=> 'required',
             'rw'=> 'required',
             'kelurahan'=> 'required',
@@ -114,7 +116,8 @@ class RekapitulasiKelahiranKematianController extends Controller
      */
     public function edit(RekapitulasiKelahiranKematian $rekapitulasiKelahiranKematian)
     {
-        return view('rekapitulasiKelahiranKematians.edit',compact('rekapitulasiKelahiranKematian'));
+        $dasawisma = Dasawisma::all();
+        return view('rekapitulasiKelahiranKematians.edit',compact('rekapitulasiKelahiranKematian','dasawisma'));
 
     }
 
@@ -128,7 +131,7 @@ class RekapitulasiKelahiranKematianController extends Controller
     public function update(Request $request, RekapitulasiKelahiranKematian $rekapitulasiKelahiranKematian)
     {
         $request->validate([
-            'id_dasawisma'=> 'required',
+            // 'id_dasawisma'=> 'required',
             'rt'=> 'required',
             'rw'=> 'required',
             'kelurahan'=> 'required',

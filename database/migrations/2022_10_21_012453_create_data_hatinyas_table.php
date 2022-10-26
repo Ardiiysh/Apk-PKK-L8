@@ -15,7 +15,7 @@ class CreateDataHatinyasTable extends Migration
     {
         Schema::create('data_hatinyas', function (Blueprint $table) {
             $table->increments("id_data_hatinya");
-            $table->integer("id_dasawisma");
+            // $table->integer("id_dasawisma");
             $table->integer("rt");
             $table->integer("rw");
             $table->string("kelurahan");

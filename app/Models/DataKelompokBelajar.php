@@ -10,7 +10,7 @@ class DataKelompokBelajar extends Model
     use HasFactory;
     protected $primaryKey = 'id_data_kelompok_belajar';
     protected $fillable = [
-         'id_dasawisma',
+        //  'id_dasawisma',
          'rt',
          'rw',
          'kelurahan',

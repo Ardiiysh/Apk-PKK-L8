@@ -17,7 +17,7 @@ class RekapitulasiKelompokDasawismaExport implements FromCollection,WithHeadings
     }
     public function headings(): array
     {
-        return[ 'ID Rekapitulasi Kelompok Dasawisma' ,'ID Dasawisma',
+        return[ 'ID Rekapitulasi Kelompok Dasawisma' ,
         'RT' ,
         'RW' ,
         'Kelurahan' ,

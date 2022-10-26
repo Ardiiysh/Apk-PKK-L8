@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PelatihanKader;
+use App\Models\Dasawisma;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PelatihanKaderExport;
@@ -50,7 +51,8 @@ class PelatihanKaderController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('pelatihanKaders.index');
+        $dasawisma = Dasawisma::all();
+        return view('pelatihanKaders.index',compact('dasawisma',));
     }
 
     public function export_excel()
@@ -77,7 +79,7 @@ class PelatihanKaderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_dasawisma'=> 'required',
+            // 'id_dasawisma'=> 'required',
             'rt'=> 'required',
             'rw'=> 'required',
             'kelurahan'=> 'required',
@@ -115,7 +117,8 @@ class PelatihanKaderController extends Controller
      */
     public function edit(PelatihanKader $pelatihanKader)
     {
-        return view('pelatihanKaders.edit',compact('pelatihanKader'));
+        $dasawisma = Dasawisma::all();
+        return view('pelatihanKaders.edit',compact('dasawisma','pelatihanKader'));
 
     }
 
@@ -129,7 +132,7 @@ class PelatihanKaderController extends Controller
     public function update(Request $request, PelatihanKader $pelatihanKader)
     {
         $request->validate([
-            'id_dasawisma'=> 'required',
+            // 'id_dasawisma'=> 'required',
             'rt'=> 'required',
             'rw'=> 'required',
             'kelurahan'=> 'required',

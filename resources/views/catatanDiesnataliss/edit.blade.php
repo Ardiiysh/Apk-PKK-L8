@@ -29,47 +29,77 @@
     <br>
     <div class="card">
         <div class="card-body">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Id Dasa Wisma:</strong>
                     <input type="text" name="id_dasa_wisma" value="{{ $catatanDiesnatalis->id_dasawisma }}" class="form-control"
                         placeholder="Id Dasa Wisma">
                 </div>
-            </div>
+            </div> --}}
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>RT:</strong>
-                    <input type="text" name="rt" value="{{ $catatanDiesnatalis->rt }}" class="form-control" placeholder="RT">
+                    <select type="number" min="0"  name="rt"    class="form-control" placeholder="Masukkan RT">
+                        <option >{{ $catatanDiesnatalis->rt }}</option>
+                        @foreach ($dasawisma as $id)
+                        <option value="{{$id->rt}}"> {{$id->rt}}</option>
+                         @endforeach
+                       </select>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>RW:</strong>
-                    <input type="text" name="rw" value="{{ $catatanDiesnatalis->rw }}" class="form-control" placeholder="RW">
+                    <select type="number" min="0"  name="rw"  class="form-control" placeholder="Masukkan RW">
+                        <option > {{ $catatanDiesnatalis->rw }}</option>
+                        @foreach ($dasawisma as $id)
+                        <option value="{{$id->rw}}"> {{$id->rw}}</option>
+                         @endforeach
+                       </select>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Kelurahan:</strong>
-                    <input type="text" name="kelurahan" value="{{ $catatanDiesnatalis->kelurahan }}" class="form-control" placeholder="Kelurahan">
+                    <strong>kelurahan:</strong>
+                    <select type="text" name="kelurahan"    class="form-control" placeholder="Masukkan kelurahan">
+                        <option >{{ $catatanDiesnatalis->kelurahan }}</option>
+                        @foreach ($dasawisma as $id)
+                        <option value="{{$id->kelurahan}}"> {{$id->kelurahan}}</option>
+                         @endforeach
+                       </select>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Kecamatan:</strong>
-                    <input type="text" name="kecamatan" value="{{ $catatanDiesnatalis->kecamatan }}" class="form-control" placeholder="Kecamatan">
+                    <strong>kecamatan:</strong>
+                    <select type="text" name="kecamatan"  class="form-control" placeholder="Masukkan kecamatan">
+                        <option >  {{ $catatanDiesnatalis->kecamatan }} </option>
+                        @foreach ($dasawisma as $id)
+                        <option value="{{$id->kecamatan}}"> {{$id->kecamatan}}</option>
+                         @endforeach
+                       </select>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Kabupaten/Kota:</strong>
-                    <input type="text" name="kabupaten/kota" value="{{ $catatanDiesnatalis->kabupaten_kota }}" class="form-control" placeholder="Kabupaten/Kota">
+                    <strong>kabupaten/kota:</strong>
+                    <select type="text" name="kabupaten_kota"  class="form-control" placeholder="Masukkan kabupaten/kota">
+                        <option > {{ $catatanDiesnatalis->kabupaten_kota }} </option>
+                        @foreach ($dasawisma as $id)
+                        <option value="{{$id->kabupaten_kota}}"> {{$id->kabupaten_kota}}</option>
+                         @endforeach
+                       </select>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Provinsi:</strong>
-                    <input type="text" name="provinsi" value="{{ $catatanDiesnatalis->provinsi }}" class="form-control" placeholder="Provinsi">
+                    <strong>provinsi:</strong>
+                    <select type="text" name="provinsi"  class="form-control" placeholder="Masukkan provinsi">
+                        <option > {{ $catatanDiesnatalis->provinsi }} </option>
+                        @foreach ($dasawisma as $id)
+                        <option value="{{$id->provinsi}}"> {{$id->provinsi}}</option>
+                         @endforeach
+                       </select>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

@@ -10,7 +10,7 @@ class DataPenyuluhan extends Model
     use HasFactory;
     protected $primaryKey = 'id_data_penyuluhan';
     protected $fillable = [
-        "id_dasawisma",
+        // "id_dasawisma",
         "rt",
         "rw",
         "kelurahan",

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataIndustri;
+use App\Models\Dasawisma;
 use Illuminate\Http\Request;
 use App\Exports\DataIndustriExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -51,7 +52,8 @@ class DataIndustriController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('dataIndustris.index');
+        $dasawisma = Dasawisma::all();
+        return view('dataIndustris.index',compact('dasawisma',));
     }
 
     public function export_excel()
@@ -78,7 +80,7 @@ class DataIndustriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
+            // 'id_dasawisma' => 'required',
             'rt' => 'required',
             'rw' => 'required',
             'kelurahan' => 'required',
@@ -113,7 +115,8 @@ class DataIndustriController extends Controller
      */
     public function edit(DataIndustri $dataIndustri)
     {
-        return view('dataIndustris.edit', compact('dataIndustri'));
+        $dasawisma = Dasawisma::all();
+        return view('dataIndustris.edit', compact('dataIndustri','dasawisma'));
 
     }
 
@@ -127,7 +130,7 @@ class DataIndustriController extends Controller
     public function update(Request $request, DataIndustri $dataIndustri)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
+            // 'id_dasawisma' => 'required',
             'rt' => 'required',
             'rw' => 'required',
             'kelurahan' => 'required',

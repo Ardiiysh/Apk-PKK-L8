@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Perpustakaan;
+use App\Models\Dasawisma;
 use Illuminate\Http\Request;
 use App\Exports\PerpustakaanExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -51,7 +52,8 @@ class PerpustakaanController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('perpustakaans.index');
+        $dasawisma = Dasawisma::all();
+        return view('perpustakaans.index',compact('dasawisma',));
     }
 
     public function export_excel()
@@ -79,7 +81,7 @@ class PerpustakaanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_dasawisma'=> 'required',
+            // 'id_dasawisma'=> 'required'
             'rt'=> 'required',
             'rw'=> 'required',
             'kelurahan'=> 'required',
@@ -117,7 +119,8 @@ class PerpustakaanController extends Controller
      */
     public function edit(Perpustakaan $perpustakaan)
     {
-        return view('perpustakaans.edit',compact('perpustakaan'));
+        $dasawisma = Dasawisma::all();
+        return view('perpustakaans.edit',compact('perpustakaan','dasawisma'));
 
     }
 
@@ -131,7 +134,7 @@ class PerpustakaanController extends Controller
     public function update(Request $request, Perpustakaan $perpustakaan)
     {
         $request->validate([
-           'id_dasawisma'=> 'required',
+        //    'id_dasawisma'=> 'required',
            'rt'=> 'required',
            'rw'=> 'required',
            'kelurahan'=> 'required',

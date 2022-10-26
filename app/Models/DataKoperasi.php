@@ -10,7 +10,7 @@ class DataKoperasi extends Model
     use HasFactory;
     protected $primaryKey = 'id_data_koperasi';
     protected $fillable = [
-        "id_dasawisma",
+        // "id_dasawisma",
         "rt",
         "rw",
         "kelurahan",

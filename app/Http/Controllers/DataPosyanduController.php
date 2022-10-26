@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataPosyandu;
+use App\Models\Dasawisma;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\DataPosyanduExport;
@@ -50,7 +51,8 @@ class DataPosyanduController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('dataPosyandus.index');
+        $dasawisma = Dasawisma::all();
+        return view('dataPosyandus.index',compact('dasawisma',));
     }
 
     public function export_excel()
@@ -78,7 +80,7 @@ class DataPosyanduController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
+            // 'id_dasawisma' => 'required',
             'rt' => 'required',
             'rw' => 'required',
             'kelurahan' => 'required',
@@ -118,7 +120,8 @@ class DataPosyanduController extends Controller
      */
     public function edit(DataPosyandu $dataPosyandu)
     {
-        return view('dataPosyandus.edit',compact('dataPosyandu'));
+        $dasawisma = Dasawisma::all();
+        return view('dataPosyandus.edit',compact('dasawisma','dataPosyandu'));
 
     }
 
@@ -132,7 +135,7 @@ class DataPosyanduController extends Controller
     public function update(Request $request, DataPosyandu $dataPosyandu)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
+            // 'id_dasawisma' => 'required',
             'rt' => 'required',
             'rw' => 'required',
             'kelurahan' => 'required',

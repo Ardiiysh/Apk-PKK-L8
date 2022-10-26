@@ -15,7 +15,7 @@ class CreateDataPenyuluhansTable extends Migration
     {
         Schema::create('data_penyuluhans', function (Blueprint $table) {
             $table->increments("id_data_penyuluhan");
-            $table->integer("id_dasawisma");
+            // $table->integer("id_dasawisma");
             $table->integer("rt");
             $table->integer("rw");
             $table->string("kelurahan");

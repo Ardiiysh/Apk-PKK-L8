@@ -18,7 +18,7 @@ class DataPenyuluhanExport implements FromCollection,WithHeadings
     public function headings(): array
     {
         return ["ID Data Penyuluhan",
-            'ID Dasawisma',
+            // 'ID Dasawisma',
             'RT',
             'RW',
             'Kelurahan',

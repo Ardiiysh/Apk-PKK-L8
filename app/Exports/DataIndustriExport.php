@@ -17,6 +17,6 @@ class DataIndustriExport implements FromCollection,WithHeadings
     }
     public function headings(): array
     {
-        return["ID Data Industri", "ID DasaWisma", "RT", "RW","Kelurahan","Kecamatan","Kabupatan/Kota","Provinsi","Keterangan","Created_at","Updated_at"];
+        return["ID Data Industri",  "RT", "RW","Kelurahan","Kecamatan","Kabupatan/Kota","Provinsi","Keterangan","Created_at","Updated_at"];
     }
 }

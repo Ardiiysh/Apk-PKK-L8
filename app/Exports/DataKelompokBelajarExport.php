@@ -18,7 +18,7 @@ class DataKelompokBelajarExport implements FromCollection,WithHeadings
     public function headings(): array
     {
         return[ "ID Data Kejar",
-        'ID dasawisma',
+        // 'ID dasawisma',
         'RW',
         'RT',
         'Kelurahan',

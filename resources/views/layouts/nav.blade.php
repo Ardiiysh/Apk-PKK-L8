@@ -10,22 +10,22 @@
 
       <li class="nav-item">
         <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-edit"></i>
+          <i class="fa fa-th-list"></i>
           <p>
-            Perbukuan
+            Data Buku
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
             <a href="/bukus" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>BUKU</p>
+              <i class="fa fa-address-book"></i>
+              <p>Buku</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/bukuPerpustakaans" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
+              <i class="fa fa-th-large"></i>
               <p>Buku Perpustakaan</p>
             </a>
           </li>
@@ -34,7 +34,7 @@
 
       <li class="nav-item">
         <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-edit"></i>
+          <i class="fa fa-th-list"></i>
           <p>
             Group Warga
             <i class="fas fa-angle-left right"></i>
@@ -58,7 +58,7 @@
 
       <li class="nav-item">
         <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-edit"></i>
+          <i class="fa fa-th-list"></i>
           <p>
             Group Rekapitulasi
             <i class="fas fa-angle-left right"></i>
@@ -67,28 +67,178 @@
         <ul class="nav nav-treeview">
           <li class="nav-item">
             <a href="/rekapitulasiKelompokDasawismas" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
+              <i class="fa fa-suitcase"></i>
               <p>Rekapitulasi Kelompok Dasawisma</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/rekapitulasiKelompokPkkRts" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
+              <i class="fa fa-suitcase"></i>
               <p>Rekapitulasi Kelompok Pkk Rt</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/rekaptilulasiLahirMatis" class="nav-link">
+              <i class="fa fa-suitcase"></i>
+              <p>Rekapitulasi Lahir Mati</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/rekapitulasiKelahiranKematians" class="nav-link">
+              <i class="fa fa-suitcase"></i>
+              <p>Rekapitulasi Kelahiran Kematian</p>
             </a>
           </li>
         </ul>
       </li>
 
-      {{-- //bukan grout --}}
+
       <li class="nav-item">
-        <a href="/dataHatinyaPkks" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
+        <a href="#" class="nav-link">
+          <i class="fa fa-th-list"></i>
           <p>
-            Data HatinyaPkk
+            Data
+            <i class="fas fa-angle-left right"></i>
           </p>
         </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="/dataHatinyaPkks" class="nav-link">
+              <i class="fa fa-database"></i>
+              <p>
+                Data HatinyaPkk
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/dataPenyuluhans" class="nav-link">
+              <i class="fa fa-database"></i>
+              <p>
+                Data Penyuluhan
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/dataKoperasis" class="nav-link">
+              <i class="fa fa-database"></i>
+              <p>
+                Data Koperasi
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/dataPosyandus" class="nav-link">
+              <i class="fa fa-database"></i>
+              <p>
+                Data Posyandu 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/dataLayananPosyandus" class="nav-link">
+              <i class="fa fa-database"></i>
+              <p>
+                Data Layanan Posyandu
+              </p>
+            </a>
+          </li>
+        <li class="nav-item">
+          <a href="/dataAsets" class="nav-link">
+            <i class="fa fa-database"></i>
+            <p>Data Aset</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/dataKeluargas" class="nav-link">
+            <i class="fa fa-database"></i>
+            <p>Data Keluarga</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/dataIndustriRumahTanggas" class="nav-link">
+            <i class="fa fa-database"></i>
+            <p>Data Industri Rumah Tangga</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/dataIndustris" class="nav-link">
+            <i class="fa fa-database"></i>
+            <p>
+              Data Industri
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/dataKelompokBelajars" class="nav-link">
+            <i class="fa fa-database"></i>
+            <p>Data Kelompok Belajar</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/dataKejars" class="nav-link">
+            <i class="fa fa-database"></i>
+            <p>Data Kejar</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/dataHatinyas" class="nav-link">
+            <i class="fa fa-database"></i>
+            <p>
+              Data Hatinya
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/dataAsetDesas" class="nav-link">
+            <i class="fa fa-database"></i>
+            <p>Data Aset Desa</p>
+          </a>
+        </li>
+  
+      </ul>
+
       </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="fa fa-th-list"></i>
+          <p>
+            Catatan
+            <i class="fas fa-angle-left right"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="/catatanDiesnataliss" class="nav-link">
+              <i class="fa fa-bars"></i>
+              <p>
+                Catatan Diesnatalis
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/catatanKeluargas" class="nav-link">
+              <i class="fa fa-bars"></i>
+              <p>
+                Catatan Keluarga
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/catatanKeluargaWargas" class="nav-link">
+              <i class="fa fa-bars"></i>
+              <p>
+                Catatan Keluarga Warga
+              </p>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+
+
+      {{-- //bukan grout --}}
+     
       <li class="nav-item">
         <a href="/hatinyaPkks" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
@@ -97,38 +247,8 @@
           </p>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="/dataPenyuluhans" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>
-            Data Penyuluhan
-          </p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="/dataKoperasis" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>
-            Data Koperasi
-          </p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="/dataPosyandus" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>
-            Data Posyandu 
-          </p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="/dataLayananPosyandus" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>
-            Data Layanan Posyandu
-          </p>
-        </a>
-      </li>
+     
+      
       <li class="nav-item">
         <a href="/pelatihanKaders" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
@@ -145,54 +265,14 @@
           </p>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="/dataAsets" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>Data Aset</p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="/dataKeluargas" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>Data Keluarga</p>
-        </a>
-      </li>
+     
       <li class="nav-item">
         <a href="/kelompokBelajars" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
           <p>Kelompok Belajar</p>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="/dataKelompokBelajars" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>Data Kelompok Belajar</p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="/dataKejars" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>Data Kejar</p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="/kelompokBelajars" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>Kelompok Belajar</p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="/rekaptilulasiLahirMatis" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>Rekapitulasi Lahir Mati</p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="/rekapitulasiKelahiranKematians" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>Rekapitulasi Kelahiran Kematian</p>
-        </a>
-      </li>
+     
       <li class="nav-item">
         <a href="/perpustakaans" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
@@ -211,22 +291,11 @@
           <p>Industri Rumah Tangga</p>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="/dataIndustriRumahTanggas" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>Data Industri Rumah Tangga</p>
-        </a>
-      </li>
+     
       <li class="nav-item">
         <a href="/asetDesas" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
           <p>Aset Desa</p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="/dataAsetDesas" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>Data Aset Desa</p>
         </a>
       </li>
 
@@ -237,14 +306,6 @@
         </a>
       </li>
 
-        <li class="nav-item">
-          <a href="/catatanDiesnataliss" class="nav-link">
-            <i class="nav-icon fas fa-columns"></i>
-            <p>
-              Catatan Diesnatalis
-            </p>
-          </a>
-        </li>
 
         <li class="nav-item">
           <a href="/penyuluhans" class="nav-link">
@@ -262,38 +323,9 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="/dataIndustris" class="nav-link">
-            <i class="nav-icon fas fa-columns"></i>
-            <p>
-              Data Industri
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="/catatanKeluargas" class="nav-link">
-            <i class="nav-icon fas fa-columns"></i>
-            <p>
-              Catatan Keluarga
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="/catatanKeluargaWargas" class="nav-link">
-            <i class="nav-icon fas fa-columns"></i>
-            <p>
-              Catatan Keluarga Warga
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="/dataHatinyas" class="nav-link">
-            <i class="nav-icon fas fa-columns"></i>
-            <p>
-              Data Hatinya
-            </p>
-          </a>
-        </li>
+
+        
+
 
 
     </ul>

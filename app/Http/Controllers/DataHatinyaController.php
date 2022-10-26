@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataHatinya;
+use App\Models\Dasawisma;
 use Illuminate\Http\Request;
 use App\Exports\DataHatinyaExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -52,7 +53,8 @@ class DataHatinyaController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('dataHatinyas.index');
+        $dasawisma = Dasawisma::all();
+        return view('dataHatinyas.index',compact('dasawisma',));
     }
 
     public function export_excel()
@@ -80,7 +82,7 @@ class DataHatinyaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
+            // 'id_dasawisma' => 'required',
             'rt' => 'required',
             'rw' => 'required',
             'kelurahan' => 'required',
@@ -115,7 +117,8 @@ class DataHatinyaController extends Controller
      */
     public function edit(dataHatinya $dataHatinya)
     {
-        return view('dataHatinyas.edit',compact('dataHatinya'));
+        $dasawisma = Dasawisma::all();
+        return view('dataHatinyas.edit',compact('dataHatinya','dasawisma'));
 
     }
 
@@ -129,7 +132,7 @@ class DataHatinyaController extends Controller
     public function update(Request $request, dataHatinya $dataHatinya)
     {
         $request->validate([
-            'id_dasawisma' => 'required',
+            // 'id_dasawisma' => 'required',
             'rt' => 'required',
             'rw' => 'required',
             'kelurahan' => 'required',

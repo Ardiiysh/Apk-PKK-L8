@@ -15,7 +15,7 @@ class CreateDataIndustrisTable extends Migration
     {
         Schema::create('data_industris', function (Blueprint $table) {
             $table->increments('id_data_industri');
-            $table->string('id_dasawisma');
+            // $table->string('id_dasawisma');
             $table->integer('rt');
             $table->integer('rw');
             $table->string('kelurahan');
