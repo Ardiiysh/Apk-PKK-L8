@@ -25,8 +25,8 @@
     </button>
     <div class="dropdown-menu">
       <a class="dropdown-item" href="/dataKelompokBelajar">Excel</a>
-      <a class="dropdown-item" href="#">PDF</a>
-      <a class="dropdown-item" href="#">Word</a>
+      {{-- <a class="dropdown-item" href="#">PDF</a>
+      <a class="dropdown-item" href="#">Word</a> --}}
     </div>
   </div>
 
