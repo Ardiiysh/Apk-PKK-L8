@@ -18,8 +18,14 @@ class AkunSeeder extends Seeder
                 // 'username' => 'admin',
                'name'=>'admin',
                'email'=>'admin@gmail.com',
-                // 'level'=>'admin',
+                'role'=>'admin',
                'password'=> bcrypt('123456'),
+            ],
+            [
+                'name' => 'user',
+                'email' => 'user@gmail.com',
+                'role' => 'user',
+                'password' => bcrypt('123456'),
             ]
         ];
 
