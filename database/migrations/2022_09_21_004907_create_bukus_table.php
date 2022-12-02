@@ -15,9 +15,10 @@ class CreateBukusTable extends Migration
     {
         Schema::create('bukus', function (Blueprint $table) {
             $table->id();
-            $table->string('jenis_buku');
-            $table->string('kategori');
-            $table->text('keterangan');
+            $table->string('nama_buku');
+            $table->integer('tahun');
+            $table->string('penulis');
+            $table->text('keterangan')->nullable();
             $table->timestamps();
         });
     }

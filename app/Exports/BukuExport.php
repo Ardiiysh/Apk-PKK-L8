@@ -20,8 +20,9 @@ class BukuExport implements FromCollection, WithHeadings
     {
         return [
             "ID",
-            "Jenis Buku",
-            "Kategori",
+            "Nama Buku",
+            "Tahun",
+            "Penulis",
             "Keterangan",
             "Created_at",
             "Updated_at"

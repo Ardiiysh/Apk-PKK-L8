@@ -79,9 +79,9 @@ class BukuController extends Controller
     public function store(Request $request)
     {
           $request->validate([
-            'jenis_buku' => 'required',
-            'kategori' => 'required',
-            'keterangan' => 'required',
+            'nama_buku' => 'required',
+            'tahun' => 'required',
+            'penulis' => 'required',
         ]);
 
         Buku::create($request->all());
@@ -122,9 +122,9 @@ class BukuController extends Controller
     public function update(Request $request, Buku $buku)
     {
         $request->validate([
-           'jenis_buku' => 'required',
-           'kategori' => 'required',
-           'keterangan' => 'required',
+           'nama_buku' => 'required',
+           'tahun' => 'required',
+           'penulis' => 'required',
         ]);
 
         $buku->update($request->all());

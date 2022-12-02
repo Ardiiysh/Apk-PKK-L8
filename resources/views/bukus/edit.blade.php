@@ -26,25 +26,31 @@
     <form action="{{ route('bukus.update',$buku->id) }}" method="POST">
         @csrf
         @method('PUT')
-<br>
+        <br>
         <div class="card">
             <div class="card-body">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Jenis Buku:</strong>
-                        <input type="text" name="jenis_buku" value="{{ $buku->jenis_buku }}" class="form-control" placeholder="Jenis_buku">
+                        <strong>Nama Buku:</strong>
+                        <input value="{{ $buku->nama_buku }}" type="text" name="nama_buku" class="form-control" placeholder="nama buku">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Kategori:</strong>
-                        <input type="text" name="kategori" value="{{ $buku->kategori }}" class="form-control" placeholder="kategori">
+                        <strong>Tahun:</strong>
+                        <input value="{{ $buku->tahun }}" type="number" min=1 name="tahun" class="form-control" placeholder="tahun">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Penulis:</strong>
+                        <input value="{{ $buku->penulis }}" type="text" name="penulis" class="form-control" placeholder="Penulis">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Keterangan:</strong>
-                        <input type="text" name="keterangan" value="{{ $buku->keterangan }}" class="form-control" placeholder="0878xxxx">
+                        <textarea name="keterangan" class="form-control" id="" cols="30" rows="10">{{ $buku->keterangan }}</textarea>
                     </div>
                 </div>
                

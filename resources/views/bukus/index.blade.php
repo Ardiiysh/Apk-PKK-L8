@@ -56,20 +56,26 @@
                             @csrf
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Jenis Buku:</strong>
-                                    <input type="text" name="jenis_buku" class="form-control" placeholder="buku">
+                                    <strong>Nama Buku:</strong>
+                                    <input type="text" name="nama_buku" class="form-control" placeholder="nama buku">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Kategori:</strong>
-                                    <input type="text" name="kategori" class="form-control" placeholder="kategori">
+                                    <strong>Tahun:</strong>
+                                    <input type="number" min=1 name="tahun" class="form-control" placeholder="tahun">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Penulis:</strong>
+                                    <input type="text" name="penulis" class="form-control" placeholder="Penulis">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Keterangan:</strong>
-                                    <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
+                                    <textarea name="keterangan" class="form-control" id="" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
 
@@ -97,8 +103,9 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Jenis Buku</th>
-                    <th>Kategori</th>
+                    <th>Nama Buku</th>
+                    <th>Tahun terbit</th>
+                    <th>Penulis</th>
                     <th>keterangan</th>
                     <th width="280px">Action</th>
                 </tr>
@@ -123,12 +130,16 @@
                         searchable: false
                     },
                     {
-                        data: 'jenis_buku',
-                        name: 'jenis_buku'
+                        data: 'nama_buku',
+                        name: 'nama_buku'
                     },
                     {
-                        data: 'kategori',
-                        name: 'kategori'
+                        data: 'tahun',
+                        name: 'tahun'
+                    },
+                    {
+                        data: 'penulis',
+                        name: 'penulis'
                     },
                     {
                         data: 'keterangan',
