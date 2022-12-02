@@ -25,16 +25,13 @@
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/dataUser">Excel</a>
+                    <a class="dropdown-item" href="/dataUsers">Excel</a>
                     {{-- <a class="dropdown-item" href="#">PDF</a>
                     <a class="dropdown-item" href="#">Word</a> --}}
                 </div>
             </div>
 
             {{-- <a href="/hatinyaPkk" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
-
-
-
 
             <!-- Button trigger modal -->
             <button type="button" href="{{ route('dataUser.create') }}" class="btn btn-success" data-toggle="modal"
@@ -47,7 +44,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">hatinyaPkk</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">data User</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -124,7 +121,6 @@
 @section('table')
     <script type="text/javascript">
         $(function() {
-
             var table = $('.data-table').DataTable({
                 responsive: true,
                 processing: true,

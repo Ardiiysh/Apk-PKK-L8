@@ -102,6 +102,9 @@
           </p>
         </a>
         <ul class="nav nav-treeview">
+
+          @if (auth()->user()->role == 'admin') 
+
           <li class="nav-item">
             <a href="/dataUser" class="nav-link">
               <i class="fa fa-database"></i>
@@ -110,6 +113,9 @@
               </p>
             </a>
           </li>
+
+          @endif
+          
           <li class="nav-item">
             <a href="/dataHatinyaPkks" class="nav-link">
               <i class="fa fa-database"></i>

@@ -62,7 +62,6 @@ use App\Http\Controllers\UserController;
 
 Route::get('/dashboard1', function () {
     return view('layouts.layout');
-
 });
 
 //route dashboard user
@@ -215,6 +214,8 @@ Route::middleware(['auth', 'Admin'])->group(function () { // Route middleware
     Route::get('hatinyaPkk', [HatinyaPkkController::class, 'export_excel'])->name('hatinyaPkk.export_excel');
     //route dataHatinyaPkk
     Route::get('dataHatinyaPkk', [DataHatinyaPkkController::class, 'export_excel'])->name('dataHatinyaPkk.export_excel');
+    //route data user
+    Route::get('dataUsers', [UserController::class, 'export_excel'])->name('dataUsers.export_excel');
 });
 
 

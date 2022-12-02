@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Exports\UserExport;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
+use Maatwebsite\Excel\Facades\Excel;
+
 class UserController extends Controller
 {
     /**
@@ -51,6 +54,13 @@ class UserController extends Controller
         return view('dataUser.index');
     }
 
+    public function export_excel()
+    {
+        $date = date('Y-m-d', time());
+        $name = 'User Export ' . $date;
+        return Excel::download(new UserExport, $name.'.xlsx');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -70,6 +80,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
@@ -131,8 +142,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $User)
     {
-        //
+        $User->delete();
     }
 }
