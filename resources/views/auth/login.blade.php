@@ -17,15 +17,16 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('template')}}/dist/css/adminlte.min.css">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background: url({{ asset('img/tthpkk.jpg') }}); background-size: 200px;">
   <div class="container text-center">
-    <br>
-  </div>
+    <br>
+  </div>
   <div class="login-box">
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <img src="{{ asset('img/logopkk.png') }}" height="200px" width="200px" class="img-fluid" alt="">
+        <img src="{{ asset('img/logopkk.png') }}" height="90px" width="90px" class="img-fluid" alt="">
+        <br>
         <a href="{{asset('template')}}/index2.html" class="h1"><b>Aplikasi</b>PKK</a>
     </div>
     <div class="card-body">
