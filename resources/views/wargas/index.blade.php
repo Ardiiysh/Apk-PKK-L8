@@ -19,7 +19,7 @@
             <!-- Example split danger button -->
             <div class="btn-group">
                 <button type="button" class="btn btn-info"><i class="fas fa-download"></i></button>
- 
+
                 <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
                     aria-expanded="false">
                     <span class="sr-only">Toggle Dropdown</span>
@@ -79,8 +79,8 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>No KTP:</strong>
-                                    <input type="number" min="0" name="no_ktp" class="form-control"
-                                        placeholder="no_ktp">
+                                    <input type="text" pattern="/d*" minlength="16" maxlength="16" name="no_ktp"
+                                        class="form-control" placeholder="(Maks 16)">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -122,8 +122,14 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Status Perkawinan:</strong>
-                                    <input type="text" name="status_perkawinan" class="form-control"
+                                    <select type="text" name="status_perkawinan" class="form-control"
                                         placeholder="status_perkawinan">
+                                        <option value="">-- pilih Status Perkawinan -- </option>
+                                        <option value="Kawin">Kawin</option>
+                                        <option value="Belum Kawin">Belum Kawin</option>
+                                        <option value="Cerai Hidup">Cerai Hidup</option>
+                                        <option value="Cerai Mati">Cerai Mati</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -136,7 +142,15 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Agama:</strong>
-                                    <input type="text" name="agama" class="form-control" placeholder="agama">
+                                    <select type="text" name="agama" class="form-control" placeholder="agama">
+                                        <option value="">-- pilih Agama -- </option>
+                                        <option value="Islam">Islam</option>
+                                        <option value="Kristen">Kristen</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Budha">Budha</option>
+                                        <option value="Konghucu">Konghucu</option>
+                                        <option value="Kepercayaan Lainnya">Kepercayaan Lainnya</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -206,8 +220,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Keterangan:</strong>
-                                    <input type="text" name="keterangan" class="form-control"
-                                        placeholder="keterangan">
+                                    <textarea name="keterangan" class="form-control" placeholder="keterangan" cols="50" rows="10"></textarea>
                                 </div>
                             </div>
 
