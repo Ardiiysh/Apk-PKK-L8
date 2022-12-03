@@ -79,7 +79,11 @@ class BukuPerpustakaanController extends Controller
     {
         $request->validate([
             'id_perpustakaan' => 'required',
+            'nama_perpus' => 'required',
             'id_buku' => 'required',
+            'judul_buku' => 'required',
+            'pengarang' => 'required',
+            'tahun' => 'required',
             'jumlah' => 'required',
         ]);
 
@@ -122,7 +126,11 @@ class BukuPerpustakaanController extends Controller
     {
         $request->validate([
             'id_perpustakaan' => 'required',
+            'nama_perpus' => 'required',
             'id_buku' => 'required',
+            'judul_buku' => 'required',
+            'pengarang' => 'required',
+            'tahun' => 'required',
             'jumlah' => 'required',
         ]);
 
