@@ -15,7 +15,6 @@
       <div class="row">
         <div class="col-12 col-sm-6 col-md-6">
           <div >
-            
         <h5 class="text-center" > Selamat Datang di Aplikasi </h5>
         <div class="text-info">
           <h4 class="text-center" >SMART PKK (NAMA DESA)</h4>
