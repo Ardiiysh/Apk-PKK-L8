@@ -73,7 +73,7 @@ Route::middleware(['auth', 'Admin'])->group(function () { // Route middleware
     Route::get('/dashboard', function () {
         return view('dashboard.index');
     });
-    
+
     //route dashboard admin
     Route::get('/', [App\Http\Controllers\HomeController::class, 'indexAdmin'])->name('admin');
 
@@ -216,12 +216,13 @@ Route::middleware(['auth', 'Admin'])->group(function () { // Route middleware
     Route::get('dataHatinyaPkk', [DataHatinyaPkkController::class, 'export_excel'])->name('dataHatinyaPkk.export_excel');
     //route data user
     Route::get('dataUsers', [UserController::class, 'export_excel'])->name('dataUsers.export_excel');
+// Route Export PDF
+    // route buku
+    Route::get('buku-pdf', [BukuController::class, 'export_pdf']);
+    //route bukuPerpustakaans
+    Route::get('bukuPerpustakaan-pdf', [BukuPerpustakaanController::class, 'export_pdf']);
+    //route export  Warga
+    Route::get('warga-pdf', [WargaController::class, 'export_pdf']);
+    //route export excel Kegitan Warga
+    Route::get('kegiatanWarga-pdf', [KegiatanWargaController::class, 'export_pdf']);
 });
-
-
-
-
-
-
-
-

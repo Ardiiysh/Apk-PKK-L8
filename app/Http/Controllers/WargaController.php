@@ -8,6 +8,7 @@ use App\Exports\WargaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 class WargaController extends Controller
 {
@@ -59,6 +60,14 @@ class WargaController extends Controller
         $name = 'Laporan Warga '.date('Y-m-d', time());
 		return Excel::download(new WargaExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $warga = Warga::all();
+        $pdf = PDF::loadview('wargas.laporan_pdf', ['warga' => $warga])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('laporan_warga.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.

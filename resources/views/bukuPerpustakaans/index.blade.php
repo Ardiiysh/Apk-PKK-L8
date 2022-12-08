@@ -26,6 +26,7 @@
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/bukuPerpustakaan">Excel</a>
+                    <a class="dropdown-item" href="/bukuPerpustakaan-pdf">PDF</a>
                     {{-- <a class="dropdown-item" href="#">PDF</a>
                     <a class="dropdown-item" href="#">Word</a> --}}
                 </div>

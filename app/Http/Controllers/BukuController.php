@@ -8,6 +8,8 @@ use App\Exports\BukuExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+// use Barryvdh\DomPDF\Facade as PDF;
+use PDF;
 
 class BukuController extends Controller
 {
@@ -52,7 +54,8 @@ class BukuController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('bukus.index');
+        $buku = Buku::all();
+        return view('bukus.index', compact('buku'));
     }
 
     public function export_excel()
@@ -60,6 +63,16 @@ class BukuController extends Controller
         $name = 'Laporan Buku '.date('Y-m-d', time());
 		return Excel::download(new BukuExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $buku = Buku::all();
+
+        // $pdf = PDF::loadview('bukus.laporan_pdf', ['buku' => $buku])->setOptions(['defaultFont' => 'sans-serif']);
+
+        // return $pdf->download('laporan_buku.pdf');
+        return view('bukus.laporan_pdf', compact('buku'));
+    }
 
     /**
      * Show the form for creating a new resource.
