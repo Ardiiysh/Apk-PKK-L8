@@ -3,28 +3,35 @@
 namespace App\Exports;
 
 use App\Models\User;
-use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class UserExport implements FromCollection, WithHeadings
+// generarte excel from view
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
+
+// for input image
+use Maatwebsite\Excel\Concerns\WithDrawings;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
+
+
+class UserExport implements FromView, WithDrawings
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
+
+    public function view() :View
     {
-        return User::all()->where('role', 'user');
+        $data['user'] = User::all()->where('role', 'user');
+
+        return view('Exports.excel.user', $data);
     }
 
-    public function headings(): array
+    public function drawings()
     {
-        return [
-            'ID User',
-            'Name',
-            'Email',
-            'role',
-            'Created_at',
-            'Updated_at'
-        ];
+        $drawing = new Drawing();
+        $drawing->setName('kopsurat');
+        $drawing->setDescription('kop surat pkk');
+        $drawing->setPath(public_path('/img/kopsurat.png'));
+        $drawing->setHeight(35);
+        $drawing->setCoordinates('A1');
+
+        return $drawing;
     }
 }

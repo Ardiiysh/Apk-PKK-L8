@@ -16,11 +16,25 @@
   <link rel="stylesheet" href="{{asset('template')}}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('template')}}/dist/css/adminlte.min.css">
+
+  <link rel="stylesheet" href="{{ asset('assets/css/background.css') }}">
 </head>
-<body class="hold-transition login-page" style="background: url({{ asset('img/tthpkk.jpg') }}); background-size: 200px;">
+<body class="hold-transition login-page area">
   <div class="container text-center">
     <br>
   </div>
+  <ul class="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+  </ul>
   <div class="login-box">
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
@@ -78,6 +92,7 @@
           <!-- /.col -->
         </div>
       </form>
+      
 
      
       

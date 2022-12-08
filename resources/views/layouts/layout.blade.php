@@ -100,7 +100,7 @@
     {{-- href="../../index3.html" --}}
     <a  class="brand-link" align="center">
       {{-- <img src="{{asset('template')}}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
-      <span class="brand-text font-weight-light">Desa Nanjung Jaya</span>
+      <span class="brand-text font-weight-light">Nama desa</span>
     </a>
 
     <!-- Sidebar -->
