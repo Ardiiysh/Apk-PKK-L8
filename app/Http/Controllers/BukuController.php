@@ -67,9 +67,10 @@ class BukuController extends Controller
     {
         $buku = Buku::all();
 
-        $pdf = PDF::loadview('bukus.laporan_pdf', ['buku' => $buku])->setOptions(['defaultFont' => 'sans-serif']);
+        // $pdf = PDF::loadview('bukus.laporan_pdf', ['buku' => $buku])->setOptions(['defaultFont' => 'sans-serif']);
 
-        return $pdf->download('laporan_buku.pdf');
+        // return $pdf->download('laporan_buku.pdf');
+        return view('bukus.laporan_pdf', compact('buku'));
     }
 
     /**

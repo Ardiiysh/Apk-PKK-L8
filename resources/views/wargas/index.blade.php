@@ -19,15 +19,15 @@
             <!-- Example split danger button -->
             <div class="btn-group">
                 <button type="button" class="btn btn-info"><i class="fas fa-download"></i></button>
- 
+
                 <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
                     aria-expanded="false">
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/warga">Excel</a>
-                    {{-- <a class="dropdown-item" href="#">PDF</a>
-                    <a class="dropdown-item" href="#">Word</a> --}}
+                    <a class="dropdown-item" href="/warga-pdf">PDF</a>
+                    {{-- <a class="dropdown-item" href="#">Word</a> --}}
                 </div>
             </div>
 

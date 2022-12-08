@@ -8,6 +8,7 @@ use App\Exports\KegiatanWargaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 class KegiatanWargaController extends Controller
 {
@@ -58,6 +59,14 @@ class KegiatanWargaController extends Controller
 	{
 		return Excel::download(new KegiatanWargaExport, 'Laporan Kegiatan Warga.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $kegiatanWarga = KegiatanWarga::all();
+        $pdf = PDF::loadview('kegiatanWargas.laporan_pdf', ['kegiatanWarga' => $kegiatanWarga])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('laporan_kegiatan_warga.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
