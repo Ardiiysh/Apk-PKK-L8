@@ -56,7 +56,8 @@ class RekaptilulasiLahirMatiController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new RekaptilulasiLahirMatiExport, 'Laporan Rekapitulasi Lahir Mati.xlsx');
+        $name = 'Laporan Rekapitulasi Lahir Mati '.date('Y-m-d', time());
+		return Excel::download(new RekaptilulasiLahirMatiExport, $name . '.xlsx');
 	}
 
     /**

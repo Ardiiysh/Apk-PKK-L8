@@ -58,7 +58,8 @@ class PerpustakaanController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new PerpustakaanExport, 'Laporan perpustakaan.xlsx');
+        $name = 'Laporan perpustakaan '.date('Y-m-d', time());
+		return Excel::download(new PerpustakaanExport, $name . '.xlsx');
 	}
 
     /**

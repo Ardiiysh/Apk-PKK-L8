@@ -57,7 +57,8 @@ class BukuController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new BukuExport, 'Laporan Buku.xlsx');
+        $name = 'Laporan Buku '.date('Y-m-d', time());
+		return Excel::download(new BukuExport, $name . '.xlsx');
 	}
 
     /**

@@ -49,8 +49,7 @@ class UserController extends Controller
 
     public function export_excel()
     {
-        $date = date('Y-m-d', time());
-        $name = 'User Export ' . $date;
+        $name = 'User Export '.date('Y-m-d', time());
         return Excel::download(new UserExport, $name.'.xlsx');
     }
 

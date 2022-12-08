@@ -56,7 +56,8 @@ class RekapitulasiKelompokPkkRtController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new RekapitulasiKelompokPkkRtExport, 'Laporan Rekapitulasi Kelompok Pkk Rt .xlsx');
+        $name = 'Laporan Rekapitulasi Kelompok Pkk Rt '.date('Y-m-d', time());
+		return Excel::download(new RekapitulasiKelompokPkkRtExport, $name . '.xlsx');
 	}
 
     /**

@@ -56,7 +56,8 @@ class LayananPosyanduController extends Controller
 
     public function export_excel()
     {
-        return Excel::download(new LayananPosyanduExport(), 'Laporan layananPosyandu.xlsx');
+        $name = 'Laporan layananPosyandu '.date('Y-m-d', time());
+        return Excel::download(new LayananPosyanduExport(), $name . '.xlsx');
     }
 
     /**

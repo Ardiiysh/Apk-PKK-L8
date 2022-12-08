@@ -56,7 +56,8 @@ class CatatanKeluargaWargaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new CatatanKeluargaWargaExport, 'Laporan Catatan Keluarga Warga.xlsx');
+        $name = 'Laporan Catatan Keluarga Warga '.date('Y-m-d', time());
+		return Excel::download(new CatatanKeluargaWargaExport, $name . '.xlsx');
 	}
 
 

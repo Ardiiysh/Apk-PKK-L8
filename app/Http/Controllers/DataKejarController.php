@@ -56,7 +56,8 @@ class DataKejarController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new DataKejarExport, 'Laporan Data Kejar.xlsx');
+        $name = 'Laporan Data Kejar '.date('Y-m-d', time());
+		return Excel::download(new DataKejarExport, $name . '.xlsx');
 	}
 
     /**

@@ -58,7 +58,8 @@ class RekapitulasiKelahiranKematianController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new RekapitulasiKelahiranKematianExport, 'Laporan rekapitulasi Kelahiran Kematian.xlsx');
+        $name = 'Laporan rekapitulasi Kelahiran Kematian '.date('Y-m-d', time());
+		return Excel::download(new RekapitulasiKelahiranKematianExport, $name .'.xlsx');
 	}
 
     /**

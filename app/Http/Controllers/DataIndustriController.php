@@ -58,7 +58,8 @@ class DataIndustriController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new DataIndustriExport, 'Laporan Data Industri.xlsx');
+        $name = 'Laporan Data Industri '.date('Y-m-d', time());
+		return Excel::download(new DataIndustriExport, $name . '.xlsx');
 	}
 
     /**

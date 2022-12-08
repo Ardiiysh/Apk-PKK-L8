@@ -57,7 +57,8 @@ class DataPosyanduController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new DataPosyanduExport, 'Laporan Data Posyandu .xlsx');
+        $name = 'Laporan Data Posyandu '.date('Y-m-d', time());
+		return Excel::download(new DataPosyanduExport, $name . '.xlsx');
 	}
 
     /**

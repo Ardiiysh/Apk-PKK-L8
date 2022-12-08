@@ -58,7 +58,8 @@ class RekapitulasiKelompokDasawismaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new RekapitulasiKelompokDasawismaExport, 'Laporan RekapitulasiKelompokDasawisma.xlsx');
+        $name = 'Laporan RekapitulasiKelompokDasawisma '.date('Y-m-d', time());
+		return Excel::download(new RekapitulasiKelompokDasawismaExport, $name . '.xlsx');
 	}
 
     /**

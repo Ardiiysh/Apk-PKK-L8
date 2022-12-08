@@ -56,7 +56,8 @@ class KegiatanWargaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new KegiatanWargaExport, 'Laporan Kegiatan Warga.xlsx');
+        $name = 'Laporan Kegiatan Warga '.date('Y-m-d', time());
+		return Excel::download(new KegiatanWargaExport, $name . '.xlsx');
 	}
 
     /**

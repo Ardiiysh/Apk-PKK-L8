@@ -56,7 +56,8 @@ class KelompokBelajarController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new KelompokBelajarExport, 'Laporan Kelompok Belajar.xlsx');
+        $name = 'Laporan Kelompok Belajar'.date('Y-m-d', time());
+		return Excel::download(new KelompokBelajarExport, $name . '.xlsx');
 	}
 
     /**

@@ -59,7 +59,8 @@ class DataKoperasiController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new DataKoperasiExport, 'Laporan Data Koperasi.xlsx');
+        $name = 'Laporan Data Koperasi '.date('Y-m-d', time());
+		return Excel::download(new DataKoperasiExport, $name . '.xlsx');
 	}
 
     /**

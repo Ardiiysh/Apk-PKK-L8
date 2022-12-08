@@ -56,7 +56,8 @@ class PelatihanController extends Controller
 
     public function export_excel()
     {
-        return Excel::download(new PelatihanExport(), 'Laporan Pelatihan.xlsx');
+        $name = 'Laporan Pelatihan '.date('Y-m-d', time());
+        return Excel::download(new PelatihanExport(), $name . '.xlsx');
     }
 
     /**

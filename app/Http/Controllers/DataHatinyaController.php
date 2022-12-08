@@ -59,7 +59,8 @@ class DataHatinyaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new DataHatinyaExport, 'Laporan Data Hatinya.xlsx');
+        $name = 'Laporan Data Hatinya '.date('Y-m-d', time());
+		return Excel::download(new DataHatinyaExport, $name . '.xlsx');
 	}
 
     /**

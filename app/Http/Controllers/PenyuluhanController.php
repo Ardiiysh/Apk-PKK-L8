@@ -56,7 +56,8 @@ class PenyuluhanController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new PenyuluhanExport, 'Laporan Penyuluhan.xlsx');
+        $name = 'Laporan Penyuluhan '.date('Y-m-d', time());
+		return Excel::download(new PenyuluhanExport, $name . '.xlsx');
 	}
 
     /**

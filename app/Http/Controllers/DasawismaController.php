@@ -56,7 +56,8 @@ class DasawismaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new DasawismaExport, 'Laporan Dasawisma.xlsx');
+        $name = 'Laporan Dasawisma '.date('Y-m-d', time());
+		return Excel::download(new DasawismaExport,  $name . '.xlsx');
 	}
 
     /**

@@ -56,7 +56,8 @@ class IndustriRumahTanggaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new IndustriRumahTanggaExport, 'Laporan Industri Rumah Tangga.xlsx');
+        $name = 'Laporan Industri Rumah Tangga '.date('Y-m-d',time());
+		return Excel::download(new IndustriRumahTanggaExport, $name . '.xlsx');
 	}
 
     /**

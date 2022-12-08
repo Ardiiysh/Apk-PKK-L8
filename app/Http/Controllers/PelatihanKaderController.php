@@ -57,7 +57,8 @@ class PelatihanKaderController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new pelatihanKaderExport, 'Laporan Data Kelompok Belajar .xlsx');
+        $name = 'Laporan Data Kelompok Belajar '. date('Y-m-d', time());
+		return Excel::download(new pelatihanKaderExport, $name . '.xlsx');
 	}
 
     /**

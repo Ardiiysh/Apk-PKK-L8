@@ -57,7 +57,8 @@ class HatinyaPkkController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new HatinyaPkkExport, 'Laporan Hatinya Pkk .xlsx');
+        $name = 'Laporan Hatinya Pkk '.date('Y-m-d', time());
+		return Excel::download(new HatinyaPkkExport, $name . '.xlsx');
 	}
 
     /**

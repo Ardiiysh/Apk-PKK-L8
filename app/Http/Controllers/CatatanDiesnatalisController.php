@@ -58,7 +58,8 @@ class CatatanDiesnatalisController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new CatatanDiesnatalisExport, 'Laporan Catatan Diesnatalis.xlsx');
+        $name = 'Laporan Catatan Diesnatalis '.date('Y-m-d', time());
+		return Excel::download(new CatatanDiesnatalisExport, $name . '.xlsx');
 	}
 
     /**

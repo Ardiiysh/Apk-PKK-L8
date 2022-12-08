@@ -56,7 +56,8 @@ class BukuPerpustakaanController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new BukuPerpustakaanExport, 'Laporan Buku Perpustakaan.xlsx');
+        $name = 'Laporan Buku Perpustakaan '.date('Y-m-d', time());
+		return Excel::download(new BukuPerpustakaanExport, $name . '.xlsx');
 	}
 
     /**

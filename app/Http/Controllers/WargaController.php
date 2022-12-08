@@ -56,7 +56,8 @@ class WargaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new WargaExport, 'Laporan Warga.xlsx');
+        $name = 'Laporan Warga '.date('Y-m-d', time());
+		return Excel::download(new WargaExport, $name . '.xlsx');
 	}
 
     /**

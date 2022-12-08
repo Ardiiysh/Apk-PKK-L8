@@ -58,7 +58,8 @@ class DataKeluargaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new DataKeluargaExport, 'Laporan Data Keluarga.xlsx');
+        $name = 'Laporan Data Keluarga '.date('Y-m-d', time());
+		return Excel::download(new DataKeluargaExport, $name . '.xlsx');
 	}
 
 

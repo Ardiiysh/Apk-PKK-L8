@@ -57,7 +57,8 @@ class AsetDesaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new AsetDesaExport, 'Laporan Aset Desa .xlsx');
+        $name = 'Laporan Aset Desa '.date('Y-m-d',time());
+		return Excel::download(new AsetDesaExport, $name.'.xlsx');
 	}
 
     /**

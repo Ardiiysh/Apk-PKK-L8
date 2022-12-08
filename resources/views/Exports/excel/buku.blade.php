@@ -1,7 +1,7 @@
 <table>
     <thead>
         <tr>
-            <th colspan="3" rowspan="2"></th>
+            <th colspan="6" rowspan="2"></th>
         </tr>
         <tr>
             <th></th>

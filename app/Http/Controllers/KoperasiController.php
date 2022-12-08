@@ -56,7 +56,8 @@ class KoperasiController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new KoperasiExport, 'Laporan Koperasi.xlsx');
+        $name = 'Laporan Koperasi '.date('Y-m-d', time());
+		return Excel::download(new KoperasiExport, $name . '.xlsx');
 	}
 
     /**
