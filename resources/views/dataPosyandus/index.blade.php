@@ -25,8 +25,8 @@
     </button>
     <div class="dropdown-menu">
       <a class="dropdown-item" href="/dataPosyandu">Excel</a>
-      {{-- <a class="dropdown-item" href="#">PDF</a>
-      <a class="dropdown-item" href="#">Word</a> --}}
+      <a class="dropdown-item" href="/dataPosyandu-pdf">PDF</a>
+      {{-- <a class="dropdown-item" href="#">Word</a> --}}
     </div>
   </div>
 
@@ -123,37 +123,37 @@
                                 <strong>nama posyandu:</strong>
                                 <input type="text" name="nama_posyandu" class="form-control" placeholder="nama_posyandu">
                             </div>
-                        </div>             
+                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>pengelola:</strong>
                                 <input type="text" name="pengelola" class="form-control" placeholder="pengelola">
                             </div>
-                        </div>             
+                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>sekretaris:</strong>
                                 <input type="text" name="sekretaris" class="form-control" placeholder="sekretaris">
                             </div>
-                        </div>             
+                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>jenis posyandu:</strong>
                                 <input type="text" name="jenis_posyandu" class="form-control" placeholder="jenis_posyandu">
                             </div>
-                        </div>             
+                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>jumlah kader:</strong>
                                 <input  type="number" min="0" name="jumlah_kader" class="form-control" placeholder="jumlah_kader">
                             </div>
-                        </div>             
+                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>keterangan:</strong>
                                 <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
                             </div>
-                        </div>             
+                        </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>

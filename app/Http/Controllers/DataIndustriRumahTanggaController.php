@@ -8,6 +8,7 @@ use App\Exports\DataIndustriRumahTanggaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 class DataIndustriRumahTanggaController extends Controller
 {
@@ -59,6 +60,14 @@ class DataIndustriRumahTanggaController extends Controller
         $name = 'Laporan Data Industri Rumah Tangga '.date('Y-m-d', time());
 		return Excel::download(new DataIndustriRumahTanggaExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $dataIndustriRumahTangga = DataIndustriRumahTangga::all();
+        $pdf = PDF::loadview('dataIndustriRumahTanggas.laporan_pdf', ['dataIndustriRumahTangga' => $dataIndustriRumahTangga])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('data_industri_rumah_tangga.pdf');
+    }
 
 
     /**

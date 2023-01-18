@@ -9,6 +9,7 @@ use App\Exports\DataPenyuluhanExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 
 class DataPenyuluhanController extends Controller
@@ -62,6 +63,14 @@ class DataPenyuluhanController extends Controller
         $name = 'Laporan Data Penyuluhan '.date('Y-m-d', time());
 		return Excel::download(new DataPenyuluhanExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $dataPenyuluhan = DataPenyuluhan::all();
+        $pdf = PDF::loadview('dataPenyuluhans.laporan_pdf', ['dataPenyuluhan' => $dataPenyuluhan])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('data_penyuluhan.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.

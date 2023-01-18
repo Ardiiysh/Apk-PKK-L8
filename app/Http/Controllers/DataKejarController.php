@@ -8,6 +8,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\DataKejarExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 class DataKejarController extends Controller
 {
@@ -59,6 +60,14 @@ class DataKejarController extends Controller
         $name = 'Laporan Data Kejar '.date('Y-m-d', time());
 		return Excel::download(new DataKejarExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $dataKejar = DataKejar::all();
+        $pdf = PDF::loadview('dataKejars.laporan_pdf', ['dataKejar' => $dataKejar])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('data_kejar.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -134,9 +143,9 @@ class DataKejarController extends Controller
             'jumlah_pengajar_laki_laki'=> 'required',
             'jumlah_pengajar_perempuan'=> 'required',
          ]);
-            
+
           $dataKejar->update($request->all());
-  
+
           return redirect()->route('dataKejars.index')
                           ->with('success','dataKejar updated successfully');
       }
