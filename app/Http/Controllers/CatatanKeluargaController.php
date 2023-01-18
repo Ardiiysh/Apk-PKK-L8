@@ -8,6 +8,7 @@ use App\Exports\CatatanKeluargaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 class CatatanKeluargaController extends Controller
 {
@@ -59,6 +60,14 @@ class CatatanKeluargaController extends Controller
         $name = 'Laporan Catatan Keluarga '.date('Y-m-d', time());
 		return Excel::download(new CatatanKeluargaExport, $name .'.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $catatanKeluarga = CatatanKeluarga::all();
+        $pdf = PDF::loadview('catatanKeluargas.laporan_pdf', ['catatanKeluarga' => $catatanKeluarga])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('catatan_keluarga.pdf');
+    }
 
 
     /**
@@ -141,12 +150,12 @@ class CatatanKeluargaController extends Controller
             'tempat_sampah' => 'required',
             'keterangan' => 'required',
          ]);
- 
+
          $catatanKeluarga->update($request->all());
- 
+
          return redirect()->route('catatanKeluargas.index')
                          ->with('success','catatan Keluarga updated successfully');
-      
+
     }
 
     /**

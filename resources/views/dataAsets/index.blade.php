@@ -25,8 +25,8 @@
     </button>
     <div class="dropdown-menu">
       <a class="dropdown-item" href="/dataAset">Excel</a>
-      {{-- <a class="dropdown-item" href="#">PDF</a>
-      <a class="dropdown-item" href="#">Word</a> --}}
+      <a class="dropdown-item" href="/dataAset-pdf">PDF</a>
+      {{-- <a class="dropdown-item" href="#">Word</a> --}}
     </div>
   </div>
 
@@ -129,7 +129,7 @@
                                 <strong>Keterangan:</strong>
                                 <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
                             </div>
-                        </div>    
+                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>nama warung pkk:</strong>
@@ -141,7 +141,7 @@
                                 <strong>pengelola:</strong>
                                 <input type="text" name="pengelola" class="form-control" placeholder="pengelola">
                             </div>
-                        </div>                 
+                        </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -175,7 +175,7 @@
                 <th>provinsi</th>
                 <th>keterangan</th>
 
-            
+
 
 
                 <th width="280px">Action</th>

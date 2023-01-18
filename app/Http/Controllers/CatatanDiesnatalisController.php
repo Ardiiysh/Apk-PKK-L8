@@ -9,6 +9,7 @@ use App\Exports\CatatanDiesnatalisExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 class CatatanDiesnatalisController extends Controller
 {
@@ -61,6 +62,14 @@ class CatatanDiesnatalisController extends Controller
         $name = 'Laporan Catatan Diesnatalis '.date('Y-m-d', time());
 		return Excel::download(new CatatanDiesnatalisExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $catatanDiesnatalis = CatatanDiesnatalis::all();
+        $pdf = PDF::loadview('catatanDiesnataliss.laporan_pdf', ['catatanDiesnatalis' => $catatanDiesnatalis])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('catatan_diesnatalis.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.

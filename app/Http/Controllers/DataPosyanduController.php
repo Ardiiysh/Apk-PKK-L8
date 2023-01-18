@@ -9,6 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\DataPosyanduExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 class DataPosyanduController extends Controller
 {
     /**
@@ -61,6 +62,14 @@ class DataPosyanduController extends Controller
 		return Excel::download(new DataPosyanduExport, $name . '.xlsx');
 	}
 
+    public function export_pdf()
+    {
+        $dataPosyandu = DataPosyandu::all();
+        $pdf = PDF::loadview('dataPosyandus.laporan_pdf', ['dataPosyandu' => $dataPosyandu])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('data_posyandu.pdf');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -95,9 +104,9 @@ class DataPosyanduController extends Controller
             'jumlah_kader' => 'required',
             'keterangan'=> 'required',
            ]);
-  
+
            DataPosyandu::create($request->all());
-  
+
           return redirect()->route('dataPosyandus.index')
                           ->with('success','dataPosyandu created successfully.');
       }
@@ -150,9 +159,9 @@ class DataPosyanduController extends Controller
             'jumlah_kader' => 'required',
             'keterangan'=> 'required',
          ]);
-            
+
           $dataPosyandu->update($request->all());
-  
+
           return redirect()->route('dataPosyandus.index')
                           ->with('success','dataPosyandu updated successfully');
       }

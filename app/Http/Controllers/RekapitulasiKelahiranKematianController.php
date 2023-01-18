@@ -9,6 +9,7 @@ use App\Exports\RekapitulasiKelahiranKematianExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 class RekapitulasiKelahiranKematianController extends Controller
 {
@@ -61,6 +62,14 @@ class RekapitulasiKelahiranKematianController extends Controller
         $name = 'Laporan rekapitulasi Kelahiran Kematian '.date('Y-m-d', time());
 		return Excel::download(new RekapitulasiKelahiranKematianExport, $name .'.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $rekapitulasiKelahiranKematian = RekapitulasiKelahiranKematian::all();
+        $pdf = PDF::loadview('rekapitulasiKelahiranKematians.laporan_pdf', ['rekapitulasiKelahiranKematian' => $rekapitulasiKelahiranKematian])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('rekapitulasi_kelahiran_kematian.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -141,9 +150,9 @@ class RekapitulasiKelahiranKematianController extends Controller
             'provinsi'=> 'required',
             'keterangan'=> 'required',
          ]);
-            
+
           $rekapitulasiKelahiranKematian->update($request->all());
-  
+
           return redirect()->route('rekapitulasiKelahiranKematians.index')
                           ->with('success','rekapitulasiKelahiranKematian updated successfully');
     }

@@ -9,6 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\DataKelompokBelajarExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 class DataKelompokBelajarController extends Controller
 {
     /**
@@ -61,6 +62,14 @@ class DataKelompokBelajarController extends Controller
 		return Excel::download(new DataKelompokBelajarExport, $name . '.xlsx');
 	}
 
+    public function export_pdf()
+    {
+        $dataKelompokBelajar = DataKelompokBelajar::all();
+        $pdf = PDF::loadview('dataKelompokBelajars.laporan_pdf', ['dataKelmpokBelajar' => $dataKelompokBelajar])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('data_kelompok_belajar.pdf');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -93,13 +102,13 @@ class DataKelompokBelajarController extends Controller
             'kedudukan'=> 'required',
             'keterangan'=> 'required',
            ]);
-  
+
            DataKelompokBelajar::create($request->all());
-  
+
           return redirect()->route('dataKelompokBelajars.index')
                           ->with('success','dataKelompokBelajar created successfully.');
       }
-  
+
 
     /**
      * Display the specified resource.
@@ -120,7 +129,7 @@ class DataKelompokBelajarController extends Controller
      */
     public function edit(DataKelompokBelajar $dataKelompokBelajar)
     {
-        
+
         $dasawisma = Dasawisma::all();
         return view('dataKelompokBelajars.edit',compact('dasawisma','dataKelompokBelajar'));
     }
@@ -148,9 +157,9 @@ class DataKelompokBelajarController extends Controller
             'kedudukan'=> 'required',
             'keterangan'=> 'required',
          ]);
-            
+
           $dataKelompokBelajar->update($request->all());
-  
+
           return redirect()->route('dataKelompokBelajars.index')
                           ->with('success','dataKelompokBelajar updated successfully');
       }
