@@ -9,7 +9,7 @@ use App\Exports\DataHatinyaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-
+use PDF;
 
 class DataHatinyaController extends Controller
 {
@@ -62,6 +62,14 @@ class DataHatinyaController extends Controller
         $name = 'Laporan Data Hatinya '.date('Y-m-d', time());
 		return Excel::download(new DataHatinyaExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $dataHatinya = DataHatinya::all();
+        $pdf = PDF::loadview('dataHatinyas.laporan_pdf', ['dataHatinya' => $dataHatinya])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('data_hatinya.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.

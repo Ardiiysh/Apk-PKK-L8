@@ -155,6 +155,8 @@ Route::middleware(['auth'])->group(function () { // Route middleware
     Route::resource('hatinyaPkks', HatinyaPkkController::class);
     //route dataHatinyaPkks
     Route::resource('dataHatinyaPkks', DataHatinyaPkkController::class);
+    // route catatanKeluargaWargas
+    Route::resource('catatanKeluargaWargas', CatatanKeluargaWargaController::class);
 
 //Route Export Excel
     //route export excel buku
@@ -233,6 +235,70 @@ Route::middleware(['auth'])->group(function () { // Route middleware
     Route::get('bukuPerpustakaan-pdf', [BukuPerpustakaanController::class, 'export_pdf']);
     //route export  Warga
     Route::get('warga-pdf', [WargaController::class, 'export_pdf']);
-    //route export excel Kegitan Warga
+    //route export Kegitan Warga
     Route::get('kegiatanWarga-pdf', [KegiatanWargaController::class, 'export_pdf']);
+    //route Rekapitulasi Kelompok dasawisma
+    Route::get('rekapitulasiKelompokDasawisma-pdf', [RekapitulasiKelompokDasawismaController::class, 'export_pdf']);
+    //route Rekapitulasi Kelompok Pkk Rt
+    Route::get('rekapitulasiKelompokPkkRt-pdf', [RekapitulasiKelompokPkkRtController::class, 'export_pdf']);
+    //route rekapitulasilahiranmatian
+    Route::get('rekaptilulasiLahirMati-pdf', [RekaptilulasiLahirMatiController::class, 'export_pdf']);
+    //route rekapitulasiKelahiranKematian
+    Route::get('rekapitulasiKelahiranKematian-pdf', [RekapitulasiKelahiranKematianController::class, 'export_pdf']);
+    //route data user
+    Route::get('dataUsers-pdf', [UserController::class, 'export_pdf']);
+    //route dataHatinyaPkk
+    Route::get('dataHatinyaPkk-pdf', [DataHatinyaPkkController::class, 'export_pdf']);
+    //route dataPenyuluhan
+    Route::get('dataPenyuluhan-pdf', [DataPenyuluhanController::class, 'export_pdf']);
+    //route DataKoperasi
+    Route::get('dataKoperasi-pdf', [DataKoperasiController::class, 'export_pdf']);
+    //route dataPosyandu
+    Route::get('dataPosyandu-pdf', [DataPosyanduController::class, 'export_pdf']);
+    //route dataLayananPosyandu
+    Route::get('dataLayananPosyandu-pdf', [DataLayananPosyanduController::class, 'export_pdf']);
+    //route dataAsets
+    Route::get('dataAset-pdf', [DataAsetController::class, 'export_pdf']);
+    //route dataKeluargas
+    Route::get('dataKeluarga-pdf', [DataKeluargaController::class, 'export_pdf']);
+    //route dataIndustriRumahTangga
+    Route::get('dataIndustriRumahTangga-pdf', [DataIndustriRumahTanggaController::class, 'export_pdf']);
+    //route Data Industri
+    Route::get('dataIndustri-pdf', [DataIndustriController::class, 'export_pdf']);
+    //route DataKelompokBelajar
+    Route::get('dataKelompokBelajar-pdf', [DataKelompokBelajarController::class, 'export_pdf']);
+    //route dataKejar
+    Route::get('dataKejar-pdf', [DataKejarController::class, 'export_pdf']);
+    //route dataHatinyas
+    Route::get('dataHatinya-pdf', [DataHatinyaController::class, 'export_pdf']);
+    //route DataAsetDesa
+    Route::get('dataAsetDesa-pdf', [DataAsetDesaController::class, 'export_pdf']);
+    // route catatanDiesnataliss
+    Route::get('catatanDiesnatalis-pdf', [CatatanDiesnatalisController::class, 'export_pdf']);
+    //route catatanKeluarga
+    Route::get('catatanKeluarga-pdf', [CatatanKeluargaController::class, 'export_pdf']);
+    // route catatanKeluargaWarga
+    Route::get('catatanKeluargaWarga-pdf', [CatatanKeluargaWargaController::class, 'export_pdf']);
+    //route hatinyaPkks
+    Route::get('hatinyaPkk-pdf', [HatinyaPkkController::class, 'export_pdf']);
+    //route pelatihanKaders
+    Route::get('pelatihanKader-pdf', [PelatihanKaderController::class, 'export_pdf']);
+    //route layananPosyandy
+    Route::get('layananPosyandu-pdf', [LayananPosyanduController::class, 'export_pdf']);
+    //route kelompokBelajar
+    Route::get('kelompokBelajar-pdf', [KelompokBelajarController::class, 'export_pdf']);
+    //route perpustakaan
+    Route::get('perpustakaan-pdf', [PerpustakaanController::class, 'export_pdf']);
+    // route dasawisma
+    Route::get('dasawisma-pdf', [DasawismaController::class, 'export_pdf']);
+    //route industrirumahtangga
+    Route::get('industriRumahTangga-pdf', [IndustriRumahTanggaController::class, 'pdf']);
+    //route asetDesa
+    Route::get('asetDesa-pdf', [AsetDesaController::class, 'export_pdf']);
+    //route Koperasi
+    Route::get('koperasi-pdf', [KoperasiController::class, 'export_pdf']);
+    //route Penyuluhan
+    Route::get('penyuluhan-pdf', [PenyuluhanController::class, 'export_pdf']);
+    //route pelatihan
+    Route::get('pelatihan-pdf', [PelatihanController::class, 'export_pdf']);
 });

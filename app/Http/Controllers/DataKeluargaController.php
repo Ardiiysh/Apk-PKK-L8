@@ -9,6 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\DataKeluargaExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 class DataKeluargaController extends Controller
 {
@@ -53,7 +54,7 @@ class DataKeluargaController extends Controller
                     ->make(true);
         }
         $dasawisma = Dasawisma::all();
-        return view('dataKeluargas.index');
+        return view('dataKeluargas.index', compact('dasawisma'));
     }
 
     public function export_excel()
@@ -61,6 +62,14 @@ class DataKeluargaController extends Controller
         $name = 'Laporan Data Keluarga '.date('Y-m-d', time());
 		return Excel::download(new DataKeluargaExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $dataKeluarga = DataKeluarga::all();
+        $pdf = PDF::loadview('dataKeluargas.laporan_pdf', ['dataKeluarga' => $dataKeluarga])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('data_keluarga.pdf');
+    }
 
 
     /**
@@ -113,13 +122,13 @@ class DataKeluargaController extends Controller
             'kegiatan_usaha_kesehatan_lingkungan'=> 'required',
             'keterangan'=> 'required',
            ]);
-  
+
            DataKeluarga::create($request->all());
-  
+
           return redirect()->route('dataKeluargas.index')
                           ->with('success','dataKeluarga created successfully.');
       }
-  
+
 
     /**
      * Display the specified resource.
@@ -185,9 +194,9 @@ class DataKeluargaController extends Controller
             'kegiatan_usaha_kesehatan_lingkungan'=> 'required',
             'keterangan'=> 'required',
          ]);
-            
+
           $dataKeluarga->update($request->all());
-  
+
           return redirect()->route('dataKeluargas.index')
                           ->with('success','dataKeluarga updated successfully');
       }

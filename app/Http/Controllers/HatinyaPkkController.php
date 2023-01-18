@@ -8,6 +8,7 @@ use App\Exports\hatinyaPkkExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 
 class HatinyaPkkController extends Controller
@@ -60,6 +61,14 @@ class HatinyaPkkController extends Controller
         $name = 'Laporan Hatinya Pkk '.date('Y-m-d', time());
 		return Excel::download(new HatinyaPkkExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $hatinyaPkk = HatinyaPkk::all();
+        $pdf = PDF::loadview('hatinyaPkks.laporan_pdf', ['hatinyaPKK' => $hatinyaPkk])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('hatinya_pkk.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
