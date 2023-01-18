@@ -25,7 +25,7 @@
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/buku">Excel</a>
+                    <a class="dropdown-item" href="/catatanDiesnatalis">Excel</a>
                     {{-- <a class="dropdown-item" href="#">PDF</a>
                     <a class="dropdown-item" href="#">Word</a> --}}
                 </div>

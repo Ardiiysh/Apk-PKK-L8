@@ -20,7 +20,7 @@ class UserExport implements FromView, WithDrawings
     {
         $data['user'] = User::all()->where('role', 'user');
 
-        return view('Exports.excel.user', $data);
+        return view('dataUser.export_excel', $data);
     }
 
     public function drawings()

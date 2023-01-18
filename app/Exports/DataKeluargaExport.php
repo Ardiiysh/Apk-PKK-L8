@@ -3,49 +3,73 @@
 namespace App\Exports;
 
 use App\Models\DataKeluarga;
-use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class DataKeluargaExport implements FromCollection,WithHeadings
+// generate excel from view
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
+
+// for input image
+use Maatwebsite\Excel\Concerns\WithDrawings;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
+
+class DataKeluargaExport implements FromView,WithDrawings
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
+    // /**
+    // * @return \Illuminate\Support\Collection
+    // */
+    // public function collection()
+    // {
+    //     return DataKeluarga::all();
+    // }
+    // public function headings(): array
+    // {
+    //     return[     'ID Data Keluarga ',
+    //     'RT',
+    //     'RW',
+    //     'Kelurahan',
+    //     'Kecamatan',
+    //     'Kabupaten/Kota',
+    //     'Provinsi',
+    //     'Kepala Rumah Tangga',
+    //     'Jumlah Anggota Keluarga',
+    //     'Laki-Laki',
+    //     'Wanita',
+    //     'Jumlah Kepala Keluarga',
+    //     'Balita',
+    //     'Pasangan Usia Subur',
+    //     'Wanita Usia Subur',
+    //     'Buta',
+    //     'Ibu Hamil',
+    //     'Ibu Menyusui',
+    //     'Lansia',
+    //     'Makanan Pokok',
+    //     'Jamban',
+    //     'Sumber Air',
+    //     'Tempat Pembuangan Sampah',
+    //     'Saluran Pembuangan Air Limbah',
+    //     'Stiker p4k',
+    //     'Kriteria Rumah',
+    //     'up2k',
+    //     'Kegiatan Usaha Kesehatan Lingkungan',
+    //     'Keterangan',
+    //     "Created_at","Updated_at"];
+    // }
+    public function view() :View
     {
-        return DataKeluarga::all();
+        $data['dataKeluarga'] = DataKeluarga::all();
+
+        return view('dataKeluargas.export_excel', $data);
     }
-    public function headings(): array
+    
+    public function drawings()
     {
-        return[     'ID Data Keluarga ',
-        'RT',
-        'RW',
-        'Kelurahan',
-        'Kecamatan',
-        'Kabupaten/Kota',
-        'Provinsi',
-        'Kepala Rumah Tangga',
-        'Jumlah Anggota Keluarga',
-        'Laki-Laki',
-        'Wanita',
-        'Jumlah Kepala Keluarga',
-        'Balita',
-        'Pasangan Usia Subur',
-        'Wanita Usia Subur',
-        'Buta',
-        'Ibu Hamil',
-        'Ibu Menyusui',
-        'Lansia',
-        'Makanan Pokok',
-        'Jamban',
-        'Sumber Air',
-        'Tempat Pembuangan Sampah',
-        'Saluran Pembuangan Air Limbah',
-        'Stiker p4k',
-        'Kriteria Rumah',
-        'up2k',
-        'Kegiatan Usaha Kesehatan Lingkungan',
-        'Keterangan',
-        "Created_at","Updated_at"];
+        $drawing = new Drawing();
+        $drawing->setName('kopsurat');
+        $drawing->setDescription('kop surat pkk');
+        $drawing->setPath(public_path('/img/kopsurat.png'));
+        $drawing->setHeight(35);
+        $drawing->setCoordinates('A1');
+
+        return $drawing;
     }
 }

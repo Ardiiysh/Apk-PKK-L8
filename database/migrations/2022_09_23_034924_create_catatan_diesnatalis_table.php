@@ -29,7 +29,7 @@ class CreateCatatanDiesnatalisTable extends Migration
             $table->string('nama_anak');
             $table->string('status');
             $table->string('jenkel');
-            $table->integer('tanggal');
+            $table->date('tanggal');
             $table->string('akta');
             $table->string('sebab');
             $table->text('keterangan');

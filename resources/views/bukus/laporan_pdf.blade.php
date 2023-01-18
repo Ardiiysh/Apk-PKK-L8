@@ -213,11 +213,6 @@
     </style>
 </head>
 <body>
-    <!-- <div style="margin-bottom: 90px;"></div>
-    <div style="text-align: center; margin-bottom: 90px">
-        <img src="kopsurat.png" alt="">
-        <h1>INI PDF PKK CIHUYYYY</h1>
-    </div> -->
     <table width="100%">
         <tr>
             <td width="25" align="center"><img src="{{ asset('img/logopkk.png') }}" width="50%"></td>
