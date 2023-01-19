@@ -38,7 +38,7 @@ class BukuExport implements FromView, WithDrawings
     {
         $data['book'] = Buku::all();
 
-        return view('Exports.excel.buku', $data);
+        return view('bukus.export_excel', $data);
     }
 
     public function drawings()

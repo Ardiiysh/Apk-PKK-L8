@@ -60,25 +60,33 @@ use App\Http\Controllers\UserController;
 
 
 
-Route::get('/dashboard1', function () {
-    return view('layouts.layout');
+Auth::routes();
+
+Route::middleware(['auth', 'Admin'])->group(function () { // role admin
+    // Route dataUser
+    Route::resource('dataUser', UserController::class);
+    
+    // Route Export Excel
+    // Route export dataUser
+    Route::get('dataUsers', [UserController::class, 'export_excel'])->name('dataUsers.export_excel');
 });
 
-//route dashboard user
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function () { // Route middleware
+    
 
+    //route dashboard user
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
+    Route::get('/dashboard1', function () {
+        return view('layouts.layout');
+    });
 
-Auth::routes();
-Route::middleware(['auth', 'Admin'])->group(function () { // Route middleware
     Route::get('/dashboard', function () {
         return view('dashboard.index');
     });
 
     //route dashboard admin
     Route::get('/', [App\Http\Controllers\HomeController::class, 'indexAdmin'])->name('admin');
-
-    //route user
-    Route::resource('dataUser', UserController::class);
     //routebuku
     Route::resource('bukus', BukuController::class);
     // route dasawisma
@@ -150,9 +158,6 @@ Route::middleware(['auth', 'Admin'])->group(function () { // Route middleware
     // route catatanKeluargaWargas
     Route::resource('catatanKeluargaWargas', CatatanKeluargaWargaController::class);
 
-
-
-
 //Route Export Excel
     //route export excel buku
     Route::get('buku', [BukuController::class, 'export_excel'])->name('buku.export_excel');
@@ -216,8 +221,13 @@ Route::middleware(['auth', 'Admin'])->group(function () { // Route middleware
     Route::get('hatinyaPkk', [HatinyaPkkController::class, 'export_excel'])->name('hatinyaPkk.export_excel');
     //route dataHatinyaPkk
     Route::get('dataHatinyaPkk', [DataHatinyaPkkController::class, 'export_excel'])->name('dataHatinyaPkk.export_excel');
-    //route data user
-    Route::get('dataUsers', [UserController::class, 'export_excel'])->name('dataUsers.export_excel');
+    //route catatan diesnatalis
+    Route::get('catatanDiesnatalis', [CatatanDiesnatalisController::class, 'export_excel'])->name('catatanDiesnatalis.export_excel');
+    //route dasawisma
+    Route::get('dasawisma', [DasawismaController::class, 'export_excel'])->name('dasawisma.export_excel');
+    // route penyuluhans
+    Route::get('penyuluhan', [PenyuluhanController::class, 'export_excel'])->name('penyuluhan.export_excel');
+
 // Route Export PDF
     // route buku
     Route::get('buku-pdf', [BukuController::class, 'export_pdf']);

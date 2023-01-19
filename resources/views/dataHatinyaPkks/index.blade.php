@@ -70,7 +70,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>satuan:</strong>
-                                    <input type="text" name="satuan" class="form-control" placeholder="satuan">
+                                    <input type="number" name="satuan" class="form-control" placeholder="satuan">
                                 </div>
                             </div>
                             <div class="modal-footer">

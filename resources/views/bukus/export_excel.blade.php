@@ -7,12 +7,12 @@
             <th></th>
         </tr>
         <tr>
-            <th>Nama Buku</th>
-            <th>Tahun</th>
-            <th>Penulis</th>
-            <th>Keterangan</th>
-            <th>Created at</th>
-            <th>Update at</th>
+            <th><strong>Nama Buku</strong></th>
+            <th><strong>Tahun</strong></th>
+            <th><strong>Penulis</strong></th>
+            <th><strong>Keterangan</strong></th>
+            <th><strong>Created at</strong></th>
+            <th><strong>Update at</strong></th>
         </tr>
     </thead>
     <tbody>

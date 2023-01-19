@@ -7,9 +7,9 @@
             <th></th>
         </tr>
         <tr>
-            <th>Nama</th>
-            <th>Email</th>
-            <th>Role</th>
+            <th><strong>Nama</strong></th>
+            <th><strong>Email</strong></th>
+            <th><strong>Role</strong></th>
         </tr>
     </thead>
     <tbody>

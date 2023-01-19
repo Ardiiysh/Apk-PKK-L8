@@ -72,13 +72,13 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>volume:</strong>
-                                    <input type="text" name="volume" class="form-control" placeholder="volume">
+                                    <input type="number" name="volume" class="form-control" placeholder="volume">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>satuan:</strong>
-                                    <input type="text" name="satuan" class="form-control" placeholder="satuan">
+                                    <input type="number" name="satuan" class="form-control" placeholder="satuan">
                                 </div>
                             </div>
 
