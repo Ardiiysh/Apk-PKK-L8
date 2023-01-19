@@ -66,7 +66,7 @@ class PerpustakaanController extends Controller
     public function export_pdf()
     {
         $perpustakaan = Perpustakaan::all();
-        $pdf = PDF::loadview('perpustakaans.laporan_pdf', ['perpustakaan' => $perpustakaan])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('perpustakaans.laporan_pdf', ['perpustakaan' => $perpustakaan]);
 
         return $pdf->download('perpustakaan.pdf');
     }

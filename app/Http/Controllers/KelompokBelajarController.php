@@ -64,7 +64,7 @@ class KelompokBelajarController extends Controller
     public function export_pdf()
     {
         $kelompokBelajar = KelompokBelajar::all();
-        $pdf = PDF::loadview('kelompokBelajars.laporan_pdf', ['kelompokBelajar' => $kelompokBelajar])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('kelompokBelajars.laporan_pdf', ['kelompokBelajar' => $kelompokBelajar]);
 
         return $pdf->download('kelompok_belajar.pdf');
     }

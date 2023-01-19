@@ -65,7 +65,7 @@ class DataKelompokBelajarController extends Controller
     public function export_pdf()
     {
         $dataKelompokBelajar = DataKelompokBelajar::all();
-        $pdf = PDF::loadview('dataKelompokBelajars.laporan_pdf', ['dataKelmpokBelajar' => $dataKelompokBelajar])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('dataKelompokBelajars.laporan_pdf', ['dataKelmpokBelajar' => $dataKelompokBelajar]);
 
         return $pdf->download('data_kelompok_belajar.pdf');
     }

@@ -64,7 +64,7 @@ class DasawismaController extends Controller
     public function export_pdf()
     {
         $dasawisma = Dasawisma::all();
-        $pdf = PDF::loadview('dasawismas.laporan_pdf', ['dasawisma' => $dasawisma])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('dasawismas.laporan_pdf', ['dasawisma' => $dasawisma]);
 
         return $pdf->download('dasawisma.pdf');
     }

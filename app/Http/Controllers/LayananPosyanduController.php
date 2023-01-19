@@ -63,7 +63,7 @@ class LayananPosyanduController extends Controller
     public function export_pdf()
     {
         $layananPosyandu = LayananPosyandu::all();
-        $pdf = PDF::loadview('layananPosyandus.laporan_pdf', ['layananPosyandu' => $layananPosyandu])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('layananPosyandus.laporan_pdf', ['layananPosyandu' => $layananPosyandu]);
 
         return $pdf->download('layanan_posyandu.pdf');
     }

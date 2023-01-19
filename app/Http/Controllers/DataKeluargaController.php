@@ -66,7 +66,7 @@ class DataKeluargaController extends Controller
     public function export_pdf()
     {
         $dataKeluarga = DataKeluarga::all();
-        $pdf = PDF::loadview('dataKeluargas.laporan_pdf', ['dataKeluarga' => $dataKeluarga])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('dataKeluargas.laporan_pdf', ['dataKeluarga' => $dataKeluarga]);
 
         return $pdf->download('data_keluarga.pdf');
     }

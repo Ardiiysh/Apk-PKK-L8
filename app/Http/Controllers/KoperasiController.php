@@ -64,7 +64,7 @@ class KoperasiController extends Controller
     public function export_pdf()
     {
         $koperasi = Koperasi::all();
-        $pdf = PDF::loadview('koperasis.laporan_pdf', ['koperasi' => $koperasi])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('koperasis.laporan_pdf', ['koperasi' => $koperasi]);
 
         return $pdf->download('koperasi.pdf');
     }

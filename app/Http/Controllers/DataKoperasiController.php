@@ -67,7 +67,7 @@ class DataKoperasiController extends Controller
     public function export_pdf()
     {
         $dataKoperasi = DataKoperasi::all();
-        $pdf = PDF::loadview('dataKoperasis.laporan_pdf', ['dataKoperasi' => $dataKoperasi])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('dataKoperasis.laporan_pdf', ['dataKoperasi' => $dataKoperasi]);
 
         return $pdf->download('data_koperasi.pdf');
     }

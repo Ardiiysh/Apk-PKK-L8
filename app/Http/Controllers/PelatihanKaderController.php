@@ -65,7 +65,7 @@ class PelatihanKaderController extends Controller
     public function export_pdf()
     {
         $pelatihanKader = PelatihanKader::all();
-        $pdf = PDF::loadview('pelatihanKaders.laporan_pdf', ['pelatihanKader' => $pelatihanKader])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('pelatihanKaders.laporan_pdf', ['pelatihanKader' => $pelatihanKader]);
 
         return $pdf->download('pelatihan_kader.pdf');
     }

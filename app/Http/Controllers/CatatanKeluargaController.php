@@ -64,7 +64,7 @@ class CatatanKeluargaController extends Controller
     public function export_pdf()
     {
         $catatanKeluarga = CatatanKeluarga::all();
-        $pdf = PDF::loadview('catatanKeluargas.laporan_pdf', ['catatanKeluarga' => $catatanKeluarga])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('catatanKeluargas.laporan_pdf', ['catatanKeluarga' => $catatanKeluarga]);
 
         return $pdf->download('catatan_keluarga.pdf');
     }

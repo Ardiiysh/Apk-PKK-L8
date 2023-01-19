@@ -67,7 +67,7 @@ class DataPenyuluhanController extends Controller
     public function export_pdf()
     {
         $dataPenyuluhan = DataPenyuluhan::all();
-        $pdf = PDF::loadview('dataPenyuluhans.laporan_pdf', ['dataPenyuluhan' => $dataPenyuluhan])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('dataPenyuluhans.laporan_pdf', ['dataPenyuluhan' => $dataPenyuluhan]);
 
         return $pdf->download('data_penyuluhan.pdf');
     }

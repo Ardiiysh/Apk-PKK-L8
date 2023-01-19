@@ -66,7 +66,7 @@ class DataHatinyaController extends Controller
     public function export_pdf()
     {
         $dataHatinya = DataHatinya::all();
-        $pdf = PDF::loadview('dataHatinyas.laporan_pdf', ['dataHatinya' => $dataHatinya])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('dataHatinyas.laporan_pdf', ['dataHatinya' => $dataHatinya]);
 
         return $pdf->download('data_hatinya.pdf');
     }

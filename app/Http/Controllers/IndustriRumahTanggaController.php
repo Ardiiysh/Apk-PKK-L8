@@ -64,7 +64,7 @@ class IndustriRumahTanggaController extends Controller
     public function pdf()
     {
         $industriRumahTangga = IndustriRumahTangga::all();
-        $pdf = PDF::loadview('industriRumahTanggas.laporan_pdf', ['industriRumahTangga' => $industriRumahTangga])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('industriRumahTanggas.laporan_pdf', ['industriRumahTangga' => $industriRumahTangga]);
 
         return $pdf->download('industri_rumah_tangga.pdf');
     }

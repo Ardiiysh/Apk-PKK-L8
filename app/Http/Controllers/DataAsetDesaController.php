@@ -64,7 +64,7 @@ class DataAsetDesaController extends Controller
     public function export_pdf()
     {
         $dataAsetDesa = DataAsetDesa::all();
-        $pdf = PDF::loadview('dataAsetDesas.laporan_pdf', ['dataAsetDesa' => $dataAsetDesa])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('dataAsetDesas.laporan_pdf', ['dataAsetDesa' => $dataAsetDesa]);
 
         return $pdf->download('data_aset_desa.pdf');
     }

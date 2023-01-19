@@ -64,7 +64,7 @@ class DataKejarController extends Controller
     public function export_pdf()
     {
         $dataKejar = DataKejar::all();
-        $pdf = PDF::loadview('dataKejars.laporan_pdf', ['dataKejar' => $dataKejar])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('dataKejars.laporan_pdf', ['dataKejar' => $dataKejar]);
 
         return $pdf->download('data_kejar.pdf');
     }

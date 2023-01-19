@@ -66,7 +66,7 @@ class DataIndustriController extends Controller
     public function export_pdf()
     {
         $dataIndustri = DataIndustri::all();
-        $pdf = PDF::loadview('dataIndustris.laporan_pdf', ['dataIndustri' => $dataIndustri])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('dataIndustris.laporan_pdf', ['dataIndustri' => $dataIndustri]);
 
         return $pdf->download('data_industri.pdf');
     }

@@ -65,7 +65,7 @@ class DataHatinyaPkkController extends Controller
     public function export_pdf()
     {
         $dataHatinyaPkk = DataHatinyaPkk::all();
-        $pdf = PDF::loadview('dataHatinyaPkks.laporan_pdf', ['dataHatinyaPkk' => $dataHatinyaPkk])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('dataHatinyaPkks.laporan_pdf', ['dataHatinyaPkk' => $dataHatinyaPkk]);
 
         return $pdf->download('data_hatinya_pkk.pdf');
     }

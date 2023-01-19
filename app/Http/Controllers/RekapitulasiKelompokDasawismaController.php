@@ -66,7 +66,7 @@ class RekapitulasiKelompokDasawismaController extends Controller
     public function export_pdf()
     {
         $rekapitulasiKelompokDasawisma = RekapitulasiKelompokDasawisma::all();
-        $pdf = PDF::loadview('rekapitulasiKelompokDasawismas.laporan_pdf', ['rekapitulasiKelompokDasawisma' => $rekapitulasiKelompokDasawisma])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('rekapitulasiKelompokDasawismas.laporan_pdf', ['rekapitulasiKelompokDasawisma' => $rekapitulasiKelompokDasawisma]);
 
         return $pdf->download('rekapitulasi_kelompok_dasawisma.pdf');
     }
