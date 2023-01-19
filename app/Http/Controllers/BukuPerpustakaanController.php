@@ -64,8 +64,8 @@ class BukuPerpustakaanController extends Controller
     public function export_pdf()
     {
         $bukuperpustakaan = BukuPerpustakaan::all();
-
-        $pdf = PDF::loadview('bukuPerpustakaans.laporan_pdf', ['bukuperpustakaan' => $bukuperpustakaan])->setOptions(['defaultFont' => 'sans-serif']);
+        
+        $pdf = PDF::loadview('bukuPerpustakaans.laporan_pdf', ['bukuperpustakaan' => $bukuperpustakaan]);
 
         return $pdf->download('laporan_buku_perpustakaan.pdf');
     }
