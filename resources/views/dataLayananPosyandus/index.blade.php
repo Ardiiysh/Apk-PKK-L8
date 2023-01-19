@@ -93,7 +93,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Keterangan:</strong>
-                                    <input type="number" min="0" name="keterangan" class="form-control" placeholder="keterangan">
+                                    <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
                                 </div>
                             </div>
 
