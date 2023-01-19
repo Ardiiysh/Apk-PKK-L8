@@ -25,8 +25,8 @@
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/layananPosyandu">Excel</a>
-                    {{-- <a class="dropdown-item" href="#">PDF</a>
-                    <a class="dropdown-item" href="#">Word</a> --}}
+                    <a class="dropdown-item" href="/layananPosyandu-pdf">PDF</a>
+                    {{-- <a class="dropdown-item" href="#">Word</a> --}}
                 </div>
             </div>
 
@@ -48,7 +48,7 @@
                         </div>
                         <form action="{{ route('layananPosyandus.store') }}" method="POST">
                             @csrf
-                           
+
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Jenis layanan:</strong>

@@ -9,6 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PelatihanKaderExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 class PelatihanKaderController extends Controller
 {
     /**
@@ -61,6 +62,14 @@ class PelatihanKaderController extends Controller
 		return Excel::download(new pelatihanKaderExport, $name . '.xlsx');
 	}
 
+    public function export_pdf()
+    {
+        $pelatihanKader = PelatihanKader::all();
+        $pdf = PDF::loadview('pelatihanKaders.laporan_pdf', ['pelatihanKader' => $pelatihanKader])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('pelatihan_kader.pdf');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -92,9 +101,9 @@ class PelatihanKaderController extends Controller
             'kedudukan'=> 'required',
             'keterangan'=> 'required',
            ]);
-  
+
            PelatihanKader::create($request->all());
-  
+
           return redirect()->route('pelatihanKaders.index')
                           ->with('success','pelatihanKader created successfully.');
       }
@@ -145,9 +154,9 @@ class PelatihanKaderController extends Controller
             'kedudukan'=> 'required',
             'keterangan'=> 'required',
          ]);
-            
+
           $pelatihanKader->update($request->all());
-  
+
           return redirect()->route('pelatihanKaders.index')
                           ->with('success','pelatihanKader updated successfully');
       }

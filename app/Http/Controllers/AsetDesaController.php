@@ -8,7 +8,7 @@ use App\Exports\AsetDesaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-
+use PDF;
 
 class AsetDesaController extends Controller
 {
@@ -60,6 +60,14 @@ class AsetDesaController extends Controller
         $name = 'Laporan Aset Desa '.date('Y-m-d',time());
 		return Excel::download(new AsetDesaExport, $name.'.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $asetDesa = AsetDesa::all();
+        $pdf = PDF::loadview('asetDesas.laporan_pdf', ['asetDesa' => $asetDesa])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('aset_desa.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.

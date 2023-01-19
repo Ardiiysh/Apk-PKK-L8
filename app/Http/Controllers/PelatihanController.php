@@ -8,7 +8,7 @@ use App\Exports\PelatihanExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-
+use PDF;
 class PelatihanController extends Controller
 {
     /**
@@ -58,6 +58,14 @@ class PelatihanController extends Controller
     {
         $name = 'Laporan Pelatihan '.date('Y-m-d', time());
         return Excel::download(new PelatihanExport(), $name . '.xlsx');
+    }
+
+    public function export_pdf()
+    {
+        $pelatihan = Pelatihan::all();
+        $pdf = PDF::loadview('pelatihans.laporan_pdf', ['pelatihan' => $pelatihan]);
+
+        return $pdf->download('pelatihan.pdf');
     }
 
     /**

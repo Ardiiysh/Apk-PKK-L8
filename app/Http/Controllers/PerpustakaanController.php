@@ -9,6 +9,7 @@ use App\Exports\PerpustakaanExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 class PerpustakaanController extends Controller
 {
@@ -61,6 +62,14 @@ class PerpustakaanController extends Controller
         $name = 'Laporan perpustakaan '.date('Y-m-d', time());
 		return Excel::download(new PerpustakaanExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $perpustakaan = Perpustakaan::all();
+        $pdf = PDF::loadview('perpustakaans.laporan_pdf', ['perpustakaan' => $perpustakaan])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('perpustakaan.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -147,9 +156,9 @@ class PerpustakaanController extends Controller
            'jumlah_buku'=> 'required',
            'keterangan'=> 'required',
         ]);
-           
+
          $perpustakaan->update($request->all());
- 
+
          return redirect()->route('perpustakaans.index')
                          ->with('success','perpustakaan updated successfully');
      }
