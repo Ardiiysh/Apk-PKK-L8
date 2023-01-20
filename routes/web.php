@@ -301,4 +301,6 @@ Route::middleware(['auth'])->group(function () { // Route middleware
     Route::get('penyuluhan-pdf', [PenyuluhanController::class, 'export_pdf']);
     //route pelatihan
     Route::get('pelatihan-pdf', [PelatihanController::class, 'export_pdf']);
+    // route HatinyaPkk
+    Route::get('hatinyaPkk-pdf', [HatinyaPkkController::class, 'export_pdf']);
 });

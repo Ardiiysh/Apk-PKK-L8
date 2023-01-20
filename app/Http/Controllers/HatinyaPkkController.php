@@ -65,7 +65,7 @@ class HatinyaPkkController extends Controller
     public function export_pdf()
     {
         $hatinyaPkk = HatinyaPkk::all();
-        $pdf = PDF::loadview('hatinyaPkks.laporan_pdf', ['hatinyaPKK' => $hatinyaPkk])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('hatinyaPkks.laporan_pdf', ['hatinyaPKK' => $hatinyaPkk]);
 
         return $pdf->download('hatinya_pkk.pdf');
     }
