@@ -64,7 +64,7 @@ class DataLayananPosyanduController extends Controller
     public function export_pdf()
     {
         $dataLayananPosyandu = DataLayananPosyandu::all();
-        $pdf = PDF::loadview('dataLayananPosyandus.laporan_pdf', ['dataLayananPosyandu' => $dataLayananPosyandu])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('dataLayananPosyandus.laporan_pdf', ['dataLayananPosyandu' => $dataLayananPosyandu]);
 
         return $pdf->download('data_layanan_posyandu.pdf');
     }

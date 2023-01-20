@@ -3,14 +3,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>template table</title>
+    <title>Data Posyandu</title>
     <style>
 
         .table1 {
             font-family: sans-serif;
             color: #444;
             border-collapse: collapse;
-            width: 50%;
+            width: 100%;
             border: 2px solid #000000;
         }
 
@@ -42,34 +42,49 @@
     </div> -->
     <table width="100%">
         <tr>
-            <td width="25" align="center"><img src="{{ asset('img/logopkk.png') }}" width="50%"></td>
+            <td width="25" align="center"><img src="{{ public_path('img/logopkk.png') }}" width="100%"></td>
             <td width="50" align="center"><h1>Pemberdayaan dan kesejahteraan Keluarga</h1><h1>(PKK)</h1><h2>Desa pasawahan</h2><h5>Alamat:Jalan Otto Iskandardinata kampung tanjung RT 003/RW 013, Pasawahan, Kec. Tarogong Kaler, Kabupaten Garut, Jawa Barat 44151</h5></td>
-            <td width="25" align="center"><img src="{{ asset('img/logopkk.png') }}" width="50%"></td>
+            <td width="25" align="center"><img src="{{ public_path('img/logopkk.png') }}" width="100%"></td>
         </tr>
         </table>
         <hr><width="100" height="75"></hr>
-    <table class="table1" style="margin-left: auto; margin-right:auto; margin-top: 30px;" border="1">
-        <thead>
+            <table class="table1" style="margin-left: auto; margin-right:; margin-top: 30px;" border="1">
+                <thead>
             <tr>
-                <th>cek</th>
-                <th>cek</th>
-                <th>cek</th>
-                <th>cek</th>
-                <th>cek</th>
+                <th>RT</th>
+                <th>RW</th>
+                <th>kelurahan</th>
+                <th>kecamatan</th>
+                <th>Kabupaten Kota</th>
+                <th>Provinsi</th>
+                <th>Nama Posyandu</th>
+                <th>Pengelola</th>
+                <th>Sekretaris</th>
+                <th>Jenis Posyandu</th>
+                <th>Jumlah Kader</th>
+                <th>Keterangan</th>
             </tr>
         </thead>
         <tbody>
+            @php($i = 1);
+            @foreach ($dataPosyandu as $a)
             <tr>
-                <td>cek</td>
-                <td>cek</td>
-                <td>cek</td>
-                <td>cek</td>
-                <td>cek</td>
+                <td>{{ $a->rt }}</td>
+                <td>{{ $a->rw }}</td>
+                <td>{{ $a->kelurahan }}</td>
+                <td>{{ $a->kecamatan }}</td>
+                <td>{{ $a->kabupaten_kota }}</td>
+                <td>{{ $a->provinsi }}</td>
+                <td>{{ $a->nama_posyandu }}</td>
+                <td>{{ $a->pengelola }}</td>
+                <td>{{ $a->sekretaris }}</td>
+                <td>{{ $a->jenis_posyandu }}</td>
+                <td>{{ $a->jumlah_kader }}</td>
+                <td>{{ $a->keterangan }}</td>
             </tr>
+            @php($i++);
+            @endforeach
         </tbody>
     </table>
-    {{-- <script>
-        window.print();
-    </script> --}}
 </body>
 </html>
