@@ -95,11 +95,10 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>id_data_hatinya</th>
-                    <th>id_hatinya_pkk</th>
-                    <th>jumlah</th>
-                    <th>satuan</th>
-
+                    <th>ID Data Hatinya</th>
+                    <th>ID Hatinya PKK</th>
+                    <th>Jumlah</th>
+                    <th>Satuan</th>
                     <th width="280px">Action</th>
                 </tr>
             </thead>
