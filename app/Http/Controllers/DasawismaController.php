@@ -8,6 +8,7 @@ use App\Exports\DasawismaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 class DasawismaController extends Controller
 {
@@ -59,6 +60,14 @@ class DasawismaController extends Controller
         $name = 'Laporan Dasawisma '.date('Y-m-d', time());
 		return Excel::download(new DasawismaExport,  $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $dasawisma = Dasawisma::all();
+        $pdf = PDF::loadview('dasawismas.laporan_pdf', ['dasawisma' => $dasawisma]);
+
+        return $pdf->download('dasawisma.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.

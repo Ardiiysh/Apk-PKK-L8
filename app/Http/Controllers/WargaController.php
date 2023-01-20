@@ -64,7 +64,7 @@ class WargaController extends Controller
     public function export_pdf()
     {
         $warga = Warga::all();
-        $pdf = PDF::loadview('wargas.laporan_pdf', ['warga' => $warga])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('wargas.laporan_pdf', ['warga' => $warga]);
 
         return $pdf->download('laporan_warga.pdf');
     }

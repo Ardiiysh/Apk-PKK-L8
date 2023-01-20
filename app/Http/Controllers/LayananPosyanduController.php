@@ -8,7 +8,7 @@ use App\Exports\LayananPosyanduExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-
+use PDF;
 class LayananPosyanduController extends Controller
 {
     /**
@@ -58,6 +58,14 @@ class LayananPosyanduController extends Controller
     {
         $name = 'Laporan layananPosyandu '.date('Y-m-d', time());
         return Excel::download(new LayananPosyanduExport(), $name . '.xlsx');
+    }
+
+    public function export_pdf()
+    {
+        $layananPosyandu = LayananPosyandu::all();
+        $pdf = PDF::loadview('layananPosyandus.laporan_pdf', ['layananPosyandu' => $layananPosyandu]);
+
+        return $pdf->download('layanan_posyandu.pdf');
     }
 
     /**

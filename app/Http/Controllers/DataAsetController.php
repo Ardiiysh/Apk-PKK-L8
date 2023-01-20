@@ -64,7 +64,7 @@ class DataAsetController extends Controller
     public function export_pdf()
     {
         $dataAset = DataAset::all();
-        $pdf = PDF::loadview('dataAsets.laporan_pdf', ['dataAset' => $dataAset])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('dataAsets.laporan_pdf', ['dataAset' => $dataAset]);
 
         return $pdf->download('data_aset.pdf');
     }

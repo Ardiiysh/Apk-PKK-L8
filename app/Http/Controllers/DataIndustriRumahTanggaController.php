@@ -64,7 +64,7 @@ class DataIndustriRumahTanggaController extends Controller
     public function export_pdf()
     {
         $dataIndustriRumahTangga = DataIndustriRumahTangga::all();
-        $pdf = PDF::loadview('dataIndustriRumahTanggas.laporan_pdf', ['dataIndustriRumahTangga' => $dataIndustriRumahTangga])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('dataIndustriRumahTanggas.laporan_pdf', ['dataIndustriRumahTangga' => $dataIndustriRumahTangga]);
 
         return $pdf->download('data_industri_rumah_tangga.pdf');
     }

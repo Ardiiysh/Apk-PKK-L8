@@ -64,7 +64,7 @@ class RekaptilulasiLahirMatiController extends Controller
     public function export_pdf()
     {
         $rekaptilulasiLahirMati = RekaptilulasiLahirMati::all();
-        $pdf = PDF::loadview('rekaptilulasiLahirMatis.laporan_pdf', ['rekaptilulasiLahirMati' => $rekaptilulasiLahirMati])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('rekaptilulasiLahirMatis.laporan_pdf', ['rekaptilulasiLahirMati' => $rekaptilulasiLahirMati]);
 
         return $pdf->download('rekaptilasi_lahir_mati.pdf');
     }

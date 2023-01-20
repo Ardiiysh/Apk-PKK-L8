@@ -64,7 +64,7 @@ class RekapitulasiKelompokPkkRtController extends Controller
     public function export_pdf()
     {
         $rekapitulasiKelompokPkkRt = RekapitulasiKelompokPkkRt::all();
-        $pdf = PDF::loadview('rekapitulasiKelompokPkkRts.laporan_pdf', ['rekapitulasiKelompokPkkRt' => $rekapitulasiKelompokPkkRt])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('rekapitulasiKelompokPkkRts.laporan_pdf', ['rekapitulasiKelompokPkkRt' => $rekapitulasiKelompokPkkRt]);
 
         return $pdf->download('rekapitulasi_kelompok_pkk_rt.pdf');
     }

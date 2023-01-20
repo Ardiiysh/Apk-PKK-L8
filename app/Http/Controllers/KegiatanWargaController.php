@@ -64,7 +64,7 @@ class KegiatanWargaController extends Controller
     public function export_pdf()
     {
         $kegiatanWarga = KegiatanWarga::all();
-        $pdf = PDF::loadview('kegiatanWargas.laporan_pdf', ['kegiatanWarga' => $kegiatanWarga])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('kegiatanWargas.laporan_pdf', ['kegiatanWarga' => $kegiatanWarga]);
 
         return $pdf->download('laporan_kegiatan_warga.pdf');
     }

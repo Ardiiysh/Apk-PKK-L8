@@ -57,7 +57,7 @@ class UserController extends Controller
     public function export_pdf()
     {
         $dataUser = User::all();
-        $pdf = PDF::loadview('dataUser.laporan_pdf', ['dataUser' => $dataUser])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('dataUser.laporan_pdf', ['dataUser' => $dataUser]);
 
         return $pdf->download('data_user.pdf');
     }
