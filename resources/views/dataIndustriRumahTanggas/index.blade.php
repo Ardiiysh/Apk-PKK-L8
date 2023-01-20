@@ -109,7 +109,7 @@
                     <th>ID Data Industri</th>
                     <th>ID Industri Rumah Tangga</th>
                     <th>Volume</th>
-                    <th>satuan</th>
+                    <th>Satuan</th>
                     <th width="280px">Action</th>
                 </tr>
             </thead>

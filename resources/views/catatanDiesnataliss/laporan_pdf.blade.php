@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>template table</title>
+    <title>Catatan Diesnatalis</title>
     <style>
 
         .table1 {
@@ -42,30 +42,62 @@
     </div> -->
     <table width="100%">
         <tr>
-            <td width="25" align="center"><img src="{{ asset('img/logopkk.png') }}" width="50%"></td>
+            <td width="25" align="center"><img src="{{ public_path('img/logopkk.png') }}" width="100%"></td>
             <td width="50" align="center"><h1>Pemberdayaan dan kesejahteraan Keluarga</h1><h1>(PKK)</h1><h2>Desa pasawahan</h2><h5>Alamat:Jalan Otto Iskandardinata kampung tanjung RT 003/RW 013, Pasawahan, Kec. Tarogong Kaler, Kabupaten Garut, Jawa Barat 44151</h5></td>
-            <td width="25" align="center"><img src="{{ asset('img/logopkk.png') }}" width="50%"></td>
+            <td width="25" align="center"><img src="{{ public_path('img/logopkk.png') }}" width="100%"></td>
         </tr>
         </table>
         <hr><width="100" height="75"></hr>
     <table class="table1" style="margin-left: auto; margin-right:auto; margin-top: 30px;" border="1">
         <thead>
             <tr>
-                <th>cek</th>
-                <th>cek</th>
-                <th>cek</th>
-                <th>cek</th>
-                <th>cek</th>
+                <th>No</th>
+                {{-- <th>Id Dasa Wisma</th> --}}
+                <th>RT</th>
+                <th>RW</th>
+                <th>Kelurahan</th>
+                <th>Kecamatan</th>
+                <th>Kabupaten/Kota</th>
+                <th>Provinsi</th>
+                <th>Bulan</th>
+                <th>Tahun</th>
+                <th>Nama Ibu</th>
+                <th>Nama Suami</th>
+                <th>Nama Anak</th>
+                <th>Status</th>
+                <th>JK</th>
+                <th>Tanggal</th>
+                <th>Akta</th>
+                <th>Sebab</th>
+                <th>Keterangan</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>cek</td>
-                <td>cek</td>
-                <td>cek</td>
-                <td>cek</td>
-                <td>cek</td>
-            </tr>
+            @php($i = 1);
+            @foreach ($catatanDiesnatalis as $b)
+                <tr>
+                    <td>{{$i}}</td>
+                    {{-- <td>{{$b->id_dasawisma}}</td> --}}
+                    <td>{{$b->rt}}</td>
+                    <td>{{$b->rw}}</td>
+                    <td>{{$b->kelurahan}}</td>
+                    <td>{{$b->kecamatan}}</td>
+                    <td>{{$b->kabupaten_kota}}</td>
+                    <td>{{$b->provinsi}}</td>
+                    <td>{{$b->bulan}}</td>
+                    <td>{{$b->tahun}}</td>
+                    <td>{{$b->nama_ibu}}</td>
+                    <td>{{$b->nama_suami}}</td>
+                    <td>{{$b->nama_anak}}</td>
+                    <td>{{$b->status}}</td>
+                    <td>{{$b->jenkel}}</td>
+                    <td>{{$b->tanggal}}</td>
+                    <td>{{$b->akta}}</td>
+                    <td>{{$b->sebab}}</td>
+                    <td>{{$b->keterangan}}</td>
+                </tr>
+                @php($i++);
+            @endforeach
         </tbody>
     </table>
     {{-- <script>

@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>template table</title>
+    <title>Data Keluarga</title>
     <style>
 
         .table1 {
@@ -42,30 +42,82 @@
     </div> -->
     <table width="100%">
         <tr>
-            <td width="25" align="center"><img src="{{ asset('img/logopkk.png') }}" width="50%"></td>
+            <td width="25" align="center"><img src="{{ public_path('img/logopkk.png') }}" width="100%"></td>
             <td width="50" align="center"><h1>Pemberdayaan dan kesejahteraan Keluarga</h1><h1>(PKK)</h1><h2>Desa pasawahan</h2><h5>Alamat:Jalan Otto Iskandardinata kampung tanjung RT 003/RW 013, Pasawahan, Kec. Tarogong Kaler, Kabupaten Garut, Jawa Barat 44151</h5></td>
-            <td width="25" align="center"><img src="{{ asset('img/logopkk.png') }}" width="50%"></td>
+            <td width="25" align="center"><img src="{{ public_path('img/logopkk.png') }}" width="100%"></td>
         </tr>
         </table>
         <hr><width="100" height="75"></hr>
     <table class="table1" style="margin-left: auto; margin-right:auto; margin-top: 30px;" border="1">
         <thead>
             <tr>
-                <th>cek</th>
-                <th>cek</th>
-                <th>cek</th>
-                <th>cek</th>
-                <th>cek</th>
+                <th>No</th>
+                <th>rt</th>
+                <th>rw</th>
+                <th>kelurahan</th>
+                <th>kecamatan</th>
+                <th>kabupaten kota</th>
+                <th>provinsi</th>
+                <th>kepala rumah tangga</th>
+                <th>jumlah anggota keluarga</th>
+                <th>laki laki</th>
+                <th>wanita</th>
+                <th>jumlah kepala keluarga</th>
+                <th>balita</th>
+                <th>pasangan usia subur</th>
+                <th>wanita usia subur</th>
+                <th>buta</th>
+                <th>ibu hamil</th>
+                <th>ibu menyusui</th>
+                <th>lansia</th>
+                <th>makanan pokok</th>
+                <th>jamban</th>
+                <th>sumber air</th>
+                <th>tempat pembuangan sampah</th>
+                <th>saluran pembuangan air limbah</th>
+                <th>stiker p4k</th>
+                <th>kriteria rumah</th>
+                <th>up2k</th>
+                <th>kegiatan usaha kesehatan lingkungan</th>
+                <th>keterangan</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>cek</td>
-                <td>cek</td>
-                <td>cek</td>
-                <td>cek</td>
-                <td>cek</td>
-            </tr>
+            @php($i = 1);
+            @foreach ($dataKeluarga as $b)
+                <tr>
+                    <td>{{$i}}</td>
+                    <td>{{$b->rt}}</td>
+                    <td>{{$b->rw}}</td>
+                    <td>{{$b->kelurahan}}</td>
+                    <td>{{$b->kecamatan}}</td>
+                    <td>{{$b->kabupaten kota}}</td>
+                    <td>{{$b->provinsi}}</td>
+                    <td>{{$b->kepala_rumah_tangga}}</td>
+                    <td>{{$b->jumlah_anggota_keluarga}}</td>
+                    <td>{{$b->laki_laki}}</td>
+                    <td>{{$b->wanita}}</td>
+                    <td>{{$b->jumlah_kepala_keluarga}}</td>
+                    <td>{{$b->balita}}</td>
+                    <td>{{$b->pasangan_usia_subur}}</td>
+                    <td>{{$b->wanita_usia_subur}}</td>
+                    <td>{{$b->buta}}</td>
+                    <td>{{$b->ibu_hamil}}</td>
+                    <td>{{$b->ibu_menyusui}}</td>
+                    <td>{{$b->lansia}}</td>
+                    <td>{{$b->makanan_pokok}}</td>
+                    <td>{{$b->jamban}}</td>
+                    <td>{{$b->sumber_air}}</td>
+                    <td>{{$b->tempat_pembuangan_sampah}}</td>
+                    <td>{{$b->saluran_pembuangan_air_limbah}}</td>
+                    <td>{{$b->stiker_p4k}}</td>
+                    <td>{{$b->kriteria_rumah}}</td>
+                    <td>{{$b->up2k}}</td>
+                    <td>{{$b->kegiatan_usaha_kesehatan_lingkungan}}</td>
+                    <td>{{$b->keterangan}}</td>
+                </tr>
+                @php($i++);
+            @endforeach
         </tbody>
     </table>
     {{-- <script>
