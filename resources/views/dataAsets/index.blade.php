@@ -165,19 +165,15 @@
             <tr>
                 <th>No</th>
                 {{-- <th>id dasawisma</th> --}}
-                <th>nama warung pkk</th>
-                <th>pengelola</th>
-                <th>rt</th>
-                <th>rw</th>
-                <th>kelurahan</th>
-                <th>kecamatan</th>
-                <th>kabupaten kota</th>
-                <th>provinsi</th>
-                <th>keterangan</th>
-
-
-
-
+                <th>Nama Warung PKK</th>
+                <th>Pengelola</th>
+                <th>RT</th>
+                <th>RW</th>
+                <th>Kelurahan</th>
+                <th>Kecamatan</th>
+                <th>Kabupaten Kota</th>
+                <th>Provinsi</th>
+                <th>Keterangan</th>
                 <th width="280px">Action</th>
             </tr>
         </thead>
