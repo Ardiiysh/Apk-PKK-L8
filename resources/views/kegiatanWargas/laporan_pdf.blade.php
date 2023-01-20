@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>template table</title>
+    <title>Buku Perpustakaan</title>
     <style>
 
         .table1 {
@@ -42,30 +42,44 @@
     </div> -->
     <table width="100%">
         <tr>
-            <td width="25" align="center"><img src="{{ asset('img/logopkk.png') }}" width="50%"></td>
+            <td width="25" align="center"><img src="{{ public_path('img/logopkk.png') }}" width="100%"></td>
             <td width="50" align="center"><h1>Pemberdayaan dan kesejahteraan Keluarga</h1><h1>(PKK)</h1><h2>Desa pasawahan</h2><h5>Alamat:Jalan Otto Iskandardinata kampung tanjung RT 003/RW 013, Pasawahan, Kec. Tarogong Kaler, Kabupaten Garut, Jawa Barat 44151</h5></td>
-            <td width="25" align="center"><img src="{{ asset('img/logopkk.png') }}" width="50%"></td>
+            <td width="25" align="center"><img src="{{ public_path('img/logopkk.png') }}" width="100%"></td>
         </tr>
         </table>
         <hr><width="100" height="75"></hr>
     <table class="table1" style="margin-left: auto; margin-right:auto; margin-top: 30px;" border="1">
         <thead>
             <tr>
-                <th>cek</th>
-                <th>cek</th>
-                <th>cek</th>
-                <th>cek</th>
-                <th>cek</th>
+                <th>No</th>
+                <th>ID Warga</th>
+                <th>P4</th>
+                <th>Kerja Bakti</th>
+                <th>Rukun Kematian</th>
+                <th>Keagamaan</th>
+                <th>Jimpitan</th>
+                <th>Arisan</th>
+                <th>Lainnya</th>
+                <th>Keterangan</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>cek</td>
-                <td>cek</td>
-                <td>cek</td>
-                <td>cek</td>
-                <td>cek</td>
-            </tr>
+            @php($i = 1);
+            @foreach ($kegiatanWarga as $a)
+                <tr>
+                    <td>{{ $i++ }}</td>
+                    <td>{{ $a->id_warga }}</td>
+                    <td>{{ $a->p4 }}</td>
+                    <td>{{ $a->kerjabakti }}</td>
+                    <td>{{ $a->rukun_kematian }}</td>
+                    <td>{{ $a->keagamaan }}</td>
+                    <td>{{ $a->jimpitan }}</td>
+                    <td>{{ $a->arisan }}</td>
+                    <td>{{ $a->lainnya }}</td>
+                    <td>{{ $a->keterangan }}</td>
+                </tr>
+                @php($i++);
+            @endforeach
         </tbody>
     </table>
     {{-- <script>
