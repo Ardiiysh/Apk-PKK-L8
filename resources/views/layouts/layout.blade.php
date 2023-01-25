@@ -70,12 +70,12 @@
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
           <div class="dropdown-divider"></div>
-          <a href="{{ route('logout') }}"  class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"   class="dropdown-item">
+          <a href="#" class="nav-link" class="dropdown-item" id="btn-logout">
             <i class="fas fa-users mr-2" ></i> logout
-                     <form id="logout-form" action="{{ route('logout') }}"  method="POST" style="display: none;">
+          <form id="logout-form" action="{{ route('logout') }}"  method="POST" style="display: none;">
               @csrf
           </form>
-          </a>
+        </a>
    {{-- onclick="return confirm('Kamu yakin ingin keluar dari aplikasi ini?')" confirm logout --}}
 
         </div>
@@ -183,6 +183,24 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+{{-- modal logout --}}
+<div class="modal fade" id="modalLogout" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content"> 
+      <div class="modal-body">
+        <h3 class="text-center">{{ auth()->user()->name }} ingin keluar?</h3>
+      </div>
+      <div class="modal-footer text-center">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" id="yesLogout">LogOut</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+{{-- end modal logout --}}
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
@@ -208,7 +226,20 @@
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" defer></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js" defer></script>
 {{-- //kfajf --}}
+{{-- logout modal js --}}
+<script>
+  $(document).ready(function () {
+    $('#btn-logout').on('click',function () {
+      $('#modalLogout').modal('show');
+    });
 
+    $('#yesLogout').on('click', function (e) {
+      e.preventDefault();
+      document.getElementById('logout-form').submit();
+      
+    });
+  });
+</script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('template')}}/dist/js/demo.js"></script>
     @yield('table')
