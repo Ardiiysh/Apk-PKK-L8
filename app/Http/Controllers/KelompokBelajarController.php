@@ -8,6 +8,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\KelompokBelajarExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 class KelompokBelajarController extends Controller
@@ -88,6 +89,8 @@ class KelompokBelajarController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'nama_kelompok_belajar'=> 'required',
             'jenis_kelompok_belajar'=> 'required',

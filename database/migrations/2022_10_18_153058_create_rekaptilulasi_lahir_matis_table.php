@@ -21,7 +21,7 @@ class CreateRekaptilulasiLahirMatisTable extends Migration
             $table->string('bulan');
             $table->integer('tahun');
             $table->text('keterangan');
-
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

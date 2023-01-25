@@ -19,6 +19,7 @@ class CreateBukusTable extends Migration
             $table->integer('tahun');
             $table->string('penulis');
             $table->text('keterangan')->nullable();
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

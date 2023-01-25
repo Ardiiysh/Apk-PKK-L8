@@ -8,6 +8,7 @@ use App\Exports\RekaptilulasiLahirMatiExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 class RekaptilulasiLahirMatiController extends Controller
@@ -88,6 +89,8 @@ class RekaptilulasiLahirMatiController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
              'id_rekapitulasi_kelahiran_kematian'=> 'required',
              'id_catatan_diesnatalis'=> 'required',

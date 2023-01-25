@@ -8,6 +8,7 @@ use App\Exports\BukuPerpustakaanExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 class BukuPerpustakaanController extends Controller
@@ -88,6 +89,8 @@ class BukuPerpustakaanController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'id_perpustakaan' => 'required',
             'nama_perpus' => 'required',

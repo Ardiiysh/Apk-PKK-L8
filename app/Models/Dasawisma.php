@@ -10,6 +10,7 @@ class Dasawisma extends Model
     use HasFactory;
 
     protected $fillable = [
+        'is_user_id', 
         'nama_dasawisma' ,
         'rt' ,
         'rw' ,

@@ -8,6 +8,7 @@ use App\Exports\RekapitulasiKelompokPkkRtExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 class RekapitulasiKelompokPkkRtController extends Controller
@@ -88,6 +89,8 @@ class RekapitulasiKelompokPkkRtController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'keterangan' => 'required',
             'rt' => 'required',

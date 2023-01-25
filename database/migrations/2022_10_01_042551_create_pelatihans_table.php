@@ -19,6 +19,7 @@ class CreatePelatihansTable extends Migration
             $table->string('kriteria_kader');
             $table->string('penyelenggara');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

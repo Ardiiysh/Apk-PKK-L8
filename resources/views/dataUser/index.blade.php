@@ -64,6 +64,7 @@
                                     <input type="email" name="email" class="form-control" placeholder="Email">
                                 </div>
                             </div>
+                            @if (auth()->user()->role == 'superadmin')
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Role:</strong>
@@ -74,6 +75,9 @@
                                     </select>
                                 </div>
                             </div>
+                            @else
+                            <input type="hidden" name="role" value="user">
+                            @endif
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Password:</strong>

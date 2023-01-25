@@ -8,6 +8,7 @@ use App\Exports\PelatihanExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 class PelatihanController extends Controller
 {
@@ -86,6 +87,8 @@ class PelatihanController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'nama_pelatihan' => 'required',
             'kriteria_kader' => 'required',

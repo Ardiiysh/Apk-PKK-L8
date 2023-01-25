@@ -10,6 +10,7 @@ class DataKejar extends Model
     use HasFactory;
     protected $primaryKey = 'id_data_kejar';
     protected $fillable = [
+      'is_user_id', 
       'id_data_kelompok_belajar',
       'id_kelompok_belajar',
       'jumlah_siswa_laki_laki',

@@ -21,6 +21,7 @@ class CreateKoperasisTable extends Migration
             $table->string('anggota_laki_laki');
             $table->string('anggota_perempuan');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

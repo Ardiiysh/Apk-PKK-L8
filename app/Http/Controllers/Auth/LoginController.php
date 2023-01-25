@@ -49,7 +49,7 @@ class LoginController extends Controller
         ]);
 
         if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
-            if (auth()->user()->role == 'admin' || 'user') {
+            if (auth()->user()->role == 'admin' || 'user' || 'superadmin') {
                 return redirect()->route('admin');
             }
         }else{

@@ -103,7 +103,7 @@
         </a>
         <ul class="nav nav-treeview">
 
-          @if (auth()->user()->role == 'admin') 
+          @if (auth()->user()->role == 'admin' || 'superadmin') 
 
           <li class="nav-item">
             <a href="/dataUser" class="nav-link">

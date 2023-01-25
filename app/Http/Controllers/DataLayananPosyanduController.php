@@ -8,6 +8,7 @@ use App\Exports\DataLayananPosyanduExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 class DataLayananPosyanduController extends Controller
@@ -88,6 +89,8 @@ class DataLayananPosyanduController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'id_data_posyandu'=> 'required',
             'id_layanan_posyandu'=> 'required',

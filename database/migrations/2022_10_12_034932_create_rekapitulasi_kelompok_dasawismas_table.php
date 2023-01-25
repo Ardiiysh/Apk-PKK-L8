@@ -24,6 +24,7 @@ class CreateRekapitulasiKelompokDasawismasTable extends Migration
             $table->string('provinsi');
             $table->integer('tahun');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

@@ -8,6 +8,7 @@ use App\Exports\DataHatinyaPkkExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 
@@ -89,6 +90,8 @@ class DataHatinyaPkkController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'id_data_hatinya'=> 'required',
             'id_hatinya_pkk'=> 'required',

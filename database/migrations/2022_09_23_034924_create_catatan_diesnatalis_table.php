@@ -33,6 +33,7 @@ class CreateCatatanDiesnatalisTable extends Migration
             $table->string('akta');
             $table->string('sebab');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

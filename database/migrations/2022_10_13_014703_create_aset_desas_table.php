@@ -18,6 +18,7 @@ class CreateAsetDesasTable extends Migration
             $table->string('kategori');
             $table->string('komoditi');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

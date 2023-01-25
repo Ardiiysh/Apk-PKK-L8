@@ -9,7 +9,8 @@ class Koperasi extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id_koperasi';
-    protected $fillable = [ 
+    protected $fillable = [
+        'is_user_id',  
         'nama_koperasi',
         'jenis_koperasi',
         'status_hukum',

@@ -44,6 +44,7 @@ class CreateDataKeluargasTable extends Migration
             $table->string('up2k');
             $table->string('kegiatan_usaha_kesehatan_lingkungan');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }
