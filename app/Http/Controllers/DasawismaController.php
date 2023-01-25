@@ -8,6 +8,7 @@ use App\Exports\DasawismaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 class DasawismaController extends Controller
@@ -87,6 +88,8 @@ class DasawismaController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'nama_dasawisma' => 'required',
             'rt' => 'required',

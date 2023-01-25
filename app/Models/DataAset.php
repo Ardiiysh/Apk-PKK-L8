@@ -10,6 +10,7 @@ class DataAset extends Model
     use HasFactory;
     protected $primaryKey = 'id_data_aset';
     protected $fillable = [
+        'is_user_id', 
         'id_dasawisma' ,
         'rt' ,
         'rw' ,

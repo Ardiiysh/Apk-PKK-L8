@@ -8,6 +8,7 @@ use App\Exports\IndustriRumahTanggaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 class IndustriRumahTanggaController extends Controller
@@ -88,6 +89,8 @@ class IndustriRumahTanggaController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'kategori' => 'required',
             'komoditi' => 'required',

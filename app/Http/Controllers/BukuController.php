@@ -8,6 +8,7 @@ use App\Exports\BukuExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 // use Barryvdh\DomPDF\Facade as PDF;
 use PDF;
 
@@ -92,6 +93,8 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
           $request->validate([
             'nama_buku' => 'required',
             'tahun' => 'required',

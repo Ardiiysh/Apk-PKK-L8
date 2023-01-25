@@ -10,6 +10,7 @@ class CatatanKeluarga extends Model
     use HasFactory;
     protected $primaryKey = 'id_catatan_keluarga';
     protected $fillable = [
+        'is_user_id', 
            'kepala_rumah_tangga' ,
            'id_dasawisma' ,
            'tahun' ,

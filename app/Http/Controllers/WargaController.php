@@ -8,6 +8,7 @@ use App\Exports\WargaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 class WargaController extends Controller
@@ -88,6 +89,8 @@ class WargaController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
            'id_dasawisma' => 'required',
            'kepala_rumah_tangga' => 'required',

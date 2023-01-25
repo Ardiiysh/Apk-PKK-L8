@@ -25,6 +25,7 @@ class CreateDataAsetsTable extends Migration
             $table->text('keterangan');
             $table->string('nama_warung_pkk');
             $table->string('pengelola');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

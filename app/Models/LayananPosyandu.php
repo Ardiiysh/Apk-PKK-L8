@@ -10,6 +10,7 @@ class LayananPosyandu extends Model
     use HasFactory;
     protected $primaryKey = 'id_layanan_posyandu';
     protected $fillable = [
+        'is_user_id', 
        'jenis_layanan',
        'keterangan',
     ];

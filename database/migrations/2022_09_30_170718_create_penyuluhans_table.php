@@ -18,6 +18,7 @@ class CreatePenyuluhansTable extends Migration
             $table->string('nama_kegiatan');
             $table->string('jenis_penyuluhan');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

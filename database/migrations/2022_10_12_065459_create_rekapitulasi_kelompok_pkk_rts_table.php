@@ -20,6 +20,7 @@ class CreateRekapitulasiKelompokPkkRtsTable extends Migration
             $table->string('kelurahan');
             $table->integer('tahun');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

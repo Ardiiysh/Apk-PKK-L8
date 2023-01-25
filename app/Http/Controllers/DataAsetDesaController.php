@@ -8,6 +8,7 @@ use App\Exports\DataAsetDesaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 class DataAsetDesaController extends Controller
@@ -88,6 +89,8 @@ class DataAsetDesaController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
 
             'id_data_aset' => 'required',

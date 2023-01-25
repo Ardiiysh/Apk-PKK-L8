@@ -17,6 +17,7 @@ class CreateLayananPosyandusTable extends Migration
             $table->increments('id_layanan_posyandu');
             $table->string('jenis_layanan');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

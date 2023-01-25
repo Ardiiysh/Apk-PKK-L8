@@ -8,6 +8,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\DataKejarExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 class DataKejarController extends Controller
@@ -88,6 +89,8 @@ class DataKejarController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
           'id_data_kelompok_belajar'=> 'required',
           'id_kelompok_belajar'=> 'required',

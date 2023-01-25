@@ -22,6 +22,7 @@ class CreateBukuperpustakaansTable extends Migration
             $table->string('pengarang');
             $table->integer('tahun');
             $table->integer('jumlah');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

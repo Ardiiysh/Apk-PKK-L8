@@ -10,6 +10,7 @@ class DataIndustriRumahTangga extends Model
     use HasFactory;
     protected $primaryKey = 'id_data_industri_rumah_tangga';
     protected $fillable = [
+        'is_user_id', 
         'id_data_industri',
         'id_industri_rumah_tangga',
         'volume',

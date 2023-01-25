@@ -26,6 +26,7 @@ class CreatePelatihanKadersTable extends Migration
             $table->date('tanggal_masuk');
             $table->string('kedudukan');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

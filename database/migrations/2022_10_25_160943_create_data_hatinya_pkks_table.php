@@ -19,6 +19,7 @@ class CreateDataHatinyaPkksTable extends Migration
             $table->integer('id_hatinya_pkk');
             $table->integer('jumlah');
             $table->string('satuan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

@@ -8,6 +8,7 @@ use App\Exports\LayananPosyanduExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 class LayananPosyanduController extends Controller
 {
@@ -87,6 +88,8 @@ class LayananPosyanduController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'jenis_layanan' => 'required',
             'keterangan' => 'required',
