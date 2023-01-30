@@ -40,6 +40,7 @@ use App\Http\Controllers\DataKoperasiController;
 use App\Http\Controllers\DataPenyuluhanController;
 use App\Http\Controllers\HatinyaPkkController;
 use App\Http\Controllers\DataHatinyaPkkController;
+use App\Http\Controllers\DesaController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -65,18 +66,18 @@ Auth::routes();
 Route::middleware(['auth', 'Admin'])->group(function () { // role admin
     // Route dataUser
     Route::resource('dataUser', UserController::class);
-    
+
     // Route Export Excel
     // Route export dataUser
     Route::get('dataUsers', [UserController::class, 'export_excel'])->name('dataUsers.export_excel');
 });
 
 Route::middleware(['auth'])->group(function () { // Route middleware
-    
+
 
     //route dashboard user
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    
+
     Route::get('/dashboard1', function () {
         return view('layouts.layout');
     });
@@ -157,6 +158,7 @@ Route::middleware(['auth'])->group(function () { // Route middleware
     Route::resource('dataHatinyaPkks', DataHatinyaPkkController::class);
     // route catatanKeluargaWargas
     Route::resource('catatanKeluargaWargas', CatatanKeluargaWargaController::class);
+    Route::resource('desas', DesaController::class);
 
 //Route Export Excel
     //route export excel buku
