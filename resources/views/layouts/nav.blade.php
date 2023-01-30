@@ -261,8 +261,6 @@
           </p>
         </a>
       </li>
-
-
       <li class="nav-item">
         <a href="/pelatihanKaders" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
