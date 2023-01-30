@@ -103,7 +103,7 @@
         </a>
         <ul class="nav nav-treeview">
 
-          @if (auth()->user()->role == 'admin' || 'superadmin') 
+          @if (auth()->user()->role == 'admin' || 'superadmin')
 
           <li class="nav-item">
             <a href="/dataUser" class="nav-link">
@@ -115,7 +115,7 @@
           </li>
 
           @endif
-          
+
           <li class="nav-item">
             <a href="/dataHatinyaPkks" class="nav-link">
               <i class="fa fa-database"></i>
@@ -144,7 +144,7 @@
             <a href="/dataPosyandus" class="nav-link">
               <i class="fa fa-database"></i>
               <p>
-                Data Posyandu 
+                Data Posyandu
               </p>
             </a>
           </li>
@@ -208,7 +208,7 @@
             <p>Data Aset Desa</p>
           </a>
         </li>
-  
+
       </ul>
 
       </li>
@@ -252,7 +252,7 @@
 
 
       {{-- //bukan grout --}}
-     
+
       <li class="nav-item">
         <a href="/hatinyaPkks" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
@@ -261,8 +261,6 @@
           </p>
         </a>
       </li>
-     
-      
       <li class="nav-item">
         <a href="/pelatihanKaders" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
@@ -279,14 +277,14 @@
           </p>
         </a>
       </li>
-     
+
       <li class="nav-item">
         <a href="/kelompokBelajars" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
           <p>Kelompok Belajar</p>
         </a>
       </li>
-     
+
       <li class="nav-item">
         <a href="/perpustakaans" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
@@ -305,7 +303,7 @@
           <p>Industri Rumah Tangga</p>
         </a>
       </li>
-     
+
       <li class="nav-item">
         <a href="/asetDesas" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
@@ -337,10 +335,13 @@
             </p>
           </a>
         </li>
-
-        
-
-
-
+        <li class="nav-item">
+            <a href="/desas" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                desa
+              </p>
+            </a>
+          </li>
     </ul>
   </nav>
