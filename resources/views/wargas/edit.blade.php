@@ -35,7 +35,7 @@
                     <input type="text" name="id_dasawisma" value="{{ $warga->id_dasawisma }}" class="form-control"
                         placeholder="id_dasawisam">
                 </div>
-            </div>
+            </div
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Kepala Rumah Tangga:</strong>
