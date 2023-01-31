@@ -25,7 +25,7 @@
     </button>
     <div class="dropdown-menu">
       <a class="dropdown-item" href="/dataKeluarga">Excel</a>
-      {{-- <a class="dropdown-item" href="#">PDF</a> --}}
+      <a class="dropdown-item" href="/dataKeluarga-pdf">PDF</a>
       {{-- <a class="dropdown-item" href="#">Word</a> --}}
     </div>
   </div>
@@ -250,7 +250,7 @@
                                 <input type="text"   name="keterangan" class="form-control" placeholder="keterangan">
                             </div>
                         </div>
-                       
+
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -303,7 +303,7 @@
                 <th>kegiatan usaha kesehatan lingkungan</th>
                 <th>keterangan</th>
 
-              
+
                 <th width="280px">Action</th>
             </tr>
         </thead>

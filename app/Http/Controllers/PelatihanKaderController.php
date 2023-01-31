@@ -9,6 +9,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PelatihanKaderExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 class PelatihanKaderController extends Controller
 {
     /**
@@ -57,8 +59,17 @@ class PelatihanKaderController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new pelatihanKaderExport, 'Laporan Data Kelompok Belajar .xlsx');
+        $name = 'Laporan Data Pelatihan Kader '. date('Y-m-d', time());
+		return Excel::download(new pelatihanKaderExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $pelatihanKader = PelatihanKader::all();
+        $pdf = PDF::loadview('pelatihanKaders.laporan_pdf', ['pelatihanKader' => $pelatihanKader]);
+
+        return $pdf->download('pelatihan_kader.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -78,6 +89,8 @@ class PelatihanKaderController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             // 'id_dasawisma'=> 'required',
             'rt'=> 'required',
@@ -91,9 +104,9 @@ class PelatihanKaderController extends Controller
             'kedudukan'=> 'required',
             'keterangan'=> 'required',
            ]);
-  
+
            PelatihanKader::create($request->all());
-  
+
           return redirect()->route('pelatihanKaders.index')
                           ->with('success','pelatihanKader created successfully.');
       }
@@ -144,9 +157,9 @@ class PelatihanKaderController extends Controller
             'kedudukan'=> 'required',
             'keterangan'=> 'required',
          ]);
-            
+
           $pelatihanKader->update($request->all());
-  
+
           return redirect()->route('pelatihanKaders.index')
                           ->with('success','pelatihanKader updated successfully');
       }

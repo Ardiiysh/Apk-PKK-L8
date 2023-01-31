@@ -19,6 +19,7 @@ class CreateDataAsetDesasTable extends Migration
             $table->integer('id_aset_desa');
             $table->string('volume');
             $table->string('satuan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

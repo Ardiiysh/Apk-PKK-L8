@@ -26,6 +26,7 @@ class CreatePerpustakaansTable extends Migration
             $table->string('pengelola');
             $table->string('jumlah_buku');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

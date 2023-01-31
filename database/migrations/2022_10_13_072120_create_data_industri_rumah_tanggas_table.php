@@ -19,6 +19,7 @@ class CreateDataIndustriRumahTanggasTable extends Migration
             $table->integer('id_industri_rumah_tangga');
             $table->string('volume');
             $table->string('satuan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

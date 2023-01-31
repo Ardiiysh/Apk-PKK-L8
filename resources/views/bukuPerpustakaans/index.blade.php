@@ -26,6 +26,7 @@
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/bukuPerpustakaan">Excel</a>
+                    <a class="dropdown-item" href="/bukuPerpustakaan-pdf">PDF</a>
                     {{-- <a class="dropdown-item" href="#">PDF</a>
                     <a class="dropdown-item" href="#">Word</a> --}}
                 </div>
@@ -52,8 +53,15 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Id Perpustakaan:</strong>
-                                    <input type="text" name="id_perpustakaan" class="form-control"
+                                    <input type="number" name="id_perpustakaan" class="form-control"
                                         placeholder="Id Perpustakaan">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Nama Perpustakaan:</strong>
+                                    <input type="text" name="nama_perpus" class="form-control"
+                                        placeholder="Nama Perpustakaan">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -64,8 +72,26 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
+                                    <strong>Judul Buku:</strong>
+                                    <input type="text" name="judul_buku" class="form-control" placeholder="Judul Buku">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Pengarang Buku:</strong>
+                                    <input type="text" name="pengarang" class="form-control" placeholder="Pengarang Buku">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Tahun:</strong>
+                                    <input type="number" min=1 name="tahun" class="form-control" placeholder="Tahun">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
                                     <strong>Jumlah:</strong>
-                                    <input type="text" name="jumlah" class="form-control" placeholder="Jumlah">
+                                    <input type="number" min=1 name="jumlah" class="form-control" placeholder="Jumlah">
                                 </div>
                             </div>
 
@@ -93,8 +119,10 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Id Perpustakaan</th>
-                    <th>Id Buku</th>
+                    <th>Nama Perpustakaan</th>
+                    <th>Judul Buku</th>
+                    <th>Pengarang</th>
+                    <th>Tahun</th>
                     <th>Jumlah</th>
                     <th width="280px">Action</th>
                 </tr>
@@ -119,12 +147,20 @@
                         searchable: false
                     },
                     {
-                        data: 'id_perpustakaan',
-                        name: 'id_perpustakaan'
+                        data: 'nama_perpus',
+                        name: 'nama_perpus'
                     },
                     {
-                        data: 'id_buku',
-                        name: 'id_buku'
+                        data: 'judul_buku',
+                        name: 'judul_buku'
+                    },
+                    {
+                        data: 'pengarang',
+                        name: 'pengarang'
+                    },
+                    {
+                        data: 'tahun',
+                        name: 'tahun'
                     },
                     {
                         data: 'jumlah',

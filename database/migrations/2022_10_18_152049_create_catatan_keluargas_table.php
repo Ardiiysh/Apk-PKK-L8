@@ -24,6 +24,7 @@ class CreateCatatanKeluargasTable extends Migration
             $table->string('sumber_air');
             $table->string('tempat_sampah');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

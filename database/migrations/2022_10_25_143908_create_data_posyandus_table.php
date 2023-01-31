@@ -28,6 +28,7 @@ class CreateDataPosyandusTable extends Migration
             $table->string('jenis_posyandu');
             $table->integer('jumlah_kader');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

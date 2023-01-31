@@ -9,6 +9,8 @@ use App\Exports\DataKoperasiExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 
 class DataKoperasiController extends Controller
@@ -59,8 +61,17 @@ class DataKoperasiController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new DataKoperasiExport, 'Laporan Data Koperasi.xlsx');
+        $name = 'Laporan Data Koperasi '.date('Y-m-d', time());
+		return Excel::download(new DataKoperasiExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $dataKoperasi = DataKoperasi::all();
+        $pdf = PDF::loadview('dataKoperasis.laporan_pdf', ['dataKoperasi' => $dataKoperasi]);
+
+        return $pdf->download('data_koperasi.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -80,7 +91,9 @@ class DataKoperasiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    { 
+    {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
         // 'id_dasawisma' => 'required',
         'rt' => 'required',
@@ -120,7 +133,7 @@ class DataKoperasiController extends Controller
     {
         $dasawisma = Dasawisma::all();
         return view('dataKoperasis.edit',compact('dasawisma','dataKoperasi'));
-        
+
     }
 
     /**

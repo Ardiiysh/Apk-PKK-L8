@@ -23,6 +23,7 @@ class CreateDataLayananPosyandusTable extends Migration
             $table->integer('paramedis_laki_Laki');
             $table->integer('paramedis_perempuan');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

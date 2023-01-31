@@ -23,6 +23,7 @@ class CreateDataPenyuluhansTable extends Migration
             $table->string("kabupaten_kota");
             $table->string("provinsi");
             $table->text("keterangan");
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

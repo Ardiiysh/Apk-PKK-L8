@@ -10,6 +10,7 @@ class BukuPerpustakaan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_buku_perpustakaan', 'id_perpustakaan', 'id_buku', 'jumlah',
+        'is_user_id', 
+        'id_perpustakaan', 'nama_perpus','id_buku', 'judul_buku', 'pengarang','tahun', 'jumlah',
     ];
 }

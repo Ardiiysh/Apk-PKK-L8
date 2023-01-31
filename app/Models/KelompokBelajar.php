@@ -10,6 +10,7 @@ class KelompokBelajar extends Model
     use HasFactory;
     protected $primaryKey = 'id_kelompok_belajar';
     protected $fillable = [
+        'is_user_id', 
         'nama_kelompok_belajar',
         'jenis_kelompok_belajar',
         'keterangan',  

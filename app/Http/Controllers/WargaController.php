@@ -8,6 +8,8 @@ use App\Exports\WargaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class WargaController extends Controller
 {
@@ -56,8 +58,17 @@ class WargaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new WargaExport, 'Laporan Warga.xlsx');
+        $name = 'Laporan Warga '.date('Y-m-d', time());
+		return Excel::download(new WargaExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $warga = Warga::all();
+        $pdf = PDF::loadview('wargas.laporan_pdf', ['warga' => $warga]);
+
+        return $pdf->download('laporan_warga.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -78,6 +89,8 @@ class WargaController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
            'id_dasawisma' => 'required',
            'kepala_rumah_tangga' => 'required',

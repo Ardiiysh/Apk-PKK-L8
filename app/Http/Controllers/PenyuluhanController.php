@@ -8,7 +8,8 @@ use App\Exports\PenyuluhanExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-
+use Illuminate\Support\Facades\Auth;
+use PDF;
 class PenyuluhanController extends Controller
 {
     /**
@@ -56,8 +57,17 @@ class PenyuluhanController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new PenyuluhanExport, 'Laporan Penyuluhan.xlsx');
+        $name = 'Laporan Penyuluhan '.date('Y-m-d', time());
+		return Excel::download(new PenyuluhanExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $penyuluhan = Penyuluhan::all();
+        $pdf = PDF::loadview('penyuluhans.laporan_pdf',['penyuluhan' => $penyuluhan]);
+
+        return $pdf->download('penyuluhan.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -77,6 +87,8 @@ class PenyuluhanController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'nama_kegiatan' => 'required',
             'jenis_penyuluhan' => 'required',

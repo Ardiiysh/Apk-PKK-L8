@@ -17,6 +17,7 @@ class CreateCatatanKeluargaWargasTable extends Migration
             $table->increments('id_catatan_keluarga_warga');
             $table->integer("id_catatan_keluarga");
             $table->integer("id_warga");
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

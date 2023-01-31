@@ -38,6 +38,7 @@ class CreateWargasTable extends Migration
             $table->string('paud');
             $table->string('koperasi');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

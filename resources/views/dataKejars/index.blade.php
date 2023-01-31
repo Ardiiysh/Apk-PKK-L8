@@ -25,8 +25,8 @@
     </button>
     <div class="dropdown-menu">
       <a class="dropdown-item" href="/dataKejar">Excel</a>
-      {{-- <a class="dropdown-item" href="#">PDF</a>
-      <a class="dropdown-item" href="#">Word</a> --}}
+      <a class="dropdown-item" href="/dataKejar-pdf">PDF</a>
+      {{-- <a class="dropdown-item" href="#">Word</a> --}}
     </div>
   </div>
 
@@ -87,7 +87,7 @@
                                 <strong>jumlah pengajar perempuan:</strong>
                                 <input ttype="number" min="0" name="jumlah_pengajar_perempuan" class="form-control" placeholder="jumlah_pengajar_perempuan">
                             </div>
-                        </div>                       
+                        </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>

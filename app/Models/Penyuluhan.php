@@ -10,6 +10,7 @@ class Penyuluhan extends Model
     use HasFactory;
     protected $primaryKey = 'id_penyuluhan';
     protected $fillable = [
+        'is_user_id', 
         'nama_kegiatan', 'jenis_penyuluhan','keterangan'
     ];
 }

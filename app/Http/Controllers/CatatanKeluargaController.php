@@ -8,6 +8,8 @@ use App\Exports\CatatanKeluargaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class CatatanKeluargaController extends Controller
 {
@@ -56,8 +58,17 @@ class CatatanKeluargaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new CatatanKeluargaExport, 'Laporan CatatanKeluarga.xlsx');
+        $name = 'Laporan Catatan Keluarga '.date('Y-m-d', time());
+		return Excel::download(new CatatanKeluargaExport, $name .'.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $catatanKeluarga = CatatanKeluarga::all();
+        $pdf = PDF::loadview('catatanKeluargas.laporan_pdf', ['catatanKeluarga' => $catatanKeluarga]);
+
+        return $pdf->download('catatan_keluarga.pdf');
+    }
 
 
     /**
@@ -79,6 +90,8 @@ class CatatanKeluargaController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
            'kepala_rumah_tangga' => 'required',
            'id_dasawisma' => 'required',
@@ -140,12 +153,12 @@ class CatatanKeluargaController extends Controller
             'tempat_sampah' => 'required',
             'keterangan' => 'required',
          ]);
- 
+
          $catatanKeluarga->update($request->all());
- 
+
          return redirect()->route('catatanKeluargas.index')
                          ->with('success','catatan Keluarga updated successfully');
-      
+
     }
 
     /**

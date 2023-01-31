@@ -3,28 +3,53 @@
 namespace App\Exports;
 
 use App\Models\Penyuluhan;
-use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class PenyuluhanExport implements FromCollection, WithHeadings
+// generate excel from view
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
+
+// for input image
+use Maatwebsite\Excel\Concerns\WithDrawings;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
+
+class PenyuluhanExport implements FromView, WithDrawings
 {
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-    public function collection()
-    {
-        return Penyuluhan::all();
-    }
+    // /**
+    //  * @return \Illuminate\Support\Collection
+    //  */
+    // public function collection()
+    // {
+    //     return Penyuluhan::all();
+    // }
 
-    public function headings(): array
+    // public function headings(): array
+    // {
+    //     return [
+    //         'ID',
+    //         'Nama Kegiatan',
+    //         'Jenis Penyuluhan',
+    //         'Keterangan',
+    //         'Created_at',
+    //         'Updated_at'
+    //     ];
+    // }
+    
+    public function view() :View
     {
-        return [
-            'ID',
-            'Nama Kegiatan',
-            'Jenis Penyuluhan',
-            'Keterangan',
-            'Created_at',
-            'Updated_at'
-        ];
+        $data['penyuluhan'] = Penyuluhan::all();
+
+        return view('penyuluhans.export_excel', $data);
+    }
+    
+    public function drawings()
+    {
+        $drawing = new Drawing();
+        $drawing->setName('kopsurat');
+        $drawing->setDescription('kop surat pkk');
+        $drawing->setPath(public_path('/img/kopsurat.png'));
+        $drawing->setHeight(35);
+        $drawing->setCoordinates('A1');
+
+        return $drawing;
     }
 }

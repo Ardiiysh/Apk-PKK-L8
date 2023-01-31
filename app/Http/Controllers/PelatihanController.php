@@ -8,7 +8,8 @@ use App\Exports\PelatihanExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-
+use Illuminate\Support\Facades\Auth;
+use PDF;
 class PelatihanController extends Controller
 {
     /**
@@ -56,7 +57,16 @@ class PelatihanController extends Controller
 
     public function export_excel()
     {
-        return Excel::download(new PelatihanExport(), 'Laporan Pelatihan.xlsx');
+        $name = 'Laporan Pelatihan '.date('Y-m-d', time());
+        return Excel::download(new PelatihanExport(), $name . '.xlsx');
+    }
+
+    public function export_pdf()
+    {
+        $pelatihan = Pelatihan::all();
+        $pdf = PDF::loadview('pelatihans.laporan_pdf', ['pelatihan' => $pelatihan]);
+
+        return $pdf->download('pelatihan.pdf');
     }
 
     /**
@@ -77,6 +87,8 @@ class PelatihanController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'nama_pelatihan' => 'required',
             'kriteria_kader' => 'required',

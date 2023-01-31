@@ -8,6 +8,8 @@ use App\Exports\RekaptilulasiLahirMatiExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class RekaptilulasiLahirMatiController extends Controller
 {
@@ -56,8 +58,17 @@ class RekaptilulasiLahirMatiController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new RekaptilulasiLahirMatiExport, 'Laporan Rekapitulasi Lahir Mati.xlsx');
+        $name = 'Laporan Rekapitulasi Lahir Mati '.date('Y-m-d', time());
+		return Excel::download(new RekaptilulasiLahirMatiExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $rekaptilulasiLahirMati = RekaptilulasiLahirMati::all();
+        $pdf = PDF::loadview('rekaptilulasiLahirMatis.laporan_pdf', ['rekaptilulasiLahirMati' => $rekaptilulasiLahirMati]);
+
+        return $pdf->download('rekaptilasi_lahir_mati.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -78,6 +89,8 @@ class RekaptilulasiLahirMatiController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
              'id_rekapitulasi_kelahiran_kematian'=> 'required',
              'id_catatan_diesnatalis'=> 'required',
@@ -87,9 +100,9 @@ class RekaptilulasiLahirMatiController extends Controller
              'keterangan'=> 'required',
 
          ]);
- 
+
          RekaptilulasiLahirMati::create($request->all());
- 
+
          return redirect()->route('rekaptilulasiLahirMatis.index')
                          ->with('success','rekaptilulasi Lahir Mati created successfully.');
      }
@@ -135,12 +148,12 @@ class RekaptilulasiLahirMatiController extends Controller
             'keterangan'=> 'required',
 
         ]);
- 
+
          $rekaptilulasiLahirMati->update($request->all());
- 
+
          return redirect()->route('rekaptilulasiLahirMatis.index')
                          ->with('success','rekaptilulasi Lahir Mati updated successfully');
-      
+
     }
 
     /**

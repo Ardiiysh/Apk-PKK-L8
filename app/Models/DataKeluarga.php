@@ -10,6 +10,7 @@ class DataKeluarga extends Model
     use HasFactory;
     protected $primaryKey = 'id_data_keluarga';
     protected $fillable = [
+        'is_user_id', 
         // 'id_dasawisma',
         'rt',
         'rw',

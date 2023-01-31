@@ -8,6 +8,8 @@ use App\Exports\DataLayananPosyanduExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class DataLayananPosyanduController extends Controller
 {
@@ -56,8 +58,18 @@ class DataLayananPosyanduController extends Controller
 
     public function export_excel()
     {
-        return Excel::download(new DataLayananPosyanduExport(), 'Laporan Data Layanan Posyandu.xlsx');
+        $name = 'Laporan Data Layanan Posyandu '.date('Y-m-d', time());
+        return Excel::download(new DataLayananPosyanduExport(), $name . '.xlsx');
     }
+
+    public function export_pdf()
+    {
+        $dataLayananPosyandu = DataLayananPosyandu::all();
+        $pdf = PDF::loadview('dataLayananPosyandus.laporan_pdf', ['dataLayananPosyandu' => $dataLayananPosyandu]);
+
+        return $pdf->download('data_layanan_posyandu.pdf');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -77,6 +89,8 @@ class DataLayananPosyanduController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'id_data_posyandu'=> 'required',
             'id_layanan_posyandu'=> 'required',
@@ -127,7 +141,7 @@ class DataLayananPosyanduController extends Controller
      */
     public function update(Request $request, DataLayananPosyandu $dataLayananPosyandu)
     {
- 
+
         $request->validate([
             'id_data_posyandu'=> 'required',
             'id_layanan_posyandu'=> 'required',

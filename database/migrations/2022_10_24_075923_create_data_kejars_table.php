@@ -21,6 +21,7 @@ class CreateDataKejarsTable extends Migration
             $table->integer('jumlah_siswa_perempuan');
             $table->integer('jumlah_pengajar_laki_laki');
             $table->integer('jumlah_pengajar_perempuan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

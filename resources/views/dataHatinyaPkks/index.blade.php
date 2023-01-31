@@ -19,14 +19,14 @@
             <!-- Example split danger button -->
             <div class="btn-group">
                 <button type="button" class="btn btn-info"><i class="fas fa-download"></i></button>
-                
+
                 <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
                     aria-expanded="false">
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/dataHatinyaPkk">Excel</a>
-                    {{-- <a class="dropdown-item" href="#">PDF</a> --}}
+                    <a class="dropdown-item" href="/dataHatinyaPkk-pdf">PDF</a>
                     {{-- <a class="dropdown-item" href="#">Word</a> --}}
                 </div>
             </div>
@@ -70,7 +70,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>satuan:</strong>
-                                    <input type="text" name="satuan" class="form-control" placeholder="satuan">
+                                    <input type="number" name="satuan" class="form-control" placeholder="satuan">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -95,11 +95,10 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>id_data_hatinya</th>
-                    <th>id_hatinya_pkk</th>
-                    <th>jumlah</th>
-                    <th>satuan</th>
-
+                    <th>ID Data Hatinya</th>
+                    <th>ID Hatinya PKK</th>
+                    <th>Jumlah</th>
+                    <th>Satuan</th>
                     <th width="280px">Action</th>
                 </tr>
             </thead>

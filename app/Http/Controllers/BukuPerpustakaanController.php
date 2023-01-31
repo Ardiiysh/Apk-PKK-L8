@@ -8,6 +8,8 @@ use App\Exports\BukuPerpustakaanExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class BukuPerpustakaanController extends Controller
 {
@@ -56,8 +58,18 @@ class BukuPerpustakaanController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new BukuPerpustakaanExport, 'Laporan Buku Perpustakaan.xlsx');
+        $name = 'Laporan Buku Perpustakaan '.date('Y-m-d', time());
+		return Excel::download(new BukuPerpustakaanExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $bukuperpustakaan = BukuPerpustakaan::all();
+        
+        $pdf = PDF::loadview('bukuPerpustakaans.laporan_pdf', ['bukuperpustakaan' => $bukuperpustakaan]);
+
+        return $pdf->download('laporan_buku_perpustakaan.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -77,9 +89,15 @@ class BukuPerpustakaanController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'id_perpustakaan' => 'required',
+            'nama_perpus' => 'required',
             'id_buku' => 'required',
+            'judul_buku' => 'required',
+            'pengarang' => 'required',
+            'tahun' => 'required',
             'jumlah' => 'required',
         ]);
 
@@ -122,7 +140,11 @@ class BukuPerpustakaanController extends Controller
     {
         $request->validate([
             'id_perpustakaan' => 'required',
+            'nama_perpus' => 'required',
             'id_buku' => 'required',
+            'judul_buku' => 'required',
+            'pengarang' => 'required',
+            'tahun' => 'required',
             'jumlah' => 'required',
         ]);
 

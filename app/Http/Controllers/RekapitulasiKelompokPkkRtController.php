@@ -8,6 +8,8 @@ use App\Exports\RekapitulasiKelompokPkkRtExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class RekapitulasiKelompokPkkRtController extends Controller
 {
@@ -56,8 +58,17 @@ class RekapitulasiKelompokPkkRtController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new RekapitulasiKelompokPkkRtExport, 'Laporan Rekapitulasi Kelompok Pkk Rt .xlsx');
+        $name = 'Laporan Rekapitulasi Kelompok Pkk Rt '.date('Y-m-d', time());
+		return Excel::download(new RekapitulasiKelompokPkkRtExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $rekapitulasiKelompokPkkRt = RekapitulasiKelompokPkkRt::all();
+        $pdf = PDF::loadview('rekapitulasiKelompokPkkRts.laporan_pdf', ['rekapitulasiKelompokPkkRt' => $rekapitulasiKelompokPkkRt]);
+
+        return $pdf->download('rekapitulasi_kelompok_pkk_rt.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -78,6 +89,8 @@ class RekapitulasiKelompokPkkRtController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'keterangan' => 'required',
             'rt' => 'required',

@@ -25,8 +25,8 @@
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/dataLayananPosyandu">Excel</a>
-                    {{-- <a class="dropdown-item" href="#">PDF</a>
-                    <a class="dropdown-item" href="#">Word</a> --}}
+                    <a class="dropdown-item" href="/dataLayananPosyandu-pdf">PDF</a>
+                    {{-- <a class="dropdown-item" href="#">Word</a> --}}
                 </div>
             </div>
 
@@ -93,7 +93,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Keterangan:</strong>
-                                    <input type="number" min="0" name="keterangan" class="form-control" placeholder="keterangan">
+                                    <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
                                 </div>
                             </div>
 

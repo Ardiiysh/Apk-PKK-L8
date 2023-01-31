@@ -9,6 +9,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\DataAsetExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 class DataAsetController extends Controller
 {
     /**
@@ -56,8 +58,17 @@ class DataAsetController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new DataAsetExport, 'Laporan Data Kejar.xlsx');
+        $name = 'Laporan Data Kejar '.date('Y-m-d', time());
+		return Excel::download(new DataAsetExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $dataAset = DataAset::all();
+        $pdf = PDF::loadview('dataAsets.laporan_pdf', ['dataAset' => $dataAset]);
+
+        return $pdf->download('data_aset.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -78,6 +89,8 @@ class DataAsetController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             // 'id_dasawisma' => 'required',
             'rt' => 'required',
@@ -90,9 +103,9 @@ class DataAsetController extends Controller
             'nama_warung_pkk'=> 'required',
             'pengelola'=> 'required',
            ]);
-  
+
            DataAset::create($request->all());
-  
+
           return redirect()->route('dataAsets.index')
                           ->with('success','dataAset created successfully.');
       }
@@ -142,9 +155,9 @@ class DataAsetController extends Controller
             'nama_warung_pkk'=> 'required',
             'pengelola'=> 'required',
          ]);
-            
+
           $dataAset->update($request->all());
-  
+
           return redirect()->route('dataAsets.index')
                           ->with('success','dataAset updated successfully');
       }

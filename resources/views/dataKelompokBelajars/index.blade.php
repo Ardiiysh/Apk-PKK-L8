@@ -25,8 +25,8 @@
     </button>
     <div class="dropdown-menu">
       <a class="dropdown-item" href="/dataKelompokBelajar">Excel</a>
-      {{-- <a class="dropdown-item" href="#">PDF</a>
-      <a class="dropdown-item" href="#">Word</a> --}}
+      <a class="dropdown-item" href="/dataKelompokBelajar-pdf">PDF</a>
+      {{-- <a class="dropdown-item" href="#">Word</a> --}}
     </div>
   </div>
 
@@ -123,25 +123,25 @@
                                 <strong>id warga:</strong>
                                 <input type="number" min="0" name="id_warga" class="form-control" placeholder="id_warga">
                             </div>
-                        </div>  
+                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>tanggal masuk:</strong>
                                 <input type="date" name="tanggal_masuk" class="form-control" placeholder="tanggal_masuk">
                             </div>
-                        </div>  
+                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>kedudukan:</strong>
                                 <input type="text" name="kedudukan" class="form-control" placeholder="kedudukan">
                             </div>
-                        </div>  
+                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>keterangan:</strong>
                                 <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
                             </div>
-                        </div>             
+                        </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>

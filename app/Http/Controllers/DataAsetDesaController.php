@@ -8,6 +8,8 @@ use App\Exports\DataAsetDesaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class DataAsetDesaController extends Controller
 {
@@ -56,8 +58,17 @@ class DataAsetDesaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new DataAsetDesaExport, 'Laporan  Data Aset Desa .xlsx');
+        $name = 'Laporan Data Aset Desa '. date('Y-m-d', time());
+		return Excel::download(new DataAsetDesaExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $dataAsetDesa = DataAsetDesa::all();
+        $pdf = PDF::loadview('dataAsetDesas.laporan_pdf', ['dataAsetDesa' => $dataAsetDesa]);
+
+        return $pdf->download('data_aset_desa.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -78,6 +89,8 @@ class DataAsetDesaController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
 
             'id_data_aset' => 'required',

@@ -10,6 +10,7 @@ class Buku extends Model
     use HasFactory;
   
     protected $fillable = [
+        'is_user_id', 
         'nama_buku', 'tahun', 'penulis','keterangan'
     ];
 }

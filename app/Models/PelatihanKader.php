@@ -10,6 +10,7 @@ class PelatihanKader extends Model
     use HasFactory;
     protected $primaryKey = 'id_pelatihan_kader';
     protected $fillable = [
+        'is_user_id', 
         //  'id_dasawisma',
          'rt',
          'rw',

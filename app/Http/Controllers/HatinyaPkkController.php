@@ -8,6 +8,8 @@ use App\Exports\hatinyaPkkExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 
 class HatinyaPkkController extends Controller
@@ -57,8 +59,17 @@ class HatinyaPkkController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new HatinyaPkkExport, 'Laporan Hatinya Pkk .xlsx');
+        $name = 'Laporan Hatinya Pkk '.date('Y-m-d', time());
+		return Excel::download(new HatinyaPkkExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $hatinyaPkk = HatinyaPkk::all();
+        $pdf = PDF::loadview('hatinyaPkks.laporan_pdf', ['hatinyaPKK' => $hatinyaPkk]);
+
+        return $pdf->download('hatinya_pkk.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -79,6 +90,8 @@ class HatinyaPkkController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
 
             'kategori' => 'required',

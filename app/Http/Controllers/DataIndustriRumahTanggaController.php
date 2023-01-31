@@ -8,6 +8,8 @@ use App\Exports\DataIndustriRumahTanggaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class DataIndustriRumahTanggaController extends Controller
 {
@@ -56,8 +58,17 @@ class DataIndustriRumahTanggaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new DataIndustriRumahTanggaExport, 'Laporan Data Industri Rumah Tangga.xlsx');
+        $name = 'Laporan Data Industri Rumah Tangga '.date('Y-m-d', time());
+		return Excel::download(new DataIndustriRumahTanggaExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $dataIndustriRumahTangga = DataIndustriRumahTangga::all();
+        $pdf = PDF::loadview('dataIndustriRumahTanggas.laporan_pdf', ['dataIndustriRumahTangga' => $dataIndustriRumahTangga]);
+
+        return $pdf->download('data_industri_rumah_tangga.pdf');
+    }
 
 
     /**
@@ -79,6 +90,8 @@ class DataIndustriRumahTanggaController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'id_data_industri' => 'required',
             'id_industri_rumah_tangga' => 'required',

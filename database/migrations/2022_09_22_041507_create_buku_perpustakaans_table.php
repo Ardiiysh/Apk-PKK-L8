@@ -16,8 +16,13 @@ class CreateBukuperpustakaansTable extends Migration
         Schema::create('buku_perpustakaans', function (Blueprint $table) {
             $table->id();
             $table->integer('id_perpustakaan');
+            $table->string('nama_perpus');
             $table->integer('id_buku');
+            $table->string('judul_buku');
+            $table->string('pengarang');
+            $table->integer('tahun');
             $table->integer('jumlah');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

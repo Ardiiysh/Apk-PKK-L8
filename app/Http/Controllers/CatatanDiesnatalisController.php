@@ -9,6 +9,8 @@ use App\Exports\CatatanDiesnatalisExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class CatatanDiesnatalisController extends Controller
 {
@@ -58,8 +60,17 @@ class CatatanDiesnatalisController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new CatatanDiesnatalisExport, 'Laporan Catatan Diesnatalis.xlsx');
+        $name = 'Laporan Catatan Diesnatalis '.date('Y-m-d', time());
+		return Excel::download(new CatatanDiesnatalisExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $catatanDiesnatalis = CatatanDiesnatalis::all();
+        $pdf = PDF::loadview('catatanDiesnataliss.laporan_pdf', ['catatanDiesnatalis' => $catatanDiesnatalis]);
+
+        return $pdf->download('catatan_diesnatalis.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -79,6 +90,8 @@ class CatatanDiesnatalisController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             // 'id_dasawisma' => 'required',
             'rt' => 'required',

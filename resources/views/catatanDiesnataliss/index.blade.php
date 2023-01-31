@@ -26,11 +26,11 @@
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/buku">Excel</a>
-                    {{-- <a class="dropdown-item" href="#">PDF</a>
-                    <a class="dropdown-item" href="#">Word</a> --}}
+                    <a class="dropdown-item" href="/catatanDiesnatalis-pdf">PDF</a>
+                    {{-- <a class="dropdown-item" href="#">Word</a> --}}
                 </div>
             </div>
-            
+
             <!-- Button trigger modal -->
             <button type="button" href="{{ route('catatanDiesnataliss.create') }}" class="btn btn-success" data-toggle="modal"
                 data-target="#exampleModal">

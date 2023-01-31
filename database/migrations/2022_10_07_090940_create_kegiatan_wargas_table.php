@@ -24,6 +24,7 @@ class CreateKegiatanWargasTable extends Migration
             $table->string('arisan');
             $table->string('lainnya');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

@@ -9,7 +9,8 @@ use App\Exports\DataHatinyaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class DataHatinyaController extends Controller
 {
@@ -59,8 +60,17 @@ class DataHatinyaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new DataHatinyaExport, 'Laporan Data Hatinya.xlsx');
+        $name = 'Laporan Data Hatinya '.date('Y-m-d', time());
+		return Excel::download(new DataHatinyaExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $dataHatinya = DataHatinya::all();
+        $pdf = PDF::loadview('dataHatinyas.laporan_pdf', ['dataHatinya' => $dataHatinya]);
+
+        return $pdf->download('data_hatinya.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -81,6 +91,8 @@ class DataHatinyaController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             // 'id_dasawisma' => 'required',
             'rt' => 'required',

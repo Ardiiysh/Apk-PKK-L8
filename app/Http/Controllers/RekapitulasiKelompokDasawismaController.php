@@ -9,6 +9,8 @@ use App\Exports\RekapitulasiKelompokDasawismaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class RekapitulasiKelompokDasawismaController extends Controller
 {
@@ -58,8 +60,17 @@ class RekapitulasiKelompokDasawismaController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new RekapitulasiKelompokDasawismaExport, 'Laporan RekapitulasiKelompokDasawisma.xlsx');
+        $name = 'Laporan RekapitulasiKelompokDasawisma '.date('Y-m-d', time());
+		return Excel::download(new RekapitulasiKelompokDasawismaExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $rekapitulasiKelompokDasawisma = RekapitulasiKelompokDasawisma::all();
+        $pdf = PDF::loadview('rekapitulasiKelompokDasawismas.laporan_pdf', ['rekapitulasiKelompokDasawisma' => $rekapitulasiKelompokDasawisma]);
+
+        return $pdf->download('rekapitulasi_kelompok_dasawisma.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -79,6 +90,8 @@ class RekapitulasiKelompokDasawismaController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             // 'id_dasawisma' => 'required',
             'rt' => 'required',

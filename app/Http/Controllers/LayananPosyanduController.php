@@ -8,7 +8,8 @@ use App\Exports\LayananPosyanduExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-
+use Illuminate\Support\Facades\Auth;
+use PDF;
 class LayananPosyanduController extends Controller
 {
     /**
@@ -56,7 +57,16 @@ class LayananPosyanduController extends Controller
 
     public function export_excel()
     {
-        return Excel::download(new LayananPosyanduExport(), 'Laporan layananPosyandu.xlsx');
+        $name = 'Laporan layananPosyandu '.date('Y-m-d', time());
+        return Excel::download(new LayananPosyanduExport(), $name . '.xlsx');
+    }
+
+    public function export_pdf()
+    {
+        $layananPosyandu = LayananPosyandu::all();
+        $pdf = PDF::loadview('layananPosyandus.laporan_pdf', ['layananPosyandu' => $layananPosyandu]);
+
+        return $pdf->download('layanan_posyandu.pdf');
     }
 
     /**
@@ -78,6 +88,8 @@ class LayananPosyanduController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'jenis_layanan' => 'required',
             'keterangan' => 'required',

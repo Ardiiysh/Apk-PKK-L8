@@ -8,6 +8,7 @@ use App\Exports\UserExport;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
 use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class UserController extends Controller
 {
@@ -49,9 +50,16 @@ class UserController extends Controller
 
     public function export_excel()
     {
-        $date = date('Y-m-d', time());
-        $name = 'User Export ' . $date;
+        $name = 'User Export '.date('Y-m-d', time());
         return Excel::download(new UserExport, $name.'.xlsx');
+    }
+
+    public function export_pdf()
+    {
+        $dataUser = User::all();
+        $pdf = PDF::loadview('dataUser.laporan_pdf', ['dataUser' => $dataUser]);
+
+        return $pdf->download('data_user.pdf');
     }
 
     /**

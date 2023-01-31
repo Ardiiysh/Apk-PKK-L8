@@ -18,6 +18,7 @@ class CreateKelompokBelajarsTable extends Migration
             $table->string('nama_kelompok_belajar');
             $table->string('jenis_kelompok_belajar');
             $table->text('keterangan');
+            $table->integer('is_user_id');
             $table->timestamps();
         });
     }

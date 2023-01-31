@@ -8,6 +8,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\KelompokBelajarExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class KelompokBelajarController extends Controller
 {
@@ -56,8 +58,17 @@ class KelompokBelajarController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new KelompokBelajarExport, 'Laporan Kelompok Belajar.xlsx');
+        $name = 'Laporan Kelompok Belajar'.date('Y-m-d', time());
+		return Excel::download(new KelompokBelajarExport, $name . '.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $kelompokBelajar = KelompokBelajar::all();
+        $pdf = PDF::loadview('kelompokBelajars.laporan_pdf', ['kelompokBelajar' => $kelompokBelajar]);
+
+        return $pdf->download('kelompok_belajar.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -78,10 +89,12 @@ class KelompokBelajarController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             'nama_kelompok_belajar'=> 'required',
             'jenis_kelompok_belajar'=> 'required',
-            'keterangan'=> 'required',  
+            'keterangan'=> 'required',
          ]);
 
         KelompokBelajar::create($request->all());
@@ -125,11 +138,11 @@ class KelompokBelajarController extends Controller
         $request->validate([
             'nama_kelompok_belajar'=> 'required',
             'jenis_kelompok_belajar'=> 'required',
-            'keterangan'=> 'required',  
+            'keterangan'=> 'required',
          ]);
-            
+
           $kelompokBelajar->update($request->all());
-  
+
           return redirect()->route('kelompokBelajars.index')
                           ->with('success','kelompokBelajar updated successfully');
       }

@@ -9,6 +9,8 @@ use App\Exports\RekapitulasiKelahiranKematianExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class RekapitulasiKelahiranKematianController extends Controller
 {
@@ -58,8 +60,17 @@ class RekapitulasiKelahiranKematianController extends Controller
 
     public function export_excel()
 	{
-		return Excel::download(new RekapitulasiKelahiranKematianExport, 'Laporan rekapitulasi Kelahiran Kematian.xlsx');
+        $name = 'Laporan rekapitulasi Kelahiran Kematian '.date('Y-m-d', time());
+		return Excel::download(new RekapitulasiKelahiranKematianExport, $name .'.xlsx');
 	}
+
+    public function export_pdf()
+    {
+        $rekapitulasiKelahiranKematian = RekapitulasiKelahiranKematian::all();
+        $pdf = PDF::loadview('rekapitulasiKelahiranKematians.laporan_pdf', ['rekapitulasiKelahiranKematian' => $rekapitulasiKelahiranKematian]);
+
+        return $pdf->download('rekapitulasi_kelahiran_kematian.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -80,6 +91,8 @@ class RekapitulasiKelahiranKematianController extends Controller
      */
     public function store(Request $request)
     {
+        $request["is_user_id"] = Auth::user()->id;
+
         $request->validate([
             // 'id_dasawisma'=> 'required',
             'rt'=> 'required',
@@ -140,9 +153,9 @@ class RekapitulasiKelahiranKematianController extends Controller
             'provinsi'=> 'required',
             'keterangan'=> 'required',
          ]);
-            
+
           $rekapitulasiKelahiranKematian->update($request->all());
-  
+
           return redirect()->route('rekapitulasiKelahiranKematians.index')
                           ->with('success','rekapitulasiKelahiranKematian updated successfully');
     }
