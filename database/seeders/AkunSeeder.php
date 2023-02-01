@@ -21,16 +21,32 @@ class AkunSeeder extends Seeder
                 'password'=> bcrypt('pkksuperdede'),
             ],
             [
-                'name'=>'admin',
-                'email'=>'admin@gmail.com',
+                'name'=>'admin Desa Wk garut',
+                'email'=>'admingrt@gmail.com',
                 'role'=>'admin',
                 'password'=> bcrypt('123456'),
+                'desa_id' => 1,
             ],
             [
-                'name' => 'user',
-                'email' => 'user@gmail.com',
+                'name' => 'user Desa Wk garut',
+                'email' => 'usergrt@gmail.com',
                 'role' => 'user',
                 'password' => bcrypt('123456'),
+                'desa_id'  =>1,
+            ],
+            [
+                'name'=>'admin Desa Wk Bogor',
+                'email'=>'adminbgr@gmail.com',
+                'role'=>'admin',
+                'password'=> bcrypt('123456'),
+                'desa_id' => 2,
+            ],
+            [
+                'name' => 'user Desa Wk Bogor',
+                'email' => 'userbgr@gmail.com',
+                'role' => 'user',
+                'password' => bcrypt('123456'),
+                'desa_id'  =>2,
             ]
         ];
 
