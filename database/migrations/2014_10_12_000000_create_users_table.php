@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->enum('role', ['admin', 'user','superadmin']);
             $table->rememberToken();
+            $table->integer('desa_id')->nullable();
             $table->timestamps();
         });
     }
