@@ -53,7 +53,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Id Perpustakaan:</strong>
-                                    <input type="number" name="id_perpustakaan" class="form-control"
+                                    <input type="number" min="1" name="id_perpustakaan" class="form-control"
                                         placeholder="Id Perpustakaan">
                                 </div>
                             </div>
@@ -67,7 +67,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Id Buku:</strong>
-                                    <input type="text" name="id_buku" class="form-control" placeholder="Id Buku">
+                                    <input type="number" name="id_buku" class="form-control" placeholder="Id Buku">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -85,13 +85,13 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Tahun:</strong>
-                                    <input type="number" min=1 name="tahun" class="form-control" placeholder="Tahun">
+                                    <input type="number" min="1" name="tahun" class="form-control" placeholder="Tahun">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Jumlah:</strong>
-                                    <input type="number" min=1 name="jumlah" class="form-control" placeholder="Jumlah">
+                                    <input type="number" min="1" name="jumlah" class="form-control" placeholder="Jumlah">
                                 </div>
                             </div>
 
