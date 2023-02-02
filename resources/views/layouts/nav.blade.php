@@ -13,22 +13,60 @@
           <i class="fa fa-th-list"></i>
           <p>
             Data Buku
-            <i class="fas fa-angle-left right"></i>
+            <i class="nav-icon fas fa-angle-left right"></i>
           </p>
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
             <a href="/bukus" class="nav-link">
-              <i class="fa fa-address-book"></i>
+              <i class="nav-icon fa fa-address-book"></i>
               <p>Buku</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/bukuPerpustakaans" class="nav-link">
-              <i class="fa fa-th-large"></i>
+              <i class="nav-icon fa fa-th-large"></i>
               <p>Buku Perpustakaan</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="/perpustakaans" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>Perpustakaan</p>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="fa fa-th-list"></i>
+          <p>
+            Desa
+            <i class="fas fa-angle-left right"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="/desas" class="nav-link">
+                    <i class="nav-icon fas fa-columns"></i>
+                    <p>
+                      desa
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/dataAsetDesas" class="nav-link">
+                  <i class="nav-icon fa fa-database"></i>
+                  <p>Data Aset Desa</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/asetDesas" class="nav-link">
+                  <i class="nav-icon fas fa-columns"></i>
+                  <p>Aset Desa</p>
+                </a>
+            </li>
         </ul>
       </li>
 
@@ -202,12 +240,7 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="/dataAsetDesas" class="nav-link">
-            <i class="fa fa-database"></i>
-            <p>Data Aset Desa</p>
-          </a>
-        </li>
+
 
       </ul>
 
@@ -284,13 +317,6 @@
           <p>Kelompok Belajar</p>
         </a>
       </li>
-
-      <li class="nav-item">
-        <a href="/perpustakaans" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>Perpustakaan</p>
-        </a>
-      </li>
       <li class="nav-item">
         <a href="/dasawismas" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
@@ -304,12 +330,7 @@
         </a>
       </li>
 
-      <li class="nav-item">
-        <a href="/asetDesas" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
-          <p>Aset Desa</p>
-        </a>
-      </li>
+
 
       <li class="nav-item">
         <a href="/koperasis" class="nav-link">
@@ -335,13 +356,5 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
-            <a href="/desas" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                desa
-              </p>
-            </a>
-          </li>
     </ul>
   </nav>
