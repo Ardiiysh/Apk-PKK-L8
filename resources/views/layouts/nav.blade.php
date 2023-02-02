@@ -36,6 +36,12 @@
                         <p>Aset Desa</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/dataAsets" class="nav-link">
+                        <i class="nav-icon fa fa-database"></i>
+                        <p>Data Aset</p>
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -245,13 +251,14 @@
             <ul class="nav nav-treeview">
                 <li class="nav-item">
                     <a href="/pelatihans" class="nav-link">
-                        <i class="nav-icon fas fa-columns"></i>
+                        <i class="fa fa-tasks" aria-hidden="true"></i>
                         <p>Pelatihan</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/pelatihanKaders" class="nav-link">
-                      <i class="nav-icon fas fa-columns"></i>
+                      <i class="fa fa-tasks" aria-hidden="true"></i>
+
                       <p>Pelatihan Kader</p>
                     </a>
                 </li>
@@ -363,16 +370,10 @@
         @if (auth()->user()->role == 'admin' || 'superadmin')
             <li class="nav-item">
                 <a href="/dataUser" class="nav-link">
-                    <i class="nav-icon fa fa-database"></i>
+                    <i class="fa fa-user" aria-hidden="true"></i>
                     <p>Data User</p>
                 </a>
             </li>
         @endif
-        <li class="nav-item">
-            <a href="/dataAsets" class="nav-link">
-                <i class="nav-icon fa fa-database"></i>
-                <p>Data Aset</p>
-            </a>
-        </li>
     </ul>
 </nav>
