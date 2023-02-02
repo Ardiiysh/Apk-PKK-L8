@@ -9,8 +9,10 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Collection;
 // use Barryvdh\DomPDF\Facade as PDF;
-use PDF;
+// use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class BukuController extends Controller
 {
@@ -20,10 +22,30 @@ class BukuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = Buku::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('bukus.id', $id)
+                ->select('bukus.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = Buku::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('bukus.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = Buku::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Buku::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -67,7 +89,7 @@ class BukuController extends Controller
 
     public function export_pdf()
     {
-        $buku = Buku::all();
+        $buku = $this->dataSort();
 
         $pdf = PDF::loadview('bukus.laporan_pdf', ['buku' => $buku]);
 
@@ -126,7 +148,13 @@ class BukuController extends Controller
      */
     public function edit(Buku $buku)
     {
-        return view('bukus.edit',compact('buku'));
+        $data = $this->dataSort($buku->id);
+        if($data->isNotEmpty()){
+            return view('bukus.edit',compact('buku'));
+        }else{
+            return redirect()->route('bukus.index')
+                            ->with('error','Data not found');
+        }
     }
 
     /**
