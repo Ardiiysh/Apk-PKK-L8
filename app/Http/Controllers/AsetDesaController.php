@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AsetDesaController extends Controller
 {
@@ -18,6 +18,26 @@ class AsetDesaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = Buku::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('bukus.id', $id)
+                ->select('bukus.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = Buku::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('bukus.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = Buku::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
@@ -64,7 +84,8 @@ class AsetDesaController extends Controller
 
     public function export_pdf()
     {
-        $asetDesa = AsetDesa::all();
+        $asetDesa = $this->dataSort();
+
         $pdf = PDF::loadview('asetDesas.laporan_pdf', ['asetDesa' => $asetDesa]);
 
         return $pdf->download('aset_desa.pdf');

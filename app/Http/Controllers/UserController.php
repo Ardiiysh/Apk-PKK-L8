@@ -8,7 +8,7 @@ use App\Exports\UserExport;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
 use Maatwebsite\Excel\Facades\Excel;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class UserController extends Controller
 {
@@ -17,6 +17,26 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = Buku::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('bukus.id', $id)
+                ->select('bukus.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = Buku::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('bukus.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = Buku::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {

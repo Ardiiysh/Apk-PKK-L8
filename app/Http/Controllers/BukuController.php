@@ -10,8 +10,6 @@ use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Collection;
-// use Barryvdh\DomPDF\Facade as PDF;
-// use PDF;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class BukuController extends Controller
