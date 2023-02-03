@@ -9,7 +9,7 @@ use App\Exports\KelompokBelajarExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class KelompokBelajarController extends Controller
 {
@@ -18,10 +18,30 @@ class KelompokBelajarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = KelompokBelajar::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('kelompok_belajars.id_kelompok_belajar', $id)
+                ->select('kelompok_belajars.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = KelompokBelajar::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('kelompok_belajars.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = KelompokBelajar::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = KelompokBelajar::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){

@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class DataIndustriController extends Controller
 {
@@ -19,10 +19,30 @@ class DataIndustriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = DataIndustri::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('data_industris.id_data_industri', $id)
+                ->select('data_industris.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = DataIndustri::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('data_industris.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = DataIndustri::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = DataIndustri::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){

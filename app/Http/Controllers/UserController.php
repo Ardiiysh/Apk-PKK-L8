@@ -8,7 +8,8 @@ use App\Exports\UserExport;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
 use Maatwebsite\Excel\Facades\Excel;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -17,10 +18,27 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = User::where('desa_id', Auth::user()->desa_id)
+                ->where('users.id', $id)
+                ->get();
+            }else{
+                return $data = User::where('desa_id', Auth::user()->desa_id)
+                ->where('role', 'user')
+                ->get();
+            }
+        }else{
+            return $data = User::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::select('*')->where('role', 'user');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
