@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class HatinyaPkkController extends Controller
@@ -19,6 +19,26 @@ class HatinyaPkkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = HatinyaPkk::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('hatinya_pkks.id_hatinya_pkk', $id)
+                ->select('hatinya_pkks.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = HatinyaPkk::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('hatinya_pkks.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = HatinyaPkk::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {

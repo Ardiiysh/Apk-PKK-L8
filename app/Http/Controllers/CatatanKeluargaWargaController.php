@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CatatanKeluargaWargaController extends Controller
 {
@@ -18,10 +18,30 @@ class CatatanKeluargaWargaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = CatatanKeluargaWarga::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('catatan_keluarga_wargas.id', $id)
+                ->select('catatan_keluarga_wargas.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = CatatanKeluargaWarga::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('catatan_keluarga_wargas.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = CatatanKeluargaWarga::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = CatatanKeluargaWarga::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){

@@ -10,7 +10,7 @@ use App\Exports\DataKelompokBelajarExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 class DataKelompokBelajarController extends Controller
 {
     /**
@@ -18,10 +18,30 @@ class DataKelompokBelajarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = DataKelompokBelajar::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('data_kelompok_belajars.id_data_kelompok_belajar', $id)
+                ->select('data_kelompok_belajars.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = DataKelompokBelajar::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('data_kelompok_belajars.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = DataKelompokBelajar::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = DataKelompokBelajar::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){

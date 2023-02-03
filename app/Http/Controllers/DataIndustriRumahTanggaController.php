@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class DataIndustriRumahTanggaController extends Controller
 {
@@ -18,10 +18,30 @@ class DataIndustriRumahTanggaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = DataIndustriRumahTangga::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('data_industri_rumah_tanggas.id_data_industri_rumah_tangga', $id)
+                ->select('data_industri_rumah_tanggas.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = DataIndustriRumahTangga::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('data_industri_rumah_tanggas.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = DataIndustriRumahTangga::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = DataIndustriRumahTangga::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
