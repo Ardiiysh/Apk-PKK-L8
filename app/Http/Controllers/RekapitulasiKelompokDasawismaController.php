@@ -25,13 +25,13 @@ class RekapitulasiKelompokDasawismaController extends Controller
             if($id != null){
                 return $data = RekapitulasiKelompokDasawisma::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->where('bukus.id', $id)
-                ->select('bukus.*', 'users.desa_id')
+                ->where('rekapitulasi_kelompok_dasawismas.id_rekapitulasi_kelompok_dasawisma', $id)
+                ->select('rekapitulasi_kelompok_dasawismas.*', 'users.desa_id')
                 ->get();
             }else{
                 return $data = RekapitulasiKelompokDasawisma::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->select('bukus.*', 'users.desa_id')
+                ->select('rekapitulasi_kelompok_dasawismas.*', 'users.desa_id')
                 ->get();
             }
         }else{

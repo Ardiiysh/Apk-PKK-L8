@@ -24,13 +24,13 @@ class DataIndustriRumahTanggaController extends Controller
             if($id != null){
                 return $data = DataIndustriRumahTangga::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->where('bukus.id', $id)
-                ->select('bukus.*', 'users.desa_id')
+                ->where('data_industri_rumah_tanggas.id_data_industri_rumah_tangga', $id)
+                ->select('data_industri_rumah_tanggas.*', 'users.desa_id')
                 ->get();
             }else{
                 return $data = DataIndustriRumahTangga::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->select('bukus.*', 'users.desa_id')
+                ->select('data_industri_rumah_tanggas.*', 'users.desa_id')
                 ->get();
             }
         }else{

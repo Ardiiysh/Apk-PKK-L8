@@ -25,13 +25,13 @@ class RekapitulasiKelahiranKematianController extends Controller
             if($id != null){
                 return $data = RekapitulasiKelahiranKematian::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->where('bukus.id', $id)
-                ->select('bukus.*', 'users.desa_id')
+                ->where('rekapitulasi_kelahiran_kematians.id_rekapitulasi_kelahiran_kematian', $id)
+                ->select('rekapitulasi_kelahiran_kematians.*', 'users.desa_id')
                 ->get();
             }else{
                 return $data = RekapitulasiKelahiranKematian::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->select('bukus.*', 'users.desa_id')
+                ->select('rekapitulasi_kelahiran_kematians.*', 'users.desa_id')
                 ->get();
             }
         }else{

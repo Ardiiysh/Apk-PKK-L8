@@ -24,13 +24,13 @@ class AsetDesaController extends Controller
             if($id != null){
                 return $data = AsetDesa::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->where('bukus.id', $id)
-                ->select('bukus.*', 'users.desa_id')
+                ->where('aset_desas.id_aset_desa', $id)
+                ->select('aset_desas.*', 'users.desa_id')
                 ->get();
             }else{
                 return $data = AsetDesa::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->select('bukus.*', 'users.desa_id')
+                ->select('aset_desas.*', 'users.desa_id')
                 ->get();
             }
         }else{

@@ -24,13 +24,13 @@ class PelatihanKaderController extends Controller
             if($id != null){
                 return $data = PelatihanKader::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->where('bukus.id', $id)
-                ->select('bukus.*', 'users.desa_id')
+                ->where('pelatihan_kaders.id_pelatihan_kader', $id)
+                ->select('pelatihan_kaders.*', 'users.desa_id')
                 ->get();
             }else{
                 return $data = PelatihanKader::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->select('bukus.*', 'users.desa_id')
+                ->select('pelatihan_kaders.*', 'users.desa_id')
                 ->get();
             }
         }else{

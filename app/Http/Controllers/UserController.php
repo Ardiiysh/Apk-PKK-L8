@@ -22,16 +22,12 @@ class UserController extends Controller
     {
         if(isset(Auth::user()->desa_id)){
             if($id != null){
-                return $data = User::join('users','users.id','=','is_user_id')
-                ->where('desa_id', Auth::user()->desa_id)
-                ->where('bukus.id', $id)
-                ->select('bukus.*', 'users.desa_id')
+                return $data = User::where('desa_id', Auth::user()->desa_id)
+                ->where('users.id', $id)
                 ->get();
             }else{
-                return $data = User::join('users','users.id','=','is_user_id')
-                ->where('desa_id', Auth::user()->desa_id)
+                return $data = User::where('desa_id', Auth::user()->desa_id)
                 ->where('role', 'user')
-                ->select('bukus.*', 'users.desa_id')
                 ->get();
             }
         }else{

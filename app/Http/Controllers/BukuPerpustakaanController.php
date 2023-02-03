@@ -24,13 +24,13 @@ class BukuPerpustakaanController extends Controller
             if($id != null){
                 return $data = BukuPerpustakaan::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->where('bukus.id', $id)
-                ->select('bukus.*', 'users.desa_id')
+                ->where('buku_perpustakaans.id', $id)
+                ->select('buku_perpustakaans.*', 'users.desa_id')
                 ->get();
             }else{
                 return $data = BukuPerpustakaan::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->select('bukus.*', 'users.desa_id')
+                ->select('buku_perpustakaans.*', 'users.desa_id')
                 ->get();
             }
         }else{

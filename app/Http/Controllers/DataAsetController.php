@@ -24,13 +24,13 @@ class DataAsetController extends Controller
             if($id != null){
                 return $data = DataAset::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->where('bukus.id', $id)
-                ->select('bukus.*', 'users.desa_id')
+                ->where('data_asets.id_data_aset', $id)
+                ->select('data_asets.*', 'users.desa_id')
                 ->get();
             }else{
                 return $data = DataAset::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->select('bukus.*', 'users.desa_id')
+                ->select('data_asets.*', 'users.desa_id')
                 ->get();
             }
         }else{

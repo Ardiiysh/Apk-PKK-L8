@@ -16,30 +16,10 @@ class DesaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function dataSort($id = null)
-    {
-        if(isset(Auth::user()->desa_id)){
-            if($id != null){
-                return $data = Desa::join('users','users.id','=','is_user_id')
-                ->where('desa_id', Auth::user()->desa_id)
-                ->where('bukus.id', $id)
-                ->select('bukus.*', 'users.desa_id')
-                ->get();
-            }else{
-                return $data = Desa::join('users','users.id','=','is_user_id')
-                ->where('desa_id', Auth::user()->desa_id)
-                ->select('bukus.*', 'users.desa_id')
-                ->get();
-            }
-        }else{
-            return $data = Desa::all();
-        }
-    }
-
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = $this->dataSort();
+            $data = Desa::select('*');
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){

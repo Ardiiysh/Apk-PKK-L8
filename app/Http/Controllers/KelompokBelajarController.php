@@ -24,13 +24,13 @@ class KelompokBelajarController extends Controller
             if($id != null){
                 return $data = KelompokBelajar::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->where('bukus.id', $id)
-                ->select('bukus.*', 'users.desa_id')
+                ->where('kelompok_belajars.id_kelompok_belajar', $id)
+                ->select('kelompok_belajars.*', 'users.desa_id')
                 ->get();
             }else{
                 return $data = KelompokBelajar::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->select('bukus.*', 'users.desa_id')
+                ->select('kelompok_belajars.*', 'users.desa_id')
                 ->get();
             }
         }else{

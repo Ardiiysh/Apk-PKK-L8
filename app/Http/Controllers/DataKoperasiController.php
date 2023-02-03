@@ -26,13 +26,13 @@ class DataKoperasiController extends Controller
             if($id != null){
                 return $data = DataKoperasi::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->where('bukus.id', $id)
-                ->select('bukus.*', 'users.desa_id')
+                ->where('data_koperasis.id_data_koperasi', $id)
+                ->select('data_koperasis.*', 'users.desa_id')
                 ->get();
             }else{
                 return $data = DataKoperasi::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->select('bukus.*', 'users.desa_id')
+                ->select('data_koperasis.*', 'users.desa_id')
                 ->get();
             }
         }else{

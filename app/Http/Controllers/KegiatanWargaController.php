@@ -24,13 +24,13 @@ class KegiatanWargaController extends Controller
             if($id != null){
                 return $data = KegiatanWarga::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->where('bukus.id', $id)
-                ->select('bukus.*', 'users.desa_id')
+                ->where('kegiatan_wargas.id_kegiatan_warga', $id)
+                ->select('kegiatan_wargas.*', 'users.desa_id')
                 ->get();
             }else{
                 return $data = KegiatanWarga::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->select('bukus.*', 'users.desa_id')
+                ->select('kegiatan_wargas.*', 'users.desa_id')
                 ->get();
             }
         }else{

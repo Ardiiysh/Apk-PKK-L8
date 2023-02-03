@@ -24,13 +24,13 @@ class DataPosyanduController extends Controller
             if($id != null){
                 return $data = DataPosyandu::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->where('bukus.id', $id)
-                ->select('bukus.*', 'users.desa_id')
+                ->where('data_posyandus.id_data_posyandu', $id)
+                ->select('data_posyandus.*', 'users.desa_id')
                 ->get();
             }else{
                 return $data = DataPosyandu::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
-                ->select('bukus.*', 'users.desa_id')
+                ->select('data_posyandus.*', 'users.desa_id')
                 ->get();
             }
         }else{
