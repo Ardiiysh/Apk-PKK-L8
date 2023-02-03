@@ -85,7 +85,7 @@ class DataHatinyaPkkController extends Controller
 
     public function export_pdf()
     {
-        $dataHatinyaPkk = DataHatinyaPkk::all();
+        $dataHatinyaPkk = $this->dataSort();
         $pdf = PDF::loadview('dataHatinyaPkks.laporan_pdf', ['dataHatinyaPkk' => $dataHatinyaPkk]);
 
         return $pdf->download('data_hatinya_pkk.pdf');

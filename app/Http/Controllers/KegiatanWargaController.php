@@ -84,7 +84,7 @@ class KegiatanWargaController extends Controller
 
     public function export_pdf()
     {
-        $kegiatanWarga = KegiatanWarga::all();
+        $kegiatanWarga = $this->dataSort();
         $pdf = PDF::loadview('kegiatanWargas.laporan_pdf', ['kegiatanWarga' => $kegiatanWarga]);
 
         return $pdf->download('laporan_kegiatan_warga.pdf');

@@ -84,7 +84,7 @@ class DataAsetDesaController extends Controller
 
     public function export_pdf()
     {
-        $dataAsetDesa = DataAsetDesa::all();
+        $dataAsetDesa = $this->dataSort();
         $pdf = PDF::loadview('dataAsetDesas.laporan_pdf', ['dataAsetDesa' => $dataAsetDesa]);
 
         return $pdf->download('data_aset_desa.pdf');

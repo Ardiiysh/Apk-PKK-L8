@@ -84,7 +84,7 @@ class DataLayananPosyanduController extends Controller
 
     public function export_pdf()
     {
-        $dataLayananPosyandu = DataLayananPosyandu::all();
+        $dataLayananPosyandu = $this->dataSort();
         $pdf = PDF::loadview('dataLayananPosyandus.laporan_pdf', ['dataLayananPosyandu' => $dataLayananPosyandu]);
 
         return $pdf->download('data_layanan_posyandu.pdf');

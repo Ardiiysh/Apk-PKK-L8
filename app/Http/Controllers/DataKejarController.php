@@ -84,7 +84,7 @@ class DataKejarController extends Controller
 
     public function export_pdf()
     {
-        $dataKejar = DataKejar::all();
+        $dataKejar = $this->dataSort();
         $pdf = PDF::loadview('dataKejars.laporan_pdf', ['dataKejar' => $dataKejar]);
 
         return $pdf->download('data_kejar.pdf');

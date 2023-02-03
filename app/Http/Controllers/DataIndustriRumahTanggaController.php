@@ -84,7 +84,7 @@ class DataIndustriRumahTanggaController extends Controller
 
     public function export_pdf()
     {
-        $dataIndustriRumahTangga = DataIndustriRumahTangga::all();
+        $dataIndustriRumahTangga = $this->dataSort();
         $pdf = PDF::loadview('dataIndustriRumahTanggas.laporan_pdf', ['dataIndustriRumahTangga' => $dataIndustriRumahTangga]);
 
         return $pdf->download('data_industri_rumah_tangga.pdf');

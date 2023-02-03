@@ -83,7 +83,7 @@ class PenyuluhanController extends Controller
 
     public function export_pdf()
     {
-        $penyuluhan = Penyuluhan::all();
+        $penyuluhan = $this->dataSort();
         $pdf = PDF::loadview('penyuluhans.laporan_pdf',['penyuluhan' => $penyuluhan]);
 
         return $pdf->download('penyuluhan.pdf');

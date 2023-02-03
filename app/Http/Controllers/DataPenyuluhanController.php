@@ -87,7 +87,7 @@ class DataPenyuluhanController extends Controller
 
     public function export_pdf()
     {
-        $dataPenyuluhan = DataPenyuluhan::all();
+        $dataPenyuluhan = $this->dataSort();
         $pdf = PDF::loadview('dataPenyuluhans.laporan_pdf', ['dataPenyuluhan' => $dataPenyuluhan]);
 
         return $pdf->download('data_penyuluhan.pdf');

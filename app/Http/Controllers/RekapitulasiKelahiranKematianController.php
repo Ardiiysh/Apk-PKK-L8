@@ -86,7 +86,7 @@ class RekapitulasiKelahiranKematianController extends Controller
 
     public function export_pdf()
     {
-        $rekapitulasiKelahiranKematian = RekapitulasiKelahiranKematian::all();
+        $rekapitulasiKelahiranKematian = $this->dataSort();
         $pdf = PDF::loadview('rekapitulasiKelahiranKematians.laporan_pdf', ['rekapitulasiKelahiranKematian' => $rekapitulasiKelahiranKematian]);
 
         return $pdf->download('rekapitulasi_kelahiran_kematian.pdf');

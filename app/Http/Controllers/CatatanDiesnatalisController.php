@@ -86,7 +86,7 @@ class CatatanDiesnatalisController extends Controller
 
     public function export_pdf()
     {
-        $catatanDiesnatalis = CatatanDiesnatalis::all();
+        $catatanDiesnatalis = $this->dataSort();
         $pdf = PDF::loadview('catatanDiesnataliss.laporan_pdf', ['catatanDiesnatalis' => $catatanDiesnatalis]);
 
         return $pdf->download('catatan_diesnatalis.pdf');
