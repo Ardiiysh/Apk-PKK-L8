@@ -22,26 +22,26 @@ class KegiatanWargaController extends Controller
     {
         if(isset(Auth::user()->desa_id)){
             if($id != null){
-                return $data = Buku::join('users','users.id','=','is_user_id')
+                return $data = KegiatanWarga::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
                 ->where('bukus.id', $id)
                 ->select('bukus.*', 'users.desa_id')
                 ->get();
             }else{
-                return $data = Buku::join('users','users.id','=','is_user_id')
+                return $data = KegiatanWarga::join('users','users.id','=','is_user_id')
                 ->where('desa_id', Auth::user()->desa_id)
                 ->select('bukus.*', 'users.desa_id')
                 ->get();
             }
         }else{
-            return $data = Buku::all();
+            return $data = KegiatanWarga::all();
         }
     }
 
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = KegiatanWarga::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
