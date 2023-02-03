@@ -35,13 +35,12 @@
     </style>
 </head>
 <body>
-    <!-- <div style="margin-bottom: 90px;"></div>
-    <div style="text-align: center; margin-bottom: 90px">
-        <img src="kopsurat.png" alt="">
-        <h1>INI PDF PKK CIHUYYYY</h1>
-    </div> -->
-    @include('layouts.kop_surat')
-        <hr><width="100" height="75"></hr>
+   
+    
+    @include('layouts.kop_surat')    
+    
+
+
     <table class="table1" style="margin-left: auto; margin-right:auto; margin-top: 30px;" border="1">
         <thead>
             <tr>

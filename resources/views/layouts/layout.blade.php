@@ -1,3 +1,12 @@
+@php
+    $id = auth()->user()->desa_id;
+    $desa = App\Models\Desa::where('id', $id)->get();
+    if (auth()->user()->desa_id) {
+      $text_nama = $desa['0']['nama_desa'];
+    }else{
+      $text_nama = auth()->user()->name;
+    }
+@endphp
 
 <!DOCTYPE html>
 <html lang="en">
@@ -100,7 +109,7 @@
     {{-- href="../../index3.html" --}}
     <a  class="brand-link" align="center">
       {{-- <img src="{{asset('template')}}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
-      <span class="brand-text font-weight-light">Nama desa</span>
+      <span class="brand-text font-weight-light">{{ $text_nama }}</span>
     </a>
 
     <!-- Sidebar -->

@@ -2,7 +2,15 @@
 @section('title', 'Dashboard')
 
 @section('content')
-
+@php
+    $id = auth()->user()->desa_id;
+    $desa = App\Models\Desa::where('id', $id)->get();
+    if (auth()->user()->desa_id) {
+      $text_nama = $desa['0']['nama_desa'];
+    }else{
+      $text_nama = auth()->user()->name;
+    }
+@endphp
 
 
     <!-- Main content -->
@@ -17,7 +25,7 @@
                         <div>
                             <h5 class="text-center"> Selamat Datang di Aplikasi </h5>
                             <div class="text-info">
-                                <h4 class="text-center">SMART PKK (NAMA DESA)</h4>
+                                <h4 class="text-center">SMART PKK @if(auth()->user()->desa_id) {{ $text_nama }} @endif</h4>
                             </div>
                         </div>
                         <!-- /.info-box -->
