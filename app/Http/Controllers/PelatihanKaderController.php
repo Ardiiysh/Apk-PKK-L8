@@ -85,7 +85,7 @@ class PelatihanKaderController extends Controller
 
     public function export_pdf()
     {
-        $pelatihanKader = PelatihanKader::all();
+        $pelatihanKader = $this->dataSort();
         $pdf = PDF::loadview('pelatihanKaders.laporan_pdf', ['pelatihanKader' => $pelatihanKader]);
 
         return $pdf->download('pelatihan_kader.pdf');

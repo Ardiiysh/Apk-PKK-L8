@@ -85,7 +85,7 @@ class DataKelompokBelajarController extends Controller
 
     public function export_pdf()
     {
-        $dataKelompokBelajar = DataKelompokBelajar::all();
+        $dataKelompokBelajar = $this->dataSort();
         $pdf = PDF::loadview('dataKelompokBelajars.laporan_pdf', ['dataKelmpokBelajar' => $dataKelompokBelajar]);
 
         return $pdf->download('data_kelompok_belajar.pdf');

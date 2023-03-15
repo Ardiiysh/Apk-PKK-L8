@@ -86,7 +86,7 @@ class DataIndustriController extends Controller
 
     public function export_pdf()
     {
-        $dataIndustri = DataIndustri::all();
+        $dataIndustri = $this->dataSort();
         $pdf = PDF::loadview('dataIndustris.laporan_pdf', ['dataIndustri' => $dataIndustri]);
 
         return $pdf->download('data_industri.pdf');

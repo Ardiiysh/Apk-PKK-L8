@@ -86,7 +86,7 @@ class DataKeluargaController extends Controller
 
     public function export_pdf()
     {
-        $dataKeluarga = DataKeluarga::all();
+        $dataKeluarga = $this->dataSort();
         $pdf = PDF::loadview('dataKeluargas.laporan_pdf', ['dataKeluarga' => $dataKeluarga]);
 
         return $pdf->download('data_keluarga.pdf');

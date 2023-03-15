@@ -84,7 +84,7 @@ class DasawismaController extends Controller
 
     public function export_pdf()
     {
-        $dasawisma = Dasawisma::all();
+        $dasawisma = $this->dataSort();
         $pdf = PDF::loadview('dasawismas.laporan_pdf', ['dasawisma' => $dasawisma]);
 
         return $pdf->download('dasawisma.pdf');

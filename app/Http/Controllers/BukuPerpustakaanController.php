@@ -84,8 +84,8 @@ class BukuPerpustakaanController extends Controller
 
     public function export_pdf()
     {
-        $bukuperpustakaan = BukuPerpustakaan::all();
-        
+        $bukuperpustakaan = $this->dataSort();
+
         $pdf = PDF::loadview('bukuPerpustakaans.laporan_pdf', ['bukuperpustakaan' => $bukuperpustakaan]);
 
         return $pdf->download('laporan_buku_perpustakaan.pdf');

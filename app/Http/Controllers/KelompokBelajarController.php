@@ -84,7 +84,7 @@ class KelompokBelajarController extends Controller
 
     public function export_pdf()
     {
-        $kelompokBelajar = KelompokBelajar::all();
+        $kelompokBelajar = $this->dataSort();
         $pdf = PDF::loadview('kelompokBelajars.laporan_pdf', ['kelompokBelajar' => $kelompokBelajar]);
 
         return $pdf->download('kelompok_belajar.pdf');

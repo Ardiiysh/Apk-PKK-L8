@@ -87,7 +87,7 @@ class DataKoperasiController extends Controller
 
     public function export_pdf()
     {
-        $dataKoperasi = DataKoperasi::all();
+        $dataKoperasi = $this->dataSort();
         $pdf = PDF::loadview('dataKoperasis.laporan_pdf', ['dataKoperasi' => $dataKoperasi]);
 
         return $pdf->download('data_koperasi.pdf');

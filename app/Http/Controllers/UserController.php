@@ -74,7 +74,7 @@ class UserController extends Controller
 
     public function export_pdf()
     {
-        $dataUser = User::all();
+        $dataUser = $this->dataSort();
         $pdf = PDF::loadview('dataUser.laporan_pdf', ['dataUser' => $dataUser]);
 
         return $pdf->download('data_user.pdf');

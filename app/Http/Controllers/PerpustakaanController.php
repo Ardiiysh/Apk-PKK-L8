@@ -86,7 +86,7 @@ class PerpustakaanController extends Controller
 
     public function export_pdf()
     {
-        $perpustakaan = Perpustakaan::all();
+        $perpustakaan = $this->dataSort();
         $pdf = PDF::loadview('perpustakaans.laporan_pdf', ['perpustakaan' => $perpustakaan]);
 
         return $pdf->download('perpustakaan.pdf');

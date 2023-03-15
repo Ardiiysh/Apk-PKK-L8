@@ -83,7 +83,7 @@ class LayananPosyanduController extends Controller
 
     public function export_pdf()
     {
-        $layananPosyandu = LayananPosyandu::all();
+        $layananPosyandu = $this->dataSort();
         $pdf = PDF::loadview('layananPosyandus.laporan_pdf', ['layananPosyandu' => $layananPosyandu]);
 
         return $pdf->download('layanan_posyandu.pdf');
