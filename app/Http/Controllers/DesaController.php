@@ -6,6 +6,7 @@ use App\Models\Desa;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 
 
 class DesaController extends Controller

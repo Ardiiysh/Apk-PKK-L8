@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 class PelatihanController extends Controller
 {
     /**
@@ -17,10 +17,30 @@ class PelatihanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = Pelatihan::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('pelatihans.id_pelatihan', $id)
+                ->select('pelatihans.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = Pelatihan::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('pelatihans.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = Pelatihan::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Pelatihan::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -63,7 +83,7 @@ class PelatihanController extends Controller
 
     public function export_pdf()
     {
-        $pelatihan = Pelatihan::all();
+        $pelatihan = $this->dataSort();
         $pdf = PDF::loadview('pelatihans.laporan_pdf', ['pelatihan' => $pelatihan]);
 
         return $pdf->download('pelatihan.pdf');

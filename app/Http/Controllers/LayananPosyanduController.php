@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 class LayananPosyanduController extends Controller
 {
     /**
@@ -17,10 +17,30 @@ class LayananPosyanduController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = LayananPosyandu::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('layanan_posyandus.id_layanan_posyandu', $id)
+                ->select('layanan_posyandus.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = LayananPosyandu::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('layanan_posyandus.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = LayananPosyandu::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = LayananPosyandu::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -63,7 +83,7 @@ class LayananPosyanduController extends Controller
 
     public function export_pdf()
     {
-        $layananPosyandu = LayananPosyandu::all();
+        $layananPosyandu = $this->dataSort();
         $pdf = PDF::loadview('layananPosyandus.laporan_pdf', ['layananPosyandu' => $layananPosyandu]);
 
         return $pdf->download('layanan_posyandu.pdf');

@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 class PenyuluhanController extends Controller
 {
     /**
@@ -17,10 +17,30 @@ class PenyuluhanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = Penyuluhan::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('penyuluhans.id_penyuluhan', $id)
+                ->select('penyuluhans.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = Penyuluhan::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('penyuluhans.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = Penyuluhan::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Penyuluhan::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -63,7 +83,7 @@ class PenyuluhanController extends Controller
 
     public function export_pdf()
     {
-        $penyuluhan = Penyuluhan::all();
+        $penyuluhan = $this->dataSort();
         $pdf = PDF::loadview('penyuluhans.laporan_pdf',['penyuluhan' => $penyuluhan]);
 
         return $pdf->download('penyuluhan.pdf');

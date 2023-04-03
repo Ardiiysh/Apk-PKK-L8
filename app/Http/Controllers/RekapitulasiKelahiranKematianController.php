@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class RekapitulasiKelahiranKematianController extends Controller
 {
@@ -19,10 +19,30 @@ class RekapitulasiKelahiranKematianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = RekapitulasiKelahiranKematian::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('rekapitulasi_kelahiran_kematians.id_rekapitulasi_kelahiran_kematian', $id)
+                ->select('rekapitulasi_kelahiran_kematians.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = RekapitulasiKelahiranKematian::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('rekapitulasi_kelahiran_kematians.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = RekapitulasiKelahiranKematian::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = RekapitulasiKelahiranKematian::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -66,7 +86,7 @@ class RekapitulasiKelahiranKematianController extends Controller
 
     public function export_pdf()
     {
-        $rekapitulasiKelahiranKematian = RekapitulasiKelahiranKematian::all();
+        $rekapitulasiKelahiranKematian = $this->dataSort();
         $pdf = PDF::loadview('rekapitulasiKelahiranKematians.laporan_pdf', ['rekapitulasiKelahiranKematian' => $rekapitulasiKelahiranKematian]);
 
         return $pdf->download('rekapitulasi_kelahiran_kematian.pdf');

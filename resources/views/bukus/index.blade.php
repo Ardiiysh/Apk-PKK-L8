@@ -98,6 +98,11 @@
             <p>{{ $message }}</p>
         </div>
     @endif
+    @if ($message = Session::get('error'))
+        <div class="alert alert-danger">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
     <br>
     <div class="container">
         <table class="data-table display nowrap" style="width: 100%;">

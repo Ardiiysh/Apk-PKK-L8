@@ -10,7 +10,7 @@ use App\Exports\PelatihanKaderExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 class PelatihanKaderController extends Controller
 {
     /**
@@ -18,10 +18,30 @@ class PelatihanKaderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = PelatihanKader::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('pelatihan_kaders.id_pelatihan_kader', $id)
+                ->select('pelatihan_kaders.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = PelatihanKader::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('pelatihan_kaders.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = PelatihanKader::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = PelatihanKader::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -65,7 +85,7 @@ class PelatihanKaderController extends Controller
 
     public function export_pdf()
     {
-        $pelatihanKader = PelatihanKader::all();
+        $pelatihanKader = $this->dataSort();
         $pdf = PDF::loadview('pelatihanKaders.laporan_pdf', ['pelatihanKader' => $pelatihanKader]);
 
         return $pdf->download('pelatihan_kader.pdf');

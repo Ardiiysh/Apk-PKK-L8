@@ -10,7 +10,7 @@ use App\Exports\DataPosyanduExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 class DataPosyanduController extends Controller
 {
     /**
@@ -18,10 +18,30 @@ class DataPosyanduController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = DataPosyandu::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('data_posyandus.id_data_posyandu', $id)
+                ->select('data_posyandus.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = DataPosyandu::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('data_posyandus.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = DataPosyandu::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = DataPosyandu::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -65,8 +85,7 @@ class DataPosyanduController extends Controller
 
     public function export_pdf()
     {
-        $dataPosyandu = DataPosyandu::all();
-
+        $dataPosyandu = $this->dataSort();
         $pdf = PDF::loadview('dataPosyandus.laporan_pdf', ['dataPosyandu' => $dataPosyandu]);
 
         return $pdf->download('data_posyandu.pdf');

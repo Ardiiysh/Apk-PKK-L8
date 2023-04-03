@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PerpustakaanController extends Controller
 {
@@ -19,10 +19,30 @@ class PerpustakaanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = Perpustakaan::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('perpustakaans.id_perpustakaan', $id)
+                ->select('perpustakaans.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = Perpustakaan::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('perpustakaans.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = Perpustakaan::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Perpustakaan::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -66,7 +86,7 @@ class PerpustakaanController extends Controller
 
     public function export_pdf()
     {
-        $perpustakaan = Perpustakaan::all();
+        $perpustakaan = $this->dataSort();
         $pdf = PDF::loadview('perpustakaans.laporan_pdf', ['perpustakaan' => $perpustakaan]);
 
         return $pdf->download('perpustakaan.pdf');

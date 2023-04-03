@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class DataPenyuluhanController extends Controller
@@ -20,10 +20,30 @@ class DataPenyuluhanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = DataPenyuluhan::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('data_penyuluhans.id_data_penyuluhan', $id)
+                ->select('data_penyuluhans.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = DataPenyuluhan::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('data_penyuluhans.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = DataPenyuluhan::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = DataPenyuluhan::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -67,7 +87,7 @@ class DataPenyuluhanController extends Controller
 
     public function export_pdf()
     {
-        $dataPenyuluhan = DataPenyuluhan::all();
+        $dataPenyuluhan = $this->dataSort();
         $pdf = PDF::loadview('dataPenyuluhans.laporan_pdf', ['dataPenyuluhan' => $dataPenyuluhan]);
 
         return $pdf->download('data_penyuluhan.pdf');

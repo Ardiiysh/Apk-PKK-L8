@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CatatanKeluargaController extends Controller
 {
@@ -18,10 +18,30 @@ class CatatanKeluargaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = CatatanKeluarga::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('catatan_keluargas.id_catatan_keluarga', $id)
+                ->select('catatan_keluargas.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = CatatanKeluarga::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('catatan_keluargas.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = CatatanKeluarga::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = CatatanKeluarga::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -64,7 +84,7 @@ class CatatanKeluargaController extends Controller
 
     public function export_pdf()
     {
-        $catatanKeluarga = CatatanKeluarga::all();
+        $catatanKeluarga = $this->dataSort();
         $pdf = PDF::loadview('catatanKeluargas.laporan_pdf', ['catatanKeluarga' => $catatanKeluarga]);
 
         return $pdf->download('catatan_keluarga.pdf');

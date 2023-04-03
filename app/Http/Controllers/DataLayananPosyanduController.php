@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class DataLayananPosyanduController extends Controller
 {
@@ -18,10 +18,30 @@ class DataLayananPosyanduController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = DataLayananPosyandu::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('data_layanan_posyandus.id_data_layanan_posyandu', $id)
+                ->select('data_layanan_posyandus.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = DataLayananPosyandu::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('data_layanan_posyandus.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = DataLayananPosyandu::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = DataLayananPosyandu::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -64,7 +84,7 @@ class DataLayananPosyanduController extends Controller
 
     public function export_pdf()
     {
-        $dataLayananPosyandu = DataLayananPosyandu::all();
+        $dataLayananPosyandu = $this->dataSort();
         $pdf = PDF::loadview('dataLayananPosyandus.laporan_pdf', ['dataLayananPosyandu' => $dataLayananPosyandu]);
 
         return $pdf->download('data_layanan_posyandu.pdf');

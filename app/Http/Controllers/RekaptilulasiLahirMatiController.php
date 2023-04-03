@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class RekaptilulasiLahirMatiController extends Controller
 {
@@ -18,10 +18,30 @@ class RekaptilulasiLahirMatiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = RekaptilulasiLahirMati::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('rekapitulasi_lahir_matis.id_rekapitulasi_lahir_mati', $id)
+                ->select('rekapitulasi_lahir_matis.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = RekaptilulasiLahirMati::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('rekapitulasi_lahir_matis.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = RekaptilulasiLahirMati::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = RekaptilulasiLahirMati::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -64,7 +84,7 @@ class RekaptilulasiLahirMatiController extends Controller
 
     public function export_pdf()
     {
-        $rekaptilulasiLahirMati = RekaptilulasiLahirMati::all();
+        $rekaptilulasiLahirMati = $this->dataSort();
         $pdf = PDF::loadview('rekaptilulasiLahirMatis.laporan_pdf', ['rekaptilulasiLahirMati' => $rekaptilulasiLahirMati]);
 
         return $pdf->download('rekaptilasi_lahir_mati.pdf');

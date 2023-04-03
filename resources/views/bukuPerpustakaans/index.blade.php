@@ -67,7 +67,11 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Id Buku:</strong>
+<<<<<<< HEAD
                                     <input type="number" min="1" name="id_buku" class="form-control" placeholder="Id Buku" required>
+=======
+                                    <input type="number" name="id_buku" class="form-control" placeholder="Id Buku">
+>>>>>>> 45610330087ac91d86ab806794afb1a2ab28e49e
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -85,13 +89,21 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Tahun:</strong>
+<<<<<<< HEAD
                                     <input type="text" pattern="^[0-9]{4}$" name="tahun" class="form-control" placeholder="Tahun" required>
+=======
+                                    <input type="number" min="1" name="tahun" class="form-control" placeholder="Tahun">
+>>>>>>> 45610330087ac91d86ab806794afb1a2ab28e49e
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Jumlah:</strong>
+<<<<<<< HEAD
                                     <input type="number" min="1" name="jumlah" class="form-control" placeholder="Jumlah" required>
+=======
+                                    <input type="number" min="1" name="jumlah" class="form-control" placeholder="Jumlah">
+>>>>>>> 45610330087ac91d86ab806794afb1a2ab28e49e
                                 </div>
                             </div>
 

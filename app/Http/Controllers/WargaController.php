@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Pekerjaan;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class WargaController extends Controller
 {
@@ -19,11 +19,31 @@ class WargaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = Warga::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('wargas.id_warga', $id)
+                ->select('wargas.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = Warga::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('wargas.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = Warga::all();
+        }
+    }
+
     public function index(Request $request)
     {
         $pekerjaans = Pekerjaan::all();
         if ($request->ajax()) {
-            $data = Warga::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -66,7 +86,7 @@ class WargaController extends Controller
 
     public function export_pdf()
     {
-        $warga = Warga::all();
+        $warga = $this->dataSort();
         $pdf = PDF::loadview('wargas.laporan_pdf', ['warga' => $warga]);
 
         return $pdf->download('laporan_warga.pdf');

@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class RekapitulasiKelompokDasawismaController extends Controller
 {
@@ -19,10 +19,30 @@ class RekapitulasiKelompokDasawismaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = RekapitulasiKelompokDasawisma::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('rekapitulasi_kelompok_dasawismas.id_rekapitulasi_kelompok_dasawisma', $id)
+                ->select('rekapitulasi_kelompok_dasawismas.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = RekapitulasiKelompokDasawisma::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('rekapitulasi_kelompok_dasawismas.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = RekapitulasiKelompokDasawisma::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = RekapitulasiKelompokDasawisma::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -66,7 +86,7 @@ class RekapitulasiKelompokDasawismaController extends Controller
 
     public function export_pdf()
     {
-        $rekapitulasiKelompokDasawisma = RekapitulasiKelompokDasawisma::all();
+        $rekapitulasiKelompokDasawisma = $this->dataSort();
         $pdf = PDF::loadview('rekapitulasiKelompokDasawismas.laporan_pdf', ['rekapitulasiKelompokDasawisma' => $rekapitulasiKelompokDasawisma]);
 
         return $pdf->download('rekapitulasi_kelompok_dasawisma.pdf');

@@ -10,7 +10,7 @@ use App\Exports\DataKeluargaExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class DataKeluargaController extends Controller
 {
@@ -19,10 +19,30 @@ class DataKeluargaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = DataKeluarga::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('data_keluargas.id_data_keluarga', $id)
+                ->select('data_keluargas.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = DataKeluarga::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('data_keluargas.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = DataKeluarga::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = DataKeluarga::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -66,7 +86,7 @@ class DataKeluargaController extends Controller
 
     public function export_pdf()
     {
-        $dataKeluarga = DataKeluarga::all();
+        $dataKeluarga = $this->dataSort();
         $pdf = PDF::loadview('dataKeluargas.laporan_pdf', ['dataKeluarga' => $dataKeluarga]);
 
         return $pdf->download('data_keluarga.pdf');

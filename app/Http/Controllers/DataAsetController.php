@@ -10,7 +10,7 @@ use App\Exports\DataAsetExport;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 class DataAsetController extends Controller
 {
     /**
@@ -18,10 +18,30 @@ class DataAsetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dataSort($id = null)
+    {
+        if(isset(Auth::user()->desa_id)){
+            if($id != null){
+                return $data = DataAset::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->where('data_asets.id_data_aset', $id)
+                ->select('data_asets.*', 'users.desa_id')
+                ->get();
+            }else{
+                return $data = DataAset::join('users','users.id','=','is_user_id')
+                ->where('desa_id', Auth::user()->desa_id)
+                ->select('data_asets.*', 'users.desa_id')
+                ->get();
+            }
+        }else{
+            return $data = DataAset::all();
+        }
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = DataAset::select('*');
+            $data = $this->dataSort();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -64,7 +84,7 @@ class DataAsetController extends Controller
 
     public function export_pdf()
     {
-        $dataAset = DataAset::all();
+        $dataAset = $this->dataSort();
         $pdf = PDF::loadview('dataAsets.laporan_pdf', ['dataAset' => $dataAset]);
 
         return $pdf->download('data_aset.pdf');
