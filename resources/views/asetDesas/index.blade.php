@@ -47,7 +47,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">asetDesa</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Aset Desa</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -57,20 +57,20 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>kategori:</strong>
-                                    <input type="text" name="kategori" class="form-control" placeholder="kategori">
+                                    <strong>Kategori:</strong>
+                                    <input type="text" name="kategori" class="form-control" placeholder="Kategori">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>komoditi:</strong>
-                                    <input type="text" name="komoditi" class="form-control" placeholder="komoditi">
+                                    <strong>Komoditi:</strong>
+                                    <input type="text" name="komoditi" class="form-control" placeholder="Komoditi">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Keterangan:</strong>
-                                    <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
+                                    <input type="text" name="keterangan" class="form-control" placeholder="Keterangan">
                                 </div>
                             </div>
                             <div class="modal-footer">

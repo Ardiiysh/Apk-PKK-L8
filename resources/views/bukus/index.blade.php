@@ -58,19 +58,19 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Nama Buku:</strong>
-                                    <input type="text" name="nama_buku" class="form-control" placeholder="nama buku">
+                                    <input type="text" name="nama_buku" class="form-control" placeholder="nama buku" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Tahun:</strong>
-                                    <input type="number" min=1 name="tahun" class="form-control" placeholder="tahun">
+                                    <input type="text" pattern="^[0-9]{4}$" name="tahun" class="form-control" placeholder="tahun" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Penulis:</strong>
-                                    <input type="text" name="penulis" class="form-control" placeholder="Penulis">
+                                    <input type="text" name="penulis" class="form-control" placeholder="Penulis" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">

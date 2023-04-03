@@ -53,45 +53,45 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Id Perpustakaan:</strong>
-                                    <input type="number" name="id_perpustakaan" class="form-control"
-                                        placeholder="Id Perpustakaan">
+                                    <input type="number" min="1" name="id_perpustakaan" class="form-control"
+                                        placeholder="Id Perpustakaan" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Nama Perpustakaan:</strong>
                                     <input type="text" name="nama_perpus" class="form-control"
-                                        placeholder="Nama Perpustakaan">
+                                        placeholder="Nama Perpustakaan" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Id Buku:</strong>
-                                    <input type="text" name="id_buku" class="form-control" placeholder="Id Buku">
+                                    <input type="number" min="1" name="id_buku" class="form-control" placeholder="Id Buku" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Judul Buku:</strong>
-                                    <input type="text" name="judul_buku" class="form-control" placeholder="Judul Buku">
+                                    <input type="text" name="judul_buku" class="form-control" placeholder="Judul Buku" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Pengarang Buku:</strong>
-                                    <input type="text" name="pengarang" class="form-control" placeholder="Pengarang Buku">
+                                    <input type="text" name="pengarang" class="form-control" placeholder="Pengarang Buku" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Tahun:</strong>
-                                    <input type="number" min=1 name="tahun" class="form-control" placeholder="Tahun">
+                                    <input type="text" pattern="^[0-9]{4}$" name="tahun" class="form-control" placeholder="Tahun" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Jumlah:</strong>
-                                    <input type="number" min=1 name="jumlah" class="form-control" placeholder="Jumlah">
+                                    <input type="number" min="1" name="jumlah" class="form-control" placeholder="Jumlah" required>
                                 </div>
                             </div>
 

@@ -47,7 +47,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">warga</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Warga</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -58,28 +58,28 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>ID Dasawisma:</strong>
-                                    <input type="text" name="id_dasawisma" class="form-control"
-                                        placeholder="id_dasawisam">
+                                    <input type="number" min="1" name="id_dasawisma" class="form-control"
+                                        placeholder="Id Dasawisma">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Kepala Rumah Tangga:</strong>
-                                    <input type="text" name="kepala_rumah_tangga" class="form-control"
-                                        placeholder="kepala_rumah_tangga">
+                                    <input type="text" name="Kepala Rumah Tangga" class="form-control"
+                                        placeholder="Kepala Rumah Tangga">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>No Registrasi:</strong>
-                                    <input type="number" min="0" name="no_registrasi" class="form-control"
-                                        placeholder="no_registrasi">
+                                    <input type="number" min="1" name="no_registrasi" class="form-control"
+                                        placeholder="No Registrasi">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>No KTP:</strong>
-                                    <input type="text" pattern="/d*" minlength="16" maxlength="16" name="no_ktp"
+                                    <input type="text" pattern="^[+]?\d+([.]\d+)?$" name="no_ktp"
                                         class="form-control" placeholder="(Maks 16)">
                                 </div>
                             </div>
@@ -87,20 +87,20 @@
                                 <div class="form-group">
                                     <strong>Nama Lengkap:</strong>
                                     <input type="text" name="nama_lengkap" class="form-control"
-                                        placeholder="nama_lengkap">
+                                        placeholder="Nama Lengkap">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Jabatan PKK:</strong>
-                                    <input type="text" name="jabatan_pkk" class="form-control" placeholder="jabatan_pkk">
+                                    <input type="text" name="jabatan_pkk" class="form-control" placeholder="Jabatan PKK">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>jk:</strong>
+                                    <strong>JK:</strong>
                                     <select type="text" name="jk" class="form-control" placeholder="jk">
-                                        <option value="L">-- pilih Jenis Kelamin -- </option>
+                                        <option value="L">-- Pilih Jenis Kelamin -- </option>
                                         <option value="L">Laki-Laki</option>
                                         <option value="P">Perempuan</option>
                                     </select>
@@ -110,21 +110,21 @@
                                 <div class="form-group">
                                     <strong>Tempat Lahir:</strong>
                                     <input type="text" name="tempat_lahir" class="form-control"
-                                        placeholder="tempat_lahir">
+                                        placeholder="Tempat Lahir">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Tanggal Lahir:</strong>
-                                    <input type="date" name="tgl_lahir" class="form-control" placeholder="tgl_lahir">
+                                    <input type="date" name="tgl_lahir" class="form-control" placeholder="Tanggal Lahir">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Status Perkawinan:</strong>
                                     <select type="text" name="status_perkawinan" class="form-control"
-                                        placeholder="status_perkawinan">
-                                        <option value="">-- pilih Status Perkawinan -- </option>
+                                        placeholder="Status Perkawinan">
+                                        <option value="">-- Pilih Status Perkawinan -- </option>
                                         <option value="Kawin">Kawin</option>
                                         <option value="Belum Kawin">Belum Kawin</option>
                                         <option value="Cerai Hidup">Cerai Hidup</option>
@@ -136,14 +136,14 @@
                                 <div class="form-group">
                                     <strong>Status Dalam Keluarga:</strong>
                                     <input type="text" name="status_dalam_keluarga" class="form-control"
-                                        placeholder="status_dalam_Keluarga">
+                                        placeholder="Status Dala Keluarga">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Agama:</strong>
-                                    <select type="text" name="agama" class="form-control" placeholder="agama">
-                                        <option value="">-- pilih Agama -- </option>
+                                    <select type="text" name="agama" class="form-control" placeholder="Agama">
+                                        <option value="">-- Pilih Agama -- </option>
                                         <option value="Islam">Islam</option>
                                         <option value="Kristen">Kristen</option>
                                         <option value="Hindu">Hindu</option>
@@ -155,72 +155,77 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Alam    at:</strong>
-                                    <input type="text" name="alamat" class="form-control" placeholder="alamat">
+                                    <strong>Alamat:</strong>
+                                    <textarea name="alamat" class="form-control" placeholder="Alamat" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>pendidikan:</strong>
+                                    <strong>Pendidikan:</strong>
                                     <input type="text" name="pendidikan" class="form-control"
-                                        placeholder="pendidikan">
+                                        placeholder="Pendidikan">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>pekerjaan:</strong>
-                                    <input type="text" name="pekerjaan" class="form-control" placeholder="pekerjaan">
+                                    <strong>Pekerjaan:</strong>
+                                    <select type="text" name="pekerjaan" class="form-control" placeholder="Pekerjaan">
+                                        <option value="">-- Pilih Pekerjaan --</option>
+                                        @foreach ($pekerjaans as $p)
+                                            <option value="{{ $p->nama_pekerjaan }}">{{ $p->nama_pekerjaan }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Akseptor kb:</strong>
+                                    <strong>Akseptor KB:</strong>
                                     <input type="text" name="akseptor_kb" class="form-control"
-                                        placeholder="akseptor_kb">
+                                        placeholder="Akseptor KB">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>posyandu:</strong>
-                                    <input type="text" name="posyandu" class="form-control" placeholder="posyandu">
+                                    <strong>Posyandu:</strong>
+                                    <input type="text" name="posyandu" class="form-control" placeholder="Posyandu">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Program Bina Keluarga Balita:</strong>
                                     <input type="text" name="program_bina_keluarga_balita" class="form-control"
-                                        placeholder="program_bina_keluarga_balita">
+                                        placeholder="Program Bina Keluarga Balita">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Tabungan:</strong>
-                                    <input type="text" name="tabungan" class="form-control" placeholder="tabungan">
+                                    <input type="text" name="tabungan" class="form-control" placeholder="Tabungan">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>kelompok Belajar:</strong>
                                     <input type="text" name="kelompok_belajar" class="form-control"
-                                        placeholder="kelompok_belajar">
+                                        placeholder="Kelompok Belajar">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>paud:</strong>
-                                    <input type="text" name="paud" class="form-control" placeholder="paud">
+                                    <strong>Paud:</strong>
+                                    <input type="text" name="paud" class="form-control" placeholder="Paud">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>koperasi:</strong>
-                                    <input type="text" name="koperasi" class="form-control" placeholder="koperasi">
+                                    <strong>Koperasi:</strong>
+                                    <input type="text" name="koperasi" class="form-control" placeholder="Koperasi">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Keterangan:</strong>
-                                    <textarea name="keterangan" class="form-control" placeholder="keterangan" cols="50" rows="10"></textarea>
+                                    <textarea name="keterangan" class="form-control" placeholder="Keterangan" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
 

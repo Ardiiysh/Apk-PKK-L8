@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Exports\WargaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
+use App\Models\Pekerjaan;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
 use PDF;
@@ -20,6 +21,7 @@ class WargaController extends Controller
      */
     public function index(Request $request)
     {
+        $pekerjaans = Pekerjaan::all();
         if ($request->ajax()) {
             $data = Warga::select('*');
             return Datatables::of($data)
@@ -53,7 +55,7 @@ class WargaController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('wargas.index');
+        return view('wargas.index', compact('pekerjaans'));
     }
 
     public function export_excel()
@@ -78,7 +80,6 @@ class WargaController extends Controller
     public function create()
     {
         return view('wargas.create');
-
     }
 
     /**

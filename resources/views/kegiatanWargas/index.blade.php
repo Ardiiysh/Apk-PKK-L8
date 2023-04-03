@@ -41,7 +41,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">kegiatan warga</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Kegiatan Warga</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -51,56 +51,56 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>ID Warga:</strong>
-                                    <input type="text" name="id_warga" class="form-control" placeholder="ID Warga">
+                                    <input type="number" min="1" name="id_warga" class="form-control" placeholder="ID Warga">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>p4:</strong>
-                                    <input type="text" name="p4" class="form-control" placeholder="kriteria Kader">
+                                    <strong>P4:</strong>
+                                    <input type="text" name="p4" class="form-control" placeholder="P4">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>kerjabakti:</strong>
-                                    <input type="text" name="kerjabakti" class="form-control" placeholder="kerjabakti">
+                                    <strong>Kerja Bakti:</strong>
+                                    <input type="text" name="kerjabakti" class="form-control" placeholder="Kerja Bakti">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>rukun_kematian:</strong>
+                                    <strong>Rukun Kematian:</strong>
                                     <input type="text" name="rukun_kematian" class="form-control"
-                                        placeholder="rukun_kematian">
+                                        placeholder="Rukun Kematian">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>keagamaan:</strong>
-                                    <input type="text" name="keagamaan" class="form-control" placeholder="keagamaan">
+                                    <strong>Keagamaan:</strong>
+                                    <input type="text" name="keagamaan" class="form-control" placeholder="Keagamaan">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>jimpitan:</strong>
-                                    <input type="text" name="jimpitan" class="form-control" placeholder="jimpitan">
+                                    <strong>Jimpitan:</strong>
+                                    <input type="text" name="jimpitan" class="form-control" placeholder="Jimpitan">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>arisan:</strong>
-                                    <input type="text" name="arisan" class="form-control" placeholder="arisan">
+                                    <strong>Arisan:</strong>
+                                    <input type="text" name="arisan" class="form-control" placeholder="Arisan">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>lainnya:</strong>
-                                    <input type="text" name="lainnya" class="form-control" placeholder="lainnya">
+                                    <strong>Lainnya:</strong>
+                                    <input type="text" name="lainnya" class="form-control" placeholder="Lainnya">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Keterangan:</strong>
-                                    <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
+                                    <input type="text" name="keterangan" class="form-control" placeholder="Keterangan">
                                 </div>
                             </div>
 
@@ -204,6 +204,29 @@
                 ]
             });
 
+        });
+
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        });
+
+        $(document).ready(function () {
+            $('#pekerjaan').on('click',function(e) {
+                var code = $(this).val();
+                $.ajax({
+                url:"{{ route('getCOA') }}",
+                type:"GET",
+                dataType: "json",
+                success:function (data) {
+                    $.each(data.data, function(key, item) {
+                        $('#container').empty();
+                        $('#container').append('<input type="text" id="name" name="name" class="form-control" placeholder="Name" value="'+ item.name +'" readonly>')
+                    })
+                }
+                })
+            });
         });
     </script>
 @endsection

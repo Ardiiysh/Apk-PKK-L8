@@ -60,7 +60,7 @@
                                 <div class="form-group">
                                     <strong>RT:</strong>
                                     <select type="number" min="0"  name="rt" class="form-control" placeholder="Masukkan RT">
-                                        <option >-- Pilih RT --</option>
+                                        <option>-- Pilih RT --</option>
                                         @foreach ($dasawisma as $id)
                                         <option value="{{$id->rt}}"> {{$id->rt}}</option>
                                          @endforeach
